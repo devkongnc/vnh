@@ -1,10 +1,5 @@
 /node_modules
-Homestead.yaml
-Homestead.json
 /.idea/
 /nbproject/*
 /storage/*.key
-*.jpg
-storage/framework/views/14305b392bf097d450bb0ad18f90230fa6abe74e.php
-*.php
 .env
