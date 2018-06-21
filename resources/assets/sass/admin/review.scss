@@ -1,0 +1,31 @@
+#review-content {
+	> #post-body {
+		margin-top: 2em;
+	}
+}
+
+#review-box-container {
+	.post-box {
+		background: white;
+		margin-bottom: 20px;
+		border: 1px solid #e5e5e5;
+		> h2 {
+			border-bottom: 1px solid #eee;
+			margin: 0;
+			padding: 8px 12px;
+			font-size: 1.2em;
+		}
+		> .inside {
+			padding: 10px;
+			> p {
+				margin-bottom: 10px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+			> ul {
+				padding: 0 12px;
+			}
+		}
+	}
+}

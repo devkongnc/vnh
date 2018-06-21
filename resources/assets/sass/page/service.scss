@@ -1,0 +1,96 @@
+.page-add {
+	> h1 {
+		margin-bottom: 43px;
+	}
+	> .description {
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 0;
+	}
+}
+
+.wrap-service {
+	max-width: 1100px;
+	margin: 48px auto;
+	.list-service {
+		overflow: hidden;
+		margin-top: 40px;
+		.service-item {
+			float: left;
+			width: calc(100%/2 - 13px);
+			max-width: 385px;
+			margin-right: 25px;
+			margin-bottom: 20px;
+			border: 1px solid $color_mercury_approx;
+			text-align: center;
+			padding: 30px 17px 15px;
+			min-height: 315px;
+			@media #{$iphone} {
+				width: 100%;
+				margin-right: 0;
+				height: auto;
+			}
+			@media #{$ipad_sm} {
+				width: calc(100%/2 - 10px);
+				margin-right: 20px;
+				height: 330px;
+			}
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+			h2 {
+				margin-top: 0;
+				margin-bottom: 25px;
+				font-size: 18px;
+				font-weight: bold;
+			}
+			.feature-img {
+				margin-bottom: 20px;
+			}
+			.desc-content {
+				font-size: 12px;
+				text-align: left;
+				> p {
+					margin-bottom: 0;
+				}
+			}
+			img {
+				margin: auto;
+			}
+		}
+	}
+	.bottom-service {
+		text-align: center;
+		margin-bottom: 130px;
+		@media #{$iphone} {
+			margin-bottom: 30px;
+		}
+		.text-other {
+			font-size: 22px;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 40px;
+			margin-bottom: 60px;
+			line-height: 38.5px;
+		}
+		.btn-other-service {
+			display: inline-block;
+			width: 385px;
+			padding: 23px 0 20px;
+			color: $white;
+			font-weight: bold;
+			font-size: 16px;
+			background-color: $color_log_cabin_approx;
+			@media #{$iphone} {
+				width: 100%;
+			}
+			&:hover {
+				background-color: $black;
+			}
+		}
+	}
+}
+article.page-normal.about .breadcrumb {
+	padding-top: 0;
+}

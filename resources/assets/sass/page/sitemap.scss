@@ -1,0 +1,77 @@
+.sitemap{
+	max-width: 800px;
+	margin: 165px auto 0;
+	padding-top: 0;
+	@media #{$iphone} {
+		margin-top: 96px;
+	}
+	.sitemap-wrapper{
+		text-align: center;
+		margin-bottom: 180px;
+		@media #{$iphone} {
+			margin-bottom: 0;
+		}
+		a.btn-homepage{
+			width: 250px;
+			border: 1px solid #E6E6E6;
+			padding: 8px 0 6px;
+			transition: all 0.3s;
+			display: inline-block;
+			text-align: center;
+			color: #000;
+			font-size: 13px;
+			margin: 40px 0 60px;
+			@media #{$iphone} {
+				margin-top: 0;
+				margin-bottom: 30px;
+			}
+			&:hover{
+				background-color: #F2F2F2;
+			}
+		}
+		.list-sitemap{
+			text-align: left;
+			overflow: hidden;
+			font-size: 13px;
+			.col-sitemap{
+				float: left;
+				width: calc(100%/3 - 16px);
+				margin-right: 24px;
+				@media #{$iphone} {
+					width: 100%;
+					margin-bottom: 15px;
+				}
+				&:last-child{
+					margin-right: 0;
+				}
+				h3{
+					font-size: 13px;
+					margin-top: 0;
+					margin-bottom: 0;
+					padding: 7px 0;
+					@media #{$iphone} {
+						padding: 10px 0;
+					}
+					border-bottom: 1px solid #CCC;
+					> a:hover {
+						color: $primary;
+					}
+				}
+				.text-col{
+					padding-left: 12%;
+					padding-top: 10px;
+					min-height: 165px;
+					> p {
+						margin-bottom: 12px;
+						&:hover {
+							color: $primary;
+						}
+					}
+					@media #{$iphone} {
+						min-height: 0;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,189 @@
+body
+{
+  #content{
+    &.tower{
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+.tower {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  .tower-title {
+    max-width: 1100px;
+    margin: 0 auto 15px;
+    @media #{$ipad_lg}{
+      padding: 0 15px;
+    }
+    h1, p {
+      text-align: center;
+    }
+    > h1{
+      font-size: 45px;
+      margin-bottom: 10px;
+      @media #{$iphone} {
+        font-size: 38px;
+        //font: bold 38px $font-title;
+      }
+    }
+    > p{
+      font-size: 15px;
+      margin-bottom: 25px;
+      @media #{$iphone} {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: -7px;
+        margin-bottom: 2em;
+      }
+    }
+    select {
+      @extend %extend_1;
+      width: auto;
+      margin-bottom: 10px;
+    }
+    > .bootstrap-select {
+      width: auto;
+      > .selectpicker {
+        border-color: $gray-4;
+        @media #{$phone_lg} {
+          font-size: 12px;
+        }
+        &::after {
+          color: $gray-3;
+        }
+        > .filter-option {
+          color: $black;
+        }
+      }
+    }
+  }
+  .tower-list {
+    list-style: none;
+    padding-left: 0;
+    overflow: auto;
+    .tower-list-item {
+      /*padding: 1px;*/
+      margin-right: 2px;
+      margin-bottom: 2px;
+      position: relative;
+      float: left;
+      /*width: 16.667%;*/
+      width: calc(100%/6 - 1.7px);
+      a{
+        display: block;
+      }
+      &:nth-child(6n){
+        margin-right: 0;
+      }
+      &:hover {
+        .gray-overlay {
+          background-color: rgba(0, 0, 0, 0);
+        }
+      }
+      @media (max-width: 992px) {
+        width: 25%;
+        margin: 0;
+      }
+      @media (max-width: 480px) {
+        width: 50%;
+        margin: 0;
+      }
+      .gray-overlay {
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 1px; bottom: 1px;
+        width: 100%;
+        transition: all 0.3s;
+      }
+      .title {
+        position: absolute;
+        left: 0;
+        bottom: 7px;
+        padding: 0 5px 0 10px;
+        color: $white;
+        width: 100%;
+        font-weight: bold;
+        a {
+          // font-size: 1.78em;
+          font-size: 1.5em;
+          font-family: $font-title;
+        }
+        small {
+          font-size: 1.2rem;
+          display: block;
+        }
+      }
+      .time {
+        position: absolute;
+        bottom: 20px;
+        color: $white;
+        width: 100%;
+        text-align: center;
+      }
+      .recommended {
+        -webkit-background-size:cover;
+        background-size:cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &.active {
+          background: url("../images/heart.svg") no-repeat center center;
+        }
+        p {
+          flex-basis: 100%;
+          text-align: center;
+          color: white;
+          margin-bottom: 0;
+          font-family: 'Arial';
+          .large {
+            font-size: 40px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}
+@media #{$iphone} {
+  .tower {
+    .breadcrumb {
+      padding-left: 15px;
+    }
+    .tower-title {
+      text-align: center;
+      padding: 0 15px;
+      select {
+        margin-top: 30px;
+      }
+      > .bootstrap-select {
+        max-width: 170px;
+      }
+    }
+    .tower-list {
+      .tower-list-item {
+        .title {
+          font-size: 12.5px;
+          bottom: 5px;
+        }
+        .recommended {
+          width: 80%;
+          height: 80%;
+          top: 10%;
+          left: 10%;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 768px){
+  body #content.tower .tower-title{
+    text-align: left;
+  }
+}

@@ -1,0 +1,56 @@
+.wrap-content-page {
+	padding: 30px 38px;
+	@media #{$iphone} {
+		padding: 0;
+	}
+	.content-page {
+		text-align: justify;
+		color: #000;
+		font-size: 14px;
+		line-height: 1.8;
+		p{
+			margin-bottom: 30px;
+			color: $color_mine_shaft_approx;
+			b{
+				font-size: 15px;
+				color: $black;
+			}
+		}
+		ul{
+			padding-left: 12px;
+		}
+	}
+}
+
+.page-privacy {
+	> h1 {
+		margin-bottom: 25px;
+	}
+	> .wrap-content-page > .content-page {
+		> div {
+			margin-bottom: 50px;
+			> h4 {
+				margin-bottom: 25px;
+			}
+			> p:last-child {
+				margin-bottom: 0;
+			}
+			> ul > li {
+				position: relative;
+				&:after {
+					content: "";
+					width: 3px;
+					height: 3px;
+					border-radius: 50%;
+					background-color: #000;
+					position: absolute;
+					left: -8px;
+					top: 0;
+					bottom: 0;
+					margin: auto;
+				}
+			}
+		}
+	}
+}
+

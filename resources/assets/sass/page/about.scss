@@ -1,0 +1,994 @@
+/* About Common */
+
+body #content.about {
+    padding-top: 160px;
+    @media #{$iphone} {
+        padding-top: 63px;
+    }
+}
+
+.about {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    > .row > .col-md-3 {
+        padding-right: 7.5px;
+    }
+    @media #{$iphone} {
+        .breadcrumb {
+            padding-left: 0;
+        }
+    }
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        border-bottom: 1px solid $gray-4;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+    }
+    /* Nav-Menu */
+    .navleft-stick {
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: calc(100% - 6px);
+            background-color: $gray-4;
+            top: 0;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: calc(100% - 6px);
+            background-color: $gray-4;
+            bottom: 0;
+        }
+        .about-nav {
+            padding-right: 6px;
+            margin-bottom: 0;
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+                width: 6px;
+            }
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px $gray-3;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: $gray-3;
+            }
+            > li {
+                font-size: 13px;
+                border: 1px solid $gray-4;
+                &.root-node {
+                    border-top: none;
+                    border-bottom: none;
+                }
+            }
+            > .root-node > a {
+                padding-left: 20px;
+                display: block;
+            }
+            li {
+                font-size: 13px;
+                border-top: 1px solid $gray-4;
+                font-weight: bold;
+                &:last-child:not(.root-node) {
+                    padding-bottom: 0;
+                    border-bottom: 1px solid $gray-4;
+                }
+                /*.list {
+          margin-top: 10px;
+        }*/
+                a {
+                    transition: all 0.3s;
+                    padding: 10px 0;
+                    &:hover,
+                    &.active {
+                        background-color: $gray-5;
+                        color: $black;
+                    }
+                }
+                ul {
+                    margin-top: 0;
+                }
+            }
+            .list.sub-menu-2 {
+                li a {
+                    padding-left: 30px;
+                    display: block;
+                }
+            }
+            .list.sub-menu-3 {
+                li {
+                    &:not(:first-child) {
+                        border: none;
+                    }
+                    a {
+                        padding-left: 50px;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    /* Company */
+    .page-company {
+        margin-bottom: 7em;
+        .company-information-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 26px;
+            .box-content {
+                flex-basis: calc(50% - 13px);
+                padding: 32px 20px 0;
+                border: 1px solid $gray-4;
+                margin-top: 23px;
+                min-height: 221px;
+                transition: all 0.3s;
+                &:hover {
+                    background-color: $gray-5;
+                    color: $black;
+                }
+                p {
+                    font-size: 12px;
+                    line-height: 1.6;
+                }
+                @media #{$iphone} {
+                    padding: 10px;
+                    text-align: justify;
+                }
+                @media #{$phone} {
+                    display: block;
+                    width: 100%;
+                    flex-basis: auto;
+                }
+                h3 {
+                    font-size: 16px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+                img {
+                    height: 60px;
+                    max-width: 100%;
+                    display: block;
+                    margin: 20px auto 25px;
+                }
+                &:first-child,
+                &:nth-child(2) {
+                    margin-top: 4px;
+                    > img {
+                        height: 74px;
+                        margin: 13px auto;
+                    }
+                }
+                .span-link:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .btn-company {
+            border: 1px solid $gray-4;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 2px 15px 0;
+            line-height: 58px;
+        }
+    }
+    article {
+        padding-top: 0;
+        > .breadcrumb {
+            padding: 0;
+            margin: 3px 0 30px;
+        }
+        .type-information-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-top: 20px;
+            margin-bottom: 25px;
+
+            .box-content {
+                flex-basis: calc(50% - 5px);
+                padding: 0 40px;
+                margin-bottom: 50px;
+                min-height: 250px;
+                @media #{$iphone} {
+                    flex-wrap: wrap;
+                }
+                h3 {
+                    font-size: 16px;
+                    text-align: center;
+                    font-weight: bold;
+                    margin-bottom: 2em;
+                }
+                img {
+                    max-width: 100%;
+                    display: block;
+                    margin: 0 auto 30px;
+                }
+                p {
+                    font-size: 13px;
+                    text-align: justify;
+                    line-height: 1.6;
+                }
+                @media #{$iphone} {
+                    padding: 10px;
+                    text-align: justify;
+                    flex-basis: auto;
+                    display: block;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                @media #{$ipad_sm} {
+                    flex-basis: calc(50% - 5px);
+                }
+            }
+        }
+        .support-information-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            .box-content {
+                width: calc(100% / 3 - 15px);
+                padding: 20px;
+                border: 1px solid $gray-4;
+                margin-top: 20px;
+                min-height: 230px;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s;
+                @media #{$phone_lg} {
+                    width: calc(100% / 2 - 7.5px);
+                    min-height: 0;
+                    margin-top: 15px;
+                    padding: 15px;
+                }
+                &:hover {
+                    background-color: $gray-5;
+                }
+                h3 {
+                    font-size: 16px;
+                    text-align: center;
+                    font-weight: bold;
+                    @media #{$iphone} {
+                        font-size: 13.5px;
+                    }
+                }
+                div {
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+                    justify-content: center;
+                    img {
+                        max-width: 100%;
+                        display: block;
+                    }
+                }
+            }
+        }
+        .feature-info {
+            margin-bottom: 12em;
+            max-width: 817px;
+        }
+        &.page-option,
+        &.page-13 {
+            > h1 {
+                margin-bottom: 40px;
+            }
+            > .description {
+                font-size: 1.6rem;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+        &.page-support-step,
+        &.page-4 {
+            text-align: center;
+            > div:not(.breadcrumb) {
+                margin: 70px auto;
+                h2 {
+                    font-size: 47px;
+                    line-height: 1;
+                    margin-bottom: 40px;
+                    span {
+                        display: inline-block;
+                        vertical-align: bottom;
+                        font-size: 26px;
+                        line-height: 47px;
+                        margin-left: 20px;
+                        -webkit-text-fill-color: white;
+                        -webkit-text-stroke: 1px black;
+                        color: white;
+                        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                    }
+                }
+                p {
+                    font-size: 13px;
+                    b {
+                        font-size: 16px;
+                    }
+                }
+                &:last-child {
+                    @media #{$iphone} {
+                        margin-bottom: 0px;
+                    }
+                }
+            }
+            .img-responsive {
+                display: inline-block;
+                & + p {
+                    margin-top: 25px;
+                    margin-bottom: 15px;
+                }
+            }
+            .step-images {
+                margin-top: 40px;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                @media (max-width: 480px) {
+                    flex-wrap: wrap;
+                }
+                div {
+                    display: flex;
+                    flex-basis: calc(50% - 10px);
+                    align-items: center;
+                    &.center {
+                        justify-content: center;
+                    }
+                    &.right {
+                        justify-content: flex-end;
+                    }
+                    &.left {
+                        justify-content: flex-start;
+                    }
+                    img {
+                        width: 100%;
+                        &.no-stretch {
+                            width: auto;
+                        }
+                        @media #{$iphone} {
+                            margin: auto;
+                        }
+                    }
+                    @media (max-width: 480px) {
+                        flex-basis: 100%;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+            #step4 {
+                .left {
+                    position: relative;
+                    p {
+                        width: 50%;
+                        max-width: 225px;
+                        position: absolute;
+                        top: 50%;
+                        -webkit-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                        left: 8%;
+                        color: $red;
+                        @media #{$iphone} {
+                            left: 50%;
+                            -webkit-transform: translateX(-50%) translateY(-50%);
+                            -moz-transform: translateX(-50%) translateY(-50%);
+                            -ms-transform: translateX(-50%) translateY(-50%);
+                            -o-transform: translateX(-50%) translateY(-50%);
+                            transform: translateX(-50%) translateY(-50%);
+                        }
+                    }
+                }
+            }
+            #step5 {
+                ul {
+                    li {
+                        color: $red;
+                    }
+                }
+                .left {
+                    @media #{$iphone} {
+                        margin-bottom: 20px;
+                        margin-top: 20px;
+                    }
+                    @media (max-width: 480px) {
+                        ul {
+                            padding-left: 17px;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+        &.page-5 {
+            &.services {
+                .description {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+            }
+            .description {
+                margin: -12px auto 35px;
+                text-align: center;
+                font-size: 12px;
+            }
+            h1,
+            h2 {
+                font-weight: bold;
+            }
+            .links-wrapper {
+                column-gap: 23px;
+                //column-fill: auto;
+                column-count: 3;
+                @media (max-width: 468px) {
+                    column-count: 2;
+                }
+                .link-item {
+                    break-inside: avoid;
+                    transition: all .2s ease;
+                    text-align: center;
+                    padding-bottom: 25px;
+                    h2 {
+                        font-size: 15px;
+                    }
+                    .link-item-content {
+                        padding: 25px 0 15px;
+                        border: 1px solid $gray-4;
+                        i {
+                            margin: 15px auto 25px;
+                            display: inline-block;
+                            font-size: 31px;
+                            color: $gray-light;
+                        }
+                        ul {
+                            text-align: left;
+                            padding-left: 30px;
+                            padding-right: 10px;
+                            font-size: 13px;
+                            list-style-type: none;
+                            li {
+                                position: relative;
+                                margin-bottom: 2px;
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+                                &:after {
+                                    content: "";
+                                    width: 2px;
+                                    height: 2px;
+                                    border-radius: 50%;
+                                    background-color: #000;
+                                    position: absolute;
+                                    left: -10px;
+                                    top: 0;
+                                    bottom: 0;
+                                    margin: auto;
+                                }
+                                &:hover {
+                                    color: $primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.page-help,
+        &.page-6 {
+            margin-bottom: 163px;
+            @media #{$iphone} {
+                margin-bottom: 70px;
+            }
+            .question-list {
+                .question-item {
+                    margin-bottom: 0;
+                    background-color: transparent;
+                    border: none;
+                    border-radius: 0;
+                    box-shadow: none;
+                    .question-item-heading {
+                        padding: 12px 10px;
+                        border-top: 1px solid $gray-4;
+                        h4 {
+                            font-size: 15px;
+                            font-weight: bold;
+                            color: $black;
+                        }
+                        a {
+                            display: block;
+                            padding-right: 20px;
+                            line-height: 2;
+                            position: relative;
+                            > img {
+                                margin-right: 20px;
+                                position: relative;
+                                top: 7px;
+                            }
+                            &:after {
+                                position: absolute;
+                                top: 4px;
+                                right: 10px;
+                                font-size: 13px;
+                                font-family: $font-icon;
+                                content: "\e903";
+                                color: $gray-4;
+                                @media #{$iphone} {
+                                    right: 0;
+                                }
+                            }
+                            &[aria-expanded="true"]:after {
+                                content: "\e928";
+                            }
+                        }
+                    }
+                    .question-body {
+                        padding: 15px 0;
+                        font-size: 14px;
+                        border-top: 1px solid $gray-4;
+                        color: $color_mine_shaft_approx;
+                        padding-left: 37px;
+                        line-height: 1.6;
+                        @media #{$iphone} {
+                            padding: 15px 0;
+                            text-align: justify;
+                        }
+                    }
+                    &:first-child > .question-item-heading {
+                        border-top: none;
+                    }
+                    &:last-child > .question-item-heading {
+                        border-bottom: 1px solid $gray-4;
+                    }
+                }
+            }
+        }
+        &.page-area,
+        &.page-7 {
+            img.area-image {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 10px;
+                margin-bottom: 30px;
+            }
+            .area-list {
+                margin-bottom: 20px;
+                .area-item {
+                    margin-bottom: 0;
+                    background-color: transparent;
+                    border: none;
+                    border-radius: 0;
+                    -webkit-box-shadow: none;
+                    -moz-box-shadow: none;
+                    box-shadow: none;
+                    .area-item-heading {
+                        padding: 15px 0;
+                        border-top: 1px solid $gray-4;
+                        a {
+                            display: block;
+                            position: relative;
+                            line-height: 1.42;
+                            font-size: 16px;
+                            font-weight: bold;
+                            @media #{$iphone} {
+                                padding-right: 20px;
+                            }
+                            &:after {
+                                position: absolute;
+                                top: 4px;
+                                right: 10px;
+                                font-size: 13px;
+                                font-family: $font-icon;
+                                content: "\e903";
+                                color: $gray-4;
+                                @media #{$iphone} {
+                                    right: 0;
+                                }
+                            }
+                            &[aria-expanded="true"]:after {
+                                content: "\e928";
+                            }
+                        }
+                        .area-tags {
+                            display: inline-block;
+                            margin-right: 5px;
+                            .tag {
+                                display: inline-block;
+                                text-align: center;
+                                padding: 0px 0 0px;
+                                width: 28px;
+                                height: 28px;
+                                color: black;
+                                font: normal 22px/25px Arial;
+                                border: 2px solid $gray-3;
+                                &.tag-color-1 {
+                                    background-color: #FFB3B3;
+                                }
+                                &.tag-color-2 {
+                                    background-color: #FFB3D3;
+                                }
+                                &.tag-color-3 {
+                                    background-color: #B3CBFF;
+                                }
+                                &.tag-color-4 {
+                                    background-color: #FFD9B3;
+                                }
+                                &.tag-color-5 {
+                                    background-color: #D3FFB5;
+                                }
+                                &.tag-color-7 {
+                                    background-color: #B3FFD5;
+                                }
+                                &.tag-color-10 {
+                                    background-color: #FFF0B3;
+                                }
+                                &.tag-color-tb {
+                                    background-color: #C2B3FF;
+                                }
+                                &.tag-color-pn {
+                                    background-color: #E2B3FF;
+                                }
+                                &.tag-color-bt {
+                                    background-color: #B3F4FF;
+                                }
+                            }
+                        }
+                    }
+                    .area-body {
+                        margin-top: 10px;
+                        padding: 0;
+                        text-align: justify;
+                        p {
+                            margin-bottom: 25px;
+                        }
+                    }
+                }
+            }
+        }
+        .wrap-careers {
+            color: $black;
+            line-height: 1.8;
+            margin-bottom: 170px;
+            h2 {
+                font-size: 40px;
+                font-weight: bold;
+                margin: 125px 0 95px;
+                text-align: center;
+                @media #{$iphone} {
+                    font-size: 20px;
+                    margin: 20px 0;
+                }
+            }
+            .content {
+                text-align: justify;
+                margin-bottom: 50px;
+            }
+            .name-j {
+                font-weight: bold;
+                margin: 25px 0;
+                font-size: 15px;
+            }
+            .job {
+                .content-job {
+                    display: table;
+                    overflow: hidden;
+                    @media #{$iphone} {
+                        display: block;
+                    }
+                    > div {
+                        display: table-cell;
+                        vertical-align: top;
+                        padding: 0 35px;
+                        border-right: 1px solid #CCC;
+                        @media #{$iphone} {
+                            border: none;
+                            padding: 0;
+                        }
+                        &:first-child {
+                            width: 170px;
+                            padding: 0 25px;
+                            border-left: 1px solid #CCC;
+                            @media #{$iphone} {
+                                width: auto;
+                                border: none;
+                            }
+                        }
+                        p {
+                            padding-left: 20px;
+                            margin: 5px 0 15px;
+                            color: #808080;
+                            font-size: 13px;
+                            &.name {
+                                padding-left: 0;
+                                color: #000;
+                                font-size: 14px;
+                                margin: 0;
+                            }
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                        @media #{$iphone} {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            .info-more {
+                .row-info {
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    > div {
+                        border-right: 1px solid #CCC;
+                        float: left;
+                        &:first-child {
+                            padding: 0px 25px;
+                            width: 170px;
+                            border-left: 1px solid #CCC;
+                            @media #{$iphone} {
+                                width: 100%;
+                                border-top: 1px solid #CCC;
+                                padding-top: 10px;
+                            }
+                        }
+                        &:last-child {
+                            padding: 0px 35px;
+                            width: calc(100% - 170px);
+                            @media #{$iphone} {
+                                width: 100%;
+                                border-left: 1px solid #CCC;
+                                border-bottom: 1px solid #CCC;
+                            }
+                        }
+                    }
+                }
+            }
+            .list-step {
+                .step-item {
+                    position: relative;
+                    border: 1px solid #CCC;
+                    margin-bottom: 43px;
+                    &:after {
+                        content: "\e901";
+                        font-family: "icomoon";
+                        position: absolute;
+                        font-size: 10px;
+                        bottom: -32px;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        text-align: center;
+                        color: $color_celeste_approx;
+                    }
+                    &:last-child {
+                        &:after {
+                            display: none;
+                        }
+                    }
+                    .left-step {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 170px;
+                        padding: 20px 25px 14px;
+                        color: $primary;
+                        font-size: 15px;
+                        font-weight: bold;
+                        text-align: center;
+                        div {
+                            line-height: 1;
+                            span {
+                                font-size: 27px;
+                                margin-top: 4px;
+                                display: inline-block;
+                            }
+                        }
+                        @media #{$iphone} {
+                            width: 100%;
+                            border-bottom: 1px solid #CCC;
+                        }
+                    }
+                    .right-step {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: calc(100% - 274px);
+                        border-left: 1px solid #CCC;
+                        padding: 15px 25px;
+                        .top-step {
+                            font-size: 15px;
+                            color: $primary;
+                            font-weight: bold;
+                            margin-bottom: -2px;
+                        }
+                        .text-step {
+                            color: $gray;
+                            font-size: 14px;
+                        }
+                        @media #{$iphone} {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        &.owner-wrapper {
+            h2 {
+                font-size: 14px;
+                text-align: center;
+            }
+            > h2 {
+                margin-top: 4.2em;
+                padding-bottom: 10px;
+            }
+            .basic-information {
+                padding: 30px 0 30px 60px;
+                border-top: 1px solid $gray-light;
+                border-bottom: 1px solid $gray-light;
+            }
+            .detail-information {
+                padding: 25px 60px 30px;
+                border-bottom: 1px solid $gray-light;
+            }
+            .wrap-content-page {
+                padding: 0 0 38px;
+            }
+            .icon-require {
+                color: #f7931e;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 11px;
+                line-height: 14px;
+            }
+            .owner-image {
+                margin: auto;
+                display: block;
+                padding-top: 20px;
+            }
+            .estate-properties {
+                > h2 {
+                    margin-top: 25px;
+                }
+                .wrap-form {
+                    padding: 0;
+                }
+                .group-form {
+                    display: flex;
+                    > label {
+                        flex-basis: 200px;
+                        line-height: 35px;
+                        &.details {
+                            line-height: 1.3;
+                        }
+                        &.normal {
+                            line-height: 1.5;
+                        }
+                    }
+                    > input,
+                    select {
+                        min-width: 300px;
+                        width: auto;
+                        border-color: #ccc;
+                        color: black;
+                    }
+                    > textarea {
+                        width: calc(100% - 200px);
+                    }
+                    > .bootstrap-select {
+                        > .btn {
+                            height: 35px;
+                        }
+                        .selectpicker {
+                            font-size: 1.2rem;
+                            max-height: none !important;
+                        }
+                        > .dropdown-menu {
+                            max-height: none !important;
+                        }
+                    }
+                }
+                .checkboxes {
+                    display: inline-block;
+                    .row {
+                        margin: 0;
+                        > div {
+                            float: left;
+                            padding-left: 5px;
+                            font-size: 1.2rem;
+                            margin-bottom: 10px;
+                            width: 156px;
+                            > label {
+                                width: 17px;
+                                height: 17px;
+                                cursor: pointer;
+                                vertical-align: middle;
+                                position: relative;
+                                border: 2px solid #CCCCCC;
+                                padding-left: 0;
+                                margin-right: 7px;
+                                &::after {
+                                    content: '';
+                                    width: 14px;
+                                    height: 7px;
+                                    position: absolute;
+                                    top: 2px;
+                                    left: 0;
+                                    border: 3px solid black;
+                                    border-top: none;
+                                    border-right: none;
+                                    background: transparent;
+                                    opacity: 0;
+                                    transform: rotate(-45deg);
+                                }
+                            }
+                            > input {
+                                visibility: hidden;
+                                width: auto;
+                                min-width: 0;
+                                &:checked + label::after {
+                                    opacity: 1;
+                                }
+                                /* margin-top: -1px;
+                                margin-right: 12px; */
+                            }
+                        }
+                    }
+
+                }
+                .resources {
+                    margin: 0;
+                    min-width: 200px;
+                    .resource {
+                        display: flex;
+                        margin: 0;
+                        flex-basis: 100%;
+                        margin-bottom: 10px;
+                        input {
+                            flex: 1 1 0%;
+                            width: auto;
+                            height: 35px;
+                            padding: 0 10px 2px;
+                            margin-right: 5px;
+                        }
+                        button {
+                            background: $gray-5;
+                            outline: 0;
+                            border: 1px solid $gray-4;
+                            padding: 0 20px;
+                        }
+                        input[type="file"] {
+                            display: none;
+                        }
+                    }
+                }
+                @media #{$phone_lg} {
+                    .basic-information,
+                    .detail-information {
+                        padding-left: 0;
+                        > .wrap-form > .group-form {
+                            display: block;
+                            > label {
+                                display: block;
+                            }
+                            > input,
+                            > textarea,
+                            > .bootstrap-select {
+                                max-width: none;
+                                width: 100%;
+                                > .selectpicker  {
+                                    padding: 8px 25px 8px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.page-support {
+            > h1 {
+                margin-bottom: 43px;
+            }
+        }
+    }
+}

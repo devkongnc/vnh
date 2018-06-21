@@ -1,0 +1,75 @@
+/* Color */
+$white: #ffffff;
+$white_30: rgba(255, 255, 255, 0.3);
+$black: #000000;
+$black-2: #222323;
+$black_15: rgba(0, 0, 0, 0.15);
+$black_20: rgba(0, 0, 0, 0.2);
+$black_35: rgba(0, 0, 0, 0.35);
+$black_50: rgba(0,0,0,0.5);
+
+$color_sandy_beach_approx: #feebc4;
+$primary-light: #FEEBC4;
+$orange: #FBB03B;
+$color_yellow_orange_approx: #fbb03b;
+$color_tree_poppy_approx: #f7931e;
+$primary: #F7931E;
+$color_flamingo_approx: #f15a24;
+$border-pink: #F15A24;
+
+$red: #ED1C24;
+$red-2: #FF0000;
+$color_alizarin_crimson_approx: #ed1c24;
+
+$gray: #666666;
+$gray-light: #B3B3B3;
+$gray-light-2: #999999;
+$gray-3: #CCCCCC;
+$gray-4: #E6E6E6;
+$gray-5: #F2F2F2;
+$gray-6: #F7F7F7;
+
+$pink-light: #FFEFF1;
+$color_black_haze_approx: #f6f6f6;
+$color_mercury_approx: #e6e6e6;
+$color_storm_dust_approx: #666666;
+$color_celeste_approx: #ccc;
+$color_log_cabin_approx: #222323;
+$color_nobel_approx: #b3b3b3;
+$color_mine_shaft_approx: #333;
+$color_mountain_mist_approx: #999999;
+$concrete: #f2f2f2;
+
+$color_black_haze_80_approx: rgba(246, 246, 246, 0.8);
+$color_tundora_approx: #444;
+$color_forget_me_not_approx: #ffeff1;
+
+//fonts
+$font-primary: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', Arial, sans-serif;
+$font-secondary: Verdana, sans-serif;
+$font-title: 'Century Gothic', "GenShinGothic-Regular", sans-serif;
+$font_RW: 'Raleway', sans-serif;
+
+$font-awesome: 'FontAwesome';
+$font-icon: 'icomoon';
+
+//urls
+$like_bg: url(../images/bg-like.png);
+$like_bg_black: url(../images/bg-like-black.png);
+$liked_bg: url(../images/bg-liked.png);
+/* $url_0: url(../images/bgtab.svg);
+$url_1: url(../images/bgtab-hover.svg);
+$url_2: url(../images/prev-tab.svg);
+$url_3: url(../images/next-tab.svg);
+$url_4: url(../images/bg-like.svg);
+$url_5: url(../images/bg-liked.svg); */
+
+// font size
+
+
+// Responsive
+$ipad_lg : "(min-width: 992px) and (max-width: 1270px)";
+$ipad_sm : "(min-width: 768px) and (max-width: 991px)";
+$iphone  : "(min-width: 320px) and (max-width: 991px)";
+$phone_lg: "(min-width: 320px) and (max-width: 767px)";
+$phone   : "(min-width: 320px) and (max-width: 480px)";

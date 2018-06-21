@@ -1,0 +1,147 @@
+.page-404{
+	.top-bar-search{
+		display: none;
+	}
+}
+.page-not-found{
+	margin-top: 70px;
+	margin-bottom: -36px;
+	height: 734px;
+	background-image: url(../images/bg-404.png);
+	background-repeat: no-repeat;
+	background-position: 30% 0;
+	padding-top: 100px;
+	.img-404{
+		display: none;
+	}
+	.content{
+		width: 50%;
+		height: 100%;
+		float: right;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		div{
+			max-width: 390px;
+			h1{
+				font-size: 53px;
+				margin: 0;
+				margin-bottom: 35px;
+				font-weight: bold;
+			}
+			.desc-404{
+				font-size: 32px;
+				white-space: nowrap;
+				margin-bottom: 55px;
+				font-weight: bold;
+			}
+			.alert-404{
+				font-size: 15px;
+				margin-bottom: 23px;
+			}
+			.way-fix{
+				font-size: 12px;
+				margin-bottom: 30px;
+				text-align: justify;
+				line-height: 1.6;
+				p{
+					margin-bottom: 0;
+				}
+			}
+			.link-other{
+				max-width: 250px;
+				> .btn-url {
+					width: 100%;
+					border: 1px solid #E6E6E6;
+					padding: 8px 0 5px;
+					transition: background-color 0.2s;
+					display: block;
+					text-align: center;
+					color: #000;
+					margin-bottom: 15px;
+					font-size: 13px;
+					&:hover{
+						background-color: #F2F2F2;
+					}
+				}
+			}
+		}
+	}
+	@media #{$ipad_lg}{
+		background-size: auto 100%;
+    	background-position: -100px top;
+	}
+	@media #{$iphone}{
+		background-image: none;
+		padding-top: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		height: auto;
+		.content{
+			width: 100%;
+			height: auto;
+			div{
+				max-width: 100%;
+				.img-404{
+					display: block;
+					max-width: 100%;
+				}
+				h1{
+					margin-top: 20px;
+					font-size: 40px;
+					margin-bottom: 30px;
+				}
+				.desc-404{
+					font-size: 30px;
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
+}
+@media #{$iphone} {
+	.page-not-found {
+		background-size: 100%;
+		margin-top: 0;
+		height: auto;
+		.content {
+			float: none;
+			width: 100%;
+			height: auto;
+			margin-top: 0px;
+			div {
+				padding: 15px;
+				> div {
+					padding: 0;
+				}
+				h1 {
+					font-size: 30px;
+					margin-bottom: 10px;
+				}
+				.desc-404 {
+					font-size: 25px;
+					margin-bottom: 10px;
+				}
+				.link-other{
+					max-width: 100%;
+					a{
+						width: 47%;
+						margin-right: 6%;
+						float: left;
+						&:last-child{
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 480px){
+	.page-not-found .content div .link-other a{
+		width: 49%;
+		margin-right: 2%;
+	}
+}

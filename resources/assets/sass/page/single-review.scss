@@ -1,0 +1,297 @@
+.single-review {
+  margin-top: 2em;
+  padding: 3em 0;
+  min-height: 580px;
+  > .left-section {
+    padding: 0 12.5px;
+    background: white;
+    .review-stick{
+      padding-right: 0px;
+      .navsingle-review{
+        overflow-y: hidden;
+        padding-right: 12px;
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+        &::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px $gray-3;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $gray-3;
+        }
+        .guarantee{
+          margin: 15px 0;
+          font-weight: bold;
+          + .btn-block {
+            padding: 6px 0 4px;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    img {
+      display: block;
+      margin: auto;
+    }
+    > .guarantee {
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+      margin: 1.5em 0 2em;
+    }
+    > .border-button {
+      font-weight: bold;
+      padding: 5px 0 !important;
+      font-size: 13px;
+    }
+    .fucnt-search {
+      display: flex;
+      padding: 10px 0;
+      float: none;
+      input {
+        height: 30px;
+        line-height: 1;
+        border: 1px solid $gray-3;
+        font-size: 11px;
+        width: calc(100% - 32px);
+        padding-left: 10px;
+        display: inline-block;
+        vertical-align: middle;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        width: 32px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: $color_yellow_orange_approx;
+        border: none;
+        color: $white;
+        font-size: 20px;
+        line-height: 0;
+      }
+    }
+    .note {
+      text-align: center;
+      clear: both;
+      padding: 35px 0 45px;
+      > a {
+        display: inline-block;
+        vertical-align: top;
+        /*writing-mode: vertical-lr;*/
+        width: 30px;
+        font-weight: bold;
+        font-size: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+        &:hover {
+          color: $primary;
+        }
+        > i {
+          font-weight: bold;
+          font-size: 22px;
+          margin-bottom: 6px;
+          @media #{$ipad_lg}{
+            font-size: 18px;
+          }
+        }
+      }
+      &.en,
+      &.vi {
+        text-align: left;
+        > a {
+          display: block;
+          width: auto;
+          margin-bottom: 10px;
+          padding-left: 25%;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          > i {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px 0 0;
+            width: 25px;
+            text-align: center;
+
+          }
+        }
+      }
+    }
+    .writer-information {
+      border: 1px solid $gray-3;
+      text-align: center;
+      padding: 15px 25px;
+      max-width: 250px;
+      > h3 {
+        margin: 15px 0 0;
+        font-size: 1.2em;
+      }
+      > img {
+        max-width: 100%;
+        display: inline-block;
+        border-radius: 50%;
+        margin: 13px 0;
+      }
+      > .writer-name {
+        font-size: 14px;
+        padding-top: 0;
+        //margin:
+      }
+      > .writer-description {
+        text-align: left;
+        margin: 20px 0 0;
+      }
+    }
+    .text-center > .review-social {
+      display: inline-block;
+      font-size: 1.8em;
+      padding: 0.4em 1.5px 0;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+      }
+      > .fa,
+      > svg {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    &.sticky {
+      position: fixed;
+      top: 136px;
+      z-index: 1
+    }
+  }
+  > .right-section {
+    padding: 0 15px 0 52px;
+    text-align: justify;
+    > .review-time {
+      margin-left: -7px;
+      font-size: 15px;
+    }
+    > img {
+      margin-bottom: 15px;
+    }
+    > .row {
+      margin-top: 20px;
+      > h1 {
+        font-size: 2.2rem;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 1.9em;
+        @media #{$phone_lg} {
+          line-height: 1.4;
+        }
+        > i {
+          vertical-align: middle;
+        }
+      }
+      > .review-time {
+        font-size: 1.2rem;
+        margin: 4px 0 0;
+        @media #{$phone_lg} {
+          text-align: left;
+          margin-top: 0;
+          margin-bottom: 1.5em;
+        }
+      }
+    }
+    > .review-content {
+      p, ul {
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .review-pagination {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 100px;
+      > a {
+        flex: 1;
+        border: 1px solid $gray-3;
+        padding: 26px 20px 24px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.3em;
+        &:hover {
+          background-color: $gray-5;
+        }
+      }
+      .previous {
+        margin-right: 20px;
+        position: relative;
+        padding-left: 50px;
+        &:before {
+          font-weight: normal;
+          position: absolute;
+          left: 20px;
+          font-family: "icomoon", sans-serif;
+          content: "\e906";
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+      }
+      .next {
+        position: relative;
+        padding-right: 50px;
+        &:after {
+          font-weight: normal;
+          position: absolute;
+          right: 20px;
+          font-family: "icomoon", sans-serif;
+          content: "\e905";
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+
+@media #{$iphone} {
+  .single-review {
+    margin-top: 0;
+    padding: 0;
+    .left-section {
+      display: none;
+    }
+    .right-section {
+      width: 100%;
+      padding: 15px 30px 45px;
+      margin-top: 0;
+      .review-time {
+        margin-left: 0;
+      }
+      img {
+        float: none !important;
+        width: 100%;
+      }
+      .review-pagination {
+        flex-direction: column;
+        margin-top: 2em;
+        .previous {
+          margin-right: 0;
+        }
+        .previous, .next {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

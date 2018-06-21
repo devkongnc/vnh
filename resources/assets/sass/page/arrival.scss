@@ -1,0 +1,64 @@
+.wrapper-arrival-head{
+	.house-new-head{
+		text-align: center;
+		margin: 50px auto;
+		.box-arrival{
+			display: inline-block;
+			vertical-align: top;
+			padding: 5px 10px 5px;
+			font-size: 10px;
+			font-weight: bold;
+			border: 1px solid $gray-4;
+			span{
+				display: block;
+				font-size: 4.6em;
+				padding: 1px 0 0;
+				line-height: 1.17em;
+				position: relative;
+				top: 3px;
+			}
+		}
+		.title-arrival{
+			display: inline-block;
+			vertical-align: top;
+			text-align: left;
+			padding-left: 12px;
+			font-size: 14px;
+			font-weight: bold;
+			@media #{$phone} {
+				display: block;
+				padding: 0;
+				margin-top: 2em;
+				text-align: center;
+			}
+			h1{
+				margin: 0;
+    			padding: 4px 0 2px;
+    			font-size: 4.5rem;
+			}
+			> .subtitle {
+				font-size: 1.5rem;
+			}
+			.note-arrival{
+				font-size: 1.2rem;
+				color: $gray-light;
+				position: relative;
+				line-height: 1;
+				padding: 3px 0px 0px 16px;
+				&:after{
+					content:"※";
+					position: absolute;
+					left: 0;
+				}
+				@media #{$phone} {
+					display: inline-block;
+				}
+			}
+		}
+	}
+	& + .three-grid {
+		border-bottom: 1px solid black;
+		padding-bottom: 50px;
+		margin-bottom: 20px;
+	}
+}

@@ -1,0 +1,242 @@
+@include font-face("icomoon", "../fonts/icomoon/icomoon", normal, normal)
+@include font-face("Raleway", "../fonts/raleway/Raleway", normal, normal)
+@include font-face("Raleway", "../fonts/raleway/Raleway-Medium", bold, normal)
+
+
+/* This file is used for those styles which are used globally like button, grid, etc. */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1.8;
+    -webkit-print-color-adjust:exact;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input,
+textarea {
+    margin: 0;
+    padding: 2px 5px;
+    outline: 0;
+    background: white;
+    border: 1px solid #CCC;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.4em;
+    font-family: $font-primary;
+    color: $black;
+    line-height: 1.4;
+    &.open {
+        overflow: hidden;
+    }
+    &.vi {
+        font-family: Arial, sans-serif;
+    }
+    &.en {
+        font-family: $font-title;
+    }
+    #content {
+        margin: auto;
+        @media (max-width: 767px) {
+            padding: 63px 0 0;
+        }
+        @media (min-width: 768px) {
+            width: 100%;
+            padding-top: 63px;
+        }
+        @media (min-width: 992px) {
+            padding: 126px 15px 0;
+        }
+        @media (min-width: 1200px) {
+            width: 1130px;
+            &.container {
+                width: 1136px;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+ul,
+ol {
+    &.list {
+        list-style: none;
+        padding-left: 0;
+    }
+}
+
+a {
+    color: inherit;
+    transition: all 0.2s linear;
+    animation: all 0.5s ease;
+    &:hover,
+    &:focus,
+    &:active {
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+select {
+    @extend %extend_1;
+    &:-webkit-autofill {
+        color: $white !important;
+    }
+}
+
+.border-button {
+    border: 1px solid $gray-3;
+    padding: 10px 0;
+    background: transparent;
+    border-radius: 0;
+    &.large-padding {
+        padding: 20px 0 !important;
+    }
+    &:hover {
+        background-color: $gray-5;
+    }
+}
+
+.text-white {
+    color: $white;
+}
+
+.img-full-width {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: all 0.2s linear;
+}
+
+.img-background {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.no-padding-all {
+    padding: 0;
+}
+
+.padding-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.relative {
+    position: relative;
+}
+
+.vertical-align {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    margin-top: 2px;
+    z-index: 1;
+}
+
+.primary {
+    background-color: $primary;
+}
+
+.text-primary {
+    color: $primary !important;
+}
+
+.primary-light {
+    background-color: $primary-light !important;
+}
+.active-facilities {
+    @extend .primary-light;
+    color: black !important;
+}
+.active-surroundings {
+    background-color: rgb(183, 222, 232) !important;
+    color: black !important;
+}
+.active-inclusive {
+    background-color: #E6E6E6 !important;
+    color: black !important;
+}
+
+.text-primary-light {
+    color: $primary-light;
+}
+
+.single-line,
+.single-line p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+/**
+ * Alert
+ */
+
+.alert {
+    margin-top: 20px;
+    > ol {
+        margin-bottom: 0;
+    }
+}

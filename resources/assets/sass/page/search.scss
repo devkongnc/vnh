@@ -1,0 +1,371 @@
+article {
+    &.search {
+        padding-top: 70px;
+        .breadcrumb {
+            padding-left: 22px;
+        }
+        @media #{$iphone} {
+            padding-top: 63px;
+            .wrap-search-box > form > .search-box {
+                background: transparent;
+            }
+            .search-box .search-bar {
+                background-color: transparent;
+                overflow: inherit !important;
+                height: 100% !important;
+            }
+            .pagination-wrapper {
+                padding: 0 15px;
+            }
+        }
+        @media #{$ipad_sm} {
+            padding-top: 40px;
+        }
+        .wrap-search-box {
+            @media #{$ipad_lg} {
+                padding-top: 0;
+            }
+            .search-box {
+                position: inherit;
+                padding: 0 22px;
+                background: $white;
+                @media #{$phone_lg} {
+                    padding: 0 15px;
+                }
+            }
+            .bottom-search {
+                display: none;
+            }
+        }
+        h1 {
+            font-size: 45px;
+            text-align: center;
+            margin-bottom: 45px;
+            margin-top: 45px;
+            @media #{$iphone} {
+                margin-bottom: 0;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+.wrap-content-search {
+    @media #{$ipad_lg} {
+        padding: 0 15px;
+    }
+    .sub-title {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 20px 0 17px;
+        text-align: center;
+        border: 1px solid $gray-4;
+        margin-top: 2em;
+        @media #{$phone_lg} {
+            margin-top: 10px;
+            border-color: $black;
+        }
+    }
+    .wrap-list-search {
+        max-width: 1100px;
+        margin: 0 auto 0px;
+        overflow: hidden;
+        .list-house-search {
+            overflow: hidden;
+            margin-bottom: 26px;
+            clear: both;
+            @media #{$ipad_lg} {
+                margin-bottom: 0;
+            }
+            .post-house {
+                display: block;
+                width: 49%;
+                width: -webkit-calc(100% / 2 - 5px);
+                width: calc(100% / 2 - 5px);
+                float: left;
+                margin-right: 10px;
+                margin-bottom: 22px;
+                border: 1px solid $color_celeste_approx;
+                padding: 3px;
+                &:hover {
+                    background-color: $concrete;
+                    color: $black;
+                }
+                .feature-img {
+                    max-width: 169px;
+                    float: left;
+                    font-size: 0;
+                    img {
+                        width: 100%;
+                        height: 169px;
+                        object-fit: cover;
+                    }
+                    @media #{$phone_lg} {
+                        max-width: 140px;
+                        img {
+                            height: auto;
+                        }
+                    }
+                }
+                .content-right {
+                    float: left;
+                    width: calc(100% - 169px);
+                    padding: 4px 7px 4px 10px;
+                    font-size: 12px;
+                    font-family: $font-secondary;
+                    line-height: 1;
+                    text-align: justify;
+                    @media #{$phone} {
+                        width: calc(100% - 140px);
+                        padding: 0 7px 0 10px;
+                        margin-top: -2px;
+                    }
+                    .desc-search {
+                        max-height: 80px;
+                        overflow: hidden;
+                        line-height: 1.6;
+                        p {
+                            margin-bottom: 0;
+                        }
+                        @media #{$iphone} {
+                            font-size: 12px;
+                        }
+                        @media #{$phone} {
+                            font-size: 10px;
+                            max-height: none;
+                        }
+                    }
+                    h2 {
+                        margin: 12px 0 10px 10px;
+                        line-height: 1.2;
+                        padding-bottom: 15px;
+                        font-size: 15px;
+                        font-weight: bold;
+                        border-bottom: 1px solid $color_celeste_approx;
+                        a {
+                            color: $black;
+                        }
+                        @media #{$iphone} {
+                            font-size: 17px;
+                        }
+                        @media #{$phone} {
+                            margin: 10px auto 10px;
+                            padding-bottom: 10px;
+                            font-size: 16.66px;
+                            text-align: center;
+                        }
+                    }
+                }
+                &:nth-child(2n) {
+                    margin-right: 0;
+                }
+                > h2.visible-xs {
+                    font-size: 1.19em;
+                    margin: 12px 0 10px 0;
+                    padding-left: 10px;
+                    line-height: 1.2;
+                    padding-bottom: 15px;
+                    font-weight: bold;
+                    border-bottom: 1px solid $color_celeste_approx;
+                }
+                @media #{$phone_lg} {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+        @media #{$iphone} {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.fucnt-search {
+    float: right;
+    padding: 25px 0 10px;
+    > input {
+        height: 30px;
+        line-height: 1;
+        border: 1px solid $color_celeste_approx;
+        font-size: 11px;
+        width: 232px;
+        padding-left: 10px;
+        display: inline-block;
+        vertical-align: middle;
+        &:focus {
+            outline: none;
+        }
+    }
+    > button {
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: $color_yellow_orange_approx;
+        border: none;
+        color: $white;
+        font-size: 20px;
+        line-height: 19px;
+        padding: 0 5px 0 7px;
+        margin-top: -0.5px;
+    }
+}
+
+.pagination-wrapper {
+    margin: 3.5em auto 6.2em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    @media #{$iphone} {
+        padding: 0 0px;
+    }
+    @media #{$ipad_sm} {
+        padding: 0;
+    }
+    > .btn {
+        padding: 0;
+        color: black;
+        padding: 1px 15px 0;
+        line-height: 25px;
+        width: 100%;
+        max-width: 315px;
+        height: 26px;
+        font-size: 12px;
+        margin-bottom: 1.5em;
+        transition: all 0.3s;
+        &:hover {
+            background-color: #f6f6f6;
+        }
+        @media #{$iphone} {
+            max-width: -webkit-calc(100% - 30px);
+            max-width: calc(100% - 30px);
+        }
+    }
+    > .vhouse-pagination {
+        text-align: center;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        font: bold 1.8rem 'Century Gothic', sans-serif;
+        @media #{$iphone} {
+            /* display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -moz-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between; */
+            width: 100%;
+        }
+        > li {
+            display: inline-block;
+            padding: 5px 10px;
+            &.active {
+                color: $color_tree_poppy_approx;
+            }
+            .icon-arrow-prev,
+            .icon-arrow-next {
+                font-size: 0.7em;
+            }
+            > a {
+                color: inherit;
+                &:hover {
+                    color: $color_tree_poppy_approx;
+                }
+            }
+        }
+    }
+}
+
+.page-search > nav > .right-top > .search-phone {
+    //display: none;
+}
+
+@media #{$iphone} {
+    .wrap-content-search {
+        padding: 0 15px;
+        margin-bottom: 5em;
+        .wrap-list-search {
+            text-align: center;
+            .fucnt-search {
+                display: inline-block;
+                float: right;
+                input {
+                    -webkit-box-flex: 1;
+                    -webkit-flex-grow: 1;
+                    -moz-box-flex: 1;
+                    -ms-flex-positive: 1;
+                    flex-grow: 1;
+                }
+                button {
+                    -webkit-flex-basis: 30px;
+                    -ms-flex-preferred-size: 30px;
+                    flex-basis: 30px;
+                }
+            }
+            .list-house-search {
+                .post-house {
+                    width: 100%;
+                    margin-right: 0;
+                    .content-right {
+                        .desc-search {
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4;
+                            -webkit-box-orient: vertical;
+                            h2 {
+                                font-size: 17px;
+                            }
+                            .desc-search {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media #{$ipad_sm} {
+    .wrap-content-search .wrap-list-search .list-house-search .post-house {
+        width: -webkit-calc(100%/2 - 10px);
+        width: calc(100%/2 - 10px);
+        float: left;
+        margin-right: 20px;
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .wrap-content-search .wrap-list-search .fucnt-search {
+        display: block;
+        float: none;
+        width: 100%;
+        max-width: 270px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .wrap-content-search .wrap-list-search .fucnt-search input {
+        width: -webkit-calc(100% - 37px);
+        width: calc(100% - 37px);
+    }
+}

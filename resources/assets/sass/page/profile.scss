@@ -1,0 +1,50 @@
+.wrap-profile {
+	padding-top: 46px;
+	form{
+		.form-group{
+			border-bottom: 1px solid #E6E6E6;
+			padding: 18px 0 15px;
+			margin-bottom: 0;
+			font-size: 14px;
+			.label-name{
+				font-weight: bold;
+				display: inline-block;
+				vertical-align: middle;
+				width: 218px;
+				padding-left: 50px;
+				padding-top: 1px;
+				@media #{$iphone} {
+					padding-left: 0;
+					width: 150px;
+				}
+				@media (max-width: 480px){
+					width: 100%;
+				}
+			}
+			.info{
+				width: calc(100% - 223px);
+				display: inline-block;
+				vertical-align: middle;
+				@media #{$iphone} {
+					width: calc(100% - 153px);
+				}
+				@media (max-width: 480px){
+					width: 100%;
+				}
+			}
+		}
+	}
+	.map-profile{
+		margin-top: 50px;
+		margin-bottom: 100px;
+		height: 360px;
+		@media #{$iphone}{
+			margin-bottom: 25px;
+		}
+		#map-canvas{
+			height: 100%;
+			width: 100%;
+			max-height: 360px;
+		}
+	}
+}

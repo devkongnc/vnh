@@ -1,0 +1,238 @@
+.review-search-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  > .fucnt-search {
+    padding: 0;
+  }
+  .input-group {
+    width: 261px;
+    input {
+      padding: 5px 10px 6px;
+      width: 100%;
+      font-size: 11px;
+    }
+    .input-group-addon {
+      background: $orange;
+      color: white;
+      border: none;
+    }
+  }
+}
+.note-wrapper {
+  text-align: center;
+  .note {
+    p {
+      display: inline-block;
+      vertical-align: top;
+      height: 100px;
+      text-align: center;
+      /*writing-mode: tb-rl;
+      -webkit-writing-mode: tb-rl;
+      -ms-writing-mode: tb-rl;*/
+      width: 25px;
+      font-weight: bold;
+      margin: 0 5px;
+      transition: all 0.3s;
+      &:hover{
+        color: $primary;
+      }
+      i {
+        font-weight: bold;
+        font-size: 22px;
+      }
+    }
+  }
+  &.vi,
+  &.en {
+    display: block;
+    > .note {
+      > p {
+        width: auto;
+        max-width: 53px;
+        height: auto;
+        padding: 0 5px;
+        margin: 0;
+        > a > i {
+          display: block;
+          margin: 0 0 10px;
+        }
+      }
+    }
+  }
+  &.visible-xs {
+    padding: 20px 0;
+  }
+}
+.review-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px 0;
+  .review-logo {
+    flex-basis: 18%;
+    flex-grow: 0;
+  }
+  .review-introduction {
+    justify-content: flex-start;
+  }
+  > div {
+    flex-grow: 1;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    &.note-wrapper {
+      justify-content: flex-start;
+      flex-grow: 1.2;
+    }
+  }
+  p.introduction {
+    padding-left: 30px;
+    font-size: 16px;
+  }
+}
+.review-list {
+  list-style: none;
+  padding-left: 0;
+  overflow: hidden;
+  margin: 0 0 20px;
+  .review-list-item {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .permalink {
+      display: block;
+      height: 100%;
+    }
+    .icons-wrapper {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      color: $white;
+      font-size: 24px;
+      > i {
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    &:hover {
+      .gray-overlay {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    position: relative;
+    float: left;
+    width: 16.6667%;
+    height: 16.6667vw;
+    padding: 1px;
+    @media (max-width: 992px) {
+      width: 50vw;
+      height: 50vw;
+    }
+    @media (max-width: 480px) {
+      width: 50vw;
+      height: 50vw;
+    }
+    .gray-overlay {
+      background-color: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 1px; bottom: 1px;
+      width: calc(100% - 2px);
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.2s;
+    }
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      color: $white;
+      font-weight: bold;
+      width: 80%;
+      font-size: 17px;
+      text-align: center;
+    }
+    .time {
+      position: absolute;
+      bottom: 30px;
+      color: $white;
+      width: 100%;
+      text-align: center;
+      font-family: $font-title;
+    }
+  }
+}
+
+@media #{$iphone} {
+  .note-wrapper {
+    text-align: center;
+    padding: 0;
+    .note {
+      /*float: left;*/
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      p {
+        display: inline-block;
+        vertical-align: top;
+        width: 25px;
+        padding: 0;
+        margin: 0 5px;
+        height: auto;
+        writing-mode: inherit;
+        text-align: center;
+      }
+    }
+  }
+  .review-title {
+    flex-wrap: wrap;
+    padding: 20px 15px;
+    .note-wrapper {
+      order: 3;
+      padding-top: 40px;
+    }
+    .review-logo {
+      flex-basis: 40%;
+      align-items: center;
+      img {
+        width: 100%;
+      }
+    }
+    .review-introduction {
+      flex-basis: 60%;
+      > .introduction {
+        padding-left: 15px;
+        > br {
+          display: none;
+        }
+      }
+    }
+  }
+  .review-search-wrapper {
+    display: none;
+  }
+  #review-ajax {
+    > .review-list > .review-list-item {
+      > .title {
+        font-size: 1.5rem;
+      }
+      > .time {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+    }
+
+    > .pagination-wrapper{
+      padding: 0 15px;
+    }
+  }
+}

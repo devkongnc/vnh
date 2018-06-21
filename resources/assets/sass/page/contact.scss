@@ -1,0 +1,178 @@
+.contact {
+  > h1 {
+    margin-bottom: 10px;
+  }
+  .wrap-content-page {
+    padding: 103px;
+    padding-left: 0;
+    padding-right: 0;
+    @media #{$phone_lg} {
+      padding: 30px 0;
+    }
+  }
+  .box-hotline {
+    width: 100%;
+    max-width: 385px;
+    margin: 0 auto 90px;
+    padding: 30px 50px 25px;
+    border: 1px solid #E6E6E6;
+    font-weight: bold;
+    @media #{$iphone} {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    .text-contact {
+      font-size: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 34px;
+      line-height: 32px;
+      font-weight: bold;
+      white-space: nowrap;
+      span {
+        color: $orange;
+        font-size: 32px;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+    }
+    .office, .live {
+      color: $gray;
+      font-size: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 20px;
+      margin-bottom: 12px;
+      white-space: nowrap;
+      span {
+        width: 170px;
+        text-align: right;
+        margin-left: 10px;
+        font-size: 24px;
+        color: #000;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+    }
+  }
+  .form-contact {
+    @media #{$iphone} {
+      .wrap-form {
+        .group-form {
+          display: flex;
+          flex-direction: column;
+          label, input, textarea {
+            width: auto;
+            max-width: none;
+          }
+        }
+        .policy {
+          margin-left: 0;
+          width: auto;
+        }
+        .btn-send {
+          margin: auto;
+          display: block;
+          margin-top: 20px;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+.popup-thankyou{
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1060;
+  top: 0;
+  left: 0;
+  .wrap-thankyou{
+    padding: 30px 20px;
+    position: absolute;
+    z-index: 99999;
+    top: 70px;
+    bottom: 10px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    width: 853px;
+    max-height: 611px;
+    max-width: 95%;
+    overflow: auto;
+    transition: all 0.5s;
+    .box-thankyou{
+      max-width: 440px;
+      margin: 0 auto;
+      .top-star{
+        color: $orange;
+        font-size: 92px;
+        line-height: 1;
+        margin-top: 30px;
+        text-align: center;
+        margin-bottom: 34px;
+      }
+      .title-thankyou{
+        font-size: 70px;
+        font-family: $font-title;
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 45px;
+        opacity: 0;
+        word-break:break-all;
+        font-weight: bold;
+        span{
+          opacity: 0;
+        }
+      }
+      .sub-thankyou{
+        font-size: 17px;
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 62px;
+      }
+      .desc-thankyou{
+        font-size: 12px;
+        margin-bottom: 20px;
+        color: $gray;
+      }
+      .btn-bottom{
+        text-align: center;
+        a{
+          display: inline-block;
+          font-size: 12px;
+          font-weight: bold;
+          color: $gray-light-2;
+          border: 1px solid $gray-3;
+          padding: 7px 20px;
+          transition: all 0.3s;
+          &:hover{
+            background-color: $gray-5;
+          }
+        }
+      }
+    }
+    .close-thankyou{
+      font-size: 20px;
+      position: absolute;
+      top: 20px;
+      right: 18px;
+      width: auto;
+      cursor: pointer;
+    }
+  }
+  .overlay-bg{
+    content: "";
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+}

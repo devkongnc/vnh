@@ -1,0 +1,503 @@
+$color_storm_dust_approx: #666666;
+
+//urls
+$url_0: url(../images/bgtab.svg);
+$url_1: url(../images/bgtab-hover.svg);
+$url_2: url(../images/prev-tab.svg);
+$url_3: url(../images/next-tab.svg);
+$url_4: url(../images/bg-like.svg);
+$url_5: url(../images/bg-liked.svg);
+
+.single-apartment {
+  .breadcrumb {
+    @media #{$ipad_lg}{
+      padding-left: 0;
+    }
+    @media #{$phone_lg} {
+      padding-left: 15px;
+    }
+  }
+}
+
+.top-bar-search {
+  text-align: center;
+  background-color: $color_black_haze_approx;
+  > a {
+    color: $black;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 18px;
+    padding: 19px 0 21px;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    transition: margin 0.2s, color 0.2s;
+    > span {
+      &:first-child {
+        font-size: 18px;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+      &:last-child {
+        font-size: 12px;
+      }
+    }
+    &.shrink {
+      position: fixed;
+      left: 50%;
+      margin-top: -55px;
+      height: 55px;
+      line-height: 55px;
+      padding: 0;
+      transform: translateX(-50%);
+      background: transparent;
+      color: black;
+      > span:first-child {
+        vertical-align: middle;
+      }
+    }
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.tab-hightrise {
+  max-width: 1100px;
+  margin: 55.5px auto 37px;
+  @media #{$iphone} {
+    margin-top: 40px;
+  }
+  .nav-tabs {
+    border-bottom: none;
+    li {
+      margin-bottom: -2px;
+      border-bottom: 1px solid transparent;
+    }
+    > li {
+      > a {
+        background: transparent $url_0 no-repeat;
+        background-size: 270px 38px;
+        height: 38px;
+        width: 270px;
+        padding: 10px 33px 8px;
+        color: $gray;
+        font-family: Arial;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-right: 0;
+        border: none;
+        border-bottom: 1px solid $color_mercury_approx;
+        transition: all 0.2s;
+        &:hover,
+        &:focus {
+          background-image: url(../images/bgtab-hover.svg);
+        }
+        @media #{$ipad_lg} {
+          background-size: 245px 34px;
+          height: 34px;
+          width: 244px;
+        }
+        @media #{$ipad_sm} {
+          background-size: 245px 34px;
+          height: 34px;
+          width: 244px;
+        }
+        @media #{$iphone} {
+          width: 100%;
+          margin: auto;
+          background-size: 100% 100%;
+        }
+        @media (max-width: 480px){
+          padding: 10px;
+        }
+      }
+      &.active > a {
+        border: none;
+        background-image: url(../images/bgtab-hover.svg);
+        @media #{$phone_lg} {
+          background-image:none;
+          &:hover, &:focus {
+            background-image: none;
+          }
+        }
+      }
+    }
+  }
+  .tab-content {
+    border: 1px solid $color_mercury_approx;
+    padding: 45px 30px 30px;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 0 15px 15px 15px;
+    @media #{$ipad_lg} {
+      border-radius: 0 0 15px 15px;
+    }
+    @media #{$ipad_sm} {
+      border-radius: 0 0 15px 15px;
+    }
+    @media #{$iphone} {
+      border-radius: 0 0 15px 15px;
+    }
+    .cont-tab {
+      overflow: hidden;
+      > div {
+        float: left;
+        width: 100%;
+        @media #{$iphone} {
+          float: none;
+          width: 100%;
+        }
+      }
+      .left-tab {
+        padding-right: 0;
+        @media #{$iphone} {
+          padding: 0;
+        }
+        text-align: justify;
+        line-height: 1.6;
+        font-weight: normal;
+        .title {
+          font-size: 18px;
+          font-weight: bold;
+          margin: -4px 0 26px 3px;
+          @media #{$ipad_sm} {
+            margin-bottom: 20px;
+          }
+          @media #{$phone_lg} {
+            font-size: 25px;
+            line-height: 1.2;
+          }
+          & + p {
+            line-height: 2.1;
+          }
+        }
+      }
+      .right-tab {
+        padding: 0 25px;
+        float: right;
+        width: 51.0598%;
+        margin-left: 3%;
+        .list-img{
+          margin-top: 4px;
+          .owl-item{
+            font-size: 0;
+            img{
+              width: 100%;
+              height: auto;
+              object-fit:cover;
+            }
+          }
+        }
+        @media #{$iphone} {
+          padding: 0;
+        }
+        @media #{$phone} {
+          width: 100%;
+          float: none;
+          margin-left: 0;
+          margin-bottom: 2em;
+        }
+      }
+    }
+    .tab-map {
+      text-align: center;
+      #map-canvas{
+        height: 350px;
+      }
+    }
+    .tab-feature {
+      overflow: hidden;
+      .tbl-feature {
+        float: left;
+        width: 33.3333%;
+        border: 3px solid $color_mercury_approx;
+        border-right: none;
+        @media #{$iphone} {
+          width: 100%;
+          border-right: 3px solid $color_mercury_approx;
+        }
+        &:last-child {
+          border-right: 3px solid $color_mercury_approx;
+        }
+        .body-tbl .row-feature {
+          border-bottom: 1px solid $color_mercury_approx;
+          overflow: hidden;
+          div {
+            display: table-cell;
+            vertical-align: middle;
+            height: 100%;
+            padding: 6px 5px 4px;
+            font-size: 12px;
+            border-right: 1px solid $color_mercury_approx;
+            &:first-child {
+              width: 140px;
+              background-color: $color_black_haze_approx;
+            }
+            &:last-child {
+              border-right: none;
+            }
+          }
+          &.feature-head {
+            border-bottom: none;
+            div {
+              width: 100%;
+              display: block;
+              float: none;
+              font-size: 14px;
+              background-color: $color_storm_dust_approx;
+              color: $white;
+              padding: 4.5px 0 2.5px;
+              text-align: center;
+              border-bottom: 1px solid $color_mercury_approx;
+            }
+            &:nth-child(7) div {
+              border-bottom: 0;
+              padding: 3px 0 5px;
+            }
+          }
+          &.address div {
+            height: 53px;
+            vertical-align: top;
+          }
+          &.row3line div {
+            height: 83px;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+    @media #{$iphone} {
+      padding: 15px;
+    }
+  }
+  .nav > li > a:hover {
+    background-color: transparent;
+  }
+}
+
+.wrap-apartment {
+  max-width: 1100px;
+  margin: 0 auto 7em;
+  .top-apartment {
+    margin-bottom: 11px;
+    .title-top {
+      float: left;
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 9px;
+      @media #{$phone_lg} {
+        font-size: 24px;
+        margin: -20px 0 5px 0;
+      }
+    }
+    .filter-right {
+      float: right;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 25px;
+      font-size: 13px;
+      > label {
+        font-weight: normal;
+        white-space: nowrap;
+      }
+      select {
+        height: 25px;
+        width: 171px;
+        border-color: $color_celeste_approx;
+        padding: 0 5px;
+        font-size: 11px;
+        display: inline-block;
+        vertical-align: middle;
+        @media #{$iphone} {
+          width: 110px;
+          font-size: 10px;
+          margin-right: 10px;
+        }
+        @media (max-width: 480px){
+          margin-right: 0;
+        }
+      }
+      > .bootstrap-select {
+        max-width: 170px;
+        @media #{$phone} {
+          max-width: 135px;
+        }
+        > .selectpicker {
+          font-size: 11px;
+          height: 24px;
+          padding: 1px 10px 0;
+          > option {
+            margin-top: -1px;
+          }
+        }
+        .dropdown-menu {
+          font-size: 11px;
+        }
+      }
+      > .btn {
+        width: 260px;
+        height: 24px;
+        line-height: 24px;
+        padding: 1px 0 0;
+        background-color: $color_log_cabin_approx;
+        transition: 0.3s;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        border: none;
+        color: $white;
+        font-weight: bold;
+        border-radius: 0;
+        &:hover {
+          background-color: $black;
+          color: $primary;
+        }
+        @media #{$iphone} {
+          width: auto;
+          padding: 0;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.primary-light {
+  background-color: $color_sandy_beach_approx;
+}
+
+article.page-normal {
+  padding-top: 70px;
+  .breadcrumb {
+    @media #{$iphone} {
+      padding-left: 15px;
+    }
+  }
+}
+
+.nav > li > a:focus {
+  background-color: transparent;
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+  background-color: transparent;
+}
+
+.owl-tab.owl-theme .owl-controls .owl-buttons div {
+  top: 50%;
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translateY(-50%);
+  height: 45px;
+  width: 29px;
+  &.owl-prev {
+    background-image: $url_2;
+  }
+  &.owl-next {
+    background-image: $url_3;
+  }
+}
+
+@media #{$ipad_sm} {
+  .wrap-apartment .list-apartment .item-apartment .text-feature .info{
+    font-size: 12px;
+  }
+}
+@media #{$phone_lg} {
+  .tab-hightrise {
+    padding: 0 5px;
+    margin-top: 30px;
+    .nav-tabs {
+      display: flex;
+      li {
+        flex-grow: 1;
+        a {
+          padding: 19px 0 0;
+          background-image: none;
+          border-radius: 0;
+          font-size: 13px;
+          color: $gray;
+          &:before {
+            content: '';
+            position: absolute;
+            height: 24.7px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border: 1px solid $gray-4;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 2px rgba(255, 255, 255, 0.5) inset;
+            transform: perspective(5px) rotateX(2deg);
+            transform-origin: bottom;
+          }
+          &:hover {
+            background: none;
+          }
+        }
+        &.active {
+          border-bottom: none;
+          > a {
+            background: transparent;
+          }
+        }
+      }
+    }
+    .tab-content {
+      border-top: none;
+    }
+  }
+  .wrap-apartment {
+    margin-bottom: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    @media #{$ipad_sm}{
+      padding: 0;
+    }
+    @media #{$phone_lg} {
+      .three-grid {
+        padding: 0;
+      }
+    }
+    .top-apartment {
+      .title-top {
+        float: none;
+        margin-bottom: 10px;
+      }
+      .filter-right {
+        float: left;
+        padding: 10px 0;
+      }
+    }
+    .list-apartment {
+      .item-apartment {
+        .text-feature {
+          .house-code {
+            font-size: 20px;
+            span {
+              font-size: 24px;
+            }
+          }
+          .info {
+            font-size: 9px;
+          }
+        }
+      }
+    }
+  }
+}
+@media #{$phone} {
+  .wrap-apartment > .top-apartment > .filter-right {
+    float: none;
+    display: flex;
+    > .btn:last-child {
+      flex-grow: 1;
+      background: $white;
+      color: $black;
+      border: 1px solid $gray-3;
+      margin-left: 10px;
+    }
+  }
+}

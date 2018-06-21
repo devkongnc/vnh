@@ -1,0 +1,142 @@
+/* Button Group */
+
+.btn-group.vnhouse {
+    button.btn-vnhouse {
+        padding: 1px 10px 0;
+        margin-right: 13px;
+        border-radius: 0 !important;
+        border: 1px solid $gray-3;
+        font-size: 12px;
+        background: transparent;
+        height: 25px;
+    }
+}
+
+.btn-readmore {
+    font: normal 15px 'Century Gothic';
+    font-size: 15px;
+    color: $black;
+    display: inline-block;
+    min-width: 125px;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 28px;
+    border: 1px solid $color_celeste_approx;
+    &:hover {
+        color: $black;
+        background-color: $color_black_haze_approx;
+    }
+}
+
+.btn-like {
+    float: right;
+    background: url('../images/like.svg') center center no-repeat;
+    width: 31px;
+    height: 29px;
+    cursor: pointer;
+    position: relative;
+    background-size: auto 100%;
+    transition: none;
+    &::before {
+        content: url('../images/like-hover.svg');
+        display: none;
+    }
+    &::after {
+        content: url('../images/liked.svg');
+        display: none;
+    }
+    &.like-lg {
+        width: 37px;
+        height: 35px;
+    }
+    &.btn-black {
+        background-image: url('../images/like-black.svg');
+    }
+    @media (min-width: 1025px) {
+        &:hover {
+            background-image: url('../images/like-hover.svg');
+        }
+    }
+    &.active {
+        background-image: url('../images/liked.svg');
+    }
+    /* @media #{$phone_lg} {
+        width: 52px;
+        height: 50px;
+        &.btn-black {
+            width: 35px;
+            height: 33px;
+        }
+    } */
+    /* &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        background: url('../images/like-hover.svg') center center no-repeat;
+        background-size: auto 100%;
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 0.2s linear;
+    }
+    &::before {
+        width: 32px;
+        height: 30px;
+    }
+    &::after {
+        width: 31px;
+        height: 29px;
+        background-image: url('../images/liked.svg');
+    }
+    &.btn-black {
+        background-image: url('../images/like-big.svg');
+    }
+    &.btn-black::before {
+        width: 34px;
+        height: 31px;
+        top: -1px;
+        left: -2px;
+    }
+    &.like-lg,
+    &.like-lg::after {
+        width: 37px;
+        height: 35px;
+    }
+    &.like-lg::before {
+        width: 39px;
+        height: 37px;
+        left: -1px;
+        top: -1px;
+    }
+    &:hover::before {
+        opacity: 1;
+    }
+    &.active::after {
+        opacity: 1;
+    }*/
+}
+
+.btn-link-black {
+    display: block;
+    text-align: center;
+    width: 385px;
+    max-width: 100%;
+    padding: 23px 0 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #2c2c2c;
+    &:hover {
+        background: black;
+        color: white;
+    }
+}
+
+.btn-close-popup {
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    width: auto;
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+#create-estate {
+	> .form-group {
+		> .col-xs-12 > #btn-map {
+			vertical-align: 1px;
+		}
+	}
+	> .row > .col-sm-2 > .checkbox {
+		padding: 0;
+		margin-bottom: 0.5em;
+	}
+	> #googlemap {
+		width: 675px;
+		height: 230px;
+	}
+}
+
+#create-apartment {
+	@extend #create-estate;
+}
+
+#modal-term, #modal-term-edit {
+	.add-new-value {
+		display: flex;
+		.col-sm-2 {
+			align-self: flex-end;
+		}
+	}
+}
+.modal-dialog {
+	background: white;
+}

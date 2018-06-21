@@ -1,0 +1,41 @@
+/* Breadcrumbs */
+
+article {
+    > .breadcrumb {
+        max-width: 1100px;
+        margin: 2.275rem auto 2.95rem;
+        padding: 0px 22px 15px 0;
+        background-color: transparent;
+        font-size: 11px;
+        line-height: 1;
+        text-align: left;
+        @media #{$ipad_lg} {
+            padding: 15px;
+        }
+        @media #{$iphone} {
+            margin: 0;
+            padding: 15px 0 15px 15px;
+            line-height: 1.7;
+        }
+        > a {
+            color: $color_mountain_mist_approx;
+            padding-right: 25px;
+            position: relative;
+            &:hover {
+                color: $primary;
+            }
+            &::after {
+                position: absolute;
+                //top: -1px;
+                top: 1px;
+                right: 5px;
+                line-height: 15px;
+                content: "＞";
+                color: $color_mountain_mist_approx;
+            }
+            &:last-child:after {
+                content: none;
+            }
+        }
+    }
+}

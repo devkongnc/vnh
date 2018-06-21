@@ -1,0 +1,65 @@
+/*Irs */
+
+.irs-with-grid {
+    > .irs {
+        > .irs-line {
+            background: $gray;
+            > .irs-line-left,
+            > .irs-line-mid,
+            > .irs-line-right {
+                background-image: none;
+            }
+        }
+        > .irs-from,
+        > .irs-single,
+        > .irs-to {
+            display: none;
+            font-size: 17px;
+            padding: 2px 15px;
+            z-index: 9;
+        }
+    }
+    > .irs-grid {
+        bottom: 4px;
+        > .irs-grid-text {
+            &.js-grid-text-0 {
+                margin-left: -6px !important;
+            }
+            &.js-grid-text-1 {
+                display: none;
+            }
+            @for $i from 3 through 9 {
+                &.js-grid-text-#{$i} {
+                    display: none;
+                }
+            }
+        }
+        @media #{$iphone} {
+            bottom: 0;
+            > .irs-grid-text {
+                font-size: 20px;
+                font-weight: normal;
+            }
+        }
+    }
+    > .irs-bar {
+        height: 5px;
+        border-top: 1px solid $orange;
+        border-bottom: 1px solid $orange;
+    }
+    > .irs-slider {
+        background: $primary;
+        box-shadow: none;
+        border: none;
+    }
+    &:hover,
+    .my-price.active > & {
+        > .irs {
+            > .irs-from,
+            > .irs-single,
+            > .irs-to {
+                display: block;
+            }
+        }
+    }
+}
