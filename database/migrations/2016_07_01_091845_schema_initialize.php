@@ -12,75 +12,7 @@ class SchemaInitialize extends Migration
      */
     public function up()
     {
-        # Apartment Schema
-        Schema::create('apartments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->tinyInteger('status')->unsigned();
-            $table->integer('product_id')->unsigned()->unique();
-            $table->string('permalink')->unique();
-            $table->boolean('sticky')->default(false);
-            $table->smallInteger('area')->unsigned();
-            $table->tinyInteger('recommend')->unsigned();
-            $table->string('lat', 30);
-            $table->string('lng', 30);
-            $table->integer('resource_id')->unsigned()->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->timestamps();
-
-            $table->foreign('resource_id')->references('id')->on('resources')->onDelete('set null');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
-        });
-
-        Schema::create('apartment_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('apartment_id')->unsigned();
-            $table->enum('locale', ['ja', 'en', 'vi']);
-            $table->string('title', 1000);
-            $table->text('description');
-            $table->string('meta_keywords');
-            $table->string('meta_description');
-
-            $table->string('owner');
-            $table->string('units');
-            $table->string('floor_plan');
-            $table->string('rent_market');
-            $table->string('pet');
-            $table->string('security');
-            $table->string('time_to_cbd');
-            $table->string('address');
-
-            $table->string('pool');
-            $table->string('gym');
-            $table->string('supermarket');
-            $table->string('store');
-            $table->string('atm');
-            $table->string('restaurant');
-            $table->string('tennis');
-            $table->string('bbq');
-            $table->string('dog_run');
-
-            $table->string('kitchen');
-            $table->string('oven');
-            $table->string('bathtub');
-            $table->string('terrace');
-
-            $table->string('children_pool');
-            $table->string('outdoor_playground');
-            $table->string('indoor_playground');
-            $table->string('bus_stop');
-
-            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
-        });
-
-        Schema::create('apartment_resource', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('apartment_id')->unsigned();
-            $table->integer('resource_id')->unsigned();
-            $table->tinyInteger('order')->unsigned();
-
-            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
-            $table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade');
-        });
+        
 
         # RealEstate Schema
         Schema::create('estates', function (Blueprint $table) {
@@ -88,7 +20,6 @@ class SchemaInitialize extends Migration
             $table->tinyInteger('status')->unsigned();
             $table->integer('product_id')->unsigned()->unique();
             $table->integer('resource_id')->unsigned()->nullable();
-            $table->integer('apartment_id')->unsigned()->nullable();
             $table->text('category_ids');
             $table->string('lat', 30);
             $table->string('lng', 30);
@@ -96,15 +27,8 @@ class SchemaInitialize extends Migration
             $table->smallInteger('deposit')->unsigned();
             $table->smallInteger('city')->unsigned();
             $table->smallInteger('area')->unsigned();
-            $table->smallInteger('type')->unsigned();
             $table->smallInteger('size')->unsigned();
-            $table->smallInteger('beds')->unsigned();
-            $table->smallInteger('baths')->unsigned();
-            $table->smallInteger('time_to_cbd')->unsigned();
             $table->smallInteger('time_to_super')->unsigned();
-            $table->smallInteger('furniture')->unsigned();
-            $table->smallInteger('kitchen')->unsigned();
-            $table->smallInteger('pet')->unsigned();
             $table->text('facilities');
             $table->text('inclusive');
             $table->text('surroundings');
@@ -114,7 +38,6 @@ class SchemaInitialize extends Migration
             $table->timestamps();
 
             $table->foreign('resource_id')->references('id')->on('resources')->onDelete('set null');
-            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('set null');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
 
@@ -198,12 +121,10 @@ class SchemaInitialize extends Migration
             $table->dateTime('timestamp');
             $table->integer('resource_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
-            //$table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('resource_id')->references('id')->on('resources')->onDelete('set null');
-            //$table->foreign('parent_id')->references('id')->on('reviews')->onDelete('cascade');
         });
 
         Schema::create('review_translations', function (Blueprint $table) {
@@ -272,10 +193,6 @@ class SchemaInitialize extends Migration
         Schema::drop('estate_resource');
         Schema::drop('estate_sticky');
         Schema::drop('estates');
-
-        Schema::drop('apartment_translations');
-        Schema::drop('apartment_resource');
-        Schema::drop('apartments');
 
         Schema::drop('category_estates');
         Schema::drop('category_translations');

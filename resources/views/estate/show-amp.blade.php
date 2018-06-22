@@ -97,22 +97,21 @@
                     <li class="{{ in_array($index, $estate->{$first['key']}) ? 'active' : '' }}">{{ \App\Term::getLocaleValue($value) }}</li>
                 @endforeach
                 </ul>
+		@if (!empty($above) && count($above) > 0)
                 @foreach($above as $key => $value)
                     <div class="product-prop">
                         <div class="col-xs-4">{{ \App\Term::getLocaleValue($value['name']) }}</div>
                         <div class="col-xs-8 text-right">{{ $estate->{$key} ? $estate->{$key} : '--' }}</div>
                     </div>
                 @endforeach
-                <div class="product-prop">
-                    <div class="col-xs-4">@lang('entity.estate.apartment')</div>
-                    <div class="col-xs-8 text-right">{{ $estate->apartment ? link_to(action('ApartmentController@show', $estate->apartment->permalink), $estate->apartment->title) : '--' }}</div>
-                </div>
+		@endif
                 <div class="product-prop tag">
                     <div class="col-xs-2">@lang('entity.estate.category')</div>
                     <div class="col-xs-10 padding-10 text-right">
                         @foreach ($estate->categories as $index => $category)@if ($index > 0) / @endif<a href="{{ URL::action('CategoryController@show', $category->permalink) }}">{{ $category->title }}</a>@endforeach
                     </div>
                 </div>
+		@if (!empty($below) && count($below) > 0)
                 @foreach($below as $key => $data)
                     <p class="part-title">{{ \App\Term::getLocaleValue($data['name']) }}</p>
                     <ul class="{{ $key }} col-3 list text-center">
@@ -121,6 +120,7 @@
                         @endforeach
                     </ul>
                 @endforeach
+		@endif
                 <a href="#" data-toggle="modal" data-target="#modal-like-single" class="product-query text-center text-white"><b>@lang('entity.estate.query')</b></a>
                 <div class="product-interact row">
                     <div class="col-sm-7 col-xs-12">

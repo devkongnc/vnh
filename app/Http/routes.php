@@ -58,9 +58,6 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
         Route::get('{id}/amp', 'RealEstateController@showAmp');
     });
 
-    # Apartment
-    Route::resource('condo', 'ApartmentController');
-
     # Category
     Route::group(['prefix' => 'category'], function(){
         Route::get('', 'CategoryController@index');
@@ -97,9 +94,6 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
 
         Route::delete('{type}/term', 'TermController@destroy');
         Route::resource('{type}/term', 'TermController', ['except' => ['destroy']]);
-
-        Route::post('apartment/export', 'ApartmentController@export');
-        Route::resource('apartment', 'ApartmentController');
 
         Route::group(['prefix' => 'real-estate'], function() {
             Route::any('search', 'RealEstateController@search');

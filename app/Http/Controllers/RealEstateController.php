@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Apartment;
 use App\Contact;
 use App\Estate;
 use App\Resource;
@@ -69,12 +68,10 @@ class RealEstateController extends Controller
      */
     public function show(Request $request, $product_id)
     {
-        $estate      = Estate::withoutGlobalScopes()->private()->with('resource', 'resources', 'categories')->with(['apartment' => function($query) {
-             $query->withoutGlobalScopes()->whereIn('status', [Apartment::VISIBILITY_PUBLIC, Apartment::VISIBILITY_HIDDEN]);
-        }])->where('product_id', $product_id)->firstOrFail();
+        $estate      = Estate::withoutGlobalScopes()->private()->with('resource', 'resources', 'categories')->where('product_id', $product_id)->firstOrFail();
         $terms       = $this->_prepareTerms();
         # Same Apartment
-        $siblings    = $estate->apartment ? $estate->apartment->estates()->with('resource')->get() : NULL;
+        $siblings    = NULL;
         # Recent Estate Parse from Session
         $recent_ids = $request->session()->get('recent_estates', function() { return []; });
         $recents    = NULL;
@@ -90,9 +87,9 @@ class RealEstateController extends Controller
         Có số phòng ngủ >=1 so với hiện tại (Vd BDS hiện tại có 1 phòng ngủ thì các bds liên quan sẽ có 1 hoặc 2 phòng)
          */
         $relatives   = Estate::with('resource')->whereBetween('price', [(int) $estate->price * 0.8, (int) $estate->price * 1.2])->where([
-            'type' => $estate->type_raw,
+            //'type' => $estate->type_raw,
             'area' => $estate->area_raw,
-            'beds' => $estate->beds_raw
+            //'beds' => $estate->beds_raw
         ])->take(24)->get();
         \SEO::setTitle($estate->title)->setDescription(\Illuminate\Support\Str::words($estate->description, 10));
         \SEO::opengraph()->setUrl($request->fullUrl())->addImage($estate->resource_id ? $estate->resource->url : NULL);
@@ -101,12 +98,10 @@ class RealEstateController extends Controller
     }
 
     public function showAmp(Request $request, $product_id) {
-        $estate = Estate::withoutGlobalScopes()->private()->with('resource', 'resources', 'categories')->with(['apartment' => function($query) {
-             $query->withoutGlobalScopes()->whereIn('status', [Apartment::VISIBILITY_PUBLIC, Apartment::VISIBILITY_PRIVATE]);
-        }])->where('product_id', $product_id)->firstOrFail();
+        $estate = Estate::withoutGlobalScopes()->private()->with('resource', 'resources', 'categories')->where('product_id', $product_id)->firstOrFail();
         $terms       = $this->_prepareTerms();
         # Same Apartment
-        $siblings    = $estate->apartment ? $estate->apartment->estates()->with('resource')->get() : NULL;
+        $siblings    = NULL;
         # Recent Estate Parse from Session
         $recent_ids = $request->session()->get('recent_estates', function() { return []; });
         $recents    = NULL;
@@ -122,9 +117,9 @@ class RealEstateController extends Controller
         Có số phòng ngủ >=1 so với hiện tại (Vd BDS hiện tại có 1 phòng ngủ thì các bds liên quan sẽ có 1 hoặc 2 phòng)
          */
         $relatives   = Estate::with('resource')->whereBetween('price', [(int) $estate->price * 0.8, (int) $estate->price * 1.2])->where([
-            'type' => $estate->type_raw,
+            //'type' => $estate->type_raw,
             'area' => $estate->area_raw,
-            'beds' => $estate->beds_raw
+            //'beds' => $estate->beds_raw
         ])->take(24)->get();
         \SEO::setTitle($estate->title)->setDescription(\Illuminate\Support\Str::words($estate->description, 10));
         \SEO::opengraph()->setUrl($request->fullUrl())->addImage($estate->resource_id ? $estate->resource->url : NULL);

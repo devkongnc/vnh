@@ -3,10 +3,41 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
-class Estate extends Apartment
+class Estate extends Model
 {
-    protected $fillable = [];
+    use MultiLanguage, GeneralModel;
+
+    const VISIBILITY_PUBLIC  = 0;
+    const VISIBILITY_PRIVATE = 1;
+    const VISIBILITY_HIDDEN  = 2;
+
+    protected $fillable = [
+        'slug_en',
+        'slug_vi',
+        'status',
+        'product_id',
+        'resource_id',
+        'category_ids',
+        'lat',
+        'lng',
+        'price',
+        'deposit',
+        'city',
+        'area',
+        'size',
+        'time_to_super',
+        'facilities',
+        'inclusive',
+        'surroundings',
+        'size_rangefor_search',
+        'building_name',
+        'user_id',
+        'term_13'
+        ];
+
+    public $multilinguals = ['title', 'description', 'meta_keywords', 'meta_description', 'meta_title'];
 
     protected $guarded  = ['id', 'title', 'description', 'images', 'user_id', 'g-recaptcha-response'];
 
@@ -25,9 +56,10 @@ class Estate extends Apartment
     }
 
     # Relations
-    public function apartment() {
-        return $this->belongsTo('App\Apartment');
+    public function resources() {
+        return $this->belongsToMany('App\Resource')->orderBy('order', 'ASC')->orderBy('id', 'ASC');
     }
+    
     public function categories() {
         return $this->belongsToMany('App\Category', 'category_estates');
     }
@@ -108,6 +140,17 @@ class Estate extends Apartment
             $value = json_encode($value);
         }
         return parent::setAttribute($key, $value);
+    }
+    
+    # Mutators
+    public function getLatAttribute($value) {
+        return empty($value) ? '10.7883447' : $value;
+    }
+    public function getLngAttribute($value) {
+        return empty($value) ? '106.6955799' : $value;
+    }
+    public function getAreaTextAttribute() {
+        return getLocaleValue(config("real-estate.area.values.{$this->area}"));
     }
 
 }

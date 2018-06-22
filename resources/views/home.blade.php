@@ -1,4 +1,4 @@
-@extends('new-layout.base')
+@extends('layout.base')
 
 @section('content')
 
@@ -74,7 +74,9 @@
 									<span class="sub-title-f">{{ $office->title }}</span>
 
 									<div class="info-blk">
-										<div class="fll">@lang('front.rent') <strong class="info-price">{{ round($office->price/$office->size) }}</strong> USD /㎡　（@lang('front.manage fee')）</div>
+										@if (!empty($office->price) && !empty((int)$office->size))
+										<div class="fll">@lang('front.rent') <strong class="info-price">{{ round($office->price/(int)$office->size) }}</strong> USD /㎡　（@lang('front.manage fee')）</div>
+										@endif
 										<div class="flr">@lang('entity.estate.deposit') {{ $office->deposit }}</div>
 									</div>
 									<div class="row">

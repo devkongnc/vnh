@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Providers;
-
-use App\Apartment;
 use App\User;
 use App\VietnamHouse\Auth\CustomUserProvider;
 use Auth;
@@ -35,11 +33,11 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('show_policy', function ($user, $model) {
-            if ($user == null) return $model->status == Apartment::VISIBILITY_PUBLIC;
+            if ($user == null) return $model->status == Estate::VISIBILITY_PUBLIC;
             if ($user->level >= User::USER_CONTENT) {
                 return true;
             }
-            return $model->status == Apartment::VISIBILITY_PUBLIC || $user->id === $model->user_id;
+            return $model->status == Estate::VISIBILITY_PUBLIC || $user->id === $model->user_id;
         });
 
         $gate->define('manage-user', function ($user) {

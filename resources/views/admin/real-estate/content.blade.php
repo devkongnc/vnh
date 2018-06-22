@@ -44,16 +44,9 @@
     </div>
 </div>
 <div class="form-group single">
-    <label for="apartment_id" class="col-sm-2 control-label nopadding">@lang('admin.entity.apartment')</label>
-    <div class="col-sm-2">
-        <select name="apartment_id" id="apartment_id" class="selectpicker form-control">
-            <option value="0" {{ $estate->apartment_id == null ? 'selected' : '' }}>--</option>
-            @foreach(\App\Apartment::all() as $value)
-                <option value="{{ $value->id }}" {{ $estate->apartment_id == $value->id ? 'selected' : '' }}>{!! $value->title  !!}</option>
-            @endforeach
-        </select>
-    </div>
+   
     <?php $term_count = 1; ?>
+    @if (!empty($above) && count($above) > 0)
     @foreach($above as $key => $data)
         <label for="{{$key}}" class="col-sm-2 control-label nopadding">{{ \App\Term::getLocaleValue($data['name']) }}</label>
         <div class="col-sm-2">
@@ -71,8 +64,9 @@
             @endif
         </div>
     @endforeach
+    @endif
 </div>
-
+@if (!empty($below) && count($below) > 0)
 @foreach($below as $key => $data)
     <h3 class="block-title">{{ \App\Term::getLocaleValue($data['name']) }}</h3>
     <div class="row">
@@ -84,6 +78,7 @@
         @endforeach
     </div>
 @endforeach
+@endif
 
 <h3 class="block-title">@lang('admin.apartment.description')</h3>
 @include('partials.lang_control', ['type' => 'textarea', 'attr' => "description", 'model' => 'estate', 'class' => 'editor form-control'])

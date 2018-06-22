@@ -34,8 +34,6 @@ class RealEstateSeeder extends Seeder
                 ],
             ]);
 
-            $apartment = \App\Apartment::orderByRaw("RAND()")->first();
-            $estate->apartment_id = $apartment->id;
 
             $resources = \App\Resource::orderByRaw('RAND()')->take(10)->get();
             $estate->resources()->saveMany($resources);

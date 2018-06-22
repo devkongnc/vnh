@@ -13,7 +13,6 @@
                         <p><a href="{{ action('HomeController@searchForm') }}">@lang('menu.search advanced')</a></p>
                         <p><a href="{{ action('RealEstateController@index') }}">@lang('menu.arrival')</a></p>
                         <p><a href="{{ action('CategoryController@index') }}">@lang('menu.categories')</a></p>
-                        <p><a href="{{ action('ApartmentController@index') }}">@lang('menu.apartments')</a></p>
                     </div>
                     <h3><a href="{{ action('ReviewController@index') }}">@lang('front.sitemap.saigon review')</a></h3>
                 </div>
