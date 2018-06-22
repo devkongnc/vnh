@@ -60,7 +60,7 @@ function showMenuAdmin(array $menu, array $pages_by_id) {
 
 function option($name) {
     $option = \Cache::rememberForever('option.' . $name, function() use($name) {
-        return \App\Option::where('name', $name)->firstOrFail();
+        return \App\Option::where('name', $name)->first();
     });
     return $option->value;
 }

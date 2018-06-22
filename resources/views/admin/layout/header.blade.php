@@ -65,16 +65,7 @@
 			        <li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\RealEstateController@search'])) }}"><a href="{{ URL::action('Admin\RealEstateController@search') }}">Search</a></li>
 			    </ul>
 			</li>
-			<li class="treeview {{ Active::getClassIf(Active::checkController(['App\Http\Controllers\Admin\ApartmentController']) or Active::checkUriPattern(['*apartment*'])) }}">
-			    <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> <span>Apartment</span></a>
-			    <ul class="nav treeview-menu">
-			    	<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\ApartmentController@index'])) }}"><a href="{{ URL::action('Admin\ApartmentController@index') }}">Apartment</a></li>
-			        <li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\ApartmentController@create'])) }}"><a href="{{ URL::action('Admin\ApartmentController@create') }}">Create New</a></li>
-					@can('manage-user')
-			        	<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\TermController@index']) and Active::checkUriPattern(['*apartment*'])) }}"><a href="{{ URL::action('Admin\TermController@index', 'apartment') }}">Term</a></li>
-					@endcan
-			    </ul>
-			</li>
+			
 			<li class="treeview {{ Active::getClassIf(Active::checkController(['App\Http\Controllers\Admin\ReviewController'])) }}">
 			    <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> <span>Review</span></a>
 			    <ul class="nav treeview-menu">

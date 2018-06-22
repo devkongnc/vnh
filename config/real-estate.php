@@ -49,24 +49,11 @@ return [
         ]
                     
     ],
-    'type' => [
-        'name' => '[:ja]住居タイプ[:en]Type[:vi]Hình thức[:]',
-        'group' => 'basic',
-        'type' => 'single',                
-        'values' => [
-            '11' => '[:ja]サービスアパート[:en]Serviced Apt[:vi]Căn hộ dịch vụ[:]',
-            '10' => '[:ja]コンドミニアム[:en]Condo[:vi]Căn hộ[:]',
-            '12' => '[:ja]VILLA[:en]Villa[:vi]Villa[:]',
-            '35' => '[:ja]HOUSE[:en]House[:vi]Nhà phố[:]',
-            '13' => '[:ja]オフィス[:en]Office[:vi]Văn phòng[:]',
-            
-        ]
-                    
-    ],
     'size' => [
         'name' => '[:en]Size[:ja]面積[:vi]Diện tích[:]',
         'group' => 'basic',
-        'type' => 'text',                'unit' => 'm²',
+        'type' => 'text',
+        'unit' => 'm²',
         'values' => [
             '93' => '[:en]100㎡[:ja]100㎡[:vi]100㎡[:]',
             '94' => '[:en]147㎡[:ja]147㎡[:vi]147㎡[:]',
@@ -500,71 +487,6 @@ return [
         ]
                     
     ],
-    'beds' => [
-        'name' => '[:ja]寝室数[:en]Beds[:vi]Phòng ngủ[:]',
-        'group' => 'basic',
-        'type' => 'single',                
-        'values' => [
-            '258' => '[:ja]ワンルーム[:en]Studio[:vi]Studio[:]',
-            '19' => '[:ja]1ベッドルーム[:en]1 Bedroom[:vi]1 phòng[:]',
-            '20' => '[:ja]2ベッドルーム[:en]2 Bedrooms[:vi]2 phòng[:]',
-            '21' => '[:ja]3ベッドルーム[:en]3 Bedrooms[:vi]3 phòng[:]',
-            '22' => '[:ja]4ベッドルーム[:en]4 Bedrooms[:vi]4 phòng[:]',
-            '42' => '[:ja]5ベッドルーム[:en]5 Bedrooms[:vi]5 phòng[:]',
-            '70' => '[:ja]6ベッドルーム[:en]6 Bedrooms[:vi]6 phòng[:]',
-            '71' => '[:ja]7ベッドルーム[:en]7 Bedrooms[:vi]7 phòng[:]',
-            '204' => '[:ja]8ベッドルーム[:en]8 Bedrooms[:vi]8 phòng[:]',
-            '132' => '[:ja]9ベッドルーム[:en]9 Bedrooms[:vi]9 phòng[:]',
-            '205' => '[:ja]10ベッドルーム[:en]10 Bedrooms[:vi]10 phòng[:]',
-            '206' => '[:ja]11ベッドルーム[:en]11 Bedrooms[:vi]11 phòng[:]',
-            '207' => '[:ja]12ベッドルーム[:en]12 Bedrooms[:vi]12 phòng[:]',
-            '208' => '[:ja]13ベッドルーム[:en]13 Bedrooms[:vi]13 phòng[:]',
-            '209' => '[:ja]14ベッドルーム[:en]14 Bedrooms[:vi]14 phòng[:]',
-            '210' => '[:ja]15ベッドルーム[:en]15 Bedrooms[:vi]15 phòng[:]',
-            
-        ]
-                    
-    ],
-    'baths' => [
-        'name' => '[:ja]浴室数[:en]Baths[:vi]Phòng tắm[:]',
-        'group' => 'basic',
-        'type' => 'single',                
-        'values' => [
-            '7' => '[:ja]1バスルーム[:en]1 Bathroom[:vi]1 phòng tắm[:]',
-            '8' => '[:ja]2バスルーム[:en]2 Bathrooms[:vi]2 phòng tắm[:]',
-            '9' => '[:ja]3バスルーム[:en]3 Bathrooms[:vi]3 phòng tắm[:]',
-            '23' => '[:ja]4バスルーム[:en]4 Bathrooms[:vi]4 phòng tắm[:]',
-            '72' => '[:ja]5バスルーム[:en]5 Bathrooms[:vi]5 phòng tắm[:]',
-            '113' => '[:ja]6バスルーム[:en]6 Bathrooms[:vi]6 phòng tắm[:]',
-            '144' => '[:ja]7バスルーム[:en]7 Bathrooms[:vi]7 phòng tắm[:]',
-            '145' => '[:ja]8バスルーム[:en]8 Bathrooms[:vi]8 phòng tắm[:]',
-            '147' => '[:ja]9バスルーム[:en]9 Bathrooms[:vi]9 phòng tắm[:]',
-            '134' => '[:ja]10バスルーム[:en]10 Bathrooms[:vi]10 phòng tắm[:]',
-            '229' => '[:ja]11バスルーム[:en]11 Bathrooms[:vi]11 phòng tắm[:]',
-            '230' => '[:ja]12バスルーム[:en]12 Bathrooms[:vi]12 phòng tắm[:]',
-            '231' => '[:ja]13バスルーム[:en]13 Bathrooms[:vi]13 phòng tắm[:]',
-            '232' => '[:ja]14バスルーム[:en]14 Bathrooms[:vi]14 phòng tắm[:]',
-            '233' => '[:ja]15バスルーム[:en]15 Bathrooms[:vi]15 phòng tắm[:]',
-            
-        ]
-                    
-    ],
-    'time_to_cbd' => [
-        'name' => '[:ja]中心街までの距離[:en]Time to CBD[:vi]Thời gian tới quận 1[:]',
-        'group' => 'basic',
-        'type' => 'single',                
-        'values' => [
-            '87' => '[:ja]中心街まで徒歩圏内[:en]Walking Distance to CBD[:vi]Đi bộ[:]',
-            '78' => '[:ja]中心街まで車で5分程[:en]5min.by car to CBD[:vi]Khoảng 5 phút[:]',
-            '79' => '[:ja]中心街まで車で10分程[:en]10min. by car to CBD[:vi]Khoảng 10 phút[:]',
-            '80' => '[:ja]中心街まで車で15分程[:en]15min. by car to CBD[:vi]Khoảng 15 phút[:]',
-            '81' => '[:ja]中心街まで車で20分程[:en]20min. by car to CBD[:vi]Khoảng 20 phút[:]',
-            '83' => '[:ja]中心街まで車で30分程[:en]30min. by car to CBD[:vi]Khoảng 30 phút[:]',
-            '82' => '[:ja]中心街まで車で30分以上[:en]Over 30min. by car to CBD[:vi]Hơn 30 phút[:]',
-            
-        ]
-                    
-    ],
     'size_rangefor_search' => [
         'name' => '[:ja]面積[:en]Size Range[:vi]Size Range[:]',
         'group' => 'basic',
@@ -581,18 +503,6 @@ return [
             '64' => '[:ja]501㎡ ~ 1000㎡[:en]501㎡ ~ 1000㎡[:vi]501㎡ ~ 1000㎡[:]',
             '544' => '[:ja]1001㎡ ~ 2000㎡[:en]1001㎡ ~ 2000㎡[:vi]1001㎡ ~ 2000㎡[:]',
             '545' => '[:ja]2001㎡以上[:en]2001㎡ ~[:vi]2001㎡ ~[:]',
-            
-        ]
-                    
-    ],
-    'furniture' => [
-        'name' => '[:ja]家具の有無[:en]Furniture[:vi]Vật dụng[:]',
-        'group' => 'basic',
-        'type' => 'single',                
-        'values' => [
-            '84' => '[:ja]家具有り[:en]Fully Furnished[:vi]Đầy đủ[:]',
-            '85' => '[:ja]一部家具有り[:en]Partly Furnished[:vi]Vài thứ[:]',
-            '86' => '[:ja]家具無し[:en]Un Furnished[:vi]Chưa đầy đủ[:]',
             
         ]
                     

@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use DB;
 use App\Estate;
-use App\Apartment;
 use App\Term;
 
 class MigrateRenew extends Command
@@ -43,10 +42,6 @@ class MigrateRenew extends Command
     {
         DB::unprepared('
             UPDATE `estates` SET `area` = 1 WHERE `area` IN (648,759,784,799,803,804,837);
-            /*UPDATE `estates` SET `beds` = 70 WHERE `beds` IN (71,132,204,205,206,207,208,209,210,211,239,240,241,242,243,244,245,246,247,800,835,841);
-            UPDATE `estates` SET `beds` = 258 WHERE `beds` = 339;
-            UPDATE `estates` SET `baths` = 113 WHERE `baths` IN (134,144,145,147,229,230,231,232,233,234,235,236,237,238,801,810,817,836);
-            UPDATE `estates` SET `baths` = 7 WHERE `baths` = 344;*/
             UPDATE `estates` SET `facilities` = REPLACE(`facilities`, \'"]\', \'","1"]\') WHERE MATCH(`facilities`) AGAINST(\'212 213\' IN BOOLEAN MODE);
             UPDATE `estates` SET `surroundings` = REPLACE(`surroundings`, \'"]\', \'","269"]\') WHERE `surroundings` <> \'[]\' AND `facilities` LIKE \'%269%\';
             UPDATE `estates` SET `surroundings` = \'["269"]\' WHERE `surroundings` = \'[]\' AND `facilities` LIKE \'%269%\';
@@ -54,23 +49,10 @@ class MigrateRenew extends Command
             UPDATE `estates` SET `surroundings` = \'["254"]\' WHERE `surroundings` = \'[]\' AND `facilities` LIKE \'%254%\';
         ');
 
-        DB::table('apartments')->delete();
-        DB::statement('ALTER TABLE apartments AUTO_INCREMENT = 1;');
-        $apartments = config('real-estate.building_name.values');
-        foreach ($apartments as $index => $apartment_data) {
-            $title = Term::getLocaleStringAsArray($apartment_data);
-            $apartment = Apartment::create([
-                'title'      => Term::getLocaleStringAsArray($apartment_data),
-                'product_id' => $index,
-                'permalink'  => str_slug($title['en'])
-            ]);
-        }
-        $apartments = Apartment::get()->lists('id', 'product_id')->all();
         $estates = Estate::all();
         $bar = $this->output->createProgressBar(count($estates));
         foreach ($estates as $key => $estate) {
             $estate->size = preg_replace('/\D/', '', $estate->size);
-            if (!empty($estate->building_name_raw)) $estate->apartment_id = $apartments[(int) $estate->building_name_raw];
             $estate->save(['timestamps' => false]);
             $bar->advance();
         }

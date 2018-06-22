@@ -14,7 +14,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class Term {
 
     CONST TYPE_ESTATE    = 1;
-    CONST TYPE_APARTMENT = 2;
+    //CONST TYPE_APARTMENT = 2;
 
     public $_key; # Khóa term
     public $_group; # Nhóm term: basic, details

@@ -28,12 +28,7 @@ $factory->define(App\Estate::class, function (Faker\Generator $faker) {
             $arr[$key] = $faker->randomElement(array_keys($values['values']));
         } else if ($values['type'] == 'multiple') {
             $arr[$key] = $faker->randomElements(array_keys($values['values']));
-        }/* else {
-            if ($key == 'price') {
-                $arr['price'] = $faker->randomNumber(6);
-            } else
-                $arr[$key] = $faker->sentence;
-        }*/
+        }
     }
     $general = [
         'product_id'  => $faker->unique()->numerify("#####"),
@@ -54,18 +49,6 @@ $factory->define(App\EstateTranslate::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(App\Apartment::class, function (Faker\Generator $faker) {
-    return [
-        'product_id'  => $faker->unique()->numberBetween(1, 99),
-        'permalink'   => \Illuminate\Support\Str::slug($faker->sentence),
-        'status'      => 0,
-        'recommend'   => $faker->numberBetween(1, 99),
-        'lat'         => '10.7883447',
-        'lng'         => '106.6955799',
-        'resource_id' => \App\Resource::orderByRaw('RAND()')->first()->id,
-        'area'        => $faker->randomElement(array_keys(config('real-estate.area.values')))
-    ];
-});
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [

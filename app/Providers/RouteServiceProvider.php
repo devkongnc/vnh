@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Apartment;
 use App\Category;
 use App\Estate;
 use App\Review;

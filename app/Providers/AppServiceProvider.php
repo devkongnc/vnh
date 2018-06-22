@@ -24,10 +24,7 @@ class AppServiceProvider extends ServiceProvider
             /*if ($estate->status == Estate::VISIBILITY_PUBLIC or $estate->status == Estate::VISIBILITY_PRIVATE)
                 Queue::push("App\\Estate@updateEstate");*/
         });
-        \App\Apartment::saved(function ($apartment) {
-            Cache::forget('apartments_select');
-            Cache::forget("view.apartment.{$apartment->permalink}");
-        });
+
         \App\Category::saved(function ($category) {
             //Queue::push('App\Category@updateCategory', $category);
         });
