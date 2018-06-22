@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Apartment;
 use App\Category;
 use App\Contact;
 use App\Estate;
@@ -18,7 +17,6 @@ class HomeController extends Controller {
 	public function home() {
 		$data = Cache::remember('view.home', 720, function() {
 			$data['offices'] = 	Estate::with('resource')
-						->where('type', 13)
 						->where('status', 0)
 						->take(9)
 						->get();
@@ -27,7 +25,6 @@ class HomeController extends Controller {
 		});
 		$data['reviews'] = Review::with('resource')->orderBy('id', 'desc')->take(7)->get();
 		$data['categories'] = Category::orderBy('sticky', 'desc')->orderBy('id', 'desc')->take(4)->get();
-		$data['apartments'] = Apartment::with('resource')->orderBy('sticky', 'desc')->orderBy('id', 'desc')->take(3)->get();
 		$data['pages_home'] = [7, 2, 5, 6, 4, 12];
 
 		return view('home', $data);
@@ -92,9 +89,8 @@ class HomeController extends Controller {
 		else $query = $query->orderBy('id', 'desc');
 		# Phân trang
 		$search_estates = $query->paginate(20, ['*'], 'list')->appends($request->except('list'));
-		$apartments = Apartment::withoutGlobalScopes()->public()->get();
 
-		return view('estate.result', compact('search_estates', 'terms', 'order', 'apartments'));
+		return view('estate.result', compact('search_estates', 'terms', 'order'));
 	}
 
 	// add search maps function
@@ -229,7 +225,6 @@ class HomeController extends Controller {
 		Cache::forget('view.home');
 		Cache::forget('new_arrival');
 		Cache::forget('total_estate');
-		Cache::forget('apartments_select');
 		Cache::forget('static_pages');
 		return back();
 	}

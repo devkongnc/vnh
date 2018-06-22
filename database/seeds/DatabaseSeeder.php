@@ -14,11 +14,10 @@ class DatabaseSeeder extends Seeder
         factory(\App\User::class)->create();
         Auth::login(\App\User::first());
         $this->call(ResourceSeeder::class);
-        $this->call(ApartmentSeeder::class);
         $this->call(CategoriesTableSeeder::class);
-        $this->call(RealEstateSeeder::class);
         $this->call(ReviewSeeder::class);
         $this->call(PagesTableSeeder::class);
         $this->call(ContactsTableSeeder::class);
+        $this->call(RealEstateSeeder::class);
     }
 }

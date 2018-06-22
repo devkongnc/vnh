@@ -1,85 +1,99 @@
-<header class="page-{{ !empty(Route::currentRouteName()) ? Route::currentRouteName() : Request::path() }} {{ if_route(['home']) ? 'home' : 'page' }}">
-    <nav>
-        <div class="logo">
-            <a href="{{ route('home') }}"><img src="/images/logo.svg" alt="logo"></a>
+<div class="header">
+    <div id="nav" class="content-l center">
+        <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}" class="logo"><img src="{{ asset('images/new-layout/logo.svg') }}" ></a>
+        <a  onclick="$('.aside').asidebar('open')" class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}" ></a>
+        {{-- <div class="">5</div> --}}
+        <div class="like-page like-number">
+            <a href="#" data-toggle="modal" data-target="#modal-like">
+                <span class="numlike like-count">
+                    <span class="invisible">0</span>
+                </span>
+            </a>
         </div>
-        <!-- <div class="nav-menu">
-            <div class="top-text">@lang('menu.header.slogan')</div>
-            <ul>
-                <li><a href="/">@lang('menu.header.top')</a></li>
-                <li><a href="#">内覧・入居フロー</a></li>
-                <li><a href="#">@lang('menu.header.faq')</a></li>
-                <li><a href="#">不動産オーナー様へ</a></li>
-                <li><a href="/about/company">@lang('menu.header.about')</a></li>
-                <li><a href="/contact">@lang('menu.header.contact')</a></li>
-            </ul>
-        </div> -->
-        <div class="right-top text-uppercase">
-            <a href="#" class="search-phone {{ (if_route(['home'])) ? 'hidden' : '' }}">
-                <span class="icon-search"></span>
-            </a>
-            <a href="tel:@lang('entity.page.contact.contact by phone.number')" class="hotline-phone">
-                <span class="icon-phone"></span>
-            </a>
-            <div class="hotline">
-                <p><span class="icon-phone"></span><a href="tel:@lang('entity.page.contact.contact by phone.number')">@lang('entity.page.contact.contact by phone.number')</a></p>
-            </div>
-            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[11]->permalink) }}" class="contact-link">Contact</a>
-            <div class="like-page">
-                <a href="#" data-toggle="modal" data-target="#modal-like"><span class="numlike like-count"><span class="invisible">0</span></span>Like</a>
-                <span class="desc-like invisible">@lang('front.like hover', ['num' => '<span class="like-count">0</span>'])</span>
-            </div>
-            <div class="menu-toggle">
-                <input id="menu-trigger" class="hidden" type="checkbox" value="">
-                <label for="menu-trigger" type="button" class="menu-trigger-label btn-collapse">
-                    <span class="ico-bar line-1"></span>
-                    <span class="ico-bar line-2"></span>
-                    <span class="ico-bar line-3"></span>
-                </label>
-                <div class="mobile-menu-wrapper" id="mobile-menu-wrapper">
-                    <ul class="list">
-                        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}">@lang('menu.header.top')</a></li>
-                    </ul>
-                    {{ showMenu(null, $menu, $pages_by_id, 1) }}
-                    <ul class="list">
-                        <li class="language hidden-xs">
-                            <a href="#" class="label-toggle">@lang('front.language')</a>
-                            <ul>
-                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <li>
-                                    <a class="lang" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
-                                        {{ $properties['native'] }}
-                                    </a>
-                                </li>
-                            @endforeach
-                            </ul>
-                        </li>
-                    </ul>
-                    <form action="{{ action('HomeController@desktop') }}" method="GET" class="form-inline" role="form">
-                        @if (Cookie::get('vnh_desktop') === NULL)
-                            <button type="submit" name="action" value="desktop" class="desktop-view btn btn-primary visible-xs">@lang('front.view.desktop')</button>
-                        @else
-                            <button type="submit" name="action" value="normal" class="desktop-view btn btn-primary">@lang('front.view.normal')</button>
-                        @endif
-                    </form>
+        <a href="tel:0122-911-2100" class="hotline"><img src="{{ asset('images/new-layout/icon-phone.png') }}"> <span>0122 911 2100</span></a>
+    </div>
+</div>
+
+
+<div class="aside">
+  <div class="aside-header">
+    <span class="close-btn" data-dismiss="aside" aria-hidden="true"><img src="{{ asset('images/new-layout/close.png') }}" ></span>
+  </div>
+  <div class="aside-contents">
+    <ul class="menu-aside">
+        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}">@lang('menu.header.top')</a></li>
+        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/category') }}">Category</a></li>
+        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/area') }}">Support Area</a></li>
+        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/step') }}">Support Step</a></li>
+        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/profile') }}">Company Profile</a></li>
+        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/privacy') }}">Privacy Policy</a></li>
+        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">@lang('menu.contact')</a></li>
+   </ul>
+   <div class="aside-bot">
+        <a href="#" class="search-aside"><img src="{{ asset('images/new-layout/icon-search-f.png') }}" > 住居を探す</a>
+        <ul class="language">
+            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                <li class='{{ ((Lang::locale() === $localeCode) ? "active" : "") }}'>
+                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
+                        {{ $properties['native'] }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+   </div>
+
+  </div>
+</div>
+<div class="aside-backdrop"></div>
+
+<!-- search home page-->
+<?php if (Route::is('home')){ ?>
+<div class="intro-section">
+    <div class="content-l">
+        <div class="img-section">
+                <img src="{{ asset('images/new-layout/top-img.jpg') }}" >
+                <div class="label-intro owl-carousel owl-theme" >
+                    <div class="item">
+                        <img src="{{ asset('images/new-layout/lb-no1.png') }}" >
+                    </div>
+                        <div class="item">
+                        <img src="{{ asset('images/new-layout/lb-no1.png') }}" >
+                    </div>
+                        <div class="item">
+                        <img src="{{ asset('images/new-layout/lb-no1.png') }}" >
+                    </div>
                 </div>
-                <div class="menu-backdrop"></div>
+
+                <h1 class="title-big">心地よいオフィス探しを</h1>
+        </div>
+
+        <div class="content-m">
+
+            @include('partials.search_box')
+
+            <div class="bottom-btn">
+                <a href="#" class="blk-btn">レンタルオフィスをご希望の方</a>
+                <a href="#" class="blk-btn quest-btn">30人規模オフィス面積の算出</a>
             </div>
+
         </div>
-    </nav>
-    @if (!if_route(['home', 'search-advanced']))
-    <div class="top-bar-search hidden-xs hidden-sm">
-        <a class=""><span class="icon-search"></span> @lang('search.title') <span class="btn-open icon-arrow-down"></span></a>
     </div>
-    <div class="wrap-search-box open">
-        @include('partials.search_box')
-    </div>
-    @endif
-    @if (if_route(['home']))
-        <div class="search_home_custom hidden-md hidden-lg">
-            <a href="#" class="search-phone">
-                @lang('search.advanced search') <span class="icon-arrow-down"></span>
-            </a>
+</div>
+<?php } ?>
+
+{{-- breadcrumb --}}
+<?php if (Route::current()->getName() != 'home'){ ?>
+<div class="breadcrumb-blk">
+    <div class="content-l">
+        <div class="row">
+            <div class="col-md-12">
+        <ul>
+            <li><a href="#">トップページ</a></li>
+            <li><a href="#">オフィス特集</a></li>
+            <li><a href="#">とにかくオシャレなオフィス</a></li>
+        </ul>
         </div>
-    @endif
-</header>
+        </div>
+    </div>
+</div>
+<?php } ?>

@@ -17,7 +17,7 @@ class TermController extends Controller
 
     public function __construct() {
         $this->middleware('is_admin');
-        if (str_contains(URL::previous(), 'apartment')) $this->type = Term::TYPE_APARTMENT;
+       // if (str_contains(URL::previous(), 'apartment')) $this->type = Term::TYPE_APARTMENT;
     }
 
     /**
@@ -122,7 +122,8 @@ class TermController extends Controller
         if ($term->_deletable) {
 
             # Rollback migration
-            $table = ($this->type === Term::TYPE_APARTMENT) ? with(new \App\ApartmentTranslate)->getTable() : with(new \App\Estate)->getTable();
+            //$table = ($this->type === Term::TYPE_APARTMENT) ? with(new \App\ApartmentTranslate)->getTable() : with(new \App\Estate)->getTable();
+            $table = with(new \App\Estate)->getTable();
             $file_name_postfix = str_replace('-', '_', "add_{$term->_key}_to_{$table}_table");
             $class = ucfirst(camel_case($file_name_postfix));
             $file = \File::glob(database_path("migrations" . DIRECTORY_SEPARATOR) . "*{$file_name_postfix}*");
@@ -160,7 +161,8 @@ class TermController extends Controller
      */
     private function dynamic_migrate(Request $request, $termKey) {
         # Tạo file migration
-        $table = ($this->type === Term::TYPE_APARTMENT) ? with(new \App\ApartmentTranslate)->getTable() : with(new \App\Estate)->getTable();
+        //$table = ($this->type === Term::TYPE_APARTMENT) ? with(new \App\ApartmentTranslate)->getTable() : with(new \App\Estate)->getTable();
+        $table = with(new \App\Estate)->getTable();
         Artisan::call('make:migration', ['name' => str_replace('-', '_', "add_{$termKey}_to_{$table}_table")]);
 
         # Ghi vào file migrate vừa tạo

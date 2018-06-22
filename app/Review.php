@@ -34,7 +34,7 @@ class Review extends Model
     protected $casts         = ['draft' => 'boolean', 'categories' => 'array', 'locales_only' => 'array'];
 
     public function scopePrivate($query) {
-        if (!auth()->check()) return $query->where('draft', false)->whereIn('status', [Apartment::VISIBILITY_PUBLIC, Apartment::VISIBILITY_PRIVATE]);
+        if (!auth()->check()) return $query->where('draft', false)->whereIn('status', [Estate::VISIBILITY_PUBLIC, Estate::VISIBILITY_PRIVATE]);
         return $query;
     }
 

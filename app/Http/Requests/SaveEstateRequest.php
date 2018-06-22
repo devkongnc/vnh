@@ -28,7 +28,6 @@ class SaveEstateRequest extends Request
             'lng'          => 'numeric|min:0',
             'price'        => 'numeric|min:0',
             'size'         => 'integer|min:0',
-            'apartment_id' => 'integer',
             'resource_id'  => 'integer'
         ];
     }
@@ -46,7 +45,6 @@ class SaveEstateRequest extends Request
             }
         }
 
-        if ($attributes['apartment_id'] == 0) $attributes['apartment_id'] = null;
         if (!isset($attributes['category_ids'])){
             $attributes['category_ids'] = null;
         }

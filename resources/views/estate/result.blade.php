@@ -1,4 +1,4 @@
-@extends('new-layout.base')
+@extends('layout.base')
 
 @section('content')
 <div class="head-search">

@@ -21,12 +21,6 @@
             <priority>0.6</priority>
         </url>
         <url>
-            <loc>{{ action('ApartmentController@index') }}</loc>
-            <lastmod>{{ \Carbon\Carbon::parse(\App\Apartment::orderBy('id', 'desc')->first()->getOriginal('updated_at'))->tz('UTC')->toAtomString() }}</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.6</priority>
-        </url>
-        <url>
             <loc>{{ action('ReviewController@index') }}</loc>
             <lastmod>{{ \Carbon\Carbon::parse(\App\Review::orderBy('id', 'desc')->first()->getOriginal('updated_at'))->tz('UTC')->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
