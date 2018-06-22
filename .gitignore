@@ -2,4 +2,5 @@
 /.idea/
 /nbproject/*
 /storage/*.key
-*.env
+/vendor/
+.env

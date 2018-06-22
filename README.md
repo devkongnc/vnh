@@ -27,4 +27,8 @@
 - JS:
     - Thư mục vendor/: Chứa JS từ github hoặc các nguồn khác.
 
-# vnh
+# vnh renew 2018/06/21
+- Install:
+    - Run:
+    -- 'composer install'
+    -- 'composer update'
