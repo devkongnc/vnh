@@ -19,11 +19,11 @@ trait GeneralModel
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePrivate($query) {
-        if (!auth()->check()) return $query->whereIn('status', [Apartment::VISIBILITY_PUBLIC, Apartment::VISIBILITY_HIDDEN]);
+        if (!auth()->check()) return $query->whereIn('status', [Estate::VISIBILITY_PUBLIC, Estate::VISIBILITY_HIDDEN]);
         return $query;
     }
     public function scopePublic($query) {
-        return $query->where('status', Apartment::VISIBILITY_PUBLIC);
+        return $query->where('status', Estate::VISIBILITY_PUBLIC);
     }
 
     # Events

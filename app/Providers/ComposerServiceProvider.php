@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Apartment;
 use App\Estate;
 use App\Page;
 use App\Resource;
@@ -35,9 +34,7 @@ class ComposerServiceProvider extends ServiceProvider
             $data['total_estate'] = Cache::rememberForever('total_estate', function() {
                 return Estate::withoutGlobalScopes()->public()->count();
             });
-            $data['apartments_select'] = Cache::rememberForever('apartments_select', function() {
-                return Apartment::withoutGlobalScopes()->public()->get();
-            });
+            
             $selectedTerm = (array) json_decode(option('search'), true);
             $selected = [];
             foreach ($selectedTerm as $item) {
@@ -51,7 +48,7 @@ class ComposerServiceProvider extends ServiceProvider
         });
         view()->composer('partials.three-grid', function($view) {
             $data['basic'] = collect(config('real-estate'))->filter(function ($value, $key) {
-                return $value['group'] === 'basic' and in_array($key, ['type', 'size', 'beds', 'baths', 'time_to_cbd']);
+                return $value['group'] === 'basic' and in_array($key, ['size']);
             });
             $data['equipments'] = collect(config('real-estate'))->filter(function($item, $key) { return $item['group'] == 'details' and $key !== 'surroundings'; });
 
@@ -59,7 +56,7 @@ class ComposerServiceProvider extends ServiceProvider
         });
         view()->composer('partials.three-grid-map', function($view) {
             $data['basic'] = collect(config('real-estate'))->filter(function ($value, $key) {
-                return $value['group'] === 'basic' and in_array($key, ['type', 'size', 'beds', 'baths', 'time_to_cbd']);
+                return $value['group'] === 'basic' and in_array($key, ['size']);
             });
             $data['equipments'] = collect(config('real-estate'))->filter(function($item, $key) { return $item['group'] == 'details' and $key !== 'surroundings'; });
 

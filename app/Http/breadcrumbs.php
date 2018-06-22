@@ -64,18 +64,6 @@ Breadcrumbs::register('category', function($breadcrumbs, $page)
 });
 
 
-// Home > Apartments
-Breadcrumbs::register('apartments', function($breadcrumbs)
-{
-    $breadcrumbs->parent('home');
-    $breadcrumbs->push(trans('menu.apartments'), URL::action('ApartmentController@index'));
-});
-//
-Breadcrumbs::register('apartment', function($breadcrumbs, $page)
-{
-    $breadcrumbs->parent('apartments');
-    $breadcrumbs->push(strip_tags($page->title), URL::action('ApartmentController@show', $page->permalink));
-});
 
 // Reviews
 Breadcrumbs::register('reviews', function($breadcrumbs)
