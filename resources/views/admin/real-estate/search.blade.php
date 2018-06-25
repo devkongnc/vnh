@@ -56,6 +56,7 @@
 						<form action="" method="POST" class="box-body form-horizontal nopadding">
 							@include('partials.validations')
 							<div class="sortable first row">
+								@if (!empty($selected) && count($selected))
 								@foreach($selected as $key)
 									<div class="item col-sm-3">
 										<div class="search-term">
@@ -64,17 +65,20 @@
 										</div>
 									</div>
 								@endforeach
+								@endif
 							</div>
 							<hr />
 							<div class="sortable second row">
+								@if (!empty($terms) && count($terms))
 								@foreach($terms as $key => $term)
-									@if (!in_array($key, $selected))
+									@if (is_array($selected) && !in_array($key, $selected))
 										<div class="item col-sm-3">
 											{{ Form::hidden('not_selected[]', $key) }}
 											<div class="search-term">{{ \App\Term::getLocaleValue($term['name']) }}<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
 										</div>
 									@endif
 								@endforeach
+								@endif
 							</div>
 							<hr />
 							<button type="submit" class="btn btn-primary">@lang('admin.common.save')</button>

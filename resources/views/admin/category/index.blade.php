@@ -82,6 +82,7 @@
 											<button type="button" class="btn btn-default insert-media add_media multi" data-toggle="modal" href="#modal-upload"><i class="fa fa-picture-o" aria-hidden="true"></i> @lang('admin.common.upload btn')</button>
 										</div>
 										<div class="images-container sortable">
+										@if (!empty($slides) && count($slides))
 										@foreach ($slides as $index => $slide)
 											{{-- */	$id = $slide->id; /* --}}
 											<div class="item">
@@ -122,6 +123,7 @@
 												</div>
 											</div>
 											@endforeach
+											@endif
 										</div>
 										<div class="form-group">
 										    <div class="col-sm-3 no-padding">

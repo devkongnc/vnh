@@ -39,11 +39,9 @@ class TermController extends Controller
     public function create(Request $request, $type)
     {
         if ($type == 'real-estate') {
-            $term = new Term();
-            return view('admin.real-estate.term-content', compact('term'));
-        } else {
-            return view('admin.apartment.term-content', compact('type'));
         }
+        $term = new Term();
+        return view('admin.real-estate.term-content', compact('term'));
     }
 
     /**
@@ -180,26 +178,6 @@ class TermController extends Controller
 
         # Chạy Artisan migration
         Artisan::call('migrate');
-
-        # Nếu là Apartment thì thêm trường đa ngôn ngữ vào file model
-        /*if ($this->type === Term::TYPE_APARTMENT) {
-            $model_file = app_path('Apartment.php');
-            $lines = file($model_file , FILE_IGNORE_NEW_LINES);
-
-            $multilinguals_num_line = key(preg_grep('/public \$multilinguals/', $lines));
-            $multilinguals_line = str_replace('public ', '', trim($lines[$multilinguals_num_line]));
-
-            eval($multilinguals_line);
-            $multilinguals[] = $termKey;
-            $multilinguals = array_reduce($multilinguals, function($carry, $item) {
-                $carry .= "'" . $item . "', ";
-                return $carry;
-            });
-            $multilinguals = rtrim($multilinguals, ', ');
-
-            $lines[$multilinguals_num_line] = "\tpublic \$multilinguals = [" . $multilinguals . "];";
-            file_put_contents($model_file, implode( "\n", $lines ));
-        }*/
 
     }
 }
