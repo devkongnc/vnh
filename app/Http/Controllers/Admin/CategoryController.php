@@ -24,8 +24,8 @@ class CategoryController extends Controller
     public function index()
     {
         $data['categories'] = Category::with('user')->orderBy('id', 'desc')->get();
-        $data['video']      = json_decode(option('home_video'));
-        $data['slides']     = json_decode(option('home_slider'));
+        $data['video']      = (option('home_video')) ? json_decode(option('home_video')) : '';
+        $data['slides']     = (option('home_slider')) ? json_decode(option('home_slider')) : '';
         $data['resources']  = Resource::whereIn('id', array_pluck((array) $data['slides'], 'id'))->get()->keyBy('id')->all();
         $data['robots']     = File::get(public_path('robots.txt'));
         return view('admin.category.index', $data);

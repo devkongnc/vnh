@@ -62,7 +62,7 @@ function option($name) {
     $option = \Cache::rememberForever('option.' . $name, function() use($name) {
         return \App\Option::where('name', $name)->first();
     });
-    return $option->value;
+    return (!empty($option->value)) ? $option->value : '';
 }
 
 function setOption($name, $value) {
