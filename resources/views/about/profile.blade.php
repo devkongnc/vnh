@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <div class="label-name">URL</div>
-                    <div class="info">http://vietnamhouse.jp</div>
+                    <div class="info">//vietnamhouse.jp</div>
                 </div>
             </form>
             <div class="map-profile">
@@ -48,7 +48,7 @@
                 center: {lat: 10.7920682, lng: 106.7039437},
                 scrollwheel: false,
             });
-            var image = 'http://vietnamhouse.jp/images/localtion-map.png';
+            var image = '//vietnamhouse.jp/images/localtion-map.png';
             var beachMarker = new google.maps.Marker({
                 position: {lat: 10.7920682, lng: 106.7039437},
                 map: map,

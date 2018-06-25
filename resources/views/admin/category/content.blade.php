@@ -17,7 +17,7 @@
 <div class="form-group">
     <label for="permalink" class="col-sm-2 control-label">パーマリンク</label>
     <div class="col-sm-6">
-        <div class="input-group"> <span class="input-group-addon" id="basic-addon1">http://{{ Request::getHost() }}/category/</span>
+        <div class="input-group"> <span class="input-group-addon" id="basic-addon1">//{{ Request::getHost() }}/category/</span>
             {{ Form::text('permalink', $category->permalink, ['id' => 'permalink', 'class' => 'form-control', "placeholder" => "short-link", "required" => "true", 'pattern' => '^[\w\-]+[a-zA-Z\d]$', 'title' => rtrim('.', trans('validation.url', ['attribute' => 'permalink']))]) }}
         </div>
     </div>
