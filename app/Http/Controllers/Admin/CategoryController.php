@@ -24,10 +24,10 @@ class CategoryController extends Controller
     public function index()
     {
         $data['categories'] = Category::with('user')->orderBy('id', 'desc')->get();
-        $data['video']      = (option('home_video')) ? json_decode(option('home_video')) : '';
-        $data['slides']     = (option('home_slider')) ? json_decode(option('home_slider')) : '';
-        $data['resources']  = Resource::whereIn('id', array_pluck((array) $data['slides'], 'id'))->get()->keyBy('id')->all();
-        $data['robots']     = File::get(public_path('robots.txt'));
+        $data['video'] = (option('home_video')) ? json_decode(option('home_video')) : '';
+        $data['slides'] = (option('home_slider')) ? json_decode(option('home_slider')) : '';
+        $data['resources'] = Resource::whereIn('id', array_pluck((array)$data['slides'], 'id'))->get()->keyBy('id')->all();
+        $data['robots'] = File::get(public_path('robots.txt'));
         return view('admin.category.index', $data);
     }
 
@@ -51,13 +51,14 @@ class CategoryController extends Controller
     public function store(CategoryModelRequest $request)
     {
         $category = Category::create($request->all());
-        return redirect()->action('Admin\CategoryController@edit', $category->id)->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.create')]);
+        return redirect()->action('Admin\CategoryController@edit', $category->id)
+            ->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.create')]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -90,101 +91,112 @@ class CategoryController extends Controller
     {
         try {
 
-        $category = Category::findOrFail($id);
-        $aSqlData = (array) $category->sql_data;
-        if(array_key_exists('ids', $aSqlData) && $aSqlData['ids'] != null){
-            $aOldIdEstate = explode(",",  $aSqlData['ids']);
-        } else {
-            $aOldIdEstate = [];
-        }
-
-        $aNewIdEstate = $request->get('sql_data')['ids'];
-        if($aNewIdEstate == null){
-            $aNewIdEstate = [];
-        } else {
-            $aNewIdEstate = explode(",", $aNewIdEstate);
-        }
-
-        $aOldIdEstate = array_diff($aOldIdEstate, $aNewIdEstate);
-
-        foreach($aNewIdEstate as $idEs){
-            $estate = Estate::where('product_id', $idEs)->firstOrFail();
-            if($estate->category_ids == null) {
-                $aIdEs = [];
+            $category = Category::find($id);
+            if (!$category) {
+                return redirect()->back()->withInput()
+                    ->withFlashData(['status' => 'error', 'message' => trans('admin.message.error.not_found_id')]);
+            }
+            $aSqlData = (array)$category->sql_data;
+            if (array_key_exists('ids', $aSqlData) && $aSqlData['ids'] != null) {
+                $aOldIdEstate = explode(",", $aSqlData['ids']);
             } else {
-                $aIdEs = explode(",", $estate->category_ids);
+                $aOldIdEstate = [];
             }
-            if(!in_array($id, $aIdEs)){
-                array_push($aIdEs, $id);
-                $estate->update(["category_ids" => implode(",", $aIdEs)]);
-            }
-        }
 
-        foreach($aOldIdEstate as $idEs){
-            $estate = Estate::where('product_id', $idEs)->firstOrFail();;
-            $aIdEs = explode(",", $estate->category_ids);
-            if(in_array($id, $aIdEs) != false){
-                foreach (array_keys($aIdEs, $id) as $key) {
-                    unset($aIdEs[$key]);
+            $aNewIdEstate = $request->get('sql_data')['ids'];
+            if ($aNewIdEstate == null) {
+                $aNewIdEstate = [];
+            } else {
+                $aNewIdEstate = explode(",", $aNewIdEstate);
+            }
+
+            $aOldIdEstate = array_diff($aOldIdEstate, $aNewIdEstate);
+
+            foreach ($aNewIdEstate as $idEs) {
+                $estate = Estate::where('product_id', $idEs)->first();
+                if ($estate) {
+                    if ($estate->category_ids == null) {
+                        $aIdEs = [];
+                    } else {
+                        $aIdEs = explode(",", $estate->category_ids);
+                    }
+                    if (!in_array($id, $aIdEs)) {
+                        array_push($aIdEs, $id);
+                        $estate->update(["category_ids" => implode(",", $aIdEs)]);
+                    }
+                } else {
+                    return redirect()->back()->withInput()
+                        ->withFlashData(['status' => 'error',
+                            'message' => trans('admin.message.error.not_found_estateId') . " (" . $idEs . ")"]);
                 }
-                $estate->update(["category_ids" => implode(",", $aIdEs)]);
             }
-        }
 
+            foreach ($aOldIdEstate as $idEs) {
+                $estate = Estate::where('product_id', $idEs)->first();
+                if ($estate) {
+                    $aIdEs = explode(",", $estate->category_ids);
+                    if (in_array($id, $aIdEs) != false) {
+                        foreach (array_keys($aIdEs, $id) as $key) {
+                            unset($aIdEs[$key]);
+                        }
+                        $estate->update(["category_ids" => implode(",", $aIdEs)]);
+                    }
+                }
+            }
 
-        $category->update($request->all());
+            $category->update($request->except(['_method', '_token']));
 
-        return redirect()->action('Admin\CategoryController@edit', $category->id)->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
+            return redirect()->action('Admin\CategoryController@edit', $category->id)
+                ->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
 
         } catch (\Exception $e) {
-            echo 'Error: '.$e->getMessage().' Line: '.$e->getLine();
+            echo 'Error: ' . $e->getMessage() . ' Line: ' . $e->getLine();
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect()->action('Admin\CategoryController@index')->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.delete')]);
+        return redirect()->action('Admin\CategoryController@index')
+            ->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.delete')]);
     }
 
-    private function prepareTerm(){
+    private function prepareTerm()
+    {
         $store = new TermRepository([]);
         $term_collection = new Collection($store->currentData);
-        $above = $term_collection->filter(function($item, $key){
+        $above = $term_collection->filter(function ($item, $key) {
             return $item['type'] !== 'multiple' and $key !== 'size';
         });
-        $below = $term_collection->filter(function($item){
+        $below = $term_collection->filter(function ($item) {
             return $item['type'] == 'multiple';
         });
         return compact('below', 'above');
     }
 
-    /*public function result(Category $category){
-        print_r($category->results());
-    }*/
-
-    public function home(Request $request, $option) {
+    public function home(Request $request, $option)
+    {
         switch ($option) {
             case 'home_slider':
                 $images = [];
                 if ($request->has('images')) {
-                    $images  = $request->images;
-                    $firsts = array_map(function($item) {
+                    $images = $request->images;
+                    $firsts = array_map(function ($item) {
                         return getLocaleString($item);
                     }, array_values($request->first));
-                    $seconds = array_map(function($item) {
+                    $seconds = array_map(function ($item) {
                         return getLocaleString($item);
                     }, array_values($request->second));
-                    array_walk($images, function(&$item, $key) use($firsts, $seconds) {
+                    array_walk($images, function (&$item, $key) use ($firsts, $seconds) {
                         $item = [
-                            'id'     => $item,
-                            'first'  => $firsts[$key],
+                            'id' => $item,
+                            'first' => $firsts[$key],
                             'second' => $seconds[$key]
                         ];
                     });
@@ -217,7 +229,8 @@ class CategoryController extends Controller
                     'second' => getLocaleString($request->second)
                 ], JSON_FORCE_OBJECT));
 
-                return redirect()->action('Admin\CategoryController@index')->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
+                return redirect()->action('Admin\CategoryController@index')
+                    ->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
                 break;
             case 'partner':
                 setOption('partner', $request->partner);
@@ -229,6 +242,7 @@ class CategoryController extends Controller
                 break;
         }
 
-        return redirect()->action('Admin\CategoryController@index')->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
+        return redirect()->action('Admin\CategoryController@index')
+            ->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
     }
 }

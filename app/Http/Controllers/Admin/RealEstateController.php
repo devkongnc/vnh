@@ -14,6 +14,7 @@ use Excel;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Psy\Exception\ErrorException;
 
 class RealEstateController extends Controller
 {
@@ -156,9 +157,17 @@ class RealEstateController extends Controller
     public function update(SaveEstateRequest $request, $id)
     {
         try {
-
             $estate = Estate::findOrFail($id);
 
+            //Check product_id exists
+            $product_id_new = !empty($request->product_id) ? $request->product_id : 0;
+            $product_id_old = $estate->product_id;
+            $flag_change_product_id = false;
+            if ($product_id_new != $product_id_old) {
+                $flag_change_product_id = true;
+            }
+
+            //detect Old & New category add or remove
             if ($request->get('category_ids') != null) {
                 $aIdCate = $request->get('category_ids');
             } else {
@@ -174,40 +183,56 @@ class RealEstateController extends Controller
             }
             $aDiffOld = array_diff($aOldIdCate, $aIdCate);
 
+            //adding category
             foreach ($aIdCate as $idCate) {
-                $category = Category::findOrFail($idCate);
-                $sqlData = (array)$category->sql_data;
+                $category = Category::find($idCate);
+                if ($category) {
+                    $sqlData = (array)$category->sql_data;
+                    if (!array_key_exists('ids', $sqlData) || $sqlData['ids'] == null) {
+                        $aIdEstate = [];
+                    } else {
+                        $aIdEstate = explode(",", $sqlData['ids']);
+                    }
 
-                if (!array_key_exists('ids', $sqlData) || $sqlData['ids'] == null) {
-                    $aIdEstate = [];
-                } else {
-                    $aIdEstate = explode(",", $sqlData['ids']);
+                    $find_item = array_search($product_id_old, $aIdEstate);
+                    if ($flag_change_product_id && $find_item !== false) {
+                        unset($aIdEstate[$find_item]);
+                    }
+
+                    if (!in_array($product_id_new, $aIdEstate)) {
+                        array_push($aIdEstate, $product_id_new);
+                    }
+
+                    $sqlData['ids'] = implode(",", $aIdEstate);
+                    $category->update(['sql_data' => $sqlData]);
                 }
-
-                if (!in_array($id, $aIdEstate)) {
-                    array_push($aIdEstate, $id);
-                }
-                $sqlData['ids'] = implode(",", $aIdEstate);
-
-                $category->update(['sql_data' => $sqlData]);
-
             }
 
+            //removing category
             foreach ($aDiffOld as $idCate) {
-                $category = Category::findOrFail($idCate);
+                $category = Category::find($idCate);
                 $sqlData = (array)$category->sql_data;
                 if (array_key_exists('ids', $sqlData) && $sqlData['ids'] != null) {
                     $aIdEstate = explode(",", $sqlData['ids']);
-                    if (in_array($id, $aIdEstate)) {
-                        foreach (array_keys($aIdEstate, $id) as $key) {
-                            unset($aIdEstate[$key]);
-                        }
+
+                    $find_item = array_search($product_id_old, $aIdEstate);
+                    if (in_array($product_id_old, $aIdEstate)) {
+                        unset($aIdEstate[$find_item]);
                     }
                     $sqlData['ids'] = implode(",", $aIdEstate);
                     $category->update(['sql_data' => $sqlData]);
                 }
             }
-            $estate->update(array_merge($request->except(['term', 'sticky', 'category_ids']), (array)$request->get('term'), ['category_ids' => implode(",", $aIdCate)]));
+
+            $merge_request = array_merge(
+                            $request->except(['term', 'sticky', 'category_ids', '_method', '_token']),
+                            (array)$request->get('term'),
+                            ['category_ids' => implode(",", $aIdCate)]);
+            if (!empty($merge_request['anniversary'])) {
+                $merge_request['anniversary'] = date('Y-m-d', strtotime(str_replace('/', '-', $merge_request['anniversary'])));
+            }
+
+            $estate->update($merge_request);
 
             $images = [];
             if ($request->has('images')) {
@@ -223,7 +248,7 @@ class RealEstateController extends Controller
             return back()->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
         } catch (\Exception $e) {
             echo 'Error: '.$e->getMessage().' Line: '.$e->getLine();
-            die();
+            exit();
         }
     }
 

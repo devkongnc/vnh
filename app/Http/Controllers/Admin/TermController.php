@@ -159,7 +159,6 @@ class TermController extends Controller
      */
     private function dynamic_migrate(Request $request, $termKey) {
         # Tạo file migration
-        //$table = ($this->type === Term::TYPE_APARTMENT) ? with(new \App\ApartmentTranslate)->getTable() : with(new \App\Estate)->getTable();
         $table = with(new \App\Estate)->getTable();
         Artisan::call('make:migration', ['name' => str_replace('-', '_', "add_{$termKey}_to_{$table}_table")]);
 

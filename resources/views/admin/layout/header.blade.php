@@ -62,7 +62,7 @@
 			        @can('manage-user')
 						<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\TermController@index']) and Active::checkUriPattern(['*real-estate*'])) }}"><a href="{{ URL::action('Admin\TermController@index', 'real-estate') }}">Term</a></li>
 					@endcan
-			        <li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\RealEstateController@search'])) }}"><a href="{{ URL::action('Admin\RealEstateController@search') }}">Search</a></li>
+			        {{--<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\RealEstateController@search'])) }}"><a href="{{ URL::action('Admin\RealEstateController@search') }}">Search</a></li>--}}
 			    </ul>
 			</li>
 			

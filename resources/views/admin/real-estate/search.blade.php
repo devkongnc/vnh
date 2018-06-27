@@ -54,6 +54,10 @@
 					<div class="box box-solid">
 						{!! Form::open(['action' => 'Admin\RealEstateController@search', 'method' => 'POST']) !!}
 						<form action="" method="POST" class="box-body form-horizontal nopadding">
+							<?php
+								//dd($terms);
+							?>
+
 							@include('partials.validations')
 							<div class="sortable first row">
 								@if (!empty($selected) && count($selected))
@@ -65,13 +69,15 @@
 										</div>
 									</div>
 								@endforeach
+									@else
+									<?php $selected = []; ?>
 								@endif
 							</div>
 							<hr />
 							<div class="sortable second row">
 								@if (!empty($terms) && count($terms))
 								@foreach($terms as $key => $term)
-									@if (is_array($selected) && !in_array($key, $selected))
+									@if (!in_array($key, $selected))
 										<div class="item col-sm-3">
 											{{ Form::hidden('not_selected[]', $key) }}
 											<div class="search-term">{{ \App\Term::getLocaleValue($term['name']) }}<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
@@ -99,13 +105,13 @@
 			cursor: "move"
 	    });
 
-	    $('.sortable.first').on('click', '.glyphicon', function(event) {
+	    $('.sortable.first').on('click', '.glyphicon', function() {
 	    	if ($('.sortable.first > .item').length <= 1) return;
 			$(this).parents('.item').find('input').attr('name', 'not_selected[]');
 	    	$(this).attr('class', 'glyphicon glyphicon-plus').parents('.item').appendTo('.sortable.second');
 	    });
 
-	    $('.sortable.second').sortable('disable').on('click', '.glyphicon', function(event) {
+	    $('.sortable.second').sortable('disable').on('click', '.glyphicon', function() {
 			$(this).parents('.item').find('input').attr('name', 'selected[]');
 	    	$(this).attr('class', 'glyphicon glyphicon-remove').parents('.item').appendTo('.sortable.first');
 	    });
