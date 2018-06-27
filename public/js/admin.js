@@ -13,7 +13,7 @@ $.extend( true, $.fn.dataTable.defaults, {
     },
     dom: 'lfiprtp',
     language: {
-        url: 'http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/' + current_lang_name + '.json'
+        url: '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/' + current_lang_name + '.json'
     }
 });
 
@@ -108,7 +108,7 @@ $(document).ready(function(){
 
     $('input').iCheck({
         checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_square-blue',
+        radioClass: 'iradio_square-blue'
     });
 
     $('select').select2();

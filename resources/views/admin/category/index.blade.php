@@ -199,22 +199,22 @@
 							</div>
 						</div>
 					</div>
-					<div class="box box-solid">
-						<form action="{{ action('Admin\CategoryController@home', 'partner') }}" method="POST" class="box-body">
-							{{ csrf_field() }}
-							<h3 class="block-title">FOOTER パートナー</h3>
-							<div class="form-group row">
-								<div class="col-sm-9">
-									{{ Form::textarea('partner', option('partner'), ['class' => 'form-control']) }}
-								</div>
-							</div>
-							<div class="form-group">
-							    <div class="col-sm-3 no-padding">
-							        <button type="submit" class="block-full-width btn btn-lg btn-primary">@lang('admin.common.save')</button>
-							    </div>
-							</div>
-						</form>
-					</div>
+					{{--<div class="box box-solid">--}}
+						{{--<form action="{{ action('Admin\CategoryController@home', 'partner') }}" method="POST" class="box-body">--}}
+							{{--{{ csrf_field() }}--}}
+							{{--<h3 class="block-title">FOOTER パートナー</h3>--}}
+							{{--<div class="form-group row">--}}
+								{{--<div class="col-sm-9">--}}
+									{{--{{ Form::textarea('partner', option('partner'), ['class' => 'form-control']) }}--}}
+								{{--</div>--}}
+							{{--</div>--}}
+							{{--<div class="form-group">--}}
+							    {{--<div class="col-sm-3 no-padding">--}}
+							        {{--<button type="submit" class="block-full-width btn btn-lg btn-primary">@lang('admin.common.save')</button>--}}
+							    {{--</div>--}}
+							{{--</div>--}}
+						{{--</form>--}}
+					{{--</div>--}}
 					<div class="box box-solid">
 						<form action="{{ action('Admin\CategoryController@home', 'robots') }}" method="POST" class="box-body">
 							{{ csrf_field() }}
