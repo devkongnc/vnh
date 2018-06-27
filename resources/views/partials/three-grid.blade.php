@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="title-number">
-                        <h2>{{ $item->product_id }}</h2>
+                        <h2> <a href="{{ URL::action('RealEstateController@show', $item->product_id) }}">{{ $item->product_id }}</a></h2>
                         <div class="btn-like like" data-id="{{ $item->id }}"><img src="{{ asset('images/new-layout/icon-heart.png') }}" ></div>
                     </div>
                     <a href="{{ URL::action('RealEstateController@show', $item->product_id) }}">
@@ -45,6 +45,7 @@
                             <td class="tdr">{{ $item->updated_at }}</td>
                         </tr>
                     </table>
+
                     <ul class="house-feature">
                         <?php $count = 0; ?>
                         @foreach($equipments as $key => $data)

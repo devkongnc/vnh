@@ -103,7 +103,32 @@ class RealEstateController extends Controller
     {
         DB::beginTransaction();
         try {
-            $new_estate = Estate::create(array_merge($request->except(['term', 'sticky']), (array) $request->get('term')));
+            $new_estate = Estate::create(
+                array_merge(
+                    $request->except(['term', 'sticky', 'category_ids', '_method', '_token']),
+                    (array) $request->get('term'),
+                    ['category_ids' => implode(",", (array)$request->get('category_ids'))]
+                 )
+            );
+
+            //adding category
+            if (!empty($request->get('category_ids')) &&  count($request->get('category_ids')) > 0) {
+                foreach ($request->get('category_ids') as $idCate) {
+                    $category = Category::find($idCate);
+                    if ($category) {
+                        $sqlData = (array)$category->sql_data;
+                        if (!array_key_exists('ids', $sqlData) || $sqlData['ids'] == null) { $aIdEstate = [];}
+                            else { $aIdEstate = explode(",", $sqlData['ids']); }
+
+                        if (!in_array($new_estate->product_id, $aIdEstate)) {
+                            array_push($aIdEstate, $new_estate->product_id);
+                        }
+
+                        $sqlData['ids'] = implode(",", $aIdEstate);
+                        $category->update(['sql_data' => $sqlData]);
+                    }
+                }
+            }
 
             if ($request->has('images')) {
                 foreach ($request->images as $key => $value) {
@@ -211,16 +236,18 @@ class RealEstateController extends Controller
             //removing category
             foreach ($aDiffOld as $idCate) {
                 $category = Category::find($idCate);
-                $sqlData = (array)$category->sql_data;
-                if (array_key_exists('ids', $sqlData) && $sqlData['ids'] != null) {
-                    $aIdEstate = explode(",", $sqlData['ids']);
+                if ($category) {
+                    $sqlData = (array)$category->sql_data;
+                    if (array_key_exists('ids', $sqlData) && $sqlData['ids'] != null) {
+                        $aIdEstate = explode(",", $sqlData['ids']);
 
-                    $find_item = array_search($product_id_old, $aIdEstate);
-                    if (in_array($product_id_old, $aIdEstate)) {
-                        unset($aIdEstate[$find_item]);
+                        $find_item = array_search($product_id_old, $aIdEstate);
+                        if (in_array($product_id_old, $aIdEstate)) {
+                            unset($aIdEstate[$find_item]);
+                        }
+                        $sqlData['ids'] = implode(",", $aIdEstate);
+                        $category->update(['sql_data' => $sqlData]);
                     }
-                    $sqlData['ids'] = implode(",", $aIdEstate);
-                    $category->update(['sql_data' => $sqlData]);
                 }
             }
 

@@ -2,7 +2,7 @@
 
 return array (
   'home' => 'Trang chủ',
-  'categories' => 'Các anh mục đặc biệt',
+  'categories' => 'Danh mục văn phòng',
   'review' => 'Blog',
   'apartments' => 'Các chung cư',
   'contact' => 'Liên lạc',

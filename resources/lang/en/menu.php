@@ -2,7 +2,7 @@
 
 return array (
   'home' => 'Home',
-  'categories' => 'Special Feature',
+  'categories' => 'Office Special Feature',
   'review' => 'Blog',
   'apartments' => 'Condo',
   'contact' => 'Contact',

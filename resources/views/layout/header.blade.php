@@ -22,12 +22,7 @@
   <div class="aside-contents">
     <ul class="menu-aside">
         <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}">@lang('menu.header.top')</a></li>
-        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/category') }}">Category</a></li>
-        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/area') }}">Support Area</a></li>
-        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/step') }}">Support Step</a></li>
-        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/profile') }}">Company Profile</a></li>
-        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/privacy') }}">Privacy Policy</a></li>
-        <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">@lang('menu.contact')</a></li>
+        {{ showMenu(null, $menu, $pages_by_id, 1) }}
    </ul>
    <div class="aside-bot">
         <a href="#" class="search-aside"><img src="{{ asset('images/new-layout/icon-search-f.png') }}" > 住居を探す</a>
@@ -51,7 +46,23 @@
 <div class="intro-section">
     <div class="content-l">
         <div class="img-section">
-                <img src="{{ asset('images/new-layout/top-img.jpg') }}" >
+            <?php
+
+                if(!empty($slides) && !empty($resources) && count($resources) > 0) {
+                    foreach ($resources as $resource) {
+                        $url_banner = 'upload/'.$resource->folder.$resource->filename;
+                        if (file_exists($url_banner)) {
+                            break;
+                        } else {
+                            $url_banner = '';
+                        }
+                    }
+                }
+                if($url_banner == '') {
+                    $url_banner = 'images/new-layout/top-img.jpg';
+                }
+            ?>
+                <img src="{{ asset($url_banner) }}" />
                 <div class="label-intro owl-carousel owl-theme" >
                     <div class="item">
                         <img src="{{ asset('images/new-layout/lb-no1.png') }}" >
@@ -64,35 +75,16 @@
                     </div>
                 </div>
 
-                <h1 class="title-big">心地よいオフィス探しを</h1>
+                <h1 class="title-big">@lang('front.banner_title')</h1>
         </div>
 
         <div class="content-m">
-
             @include('partials.search_box')
-
             <div class="bottom-btn">
                 <a href="#" class="blk-btn">レンタルオフィスをご希望の方</a>
                 <a href="#" class="blk-btn quest-btn">30人規模オフィス面積の算出</a>
             </div>
 
-        </div>
-    </div>
-</div>
-<?php } ?>
-
-{{-- breadcrumb --}}
-<?php if (Route::current()->getName() != 'home'){ ?>
-<div class="breadcrumb-blk">
-    <div class="content-l">
-        <div class="row">
-            <div class="col-md-12">
-        <ul>
-            <li><a href="#">トップページ</a></li>
-            <li><a href="#">オフィス特集</a></li>
-            <li><a href="#">とにかくオシャレなオフィス</a></li>
-        </ul>
-        </div>
         </div>
     </div>
 </div>
