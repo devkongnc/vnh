@@ -27,12 +27,12 @@
 <div class="form-group">
     <label for="updated-at" class="col-sm-2 control-label nopadding">@lang('admin.review.updated at')</label>
     <div class="col-sm-2">
-        <input type="text" name="custom_updated_at" id="updated-at" class="form-control estate-timestamps datetimepicker" data-date-format="dd/mm/yyyy" value="{{ $estate->updated_at }}" readonly="">
+        <input type="text" name="custom_updated_at" id="updated-at" class="form-control estate-timestamps" data-date-format="dd/mm/yyyy" value="{{ $estate->updated_at }}" readonly="">
     </div>
 </div>
 @endif
 <div class="form-group">
-    <label for="category_id" class="col-sm-2 control-label nopadding">@lang('admin.entity.category')</label>
+    <label for="category_ids" class="col-sm-2 control-label nopadding">@lang('admin.entity.category')</label>
     <div class="col-sm-10">
         <select name="category_ids[]" id="category_ids" class="selectpicker form-control" multiple>
             @foreach(\App\Category::all() as $value)
@@ -50,8 +50,11 @@
     @foreach($above as $key => $data)
         <label for="{{$key}}" class="col-sm-2 control-label nopadding">{{ \App\Term::getLocaleValue($data['name']) }}</label>
         <div class="col-sm-2">
-            @if (in_array($key, ['price', 'size']))
+            @if (in_array($key, ['price', 'size', 'floor', 'commiss']))
                 {{ Form::number("term[{$key}]", (int) $estate->{$key}, ['min' => 0, 'class' => 'form-control', 'id' => $key]) }}
+            @elseif (in_array($key, ['anniversary']))
+                {{ Form::text("term[{$key}]", ($estate->{$key} != "0000-00-00" && !empty($estate->{$key}))?(string) date('d/m/Y', strtotime($estate->{$key})) : '',
+                 ['data-date-format' => 'dd/mm/yyyy', 'autocomplete' => 'off' , 'class' => 'form-control datetimepicker', 'id' => $key]) }}
             @elseif ($data['type'] == 'text')
                 {{ Form::text("term[{$key}]", $estate->{$key}, ['class' => 'form-control', 'id' => $key]) }}
             @elseif($data['type'] == 'single')
@@ -152,7 +155,7 @@
                 map: map
             });
 
-            google.maps.event.addListener(init_marker, 'dragend', function (event) {
+            google.maps.event.addListener(init_marker, 'dragend', function () {
                 document.getElementById("lat").value = this.getPosition().lat();
                 document.getElementById("lng").value = this.getPosition().lng();
             });
@@ -193,7 +196,7 @@
                         position: place.geometry.location,
                         draggable: true
                     });
-                    google.maps.event.addListener(marker, 'dragend', function (event) {
+                    google.maps.event.addListener(marker, 'dragend', function () {
                         document.getElementById("lat").value = this.getPosition().lat();
                         document.getElementById("lng").value = this.getPosition().lng();
                     });
@@ -218,7 +221,7 @@
             }
         });
 
-        $btn_map.click(function(event) {
+        $btn_map.click(function() {
             var lat = $lat.val(), lng = $lng.val();
             if (!$.isNumeric(lat) || !$.isNumeric(lng)) {
                 toastr.error('Lat and lng must be numeric');
@@ -245,7 +248,7 @@
 
         jQuery.fn.reverse = [].reverse;
 
-        $size.blur(function(event) {
+        $size.blur(function() {
             var size = $(this).val().match(/\d+/);
             if (size === null) return;
             size = parseInt(size[0]);

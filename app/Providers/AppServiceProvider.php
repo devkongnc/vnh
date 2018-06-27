@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         \App\Category::saved(function ($category) {
-            //Queue::push('App\Category@updateCategory', $category);
+            Queue::push('App\Category@updateCategory', $category);
         });
         \App\Page::saved(function ($page) {
             Cache::forget('static_pages');

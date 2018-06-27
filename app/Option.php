@@ -8,5 +8,5 @@ class Option extends Model
 {
 	public $timestamps = false;
 
-	protected $fillable = ['value'];
+	protected $fillable = ['name','value'];
 }

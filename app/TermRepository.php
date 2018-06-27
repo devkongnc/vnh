@@ -44,8 +44,10 @@ class TermRepository
             if ($item->_deletable) {
                 $this->currentData[$item->key]['deletable'] = true;
             }
-            if ($item->key === 'size')
+            if ($item->key === 'size') {
                 $this->currentData[$item->key]['unit'] = 'm²';
+            }
+
             if ($this->fileName == 'real-estate.php') {
                 $this->currentData[$item->key]['type'] = $item->type;
                 # Set Null các giá trị term bị xóa ở estate và apartment

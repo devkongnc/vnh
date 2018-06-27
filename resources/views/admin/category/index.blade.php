@@ -12,6 +12,9 @@
 		.box-body > .tab-content {
 			padding-top: 30px;
 		}
+		button.set-featured {
+			text-decoration: none;
+		}
 	</style>
 @stop
 
@@ -32,7 +35,14 @@
 					<div class="box box-solid">
 						<div class="box-body">
 							@include('partials.validations')
-							<p class="statistic"><span style="margin-right: 1em;">@lang('admin.common.total') <span class="badge">{{ $categories->count() }}</span></span><span>@lang('admin.common.hidden') <span class="badge">{{ $categories->filter(function($value, $key) { return $value->status === \App\Category::VISIBILITY_HIDDEN; })->count() }}</span></span></p>
+							<p class="statistic">
+								<span style="margin-right: 1em;">@lang('admin.common.total')
+									<span class="badge">{{ $categories->count() }}</span>
+								</span>
+								<span>@lang('admin.common.hidden')
+									<span class="badge">{{ $categories->filter(function($value) { return $value->status === \App\Category::VISIBILITY_HIDDEN; })->count() }}</span>
+								</span>
+							</p>
 							<p><a class="btn btn-lg btn-primary" href="{{ action('Admin\CategoryController@create') }}" role="button">新規登録</a></p>
 							<table class="table table-bordered" width="100%" cellspacing="0">
 								<thead>
@@ -66,20 +76,20 @@
 					<div class="box box-solid">
 						<div class="box-body">
 							<h3 class="block-title">TOPバナー</h3>
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="{{ option('home_banner') === 'slider' ? 'active' : '' }}">
-									<a href="#home-slider" aria-controls="home-slider" role="tab" data-toggle="tab">Slider</a>
-								</li>
-								<li role="presentation" class="{{ option('home_banner') === 'video' ? 'active' : '' }}">
-									<a href="#home-video" aria-controls="home-video" role="tab" data-toggle="tab">Video</a>
-								</li>
-							</ul>
+							{{--<ul class="nav nav-tabs" role="tablist">--}}
+								{{--<li role="presentation" class="{{ option('home_banner') === 'slider' ? 'active' : '' }}">--}}
+									{{--<a href="#home-slider" aria-controls="home-slider" role="tab" data-toggle="tab">Slider</a>--}}
+								{{--</li>--}}
+								{{--<li role="presentation" class="{{ option('home_banner') === 'video' ? 'active' : '' }}">--}}
+									{{--<a href="#home-video" aria-controls="home-video" role="tab" data-toggle="tab">Video</a>--}}
+								{{--</li>--}}
+							{{--</ul>--}}
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane {{ option('home_banner') === 'slider' ? 'active' : '' }}" id="home-slider">
 									<form action="{{ action('Admin\CategoryController@home', 'home_slider') }}" method="POST">
 										{{ csrf_field() }}
 										<div class="form-group">
-											<button type="button" class="btn btn-default insert-media add_media multi" data-toggle="modal" href="#modal-upload"><i class="fa fa-picture-o" aria-hidden="true"></i> @lang('admin.common.upload btn')</button>
+											<button type="button" class="btn btn-default insert-media add_media set-featured" data-toggle="modal" href="#modal-upload"><i class="fa fa-picture-o" aria-hidden="true"></i> @lang('admin.common.upload btn')</button>
 										</div>
 										<div class="images-container sortable">
 										@if (!empty($slides) && count($slides))
@@ -132,60 +142,60 @@
 										</div>
 									</form>
 								</div>
-								<div role="tabpanel" class="tab-pane {{ option('home_banner') === 'video' ? 'active' : '' }}" id="home-video">
-									<form action="{{ action('Admin\CategoryController@home', 'home_video') }}" method="POST" enctype="multipart/form-data">
-										{{ csrf_field() }}
-										@if ($video and $video->url)
-											<div class="form-group">
-												<video src="{{ $video->url }}" controls></video>
-											</div>
-										@endif
-										<div class="form-group">
-											<input type="file" name="video">
-										</div>
-										<div class="row form-group">
-											<div class="col-sm-6">
-												<ul class="property-languages list-unstyled">
-												    @foreach($all_locales as $localeCode => $properties)
-												        <li class="{{ ($current_locale == $localeCode) ? 'active' : '' }}">
-												            <a href="#video-first-{{ $localeCode }}" data-toggle="tab" data-tab-lang="{{ $localeCode }}">{{{ $properties['native'] }}}</a>
-												        </li>
-												    @endforeach
-												</ul>
-												<div class="tab-content">
-												    @foreach($all_locales as $localeCode => $properties)
-												        <div class="tab-pane {{ ($current_locale == $localeCode) ? 'active' : '' }}" id="video-first-{{ $localeCode }}">
-												            {{ Form::text("first[{$localeCode}]", array_get($video ? getLocaleStringAsArray($video->first) : [], $localeCode), ['class' => 'form-control', 'data-lang' => $localeCode]) }}
-												        </div>
-												    @endforeach
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-6">
-												<ul class="property-languages list-unstyled">
-												    @foreach($all_locales as $localeCode => $properties)
-												        <li class="{{ ($current_locale == $localeCode) ? 'active' : '' }}">
-												            <a href="#video-second-{{ $localeCode }}" data-toggle="tab" data-tab-lang="{{ $localeCode }}">{{{ $properties['native'] }}}</a>
-												        </li>
-												    @endforeach
-												</ul>
-												<div class="tab-content">
-												    @foreach($all_locales as $localeCode => $properties)
-												        <div class="tab-pane {{ ($current_locale == $localeCode) ? 'active' : '' }}" id="video-second-{{ $localeCode }}">
-												            {{ Form::text("second[{$localeCode}]", array_get($video ? getLocaleStringAsArray($video->second) : [], $localeCode), ['class' => 'form-control', 'data-lang' => $localeCode]) }}
-												        </div>
-												    @endforeach
-												</div>
-											</div>
-										</div>
-										<div class="row">
-										    <div class="col-sm-3">
-										        <button type="submit" class="block-full-width btn btn-lg btn-primary">@lang('admin.common.save')</button>
-										    </div>
-										</div>
-									</form>
-								</div>
+								{{--<div role="tabpanel" class="tab-pane {{ option('home_banner') === 'video' ? 'active' : '' }}" id="home-video">--}}
+									{{--<form action="{{ action('Admin\CategoryController@home', 'home_video') }}" method="POST" enctype="multipart/form-data">--}}
+										{{--{{ csrf_field() }}--}}
+										{{--@if ($video and $video->url)--}}
+											{{--<div class="form-group">--}}
+												{{--<video src="{{ $video->url }}" controls></video>--}}
+											{{--</div>--}}
+										{{--@endif--}}
+										{{--<div class="form-group">--}}
+											{{--<input type="file" name="video">--}}
+										{{--</div>--}}
+										{{--<div class="row form-group">--}}
+											{{--<div class="col-sm-6">--}}
+												{{--<ul class="property-languages list-unstyled">--}}
+												    {{--@foreach($all_locales as $localeCode => $properties)--}}
+												        {{--<li class="{{ ($current_locale == $localeCode) ? 'active' : '' }}">--}}
+												            {{--<a href="#video-first-{{ $localeCode }}" data-toggle="tab" data-tab-lang="{{ $localeCode }}">{{{ $properties['native'] }}}</a>--}}
+												        {{--</li>--}}
+												    {{--@endforeach--}}
+												{{--</ul>--}}
+												{{--<div class="tab-content">--}}
+												    {{--@foreach($all_locales as $localeCode => $properties)--}}
+												        {{--<div class="tab-pane {{ ($current_locale == $localeCode) ? 'active' : '' }}" id="video-first-{{ $localeCode }}">--}}
+												            {{--{{ Form::text("first[{$localeCode}]", array_get($video ? getLocaleStringAsArray($video->first) : [], $localeCode), ['class' => 'form-control', 'data-lang' => $localeCode]) }}--}}
+												        {{--</div>--}}
+												    {{--@endforeach--}}
+												{{--</div>--}}
+											{{--</div>--}}
+										{{--</div>--}}
+										{{--<div class="row">--}}
+											{{--<div class="col-sm-6">--}}
+												{{--<ul class="property-languages list-unstyled">--}}
+												    {{--@foreach($all_locales as $localeCode => $properties)--}}
+												        {{--<li class="{{ ($current_locale == $localeCode) ? 'active' : '' }}">--}}
+												            {{--<a href="#video-second-{{ $localeCode }}" data-toggle="tab" data-tab-lang="{{ $localeCode }}">{{{ $properties['native'] }}}</a>--}}
+												        {{--</li>--}}
+												    {{--@endforeach--}}
+												{{--</ul>--}}
+												{{--<div class="tab-content">--}}
+												    {{--@foreach($all_locales as $localeCode => $properties)--}}
+												        {{--<div class="tab-pane {{ ($current_locale == $localeCode) ? 'active' : '' }}" id="video-second-{{ $localeCode }}">--}}
+												            {{--{{ Form::text("second[{$localeCode}]", array_get($video ? getLocaleStringAsArray($video->second) : [], $localeCode), ['class' => 'form-control', 'data-lang' => $localeCode]) }}--}}
+												        {{--</div>--}}
+												    {{--@endforeach--}}
+												{{--</div>--}}
+											{{--</div>--}}
+										{{--</div>--}}
+										{{--<div class="row">--}}
+										    {{--<div class="col-sm-3">--}}
+										        {{--<button type="submit" class="block-full-width btn btn-lg btn-primary">@lang('admin.common.save')</button>--}}
+										    {{--</div>--}}
+										{{--</div>--}}
+									{{--</form>--}}
+								{{--</div>--}}
 							</div>
 						</div>
 					</div>
@@ -232,7 +242,7 @@
 	<script type="text/javascript">
 		String.prototype.capitalizeFirstLetter = function() {
 		    return this.charAt(0).toUpperCase() + this.slice(1);
-		}
+		};
 
 		function lang_input(name, id) {
 			var html_id = name + '-' + id;
@@ -252,21 +262,22 @@
 			';
 		}
 
-		dropzone_multi.destroy();
-		dropzone_multi = new Dropzone("#upload-multi", {
+        dropzone_single.destroy();
+        dropzone_single = new Dropzone("#upload-single", {
 		    url: '{{ LaravelLocalization::getNonLocalizedURL(action('Admin\ResourceController@upload')) }}',
-		    parallelUploads: 5,
+            maxFiles:1,
 		    maxFilesize: 3,
-		    paramName: 'upload',
-		    uploadMultiple: true,
+		    paramName: 'upload[]',
+		    uploadMultiple: false,
 		    thumbnailWidth: 150,
 		    thumbnailHeight: 150,
 		    acceptedFiles: 'image/*',
 		    sending: function(file, xhr, formData) {
 		        formData.append("dir", 'home');
 		    },
-		    successmultiple: function(files, response) {
+		    success: function(files, response) {
 		        images_html = '';
+		        console.log(response);
 		        for (var i = 0; i < response.length; i++) {
 		            images_html += '\
 			            <div class="item">\
@@ -278,7 +289,7 @@
 			            '</div>\
 		            ';
 		        }
-		        $images_container.append(images_html);
+		        $images_container.html(images_html);
 		    }
 		});
 
