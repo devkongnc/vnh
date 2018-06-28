@@ -12,15 +12,15 @@ return [
 		5 => 'house'
     ],
     'district' => [
-		24  => 'district1',
-		25  => 'district2',
-		26  => 'district3',
-		98  => 'district4',
-		319 => 'district5',
-		27  => 'binhthanh',
-		30  => 'phunhuan',
-		36  => 'tanbinh',
-		28  => 'district7',
-		568 => 'district10',
+		1  => 'district1',
+		2  => 'district2',
+		3  => 'district3',
+		4  => 'district4',
+		5 => 'district5',
+		6  => 'district7',
+		7 => 'district10',
+		8  => 'binhthanh',
+		9  => 'phunhuan',
+		10  => 'tanbinh',
     ]
 ];

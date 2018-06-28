@@ -1,13 +1,9 @@
 {!! Form::open(['action' => 'HomeController@search', 'id' => 'front-search', 'method' => 'GET']) !!}
 <?php
-$price = explode(",", isset($terms['price'])? $terms['price'] : '0,5000');
+$price = explode(",", isset($terms['price'])? $terms['price'] : '0,500000');
 $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
 ?>
 <div class="advanced-search {{ if_route(['home']) ? '' : 'active' }}">
-    @if (if_route(['home']))
-        <div class="logo-ho"><img src="{{ asset('images/new-layout/logo-ho.png') }}"></div>
-    @endif
-
     <div class="range-section">
         <form>
             <div class="row">
@@ -80,6 +76,10 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
 <script>
 
     $(document).ready(function () {
+        var price_max_search = '{{ $price[1] }}';
+        var price_min_search = '{{ $price[0] }}';
+        var size_max_search = '{{ $size[1] }}';
+        var size_min_search = '{{ $size[0] }}';
 
         function ajaxSearch() {
             var frontSearch = $("form[id='front-search']");
@@ -121,9 +121,9 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
 
         $('.range-slider').jRange({
             from: 0,
-            to: 5000,
+            to: price_max_search,
             step: 1,
-            scale: [0, 5000],
+            scale: [price_min_search, price_max_search],
             format: '%s',
             width: 300,
             showLabels: true,
@@ -143,9 +143,9 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
         });
         $('.range-slider2').jRange({
             from: 0,
-            to: 5000,
+            to: size_max_search,
             step: 1,
-            scale: [0, 5000],
+            scale: [size_min_search, size_max_search],
             format: '%s',
             width: 300,
             showLabels: true,
@@ -192,7 +192,7 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
                 }
 
                 if (isNaN(price_max)) {
-                    price_max = 5000;
+                    price_max = price_max_search;
                 }
 
                 if (price_min <= price_max && price_min <= 5000) {
@@ -215,7 +215,7 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
          $("#price-max").change(function (e) {
              var price_max = parseInt($("#price-max").val());
              if (isNaN(price_max)) {
-                 $("#price-max").val("5000");
+                 $("#price-max").val(price_max_search);
              }
 
          });
@@ -229,10 +229,10 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
                 }
 
                 if (isNaN(price_max)) {
-                    price_max = 5000;
+                    price_max = price_max_search;
                 }
 
-                if (price_max >= price_min && price_max <= 5000) {
+                if (price_max >= price_min && price_max <= price_max_search) {
                     $('.range-slider').jRange('setValue', price_min + "," + price_max);
                     ajaxSearch();
                 }
@@ -250,10 +250,10 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
                 }
 
                 if (isNaN(area_max)) {
-                    area_max = 5000;
+                    area_max = size_max_search;
                 }
 
-                if (area_min <= area_max && area_min <= 5000) {
+                if (area_min <= area_max && area_min <= size_max_search) {
                     $('.range-slider2').jRange('setValue', area_min + "," + area_max);
                     ajaxSearch();
                 }
@@ -275,7 +275,6 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
             if (isNaN(area_max)) {
                 $("#area-max").val("0");
             }
-
         });
 
         $("#area-max").keyup(function (e) {
@@ -287,10 +286,10 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
                 }
 
                 if (isNaN(area_max)) {
-                    area_max = 5000;
+                    area_max = size_max_search;
                 }
 
-                if (area_max >= area_min && area_max <= 5000) {
+                if (area_max >= area_min && area_max <= size_max_search) {
                     $('.range-slider2').jRange('setValue', area_min + "," + area_max);
                     ajaxSearch();
                 }

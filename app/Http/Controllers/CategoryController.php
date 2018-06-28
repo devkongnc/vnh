@@ -31,13 +31,17 @@ class CategoryController extends Controller
     {
         $category = Category::withoutGlobalScopes()->private()->with('resource')->where('permalink', $permalink)->firstOrFail();
         $query = $category->results();
+
         # Order kết quả
         $order = $request->get('order', session('search_order', 'id-desc'));
         session(['search_order' => $order]);
         $orderExploded = explode("-", $order);
         # Giới hạn thuộc tính sắp xếp
-        if (in_array($orderExploded[0], config('override.order field'))) $query = $query->orderBy($orderExploded[0], $orderExploded[1]);
-        else $query->orderBy('id', 'desc');
+        if (in_array($orderExploded[0], config('override.order field'))) {
+            $query = $query->orderBy($orderExploded[0], $orderExploded[1]);
+        } else {
+            $query->orderBy('id', 'desc');
+        }
         # Phân trang
         $results = $query->paginate(20);
 

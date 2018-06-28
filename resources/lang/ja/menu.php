@@ -2,7 +2,7 @@
 
 return array (
   'home' => 'トップページ',
-  'categories' => '特集一覧ページ',
+  'categories' => 'オフィス特集',
   'review' => 'ブログ',
   'apartments' => 'コンドミニアム',
   'contact' => 'お問い合わせ',

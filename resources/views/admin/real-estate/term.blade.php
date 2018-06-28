@@ -58,7 +58,14 @@
                             <h3>@lang('admin.apartment.basic')</h3>
                             <table class="table table-hover term">
                                 <tbody>
-                                    {{--*/ $basic = array_filter(Config::get('real-estate'), function($item) { return $item['group'] == 'basic'; }) /*; --}}
+                                    <?php
+                                    $conf_real_estate = is_array(Config::get('real-estate')) ? Config::get('real-estate') : [];
+                                    if (!empty($conf_real_estate) && count($conf_real_estate) > 0 ) {
+                                        $basic = array_filter(Config::get('real-estate'), function($item) { return $item['group'] == 'basic'; });
+                                    } else {
+                                        $basic = [];
+                                    } ?>
+                                    @if (!empty($basic))
                                     @foreach($basic as $key => $data)
                                         <tr>
                                             <td>{{ \App\Term::getLocaleValue($data['name']) }}</td>
@@ -70,6 +77,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -77,7 +85,14 @@
                             <h3>@lang('admin.apartment.equipment')</h3>
                             <table class="table table-hover term">
                                 <tbody>
-                                {{--*/ $details = array_filter(Config::get('real-estate'), function($item) { return $item['group'] == 'details'; } ); /*; --}}
+                                <?php
+                                if (!empty($conf_real_estate) && count($conf_real_estate) > 0 ) {
+                                    $details = array_filter(Config::get('real-estate'), function($item) { return $item['group'] == 'details'; });
+                                } else {
+                                    $details = [];
+                                }
+                                ?>
+                                @if (!empty($details))
                                 @foreach($details as $key => $data)
                                     <tr>
                                         <td>{{ \App\Term::getLocaleValue($data['name']) }}</td>
@@ -89,6 +104,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>
@@ -234,7 +250,7 @@
             });
 
             table.on('row-reorder', function ( e, diff, edit ) {
-                console.log(dif);
+                console.log(diff);
             });
 
             table.on('click', '.btn-danger', function (event) {

@@ -5,15 +5,15 @@ return [
         'group' => 'basic',
         'type' => 'single',                
         'values' => [
-            '387' => '[:ja]無し[:en]Non[:vi]Không [:]',
-            '382' => '[:ja]× 1[:en]× 1[:vi]× 1[:]',
-            '383' => '[:ja]× 2[:en]× 2[:vi]× 2[:]',
-            '384' => '[:ja]× 3[:en]× 3[:vi]× 3[:]',
-            '385' => '[:ja]× 4[:en]× 4[:vi]× 4[:]',
-            '386' => '[:ja]× 5[:en]× 5[:vi]× 5[:]',
-            '405' => '[:ja]× 6[:en]× 6[:vi]× 6[:]',
-            '795' => '[:ja]× 7[:en]× 7[:vi]× 7[:]',
-            '708' => '[:ja]× 12[:en]× 12[:vi]× 12[:]',
+            '1' => '[:ja]無し[:en]Non[:vi]Không [:]',
+            '2' => '[:ja]× 1[:en]× 1[:vi]× 1[:]',
+            '3' => '[:ja]× 2[:en]× 2[:vi]× 2[:]',
+            '4' => '[:ja]× 3[:en]× 3[:vi]× 3[:]',
+            '5' => '[:ja]× 4[:en]× 4[:vi]× 4[:]',
+            '6' => '[:ja]× 5[:en]× 5[:vi]× 5[:]',
+            '7' => '[:ja]× 6[:en]× 6[:vi]× 6[:]',
+            '8' => '[:ja]× 7[:en]× 7[:vi]× 7[:]',
+            '9' => '[:ja]× 12[:en]× 12[:vi]× 12[:]',
             
         ]
                     
@@ -23,8 +23,8 @@ return [
         'group' => 'basic',
         'type' => 'single',                
         'values' => [
-            '350' => '[:ja]ホーチミン市[:en]Ho Chi Minh City[:vi]Hồ Chí Minh[:]',
-            '351' => '[:ja]ハノイ市[:en]Hanoi City[:vi]Hà Nội[:]',
+            '1' => '[:ja]ホーチミン市[:en]Ho Chi Minh City[:vi]Hồ Chí Minh[:]',
+            '2' => '[:ja]ハノイ市[:en]Hanoi City[:vi]Hà Nội[:]',
             
         ]
                     
@@ -34,17 +34,17 @@ return [
         'group' => 'basic',
         'type' => 'single',                
         'values' => [
-            '24' => '[:ja]１区[:en]District 1[:vi]Quận 1[:]',
-            '25' => '[:ja]２区[:en]District 2[:vi]Quận 2[:]',
-            '26' => '[:ja]３区[:en]District 3[:vi]Quận 3[:]',
-            '98' => '[:ja]４区[:en]District 4[:vi]Quận 4[:]',
-            '319' => '[:ja]５区[:en]District 5[:vi]Quận 5[:]',
-            '28' => '[:ja]７区[:en]District 7[:vi]Quận 7[:]',
-            '568' => '[:ja]10区[:en]District 10[:vi]Quận 10[:]',
-            '27' => '[:ja]ビンタン区[:en]Binh Thanh[:vi]Bình Thạnh[:]',
-            '30' => '[:ja]フーニャン区[:en]Phu Nhuan[:vi]Phú Nhuận[:]',
-            '36' => '[:ja]タンビン区[:en]Tan Binh[:vi]Tân Bình[:]',
-            '1' => '[:ja]その他エリア[:en]Other Area[:vi]Quận khác[:]',
+            '1' => '[:ja]１区[:en]District 1[:vi]Quận 1[:]',
+            '2' => '[:ja]２区[:en]District 2[:vi]Quận 2[:]',
+            '3' => '[:ja]３区[:en]District 3[:vi]Quận 3[:]',
+            '4' => '[:ja]４区[:en]District 4[:vi]Quận 4[:]',
+            '5' => '[:ja]５区[:en]District 5[:vi]Quận 5[:]',
+            '6' => '[:ja]７区[:en]District 7[:vi]Quận 7[:]',
+            '7' => '[:ja]10区[:en]District 10[:vi]Quận 10[:]',
+            '8' => '[:ja]ビンタン区[:en]Binh Thanh[:vi]Bình Thạnh[:]',
+            '9' => '[:ja]フーニャン区[:en]Phu Nhuan[:vi]Phú Nhuận[:]',
+            '10' => '[:ja]タンビン区[:en]Tan Binh[:vi]Tân Bình[:]',
+            '11' => '[:ja]その他エリア[:en]Other Area[:vi]Quận khác[:]',
             
         ]
                     
@@ -54,6 +54,7 @@ return [
         'group' => 'basic',
         'type' => 'text',                'unit' => 'm²',
         'values' => [
+<<<<<<< HEAD
             '93' => '[:ja]100㎡[:en]100㎡[:vi]100㎡[:]',
             '94' => '[:ja]147㎡[:en]147㎡[:vi]147㎡[:]',
             '95' => '[:ja]91㎡[:en]91㎡[:vi]91㎡[:]',
@@ -384,6 +385,8 @@ return [
             '692' => '[:ja]108㎡[:en]108㎡[:vi]108㎡[:]',
             '693' => '[:ja]310㎡[:en]310㎡[:vi]310㎡[:]',
             '695' => '[:ja]546㎡[:en]546㎡[:vi]546㎡[:]',
+=======
+>>>>>>> 529a4bca899d779aaa7d00fdd0d6a6da6cebf85f
             
         ]
                     
@@ -393,17 +396,17 @@ return [
         'group' => 'basic',
         'type' => 'single',                
         'values' => [
-            '31' => '[:ja]50㎡以下[:en]~ 50㎡[:vi]~ 50㎡[:]',
-            '62' => '[:ja]51㎡ ~ 100㎡[:en]51㎡ ~ 100㎡[:vi]51㎡ ~ 100㎡[:]',
-            '32' => '[:ja]101㎡ ~ 150㎡[:en]101㎡ ~ 150㎡[:vi]101㎡ ~ 150㎡[:]',
-            '34' => '[:ja]151㎡ ~ 200㎡[:en]151㎡ ~ 200㎡[:vi]151㎡ ~ 200㎡[:]',
-            '55' => '[:ja]201㎡ ~ 250㎡[:en]201㎡ ~ 250㎡[:vi]201㎡ ~ 250㎡[:]',
-            '56' => '[:ja]251㎡ ~ 300㎡[:en]251㎡ ~ 300㎡[:vi]251㎡ ~ 300㎡[:]',
-            '63' => '[:ja]301㎡ ~ 400㎡[:en]301㎡ ~ 400㎡[:vi]301㎡ ~ 400㎡[:]',
-            '33' => '[:ja]401㎡ ~ 500㎡[:en]401㎡ ~ 500㎡[:vi]401㎡ ~ 500㎡[:]',
-            '64' => '[:ja]501㎡ ~ 1000㎡[:en]501㎡ ~ 1000㎡[:vi]501㎡ ~ 1000㎡[:]',
-            '544' => '[:ja]1001㎡ ~ 2000㎡[:en]1001㎡ ~ 2000㎡[:vi]1001㎡ ~ 2000㎡[:]',
-            '545' => '[:ja]2001㎡以上[:en]2001㎡ ~[:vi]2001㎡ ~[:]',
+            '1' => '[:ja]50㎡以下[:en]~ 50㎡[:vi]~ 50㎡[:]',
+            '2' => '[:ja]51㎡ ~ 100㎡[:en]51㎡ ~ 100㎡[:vi]51㎡ ~ 100㎡[:]',
+            '3' => '[:ja]101㎡ ~ 150㎡[:en]101㎡ ~ 150㎡[:vi]101㎡ ~ 150㎡[:]',
+            '4' => '[:ja]151㎡ ~ 200㎡[:en]151㎡ ~ 200㎡[:vi]151㎡ ~ 200㎡[:]',
+            '5' => '[:ja]201㎡ ~ 250㎡[:en]201㎡ ~ 250㎡[:vi]201㎡ ~ 250㎡[:]',
+            '6' => '[:ja]251㎡ ~ 300㎡[:en]251㎡ ~ 300㎡[:vi]251㎡ ~ 300㎡[:]',
+            '7' => '[:ja]301㎡ ~ 400㎡[:en]301㎡ ~ 400㎡[:vi]301㎡ ~ 400㎡[:]',
+            '8' => '[:ja]401㎡ ~ 500㎡[:en]401㎡ ~ 500㎡[:vi]401㎡ ~ 500㎡[:]',
+            '9' => '[:ja]501㎡ ~ 1000㎡[:en]501㎡ ~ 1000㎡[:vi]501㎡ ~ 1000㎡[:]',
+            '10' => '[:ja]1001㎡ ~ 2000㎡[:en]1001㎡ ~ 2000㎡[:vi]1001㎡ ~ 2000㎡[:]',
+            '11' => '[:ja]2001㎡以上[:en]2001㎡ ~[:vi]2001㎡ ~[:]',
             
         ]
                     
@@ -413,15 +416,15 @@ return [
         'group' => 'details',
         'type' => 'multiple',                
         'values' => [
-            '283' => '[:ja]VAT[:en]VAT[:vi]VAT[:]',
-            '284' => '[:ja]管理費[:en]Management Fee[:vi]Phí quản lý[:]',
-            '197' => '[:ja]インターネット+TV[:en]Internet + TV[:vi]Phí Internet[:]',
-            '194' => '[:ja]電気代[:en]Electricity[:vi]Phí điện[:]',
-            '196' => '[:ja]水道代[:en]Water[:vi]Phí nước[:]',
-            '200' => '[:ja]掃除サービス[:en]Room Cleaning[:vi]Phí dọn vệ sinh[:]',
-            '203' => '[:ja]プール利用料[:en]Pool Entrance[:vi]Phí vào hồ bơi[:]',
-            '202' => '[:ja]ジム利用料[:en]Gym Entrance[:vi]Phí vào phòng tập[:]',
-            '201' => '[:ja]洗濯サービス[:en]Laundry Service[:vi]Phí giặt[:]',
+            '1' => '[:ja]VAT[:en]VAT[:vi]VAT[:]',
+            '2' => '[:ja]管理費[:en]Management Fee[:vi]Phí quản lý[:]',
+            '3' => '[:ja]インターネット+TV[:en]Internet + TV[:vi]Phí Internet[:]',
+            '4' => '[:ja]電気代[:en]Electricity[:vi]Phí điện[:]',
+            '5' => '[:ja]水道代[:en]Water[:vi]Phí nước[:]',
+            '6' => '[:ja]掃除サービス[:en]Room Cleaning[:vi]Phí dọn vệ sinh[:]',
+            '7' => '[:ja]プール利用料[:en]Pool Entrance[:vi]Phí vào hồ bơi[:]',
+            '8' => '[:ja]ジム利用料[:en]Gym Entrance[:vi]Phí vào phòng tập[:]',
+            '9' => '[:ja]洗濯サービス[:en]Laundry Service[:vi]Phí giặt[:]',
             
         ]
                     
@@ -432,6 +435,7 @@ return [
         'type' => 'multiple',                
         'values' => [
             '1' => '[:ja]プール[:en]Pool[:vi]Hồ bơi[:]',
+<<<<<<< HEAD
             '212' => '[:ja]プライベートプール[:en]Private Pool[:vi]Hồ bơi riêng[:]',
             '213' => '[:ja]共用プール[:en]Shared Pool[:vi]Hồ bơi chung[:]',
             '214' => '[:ja]ジム[:en]Gym[:vi]Phòng tập thể dục[:]',
@@ -439,6 +443,18 @@ return [
             '217' => '[:ja]バルコニー[:en]Balcony[:vi]Ban công[:]',
             '422' => '[:ja]エレベーター[:en]Elevator[:vi]Thang máy[:]',
             '576' => '[:ja]コンパウンド[:en]Compound[:vi]Compound[:]',
+=======
+            '2' => '[:ja]プライベートプール[:en]Private Pool[:vi]Hồ bơi riêng[:]',
+            '3' => '[:ja]共用プール[:en]Shared Pool[:vi]Hồ bơi chung[:]',
+            '4' => '[:ja]ジム[:en]Gym[:vi]Phòng tập thể dục[:]',
+            '5' => '[:ja]キッチン[:en]Kitchen[:vi]Bếp[:]',
+            '6' => '[:ja]バスタブ[:en]Bathtub[:vi]Bồn tắm[:]',
+            '7' => '[:ja]お部屋に洗濯機[:en]Washer in unit[:vi]Máy giặt[:]',
+            '8' => '[:ja]バルコニー[:en]Balcony[:vi]Ban công[:]',
+            '9' => '[:ja]エレベーター[:en]Elevator[:vi]Thang máy[:]',
+            '10' => '[:ja]コンパウンド[:en]Compound[:vi]Compound[:]',
+            '11' => '[:ja]ペットOK[:en]Pet-Friendly[:vi]Pet OK[:]',
+>>>>>>> 529a4bca899d779aaa7d00fdd0d6a6da6cebf85f
             
         ]
                     
@@ -449,11 +465,65 @@ return [
         'type' => 'multiple',                
         'values' => [
             '1' => '[:ja]有人受付[:en]Front Desk[:vi]Bàn tiếp tân[:]',
-            '269' => '[:ja]警備員24/24[:en]Security Guard[:vi]Bảo vệ[:]',
-            '254' => '[:ja]発電機[:en]Generator[:vi]Máy phát điện[:]',
-            '583' => '[:ja]陽当たり良し[:en]Sunny[:vi]Nhiều ánh sáng[:]',
-            '2' => '[:ja]門限無し[:en]No Curfew[:vi]Không giờ giới nghiêm[:]',
-            '580' => '[:ja]買物便利[:en]Near Market[:vi]Mua hàng tiện lợi[:]',
+            '2' => '[:ja]警備員24/24[:en]Security Guard[:vi]Bảo vệ[:]',
+            '3' => '[:ja]発電機[:en]Generator[:vi]Máy phát điện[:]',
+            '4' => '[:ja]陽当たり良し[:en]Sunny[:vi]Nhiều ánh sáng[:]',
+            '5' => '[:ja]門限無し[:en]No Curfew[:vi]Không giờ giới nghiêm[:]',
+            '6' => '[:ja]買物便利[:en]Near Market[:vi]Mua hàng tiện lợi[:]',
+            
+        ]
+                    
+    ],
+    'address' => [
+        'name' => '[:ja][:en]Address[:vi][:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'contract_limit' => [
+        'name' => '[:ja][:en]Contract Limit[:vi][:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'floor' => [
+        'name' => '[:ja][:en]Floor[:vi][:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'conditioning_system' => [
+        'name' => '[:ja][:en]Conditioning System[:vi][:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'anniversary' => [
+        'name' => '[:ja][:en]Anniversary[:vi][:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'commiss' => [
+        'name' => '[:ja][:en]Commissions[:vi][:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
             
         ]
                     

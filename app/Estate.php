@@ -31,10 +31,15 @@ class Estate extends Model
         'facilities',
         'inclusive',
         'surroundings',
+        'address',
+        'contract_limit',
+        'floor',
+        'conditioning_system',
+        'anniversary',
+        'commiss',
         'size_rangefor_search',
         'building_name',
         'user_id',
-        'term_13'
         ];
 
     public $multilinguals = ['title', 'description', 'meta_keywords', 'meta_description', 'meta_title'];
