@@ -33,4 +33,4 @@
         - 'composer install'
         - 'composer update'
 - Setup:
-    - Test
+    - Test 2
