@@ -69,4 +69,5 @@ You could also search for the page again by either of the following links.',
             'television' => 'Pest control',
         ),
     'banner_title' => 'Looking for a comfortable office',
+    'top_search_toggle' => 'Office Search',
 );

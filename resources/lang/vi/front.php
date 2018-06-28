@@ -68,4 +68,5 @@ Vui lòng truy cập một lần nữa bằng một trong hai cách sau.',
         ),
 
     'banner_title' => 'Tìm kiếm văn phòng tiện nghi',
+    'top_search_toggle' => 'Tìm kiếm',
 );

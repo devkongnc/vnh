@@ -68,4 +68,5 @@ return array(
             'search by id' => 'ID、キーワード',
         ),
     'banner_title' => '心地よいオフィス探しを',
+    'top_search_toggle' => 'オフィス検索',
 );
