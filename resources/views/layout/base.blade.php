@@ -73,7 +73,7 @@
         <a href="tel:0122-911-2100" class="hotline"><img src="{{ asset('images/new-layout/icon-phone.png') }}"> <span>0122 911 2100</span></a>
         {{-- search all page --}}
         <div class="search-hidden">
-            <a class="open-search-hidden">オフィス検索</a>
+            <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
             <section class="wrap-search-box">
                 @include('partials.search_box')
             </section>

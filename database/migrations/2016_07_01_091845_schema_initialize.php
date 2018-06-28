@@ -32,6 +32,12 @@ class SchemaInitialize extends Migration
             $table->text('facilities');
             $table->text('inclusive');
             $table->text('surroundings');
+            $table->string('	address', 250)->nullable();
+            $table->string('contract_limit', 250)->nullable();
+            $table->integer('floor')->nullable();
+            $table->string('conditioning_system	', 250)->nullable();
+            $table->date('anniversary')->nullable();
+            $table->integer('commiss')->nullable();
             $table->smallInteger('size_rangefor_search')->unsigned();
             $table->smallInteger('building_name')->unsigned();
             $table->integer('user_id')->unsigned()->nullable();
