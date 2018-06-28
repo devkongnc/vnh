@@ -32,3 +32,5 @@
     - Run:
         - 'composer install'
         - 'composer update'
+- Setup:
+    - Test
