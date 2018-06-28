@@ -127,59 +127,59 @@ return [
             '4' => '[:ja]陽当たり良し[:en]Sunny[:vi]Nhiều ánh sáng[:]',
             '5' => '[:ja]門限無し[:en]No Curfew[:vi]Không giờ giới nghiêm[:]',
             '6' => '[:ja]買物便利[:en]Near Market[:vi]Mua hàng tiện lợi[:]',
-            
+
         ]
-                    
+
     ],
     'address' => [
         'name' => '[:ja][:en]Address[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',                
+        'type' => 'text',
         'values' => [
-            
+
         ]
-                    
+
     ],
     'contract_limit' => [
         'name' => '[:ja][:en]Contract Limit[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',                
+        'type' => 'text',
         'values' => [
-            
+
         ]
-                    
+
     ],
     'floor' => [
         'name' => '[:ja][:en]Floor[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',                
+        'type' => 'text',
         'values' => [
-            
+
         ]
-                    
+
     ],
     'conditioning_system' => [
         'name' => '[:ja][:en]Conditioning System[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',                
+        'type' => 'text',
         'values' => [
-            
+
         ]
-                    
+
     ],
     'anniversary' => [
         'name' => '[:ja][:en]Anniversary[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',                
+        'type' => 'text',
         'values' => [
-            
+
         ]
-                    
+
     ],
     'commiss' => [
         'name' => '[:ja][:en]Commissions[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',                
+        'type' => 'text',
         'values' => [
             
         ]

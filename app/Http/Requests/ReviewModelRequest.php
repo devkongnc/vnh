@@ -12,7 +12,6 @@ class ReviewModelRequest extends Request
      */
     public function authorize()
     {
-        //TODO: Kiểm tra quyền
         return true;
     }
 
