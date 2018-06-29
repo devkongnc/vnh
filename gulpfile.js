@@ -10,6 +10,14 @@ elixir.config.css.autoprefix = {
     }
 };
 
+var gulp = require('gulp');
+var newer = require('gulp-newer');
+var rename = require('gulp-rename');
+var minifyCss = require('gulp-minify-css');
+
+cssSrc = 'public/css/common/css-custom.css';//Your css source directory
+cssDest = 'public/css/';//Your css destination directory
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -23,47 +31,62 @@ elixir.config.css.autoprefix = {
 
 elixir(function(mix) {
     mix
-        .copy('resources/assets/js/*.js', 'public/js')
-        .copy('resources/assets/images/', 'public/images/')
-        .browserSync({
-            proxy: 'vnh.app'
-        })
-    ;
-
-    mix
-        .sass('app.scss')
-        .sass('vendor.scss')
-        // .scripts('main.js', 'public/js/main.js')
-        .scripts('three-grid.js', 'public/js/three-grid.js')
-        .scripts([
-            'vendor/owl.carousel.min.js',
-            'vendor/ion.rangeSlider.js',
-            'vendor/bootstrap-select.min.js',
-            'vendor/jquery.sticky.js',
-            'vendor/jquery.lazyload.min.js'
-        ], 'public/js/vendor.js')
-    ;
-    mix.version(['css/app.css','js/main.js']);
-
-    /*mix
-        .sass('admin.scss')
-        .copy('resources/assets/js/vendor/ckeditor', 'public/js/ckeditor')
+        //common library
+        /*
         .styles([
-            'font-awesome.min.css', 'ionicons.min.css',
-            'bootstrap.min.css', 'select2.min.css',
-            'AdminLTE.min.css', '_all-skins.min.css', 'orange.css',
-            'datepicker3.css', 'daterangepicker-bs3.css',
-            'jquery.dataTables.min.css', 'select.dataTables.min.css', 'nestable.css',
-            'bootstrap-datepicker3.standalone.min.css',
-            'blue.css'
-        ], 'public/css/vendor_admin.css')
+            'bootstrap.css',
+            'animate.css',
+            'owl.carousel.min.css',
+            'owl.theme.default.min.css',
+            'gallery.css',
+            'jquery.range.css',
+            'bootstrap-slider.min.css',
+        ], 'public/css/css-lib.css', 'public/css/common/')
+
         .scripts([
-            'vendor/jquery-1.12.2.min.js', 'vendor/jquery-ui.min.js',
-            'vendor/bootstrap.min.js', 'vendor/select2.min.js',
-            'vendor/moment.min.js', 'vendor/daterangepicker.js', 'vendor/bootstrap-datepicker.js',
-            'vendor/jquery.dataTables.min.js', 'vendor/dataTables.select.min.js', 'vendor/jquery.nestable.js',
-            'vendor/app-admin.js',
-            'vendor/icheck.min.js'
-        ], 'public/js/vendor_admin.js')
-    ;*/
+            'bootstrap.min.js',
+            'jquery.easing.min.js',
+            'jquery.wow.min.js',
+            'wow.min.js',
+            'owl.carousel.js',
+            'gallery.js',
+            'asidebar.jquery.js',
+            'jquery.range.js',
+            'modernizr.custom.js'
+        ], 'public/js/jquery-plugin.js', 'public/js/common/')
+        */
+        //custom js
+        .scripts([
+            'three-grid.js',
+            'main.js',
+            'scripts.js'
+        ], 'public/js/js-custom.js', 'public/js/custom/')
+
+        //custom ccs
+        .styles([
+            'style.css',
+            'responsive.css'
+        ], 'public/css/common/css-custom.css', 'public/css/custom/')
+
+    ;
+
+    //minifycss
+    mix.task('cssTask','public/css/common/css-custom.css');
+
+    //build hash for custom
+    mix.version(['css/css-custom.min.css','js/js-custom.js']);
+
 });
+
+gulp.task('cssTask', function() {
+    return gulp.src(cssSrc)
+        .pipe(newer(cssDest))//compares the css source and css destination(css files)
+        .pipe(rename('css-custom.min.css'))
+        .pipe(minifyCss())//minify css
+        .pipe(gulp.dest(cssDest));//save minified css in destination directory
+});
+
+// gulp.task('custom', function() {
+//     gulp.watch(cssSrc, ['cssTask']);//watch your css source and call css task
+// });
+

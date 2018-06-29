@@ -23,24 +23,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- CSS Files
     ================================================== -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/new-layout/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/new-layout/animate.css') }}">
-    <!-- Owl Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('css/new-layout/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/new-layout/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/new-layout/gallery.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/new-layout/jquery.range.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/new-layout/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/new-layout/responsive.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/new-layout/bootstrap-slider.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/css-lib.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ elixir('css/css-custom.min.css') }}">
 
-    <script src="{{ asset('js/new-layout/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/new-layout/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/new-layout/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('js/new-layout/jquery.wow.min.js') }}"></script>
-    <script src="{{ asset('js/new-layout/wow.min.js') }}"></script>
-    <script src="{{ asset('js/new-layout/owl.carousel.js') }}"></script>
-    <script src="{{ asset('js/new-layout/gallery.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-plugin.js') }}"></script>
 
     <style type="text/css">
         <?php if (App::isLocale('ja')) { ?>
@@ -86,14 +73,8 @@
 @yield('content')
 
 @include('layout.footer')
-
-<script type="text/javascript" src="{{ asset('js/new-layout/asidebar.jquery.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/new-layout/jquery.range.js') }}"></script>
-<script src="{{ asset('js/new-layout/modernizr.custom.js') }}"></script>
-<script type="text/javascript" src="{{ elixir('js/main.js') }}"></script>
-
+<script type="text/javascript" src="{{ elixir('js/js-custom.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy_KoPR6v-mzse7nWjricn1TTmnw9OP44"></script>
-<script src="{{ asset('js/new-layout/scripts.js') }}"></script>
 
 @yield('scripts')
 
