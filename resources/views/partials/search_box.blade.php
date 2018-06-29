@@ -1,9 +1,15 @@
 {!! Form::open(['action' => 'HomeController@search', 'id' => 'front-search', 'method' => 'GET']) !!}
 <?php
-$price = explode(",", isset($terms['price'])? $terms['price'] : '0,500000');
-$size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
+$price = explode(",", isset($terms['price']) ? $terms['price'] : '0,500000');
+$size = explode(",", isset($terms['size']) ? $terms['size'] : '0,5000');
+if (!isset($position_search)) {
+    $position_search = 'banner';
+}
 ?>
 <div class="advanced-search {{ if_route(['home']) ? '' : 'active' }}">
+    @if($position_search == 'banner')
+        <div class="logo-ho"><img src="{{ asset('images/new-layout/logo-ho.png') }}"></div>
+    @endif
     <div class="range-section">
         <form>
             <div class="row">
@@ -21,7 +27,7 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
                                         <li><a href="#" class="small"
                                                data-value="{!! \App\Term::getLocaleValue($value) !!}"
                                                tabIndex="-1"><input type="checkbox" name="term[area][]"
-                                                {{ (isset($terms[$key]) and in_array($index, $terms[$key])) ? ' checked' : '' }} value="{{ $index }}"/>&nbsp;{!! \App\Term::getLocaleValue($value) !!}
+                                                                    {{ (isset($terms[$key]) and in_array($index, $terms[$key])) ? ' checked' : '' }} value="{{ $index }}"/>&nbsp;{!! \App\Term::getLocaleValue($value) !!}
                                             </a></li>
                                     @endforeach
                                 @endif
@@ -52,15 +58,11 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
                     <input type="text" id="area-max" class="input-max-area num_only" value="{{$size[1]}}"> ㎡
                 </div>
             </div>
-            <div class="row">
-                {{-- add zoom latlng --}}
-                <div class="form-field">
-                    <input type="hidden" id="ne_lat" name="ne_lat" value="">
-                    <input type="hidden" id="ne_lng" name="ne_lng" value="">
-                    <input type="hidden" id="sw_lat" name="sw_lat" value="">
-                    <input type="hidden" id="sw_lng" name="sw_lng" value="">
-                </div>
-            </div>
+            {{-- add zoom latlng --}}
+            <input type="hidden" id="ne_lat" name="ne_lat" value="">
+            <input type="hidden" id="ne_lng" name="ne_lng" value="">
+            <input type="hidden" id="sw_lat" name="sw_lat" value="">
+            <input type="hidden" id="sw_lng" name="sw_lng" value="">
         </form>
     </div>
 
@@ -73,8 +75,8 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
     </div>
 </div>
 {!! Form::close() !!}
-<script>
 
+<script>
     $(document).ready(function () {
         var price_max_search = '{{ $price[1] }}';
         var price_min_search = '{{ $price[0] }}';
@@ -204,21 +206,21 @@ $size = explode(",", isset($terms['size'])? $terms['size'] : '0,5000');
 
         });
 
-         $("#price-min").change(function (e) {
-             var price_min = parseInt($("#price-min").val());
-             if (isNaN(price_min)) {
-                 $("#price-min").val("0");
-             }
+        $("#price-min").change(function (e) {
+            var price_min = parseInt($("#price-min").val());
+            if (isNaN(price_min)) {
+                $("#price-min").val("0");
+            }
 
-         });
+        });
 
-         $("#price-max").change(function (e) {
-             var price_max = parseInt($("#price-max").val());
-             if (isNaN(price_max)) {
-                 $("#price-max").val(price_max_search);
-             }
+        $("#price-max").change(function (e) {
+            var price_max = parseInt($("#price-max").val());
+            if (isNaN(price_max)) {
+                $("#price-max").val(price_max_search);
+            }
 
-         });
+        });
 
         $("#price-max").keyup(function (e) {
             setTimeout(function () {

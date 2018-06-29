@@ -50,7 +50,7 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
     Route::get('sitemap-{model}.xml', 'HomeController@sitemap');
 
     # RealEstate
-    Route::group(['prefix' => 'door'], function () {
+    Route::group(['prefix' => 'office'], function () {
         Route::get('', 'RealEstateController@index');
         //Route::get('new', 'RealEstateController@arrival');
         Route::get('{id}', 'RealEstateController@show');
