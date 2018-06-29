@@ -110,7 +110,7 @@
                 </div>
             </div>
                 <div class="policy">
-                    <p><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[9]->permalink) }}" target="_blank">@lang('entity.page.contact.policy')</a>@lang('entity.page.contact.policy description')</p>
+                    <p><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[5]->permalink) }}" target="_blank">@lang('entity.page.contact.policy')</a>@lang('entity.page.contact.policy description')</p>
                     <!-- <p>
                         <input id="checkpolicy" name="policy" type="checkbox" required="" />
                         <label for="checkpolicy">@lang('entity.page.contact.policy checkbox')</label>

@@ -11,9 +11,7 @@ class RealEstateSeeder extends Seeder
      */
     public function run()
     {
-        $fakerJa = Faker\Factory::create('ja_JP');
-        $fakerVi = Faker\Factory::create('vi_VN');
-        $fakerEn = Faker\Factory::create();
+        $faker = Faker\Factory::create();
 
         DB::table('estates')->delete();
 
@@ -23,15 +21,17 @@ class RealEstateSeeder extends Seeder
 
             $estate->update([
                 'title' => [
-                    'en' => $fakerEn->sentence,
-                    'vi' => $fakerVi->sentence,
-                    'ja' => $fakerJa->realText(25)
+                    'en' => $faker->sentence,
+                    'vi' => $faker->sentence,
+                    'ja' => $faker->sentence
                 ],
                 'description' => [
-                    'en' => "<p>" . $fakerEn->realText(200) . "</p>",
-                    'vi' => "<p>" . $fakerVi->realText(200) . "</p>",
-                    'ja' => "<p>" . $fakerJa->realText(300) . "</p>"
+                    'en' => "<p>" . $faker->realText(500) . "</p>",
+                    'vi' => "<p>" . $faker->realText(500) . "</p>",
+                    'ja' => "<p>" . $faker->realText(500) . "</p>"
                 ],
+                'price' => $faker->numberBetween(50,20000),
+                'size'  => $faker->numberBetween(50,5000)
             ]);
 
 

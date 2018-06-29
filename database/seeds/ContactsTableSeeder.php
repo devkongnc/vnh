@@ -11,7 +11,7 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
-    	$faker = Faker\Factory::create('ja_JP');
+    	$faker = Faker\Factory::create();
     	for ($i = 0; $i < 10; $i++) {
     		DB::table('contacts')->insert([
 				'name'    => str_random(10),
