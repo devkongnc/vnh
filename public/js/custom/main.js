@@ -269,6 +269,161 @@ if (!is_touch_device) {
     });
 }
 $(document).ready(function() {
+    // add new 2018-05-17 start
+        var maxHeight = 0;
+        $('.highest-box').each(function(){
+            if ($(this).height() > maxHeight) {
+                maxHeight = $(this).height();
+            }
+        });
+        $('.highest-box').height(maxHeight);
+
+
+        $('.estate-recommend').each(function(index, element){
+            if( index===0 ){
+                $(this).find('a').addClass('active');
+            }
+            $(this).click(function () {
+                // e.preventDefault();
+                $('.estate-recommend').find('a').removeClass('active');
+                $(this).find('a').addClass('active');
+                // return false();
+            });
+        });
+
+        $('.page').each(function(index, element){
+            $(this).addClass('hide');
+            if( index === 0 ){
+                $(this).removeClass('hide');
+            }
+        });
+
+        $(".search-hidden .advanced-search").hide();
+        $(".open-search-hidden").on('click', function(e) {
+              e.preventDefault();
+              $(".search-hidden .advanced-search").fadeToggle(300);
+              $(".open-search-hidden").toggleClass( "close-c" );
+
+        });
+
+        $('.container-gallery').gallery({
+            items: 10,
+            thumbHeight: '50px',
+            showThumbnails: true,
+            singleLine: false,
+            0: {
+                thumbHeight:35,
+                items: 10,
+            },
+            480: {
+                height: 320,
+                items: 10,
+            },
+            497: {
+                height: 331,
+                items: 10,
+            },
+            585: {
+                height: 390,
+                items: 10
+
+            },
+            600: {
+                height: 445,
+                items: 10
+            },
+            768: {
+                height: 482,
+                items: 10
+            },
+        });
+
+        $('.related-house-carousel').owlCarousel({
+            loop:false,
+            margin:10,
+            nav:true,
+            navText : ["",""],
+            dots:false,
+            responsive:{
+                0:{
+                    items:1
+                },
+                481:{
+                    items:2
+                },
+                768:{
+                    items:5
+                },
+                992:{
+                    items:5
+                },
+                1200:{
+                    items:5
+                },
+                1480:{
+                    items:6
+                }
+            }
+        });
+
+        $('.house-carousel').owlCarousel({
+            loop:true,
+            margin:0,
+            nav:true,
+            navText : ["",""],
+            dots:false,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:1
+                },
+                1000:{
+                    items:1
+                }
+            }
+        });
+
+        $('.label-intro').owlCarousel({
+            loop:true,
+            margin:0,
+            autoplay:true,
+            nav:false,
+            dots:false,
+            animateOut: 'fadeOut',
+            animateIn: 'flipInY',
+            responsive:{
+                0:{
+                    items:1
+                },
+                481:{
+                    items:1
+                },
+                992:{
+                    items:1
+                },
+                1200:{
+                    items:1
+                },
+                1480:{
+                    items:1
+                }
+            }
+        });
+
+        $("#folio li a").on('click', function(e) {
+            e.preventDefault();
+            var page = $(this).data('page');
+            $("#pages .page:not('.hide')").stop().fadeOut('fast', function() {
+                $(this).addClass('hide');
+                $('#pages .page[data-page="'+page+'"]').fadeIn('slow').removeClass('hide');
+            });
+           $('#folio li a').removeClass('active');
+            $(this).addClass('active');
+        });
+    // add new 2018-05-17 end
+
     resize_change(true);
 
     if (isMacLike) {
@@ -342,24 +497,6 @@ $(document).ready(function() {
         $(this).next().toggleClass('open');
     });
 
-    /*$('.language li a').click(function() {
-        $('.current-language').text($(this).data('lang'));
-        $('.current-language').next().slideToggle('slow');
-    });*/
-
-
-    /*$(".irs-slider.from, .irs-slider.to.type_last").mousedown(function() {
-        $('.irs-from, .irs-single, .irs-to').show();
-    });
-    $(".irs-slider.from, .irs-slider.to.type_last").mouseup(function() {
-        $('.irs-from, .irs-single, .irs-to').hide();
-    });*/
-    /*$(".irs-slider.from, .irs-slider.to.type_last").on("touchmove", function() {
-        $('.irs-from, .irs-single, .irs-to').show();
-    });
-    $(".irs-slider.from, .irs-slider.to.type_last").on("touchend", function() {
-        $('.irs-from, .irs-single, .irs-to').hide();
-    });*/
 
     $('.type-house .list-type .tab-type').on('click', ' > a', function() {
         _this = $(this);
