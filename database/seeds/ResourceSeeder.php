@@ -11,7 +11,7 @@ class ResourceSeeder extends Seeder
      */
     public function run()
     {
-
+        //$faker = Faker\Factory::create();
         DB::table('resources')->delete();
         DB::statement('ALTER TABLE resources AUTO_INCREMENT = 1;');
         File::deleteDirectory(public_path('upload'));
@@ -25,7 +25,7 @@ class ResourceSeeder extends Seeder
             $image = file_get_contents("http://unsplash.it/768/520?random");
             file_put_contents(public_path("upload" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR) . $fileName, $image);
 
-            $resource = \App\Resource::create([
+            \App\Resource::create([
                 'folder'   => 'images/',
                 'filename' => $fileName,
             ]);

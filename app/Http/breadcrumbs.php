@@ -40,14 +40,13 @@ Breadcrumbs::register('arrival', function($breadcrumbs)
 });
 Breadcrumbs::register('estate', function ($breadcrumbs, $estate) {
     $breadcrumbs->parent('home');
+
     $breadcrumbs->push($estate->area, $estate->area_permalink);
     $searchParams = [
         'term' => [
-            'area' => [$estate->getOriginal('area')],
-            'type' => [$estate->getOriginal('type')]
+            'area' => [$estate->getOriginal('area')]
         ]
     ];
-    $breadcrumbs->push($estate->type, action('HomeController@search') . "?" . http_build_query($searchParams));
     $breadcrumbs->push($estate->title, URL::action('RealEstateController@show', $estate->product_id));
 });
 
