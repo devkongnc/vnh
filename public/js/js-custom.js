@@ -321,16 +321,25 @@ if (!is_touch_device) {
         resizeId = setTimeout(resize_change, 500);
     });
 }
-$(document).ready(function() {
-    // add new 2018-05-17 start
-        var maxHeight = 0;
-        $('.highest-box').each(function(){
-            if ($(this).height() > maxHeight) {
-                maxHeight = $(this).height();
-            }
-        });
-        $('.highest-box').height(maxHeight);
 
+function category_item_same_height() {
+    // add new 2018-05-17 start
+    var maxHeight = 0;
+    $(".highest-box").removeAttr("style");
+    $('.highest-box').each(function () {
+        if ($(this).height() > maxHeight) {
+            maxHeight = $(this).height();
+        }
+    });
+    $('.highest-box').height(maxHeight);
+}
+
+$(window).resize(function () {
+    category_item_same_height();
+});
+
+
+$(document).ready(function() {
 
         $('.estate-recommend').each(function(index, element){
             if( index===0 ){
@@ -758,6 +767,8 @@ $(document).ready(function() {
         if ($(this).prop('tagName') === 'A') event.preventDefault();
         $(this).toggleClass('active');
     });
+
+    category_item_same_height();
 });
 
 

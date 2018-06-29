@@ -135,8 +135,8 @@ class RealEstateController extends Controller
                     $images[$value] = ['order' => $key];
                 }
                 $new_estate->resources()->sync($images);
-                rename(sprintf(Resource::dir('door'), $request->_token), sprintf(Resource::dir('door'), $new_estate->product_id));
-                Resource::whereIn('id', (array) $request->images)->update(['folder' => "door/{$new_estate->product_id}/"]);
+                rename(sprintf(Resource::dir('images'), $request->_token), sprintf(Resource::dir('images'), $new_estate->product_id));
+                Resource::whereIn('id', (array) $request->images)->update(['folder' => "images/{$new_estate->product_id}/"]);
             }
 
             if ($request->sticky === true) $new_estate->sticky()->create([]);
@@ -288,7 +288,7 @@ class RealEstateController extends Controller
     public function destroy($id)
     {
         $estate = Estate::findOrFail($id);
-        File::deleteDirectory(public_path(sprintf(Resource::dir('door'), $estate->product_id)));
+        File::deleteDirectory(public_path(sprintf(Resource::dir('images'), $estate->product_id)));
         $estate->delete();
         return redirect()->action('Admin\RealEstateController@index')->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.delete')]);
     }

@@ -2,44 +2,52 @@
 
 @section('content')
 
-<div class="content-l">
-    <div class="title-details">
-        <div class="row">
-            <div class="col-md-8">
-                <label>{{ $estate->product_id }}</label>
-                <span class="title-txt">{{ $estate->title }}</span>
-            </div>
-            <div class="col-md-4 right">
-                <span class="title-info-sm">@lang('front.last updated')　{{ $estate->custom_updated_at }}</span>
-                <img src="{{ asset('images/new-layout/icon-heart.png') }}" >
+    {{--<div class="breadcrumb-blk">--}}
+        {{--<div class="content-l">--}}
+            {{--{!! Breadcrumbs::render('estate',$estate) !!}--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
+    <div class="content-l">
+        <div class="title-details">
+            <div class="row">
+                <div class="col-md-8">
+                    <label>{{ $estate->product_id }}</label>
+                    <span class="title-txt">{{ $estate->title }}</span>
+                </div>
+                <div class="col-md-4 right">
+                    <span class="title-info-sm">@lang('front.last updated')　{{ $estate->custom_updated_at }}</span>
+                    <img src="{{ asset('images/new-layout/icon-heart.png') }}">
+                </div>
             </div>
         </div>
-    </div>
 
         <div class="row">
             <div class="col-md-6 col-sm-6">
                 <div class="center">
-                <div class="hide-mobile">
-                    <div class="container-gallery">
-                        @foreach($estate->resources as $index => $resource)
-                            <img src="{{ $resource->url }}" alt="">
-                        @endforeach
+                    <div class="hide-mobile">
+                        <div class="container-gallery">
+                            @foreach($estate->resources as $index => $resource)
+                                <img src="{{ $resource->url }}" alt="">
+                            @endforeach
+                        </div>
                     </div>
-                </div>
 
-                <div class="show-mobile">
-                    <div class="fotorama"  data-width="725" data-ratio="700/460" data-nav="thumbs" data-max-width="100%">
-                        @foreach($estate->resources as $index => $resource)
-                            <a href="{{ $resource->url }}">
-                                <img src="{{ $resource->url }}" width="70" height="46">
-                            </a>
-                        @endforeach
+                    <div class="show-mobile">
+                        <div class="fotorama" data-width="725" data-ratio="700/460" data-nav="thumbs"
+                             data-max-width="100%">
+                            @foreach($estate->resources as $index => $resource)
+                                <a href="{{ $resource->url }}">
+                                    <img src="{{ $resource->url }}" width="70" height="46">
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 <div class="gmail-details">
-                    <iframe src = "https://maps.google.com/maps?q={{ $estate->lat }},{{ $estate->lng }}&z=15&amp;output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://maps.google.com/maps?q={{ $estate->lat }},{{ $estate->lng }}&z=15&amp;output=embed"
+                            frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
 
             </div>
@@ -55,7 +63,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <span class="estate-detail-vat-title">{{ \App\Term::getLocaleValue($first['name']) }} :</span>
+                            <span class="estate-detail-vat-title">{{ \App\Term::getLocaleValue($first['name']) }}
+                                :</span>
                             @foreach ($first['values'] as $index => $value)
                                 <?php if(in_array($index, $estate->{$first['key']})){ ?>
                                 <span class="estate-detail-vat">
@@ -72,10 +81,10 @@
                         <table class="house-info">
                             @foreach($above as $key => $value)
                                 <?php if ($key !== 'city' and $key !== 'type'){ ?>
-                                    <tr>
-                                        <td class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</td>
-                                        <td class="tdr">{!! $estate->{$key} ? $estate->{$key} : 'Free' !!}</td>
-                                    </tr>
+                                <tr>
+                                    <td class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</td>
+                                    <td class="tdr">{!! $estate->{$key} ? $estate->{$key} : 'Free' !!}</td>
+                                </tr>
                                 <?php } ?>
                             @endforeach
                         </table>
@@ -84,7 +93,8 @@
                         <ul class="house-feature2">
                             @foreach($below as $key => $data)
                                 @foreach($data['values'] as $index => $value)
-                                    <li data-key="{{$index}}" class="{{ in_array($index, (array) $estate->{$key}) ? "" : 'inactive' }} ">
+                                    <li data-key="{{$index}}"
+                                        class="{{ in_array($index, (array) $estate->{$key}) ? "" : 'inactive' }} ">
                                         {{ \App\Term::getLocaleValue($value) }}
                                     </li>
                                 @endforeach
@@ -94,9 +104,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <a href="#" data-toggle="modal" data-target="#modal-like-single" class="product-query big-contact-btn">@lang('entity.estate.query')</a>
-                        <a href="#" class="btn-like big-favorite-btn"><img src="{{ asset('images/new-layout/icon-heart.png') }}"> @lang('entity.estate.like')</a>
-                        <a href="#" class="product-print big-print-btn"><img src="{{ asset('images/new-layout/icon-print.png') }}"> @lang('entity.estate.print')</a>
+                        <a href="#" data-toggle="modal" data-target="#modal-like-single"
+                           class="product-query big-contact-btn">@lang('entity.estate.query')</a>
+                        <a href="#" class="btn-like big-favorite-btn"><img
+                                    src="{{ asset('images/new-layout/icon-heart.png') }}"> @lang('entity.estate.like')
+                        </a>
+                        <a href="#" class="product-print big-print-btn"><img
+                                    src="{{ asset('images/new-layout/icon-print.png') }}"> @lang('entity.estate.print')
+                        </a>
                     </div>
                 </div>
                 <div class="center">
@@ -121,57 +136,59 @@
                 <h3>@lang('entity.estate.relative estates')</h3>
                 <div class="owl-carousel owl-theme related-house-carousel">
                     @foreach($relatives as $index => $relative)
-                    <div class="item">
-                        <a class="rh-blk" href="{{ URL::action('RealEstateController@show', $relative->product_id) }}">
-                            <img src="{{ $relative->post_thumbnail }}" >
-                            <span class="rh-info"><strong>{{ $relative->price }}</strong> USD /㎡</span>
-                            <p>{{ str_limit($relative->title, 40) }}</p>
-                        </a>
-                    </div>
+                        <div class="item">
+                            <a class="rh-blk"
+                               href="{{ URL::action('RealEstateController@show', $relative->product_id) }}">
+                                <img src="{{ $relative->post_thumbnail }}">
+                                <span class="rh-info"><strong>{{ $relative->price }}</strong> USD /㎡</span>
+                                <p>{{ str_limit($relative->title, 40) }}</p>
+                            </a>
+                        </div>
                     @endforeach
                 </div>
             </div>
             @unless(empty($recents))
-            <div class="related-house">
-                <h3>@lang('entity.estate.recent estates')</h3>
-                <div class="owl-carousel owl-theme related-house-carousel">
-                    @foreach($recents as $index => $recent)
-                    <div class="item">
-                        <a class="rh-blk" href="{{ URL::action('RealEstateController@show', $recent->product_id) }}">
-                            <img src="{{ $recent->post_thumbnail }}" >
-                            <span class="rh-info"><strong>{{ $recent->price }}</strong> USD /㎡</span>
-                            <p>{{ str_limit($recent->title, 40) }}</p>
-                        </a>
+                <div class="related-house">
+                    <h3>@lang('entity.estate.recent estates')</h3>
+                    <div class="owl-carousel owl-theme related-house-carousel">
+                        @foreach($recents as $index => $recent)
+                            <div class="item">
+                                <a class="rh-blk"
+                                   href="{{ URL::action('RealEstateController@show', $recent->product_id) }}">
+                                    <img src="{{ $recent->post_thumbnail }}">
+                                    <span class="rh-info"><strong>{{ $recent->price }}</strong> USD /㎡</span>
+                                    <p>{{ str_limit($recent->title, 40) }}</p>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
-            </div>
             @endunless
 
         </div>
-</div>
+    </div>
 
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
-    var $bookmark = $('.product-bookmark');
-    $('.product-print').click(function(event) {
-        event.preventDefault();
-        window.print();
-    });
-    $bookmark.click(function(event) {
-        if ($('.btn-like').is(event.target)) return;
-        var $btn_like = $(this).children('.btn-like'),
-            estate_id = $btn_like.data('id');
-        if (!$btn_like.hasClass('active') && $.inArray(estate_id, like_ids) === -1) {
-            add_like(estate_id);
-            $btn_like.next().text("@lang('entity.estate.liked')");
-        }
-        else if ($.inArray(estate_id, like_ids) >= 0) {
-            remove_like(estate_id);
-            $btn_like.next().text("@lang('entity.estate.like')");
-        }
-    });
-</script>
+    <script type="text/javascript">
+        var $bookmark = $('.product-bookmark');
+        $('.product-print').click(function (event) {
+            event.preventDefault();
+            window.print();
+        });
+        $bookmark.click(function (event) {
+            if ($('.btn-like').is(event.target)) return;
+            var $btn_like = $(this).children('.btn-like'),
+                estate_id = $btn_like.data('id');
+            if (!$btn_like.hasClass('active') && $.inArray(estate_id, like_ids) === -1) {
+                add_like(estate_id);
+                $btn_like.next().text("@lang('entity.estate.liked')");
+            }
+            else if ($.inArray(estate_id, like_ids) >= 0) {
+                remove_like(estate_id);
+                $btn_like.next().text("@lang('entity.estate.like')");
+            }
+        });
+    </script>
 @endsection

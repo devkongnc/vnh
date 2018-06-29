@@ -6,7 +6,7 @@
             {!! Breadcrumbs::render('categories') !!}
         </div>
     </div>
-    <div class="content-l">
+    <div class="content-l unset_overflow">
         <div class="img-breadcrumb" style="background:url({{ asset('images/new-layout/img-rental.jpg') }}">
             <div class="txt-breadcrumb">
                 <h1>FEATURE</h1>

@@ -6,7 +6,7 @@
             {!! Breadcrumbs::render('category',$category) !!}
         </div>
     </div>
-    <div class="content-l">
+    <div class="content-l unset_overflow">
         <div class="row">
             <div class="col-md-12">
                 <div class="feature-blk category-single">
