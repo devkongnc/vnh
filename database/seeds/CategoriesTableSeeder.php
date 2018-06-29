@@ -12,7 +12,8 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
 		$faker   = Faker\Factory::create();
-		$fakerJa = Faker\Factory::create('ja_JP');
+        $fakerJa = Faker\Factory::create('ja_JP');
+        $fakerVi = Faker\Factory::create('vi_VN');
 
 		DB::table('categories')->delete();
 		DB::statement('ALTER TABLE categories AUTO_INCREMENT = 1;');
@@ -30,21 +31,21 @@ class CategoriesTableSeeder extends Seeder
 		    $category->setLocalesData([
                 'en' => [
 					'title'            => $faker->sentence,
-					'description'      => "<p>" . implode("<p></p>", $faker->paragraphs(20)) . "</p>",
+					'description'      => "<p>" . $faker->realText(200) . "</p>",
 					'meta_keywords'    => $faker->sentence,
 					'meta_description' => $faker->sentence
                 ],
                 'vi' => [
 					'title'            => $faker->sentence,
-					'description'      => "<p>" . implode("<p></p>", $faker->paragraphs(20)) . "</p>",
+					'description'      => "<p>" . $fakerVi->realText(200) . "</p>",
 					'meta_keywords'    => $faker->sentence,
 					'meta_description' => $faker->sentence
                 ],
                 'ja' => [
-					'title'            => $fakerJa->realText(25),
-					'description'      => "<p>" . $fakerJa->realText . "</p>",
-					'meta_keywords'    => $faker->sentence,
-					'meta_description' => $faker->sentence
+					'title'            => $fakerJa->sentence,
+					'description'      => "<p>" . $fakerJa->sentence . "</p>",
+					'meta_keywords'    => $fakerJa->sentence,
+					'meta_description' => $fakerJa->sentence
                 ]
             ]);
 			$category->sql_data = $terms;

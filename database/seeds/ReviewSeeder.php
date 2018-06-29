@@ -17,7 +17,7 @@ class ReviewSeeder extends Seeder
         DB::table('reviews')->delete();
         DB::statement('ALTER TABLE reviews AUTO_INCREMENT = 1;');
 
-        for ($i = 0; $i < 36; $i++) {
+        for ($i = 0; $i < 10; $i++) {
 
             \App\Review::create([
                  'title' => [
@@ -26,8 +26,8 @@ class ReviewSeeder extends Seeder
                      'ja' => $fakerJa->realText(25)
                  ],
                 'description' => [
-                    'en' => "<p>" . implode("<p></p>", $fakerEn->paragraphs(20)) . "</p>",
-                    'vi' => "<p>" . implode("<p></p>", $fakerVi->paragraphs(20)) . "</p>",
+                    'en' => "<p>" . $fakerEn->realText(300) . "</p>",
+                    'vi' => "<p>" . $fakerVi->realText(300) . "</p>",
                     'ja' => "<p>" . $fakerJa->realText(500) . "</p>"
                 ],
                 'permalink' => \Illuminate\Support\Str::slug($fakerEn->sentence),

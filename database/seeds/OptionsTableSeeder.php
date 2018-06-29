@@ -16,7 +16,7 @@ class OptionsTableSeeder extends Seeder
 
         $temp_data = [
             'home_slider' => "",
-            'page_menu' => '[{"deleted":0,"new":1,"id":14},{"deleted":0,"new":1,"id":7},{"deleted":0,"new":1,"id":4},{"deleted":0,"new":1,"id":10},{"deleted":0,"new":1,"id":9},{"deleted":0,"new":1,"id":11}]',
+            'page_menu' => '[{"deleted":0,"new":1,"id":1},{"deleted":0,"new":1,"id":2},{"deleted":0,"new":1,"id":3},{"deleted":0,"new":1,"id":4},{"deleted":0,"new":1,"id":5},{"deleted":0,"new":1,"id":6}]',
             'search' => '{"0":"area"}',
             'partner' => "",
             'home_video' => "",
