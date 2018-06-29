@@ -11,7 +11,7 @@ class ResourceSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
+
         DB::table('resources')->delete();
         DB::statement('ALTER TABLE resources AUTO_INCREMENT = 1;');
         File::deleteDirectory(public_path('upload'));

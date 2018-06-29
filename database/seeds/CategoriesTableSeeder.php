@@ -12,8 +12,6 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
 		$faker   = Faker\Factory::create();
-        $fakerJa = Faker\Factory::create('ja_JP');
-        $fakerVi = Faker\Factory::create('vi_VN');
 
 		DB::table('categories')->delete();
 		DB::statement('ALTER TABLE categories AUTO_INCREMENT = 1;');
@@ -37,15 +35,15 @@ class CategoriesTableSeeder extends Seeder
                 ],
                 'vi' => [
 					'title'            => $faker->sentence,
-					'description'      => "<p>" . $fakerVi->realText(200) . "</p>",
+					'description'      => "<p>" . $faker->realText(200) . "</p>",
 					'meta_keywords'    => $faker->sentence,
 					'meta_description' => $faker->sentence
                 ],
                 'ja' => [
-					'title'            => $fakerJa->sentence,
-					'description'      => "<p>" . $fakerJa->sentence . "</p>",
-					'meta_keywords'    => $fakerJa->sentence,
-					'meta_description' => $fakerJa->sentence
+					'title'            => $faker->sentence,
+					'description'      => "<p>" . $faker->realText(200) . "</p>",
+					'meta_keywords'    => $faker->sentence,
+					'meta_description' => $faker->sentence
                 ]
             ]);
 			$category->sql_data = $terms;
