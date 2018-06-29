@@ -1,35 +1,26 @@
 @extends('layout.base')
 
 @section('content')
-    <article id="content" class="about">
-        <div class="row">
-            <div class="col-md-3 visible-md visible-lg">
-                <div class="navleft-stick">
-                    <ul class="about-nav list sub-menu-1">
-                        <li class="root-node">
-                            <a href="{{ route('home') }}">@lang('menu.header.top')</a>
-                            {{ showMenu($page, $menu, $pages_by_id) }}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-9">
-            @if (isset($isForm) and $isForm === true)
-                @yield('about-content')
-            @else
-                <article class="page-{{ str_replace('/', '-', $page->permalink) }} page-{{ $page->id }} page-content">
-                    {!! Breadcrumbs::render('about-page', $page) !!}
-                    {!! $page->html !!}
-                </article>
-            @endif
-            </div>
+    {{--show content page start--}}
+    <div class="breadcrumb-blk">
+        @if (str_replace('/', '-', $page->permalink) == 'company-contact')
+            <div class="content-s">
+         @else
+            <div class="content-l">
+         @endif
+            {!! Breadcrumbs::render('about-page', $page) !!}
         </div>
+    </div>
+
+    <article class="page-{{ str_replace('/', '-', $page->permalink) }} page-{{ $page->id }} page-content">
+        {!! $page->html !!}
     </article>
+    {{--show content page end--}}
 @endsection
 
-@section('edit')
-    <li><a href="{{ action('Admin\PageController@edit', $page->id) }}">@lang('front.edit page')</a></li>
-@endsection
+{{--@section('edit')--}}
+    {{--<li><a href="{{ action('Admin\PageController@edit', $page->id) }}">@lang('front.edit page')</a></li>--}}
+{{--@endsection--}}
 
 @section('scripts')
 <script type="text/javascript">
