@@ -30,5 +30,5 @@
 # vnh renew 2018/06/21
 - Install:
     - Run:
-    -- 'composer install'
-    -- 'composer update'
+        - 'composer install'
+        - 'composer update'
