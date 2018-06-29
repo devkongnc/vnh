@@ -11,13 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        factory(\App\User::class)->create();
-//        Auth::login(\App\User::first());
-//        $this->call(ResourceSeeder::class);
-//        $this->call(CategoriesTableSeeder::class);
-//        $this->call(ReviewSeeder::class);
-//        $this->call(PagesTableSeeder::class);
-//        $this->call(ContactsTableSeeder::class);
+        factory(\App\User::class)->create();
+        Auth::login(\App\User::first());
+        $this->call(ResourceSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(ReviewSeeder::class);
+        $this->call(PagesTableSeeder::class);
+        $this->call(ContactsTableSeeder::class);
         $this->call(RealEstateSeeder::class);
         $this->call(OptionsTableSeeder::class);
     }
