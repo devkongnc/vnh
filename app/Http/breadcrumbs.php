@@ -92,11 +92,11 @@ Breadcrumbs::register('about-company', function($breadcrumbs) {
 });
 Breadcrumbs::register('about-page', function($breadcrumbs, $page) {
     $breadcrumbs->parent('home');
-    if ($page->permalink != 'support' && str_contains($page->permalink, 'support')) {
-        $breadcrumbs->push(trans('menu.support'), LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), url('support')));
-    }
-    if ($page->permalink != 'company' && str_contains($page->permalink, 'company')) {
-        $breadcrumbs->push(trans('menu.company'), LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), url('company')));
-    }
+//    if ($page->permalink != 'support' && str_contains($page->permalink, 'support')) {
+//        $breadcrumbs->push(trans('menu.support'), LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), url('support')));
+//    }
+//    if ($page->permalink != 'company' && str_contains($page->permalink, 'company')) {
+//        $breadcrumbs->push(trans('menu.company'), LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), url('company')));
+//    }
     $breadcrumbs->push($page->title, url($page->permalink));
 });
