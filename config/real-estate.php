@@ -85,13 +85,6 @@ return [
         'values' => [
             '1' => '[:ja]VAT[:en]VAT[:vi]VAT[:]',
             '2' => '[:ja]管理費[:en]Management Fee[:vi]Phí quản lý[:]',
-            '3' => '[:ja]インターネット+TV[:en]Internet + TV[:vi]Phí Internet[:]',
-            '4' => '[:ja]電気代[:en]Electricity[:vi]Phí điện[:]',
-            '5' => '[:ja]水道代[:en]Water[:vi]Phí nước[:]',
-            '6' => '[:ja]掃除サービス[:en]Room Cleaning[:vi]Phí dọn vệ sinh[:]',
-            '7' => '[:ja]プール利用料[:en]Pool Entrance[:vi]Phí vào hồ bơi[:]',
-            '8' => '[:ja]ジム利用料[:en]Gym Entrance[:vi]Phí vào phòng tập[:]',
-            '9' => '[:ja]洗濯サービス[:en]Laundry Service[:vi]Phí giặt[:]',
             
         ]
                     
@@ -101,17 +94,8 @@ return [
         'group' => 'details',
         'type' => 'multiple',                
         'values' => [
-            '1' => '[:ja]プール[:en]Pool[:vi]Hồ bơi[:]',
-            '2' => '[:ja]プライベートプール[:en]Private Pool[:vi]Hồ bơi riêng[:]',
-            '3' => '[:ja]共用プール[:en]Shared Pool[:vi]Hồ bơi chung[:]',
-            '4' => '[:ja]ジム[:en]Gym[:vi]Phòng tập thể dục[:]',
-            '5' => '[:ja]キッチン[:en]Kitchen[:vi]Bếp[:]',
-            '6' => '[:ja]バスタブ[:en]Bathtub[:vi]Bồn tắm[:]',
-            '7' => '[:ja]お部屋に洗濯機[:en]Washer in unit[:vi]Máy giặt[:]',
             '8' => '[:ja]バルコニー[:en]Balcony[:vi]Ban công[:]',
             '9' => '[:ja]エレベーター[:en]Elevator[:vi]Thang máy[:]',
-            '10' => '[:ja]コンパウンド[:en]Compound[:vi]Compound[:]',
-            '11' => '[:ja]ペットOK[:en]Pet-Friendly[:vi]Pet OK[:]',
             
         ]
                     
@@ -124,62 +108,60 @@ return [
             '1' => '[:ja]有人受付[:en]Front Desk[:vi]Bàn tiếp tân[:]',
             '2' => '[:ja]警備員24/24[:en]Security Guard[:vi]Bảo vệ[:]',
             '3' => '[:ja]発電機[:en]Generator[:vi]Máy phát điện[:]',
-            '4' => '[:ja]陽当たり良し[:en]Sunny[:vi]Nhiều ánh sáng[:]',
             '5' => '[:ja]門限無し[:en]No Curfew[:vi]Không giờ giới nghiêm[:]',
-            '6' => '[:ja]買物便利[:en]Near Market[:vi]Mua hàng tiện lợi[:]',
-
+            
         ]
-
+                    
     ],
     'address' => [
         'name' => '[:ja][:en]Address[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',
+        'type' => 'text',                
         'values' => [
-
+            
         ]
-
+                    
     ],
     'contract_limit' => [
         'name' => '[:ja][:en]Contract Limit[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',
+        'type' => 'text',                
         'values' => [
-
+            
         ]
-
+                    
     ],
     'floor' => [
         'name' => '[:ja][:en]Floor[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',
+        'type' => 'text',                
         'values' => [
-
+            
         ]
-
+                    
     ],
     'conditioning_system' => [
         'name' => '[:ja][:en]Conditioning System[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',
+        'type' => 'text',                
         'values' => [
-
+            
         ]
-
+                    
     ],
     'anniversary' => [
         'name' => '[:ja][:en]Anniversary[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',
+        'type' => 'text',                
         'values' => [
-
+            
         ]
-
+                    
     ],
     'commiss' => [
         'name' => '[:ja][:en]Commissions[:vi][:]',
         'group' => 'basic',
-        'type' => 'text',
+        'type' => 'text',                
         'values' => [
             
         ]

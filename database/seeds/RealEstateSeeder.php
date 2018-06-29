@@ -28,9 +28,9 @@ class RealEstateSeeder extends Seeder
                     'ja' => $fakerJa->realText(25)
                 ],
                 'description' => [
-                    'en' => "<p>" . implode("<p></p>", $fakerEn->paragraphs(20)) . "</p>",
-                    'vi' => "<p>" . implode("<p></p>", $fakerVi->paragraphs(20)) . "</p>",
-                    'ja' => "<p>" . $fakerJa->realText . "</p>"
+                    'en' => "<p>" . $fakerEn->realText(200) . "</p>",
+                    'vi' => "<p>" . $fakerVi->realText(200) . "</p>",
+                    'ja' => "<p>" . $fakerJa->realText(300) . "</p>"
                 ],
             ]);
 

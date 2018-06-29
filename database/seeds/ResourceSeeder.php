@@ -21,8 +21,9 @@ class ResourceSeeder extends Seeder
         for ($i = 0; $i < (env('APP_ENV') == 'local' ? 10 : 100); $i++) {
 
             $fileName = "image-" . $i . ".png";
-            // $image = file_get_contents("http://unsplash.it/1080/720?random");
-            // file_put_contents(public_path("upload" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR) . $fileName, $image);
+
+            $image = file_get_contents("http://unsplash.it/768/520?random");
+            file_put_contents(public_path("upload" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR) . $fileName, $image);
 
             $resource = \App\Resource::create([
                 'folder'   => 'images/',
