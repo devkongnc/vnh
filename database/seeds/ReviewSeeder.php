@@ -11,9 +11,7 @@ class ReviewSeeder extends Seeder
      */
     public function run()
     {
-        $fakerJa = Faker\Factory::create('ja_JP');
-        $fakerVi = Faker\Factory::create('vi_VN');
-        $fakerEn = Faker\Factory::create('en');
+        $faker = Faker\Factory::create();
         DB::table('reviews')->delete();
         DB::statement('ALTER TABLE reviews AUTO_INCREMENT = 1;');
 
@@ -21,16 +19,16 @@ class ReviewSeeder extends Seeder
 
             \App\Review::create([
                  'title' => [
-                     'en' => $fakerEn->sentence,
-                     'vi' => $fakerVi->sentence,
-                     'ja' => $fakerJa->realText(25)
+                     'en' => $faker->sentence,
+                     'vi' => $faker->sentence,
+                     'ja' => $faker->realText(25)
                  ],
                 'description' => [
-                    'en' => "<p>" . $fakerEn->realText(300) . "</p>",
-                    'vi' => "<p>" . $fakerVi->realText(300) . "</p>",
-                    'ja' => "<p>" . $fakerJa->realText(500) . "</p>"
+                    'en' => "<p>" . $faker->realText(300) . "</p>",
+                    'vi' => "<p>" . $faker->realText(300) . "</p>",
+                    'ja' => "<p>" . $faker->realText(500) . "</p>"
                 ],
-                'permalink' => \Illuminate\Support\Str::slug($fakerEn->sentence),
+                'permalink' => \Illuminate\Support\Str::slug($faker->sentence),
                 'resource_id' => \App\Resource::orderByRaw('RAND()')->first()->id,
                 'categories' => array(random_int(0, 5)),
                 'locales_only' => array(random_int(0, 2))
