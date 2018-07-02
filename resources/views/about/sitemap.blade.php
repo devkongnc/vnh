@@ -16,11 +16,7 @@
                 </div>
 
                 <?php
-                $sitemap_structure = [
-                    ['home', 14], //home, category
-                    [7, 4], //Support Area, Support Step
-                    [10, 9, 11] //Company Profile, Privacy Policy, Contact
-                ];
+                $sitemap_structure = Config::get('sitemap.new_layout');
                 ?>
                 <div class="row">
                     @foreach ($sitemap_structure as $group)
