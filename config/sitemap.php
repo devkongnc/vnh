@@ -7,6 +7,13 @@
  */
 
 return [
+    'new_layout' => [
+        ['home', 1], //home, rental office
+        [2, 3], //Support Area, Support Step
+        [4, 5, 6] //Company Profile, Privacy Policy, Contact
+    ],
+
+
     "vn" => "https://vietnamhouse.jp/vi",
     "style.html" => "https://vietnamhouse.jp/support/style",
     "area.html" => "https://vietnamhouse.jp/support/area",
