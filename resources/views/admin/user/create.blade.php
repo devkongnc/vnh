@@ -53,7 +53,7 @@
 									<label for="avatar" class="col-sm-2 control-label">@lang('admin.common.set featured image')</label>
 									<div class="col-sm-3">
 										<div id='kcfinder-single-select'>
-							                <img src="{{ $user->post_thumbnail }}" class="img-responsive" alt="featured_image">
+							                <img src="{{ asset($user->post_thumbnail) }}" class="img-responsive" alt="featured_image">
 							                <input type="hidden" name="resource_id" value="{{ $user->post_thumbnail_id }}">
 							                <a class="set-featured{{ $user->post_thumbnail_id === '' ? '' : ' hidden' }}" data-toggle="modal" href="#modal-upload">@lang('admin.common.set featured image')</a>
 							                <a class="remove-featured{{ $user->post_thumbnail_id === '' ? ' hidden' : '' }}">@lang('admin.common.remove featured image')</a>

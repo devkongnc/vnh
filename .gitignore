@@ -3,4 +3,4 @@
 /nbproject/*
 /storage/*.key
 /vendor/
-.env
+*.env

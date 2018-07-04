@@ -106,7 +106,7 @@
 <ul class="images-container sortable">
     @foreach($estate->resources as $image)
         <li class="item">
-            <img src="{{ $image->estate_thumbnail }}" width="300" height="300" class="img-responsive" alt="">
+            <img src="{{ asset($image->estate_thumbnail) }}" width="300" height="300" class="img-responsive" alt="">
             <input type="hidden" name="images[]" value="{{ $image->id }}"><button class="resource-delete" type="button">X</button>
         </li>
     @endforeach

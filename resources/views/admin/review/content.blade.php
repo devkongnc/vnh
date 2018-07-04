@@ -127,7 +127,7 @@
         <h2><b>@lang('admin.review.feature image')</b></h2>
         <div class="inside">
             <p id="kcfinder-single-select">
-                <img src="{{ $review->post_thumbnail }}" class="img-responsive center-block" alt="Featured Image">
+                <img src="{{ asset($review->post_thumbnail) }}" class="img-responsive center-block" alt="Featured Image">
                 <input type="hidden" name="resource_id" value="{{ $review->post_thumbnail_id }}">
                 <a class="set-featured{{ $review->post_thumbnail_id === '' ? '' : ' hidden' }}" data-toggle="modal" href="#modal-upload">@lang('admin.common.set featured image')</a>
                 <a class="remove-featured{{ $review->post_thumbnail_id === '' ? ' hidden' : '' }}">@lang('admin.common.remove featured image')</a>

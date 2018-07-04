@@ -29,7 +29,7 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
     # Search
     Route::get('search-advanced', ['as' => 'search-advanced', 'uses' => 'HomeController@searchForm']);
     Route::get('search', 'HomeController@search');
-    Route::get('search-map', 'HomeController@search_map');
+    Route::get('search-map', 'SearchMapController@search');
     Route::get('desktop', 'HomeController@desktop');
 
     # Page

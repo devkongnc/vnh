@@ -43,7 +43,7 @@
 <div id='kcfinder-single-select' class="form-group">
     <label class="col-sm-2 control-label">@lang('admin.common.set featured image')</label>
     <div class="col-xs-10">
-        <img src="{{ $category->feature_image }}" class="img-responsive" alt="featured_image">
+        <img src="{{ asset($category->feature_image) }}" class="img-responsive" alt="featured_image">
         <input type="hidden" name="resource_id" value="{{ $category->post_thumbnail_id }}">
         <a class="set-featured{{ $category->post_thumbnail_id === '' ? '' : ' hidden' }}" data-toggle="modal" href="#modal-upload">@lang('admin.common.set featured image')</a>
         <a class="remove-featured{{ $category->post_thumbnail_id === '' ? ' hidden' : '' }}">@lang('admin.common.remove featured image')</a>

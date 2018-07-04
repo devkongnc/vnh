@@ -97,7 +97,7 @@
 											{{-- */	$id = $slide->id; /* --}}
 											<div class="item">
 												<input type="hidden" value="{{ $slide->id }}" name="images[]">
-												<img alt="" class="img-responsive" src="{{ isset($resources[$slide->id]) ? $resources[$slide->id]->thumbnail : '' }}">
+												<img alt="" class="img-responsive" src="{{ isset($resources[$slide->id]) ? asset($resources[$slide->id]->thumbnail) : '' }}">
 												<button type="button" class="resource-delete">X</button>
 												<div class="form-group">
 													<ul class="property-languages list-unstyled">

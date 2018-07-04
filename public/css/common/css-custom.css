@@ -2074,13 +2074,18 @@ a[href^="tel"] {
 }
 
 /***list-map***/
+#map-result {
+    width:100%;
+    height:100%;
+}
 .row-map {
     position: relative; /*height:calc(100vh - 230px)*/
 }
 
 .house-list-scroll {
     width: 760px;
-    position: absolute;
+    position: relative;
+    float: left;
     left: 0;
     top: 0;
     overflow-y: auto;
@@ -2094,7 +2099,9 @@ a[href^="tel"] {
 .house-list-map {
     background: #ccc;
     float: right;
-    width: calc(100% - 760px); /*height:calc(100vh - 230px)*/
+    height: calc(100vh - 230px);
+    width: calc(100% - 775px); /*height:calc(100vh - 230px)*/
+    margin-right: 15px;
 }
 
 .row-map .house-blk {
@@ -2119,6 +2126,22 @@ a[href^="tel"] {
 
 .row-map .house-sub-title {
     margin: -10px 0 0 0;
+}
+
+.maps-mark-item {
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 50px;
+}
+.gm-style .gm-style-iw {
+    margin-top: 3px;
+    text-align: center;
+    padding-right: 15px;
+}
+.gm-style img {
+}
+.maps-mark-item.maps-point-hover {
+    color: #f7931e;
 }
 
 /*kongnc edit start*/
@@ -2260,6 +2283,10 @@ a[href^="tel"] {
     display: block;
     left: auto;
     height: 192px;
+}
+
+.header.page-module .search-hidden .advanced-search {
+    display: none;
 }
 @-ms-viewport {width: device-width;}
 @viewport {width: device-width;}
