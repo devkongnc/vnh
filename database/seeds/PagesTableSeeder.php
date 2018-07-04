@@ -12,6 +12,6 @@ class PagesTableSeeder extends Seeder
     public function run()
     {
     	DB::table('pages')->delete();
-        DB::unprepared(file_get_contents(database_path()."/seeds/static_page.sql"));
+        DB::unprepared(file_get_contents(database_path()."/seeds/static_page_update_locale.sql"));
     }
 }
