@@ -1039,6 +1039,30 @@ $(document).ready(function ($) {
         }, 100);
     });
 
+
+    //------------//
+    // SEARCH MAP //
+    //------------//
+    var frontSearch = $(".search-header form");
+    $('#btn-open-map').click(function(){
+        window.location.href = 'search-map?'+frontSearch.serialize();
+        // $.ajax({
+        //     url: 'search-map',
+        //     data: frontSearch.serialize(),
+        //     processData: false,
+        //     type: 'get',
+        //     success: function (response) {
+        //         $('#product-result').html(response);
+        //         console.log(response);
+        //     }
+        // });
+    });
+
+    $('#btn-close-map').click(function() {
+        window.location.href = 'search?' + frontSearch.serialize();
+    });
+
+
 });
 
 function sync_search_box(item, value) {

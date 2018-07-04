@@ -71,7 +71,7 @@
                                 @foreach($estates as $estate)
                                 <div class="media">
                                     <a class="pull-left" href="{{ action('RealEstateController@show', $estate->product_id) }}" target="_blank">
-                                        <img class="media-object" src="{{ $estate->post_thumbnail }}" width="175" alt="">
+                                        <img class="media-object" src="{{ asset($estate->post_thumbnail) }}" width="175" alt="">
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading">{{ $estate->title }}</h4>

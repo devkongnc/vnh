@@ -54,6 +54,7 @@
 
     @include('layout.footer')
     <script type="text/javascript" src="{{ elixir('js/js-custom.js') }}"></script>
+    {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCESxzHdP7_GIkDxrH0h222gJBLl9VgKvM"></script>--}}
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy_KoPR6v-mzse7nWjricn1TTmnw9OP44"></script>
 
     @yield('scripts')

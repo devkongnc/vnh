@@ -8,7 +8,7 @@
                     <div class="owl-carousel owl-theme house-carousel">
                         @foreach($item->resources as $index => $image)
                             <div class="item">
-                                <img src="{{ $image->medium }}" alt="">
+                                <img src="{{ asset($image->medium) }}" alt="">
                             </div>
                         @endforeach
                     </div>
@@ -50,7 +50,7 @@
                         <?php $count = 0; ?>
                         @foreach($equipments as $key => $data)
                             @foreach($data['values'] as $index => $value)
-                                {{-- Bỏ qua hồi bơi chung, hồ bơi riêng --}}
+                                {{-- Bỏ qua hồ bơi chung, hồ bơi riêng --}}
                                 <?php if ($key === 'facilities' and $count < 8){ ?>
                                 <li data-key="{{$index}}" class="{{ in_array($index, (array) $item->{$key}) ? "" : 'inactive' }} ">
                                     {{ \App\Term::getLocaleValue($value) }}

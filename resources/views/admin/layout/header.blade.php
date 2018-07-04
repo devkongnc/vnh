@@ -23,12 +23,12 @@
 
 		        <li class="dropdown user user-menu">
 		            <a aria-expanded="false" href="#" class="dropdown-toggle" data-toggle="dropdown">
-		                <img src="{{ auth()->user()->post_thumbnail }}" class="user-image" alt="User Image">
+		                <img src="{{ asset(auth()->user()->post_thumbnail) }}" class="user-image" alt="User Image">
 		                <span class="hidden-xs">{{ auth()->user()->name }}</span>
 		            </a>
 		            <ul class="dropdown-menu">
 		                <li class="user-header">
-		                    <img src="{{ auth()->user()->post_thumbnail }}" width="160" class="img-circle" alt="User Image">
+		                    <img src="{{ asset(auth()->user()->post_thumbnail) }}" width="160" class="img-circle" alt="User Image">
 		                    <p>
 		                        {{ auth()->user()->name }}
 		                        <small>Member since {{ auth()->user()->created_at }}</small>
