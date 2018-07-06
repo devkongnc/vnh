@@ -99,14 +99,14 @@ class HomeController extends Controller {
 			'phone'                => 'required|min:8|max:15|regex:/^\+?[0-9\s]+$/',
 			'email'                => 'required|email|max:255',
 			'message'              => 'required|max:500',
-			'g-recaptcha-response' => 'required',
+//			'g-recaptcha-response' => 'required',
 			'estates'              => 'array'
 	    ]);
 	    if ($validator->fails()) return response()->json(['status' => 'error-validate', 'message' => $validator->errors()]);
 	    # Verify ReCaptcha
-	    $recaptcha = new \ReCaptcha\ReCaptcha(config('services.recaptcha.secret'));
-		$resp = $recaptcha->verify($request->get('g-recaptcha-response'), $_SERVER['REMOTE_ADDR']);
-		if (!$resp->isSuccess()) return response()->json(['status' => 'error-validate', 'message' => [trans('validation.captcha')]]);
+//	    $recaptcha = new \ReCaptcha\ReCaptcha(config('services.recaptcha.secret'));
+//		$resp = $recaptcha->verify($request->get('g-recaptcha-response'), $_SERVER['REMOTE_ADDR']);
+//		if (!$resp->isSuccess()) return response()->json(['status' => 'error-validate', 'message' => [trans('validation.captcha')]]);
 
 	    $request->merge(['message' => htmlentities(strip_tags(trim($request->message)))]);
 	    $estates = [];
@@ -127,7 +127,8 @@ class HomeController extends Controller {
 	            $m->to($request->email)->subject(trans('email.title3', ['name' => $request->name]));
 			});
 	        Contact::create($request->all());
-	        return response()->json(['status' => 'success', 'popup' => view('partials.popup_thankyou')->render()]);
+//	        return response()->json(['status' => 'success', 'popup' => view('partials.popup_thankyou')->render()]);
+            return redirect(LaravelLocalization::getCurrentLocale().'/company/contact-tks');
 	    /*} catch (\Exception $ex) {
 	    	return response()->json(['status' => 'error-mail', 'message' => $ex->getMessage()]);
 	    }*/

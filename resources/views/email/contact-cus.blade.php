@@ -37,7 +37,7 @@
         <p>@lang('email.notice')</p>
         <hr>
         <p>
-            @lang('email.contact form') <a target="_blank" href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[11]->permalink) }}">{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[11]->permalink) }}</a><br />
+            @lang('email.contact form') <a target="_blank" href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[7]->permalink) }}">{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[7]->permalink) }}</a><br />
             @lang('email.email') hello@vietnamhouse.jp<br />
             @lang('email.phone') 08-3911-2100
         </p>
