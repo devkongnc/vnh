@@ -9,21 +9,26 @@ use Illuminate\Support\Collection;
 class SearchMapController extends Controller {
 
     private $terms;
+    private $limit = 5;
+
 	// add search maps function
 	public function search(Request $request) {
-        $query = $this->retrieve_data_map($request, 'view');
-        $search_estates = $query->paginate(20, ['*'], 'list')->appends($request->except('list'));
+	    $data_request = $request->all();
+        $query = $this->retrieve_data_map($request);
+        $search_estates = $query->paginate($this->limit, ['*'], 'list')->appends($request->except('list'));
         $push_maps = $search_estates;
         $terms= $this->terms;
-		return view('estate.search-map', compact('search_estates','terms', 'push_maps'));
+		return view('estate.search-map', compact('search_estates','terms', 'push_maps', 'data_request'));
 	}
 
-//    public function search_map_ajax(Request $request) {
-//        $search_estates = $this->retrieve_data_map($request, 'ajax');
-//        return $search_estates;
-//    }
+    public function data_map_ajax(Request $request) {
+        $search_estates = array();
+        $search_estates = $this->retrieve_data_map($request);
+        $search_estates = $search_estates->paginate($this->limit, ['*'], 'list')->appends($request->except('list'));
+        return view('partials.three-grid-map', ['items'=>$search_estates]);
+    }
 
-    public function retrieve_data_map($request, $type = 'view') {
+    public function retrieve_data_map($request) {
         # Loại bỏ term rỗng
         $this->terms = array_filter((array) $request->term, function($item){
             return $item !== '';
@@ -63,7 +68,8 @@ class SearchMapController extends Controller {
                 $query->whereRaw('MATCH(`' . $key . '`) AGAINST(\'' . implode(' ', array_map(function($val) { return '+' . $val; } , $value)) . '\' IN BOOLEAN MODE)');
             }
         }
-        if ($request->ne_lat != '' && $request->ne_lng != '' && $request->sw_lat != '' && $request->sw_lng != '') {
+
+        if ($request->ne_lat != '' && $request->ne_lng != '' && $request->sw_lat != '' && $request->sw_lng != '' ) {
             $ne_lats = floatval($request->ne_lat);
             $ne_lngs = floatval($request->ne_lng);
             $sw_lats = floatval($request->sw_lat);
@@ -73,21 +79,7 @@ class SearchMapController extends Controller {
 
         $query = $query->with('resources');
 
-        # Order kết quả
-        // $order = htmlspecialchars(strip_tags(trim($request->get('order', session('search_order', 'id-desc')))));
-        // session(['search_order' => $order]);
-        // $orderExploded = explode("-", $order);
-        // # Giới hạn thuộc tính sắp xếp
-        // if (in_array($orderExploded[0], config('override.order field'))) $query = $query->orderBy($orderExploded[0], $orderExploded[1]);
-        // else $query = $query->orderBy('id', 'desc');
-        # Phân trang
-
-        if ($type == 'view') {
-            return $query;
-        } elseif ($type == 'ajax') {
-            return $query->get();
-        }
-        return $query->get();
+        return $query->orderBy('updated_at','desc');
     }
 
 }
