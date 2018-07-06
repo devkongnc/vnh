@@ -1045,20 +1045,20 @@ $(document).ready(function ($) {
     //------------//
     var frontSearch = $(".search-header form");
     $('#btn-open-map').click(function(){
+        $('input#ne_lat').val('');
+        $('input#ne_lng').val('');
+        $('input#sw_lat').val('');
+        $('input#sw_lng').val('');
+        $("input#see_first").val('');
         window.location.href = 'search-map?'+frontSearch.serialize();
-        // $.ajax({
-        //     url: 'search-map',
-        //     data: frontSearch.serialize(),
-        //     processData: false,
-        //     type: 'get',
-        //     success: function (response) {
-        //         $('#product-result').html(response);
-        //         console.log(response);
-        //     }
-        // });
     });
 
     $('#btn-close-map').click(function() {
+        $('input#ne_lat').val('');
+        $('input#ne_lng').val('');
+        $('input#sw_lat').val('');
+        $('input#sw_lng').val('');
+        $("input#see_first").val('');
         window.location.href = 'search?' + frontSearch.serialize();
     });
 

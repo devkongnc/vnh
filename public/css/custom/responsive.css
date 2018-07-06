@@ -28,6 +28,8 @@
 	.house-blk{font-size:13px;letter-spacing: 0;}
 	.intro-section .content-l .label-intro{left:0px;}
 	.ggmap iframe{min-height:322px;}
+	.house-list-scroll,.map-list-pagi{width:60%;}
+	.house-list-map{width:38%;}
 }
 
 @media screen and (max-width:1024px){
@@ -120,7 +122,9 @@
 	.feature-blk h3{font-size:12px;}
 	.feature-blk p{font-size:11px;height:65px;}
 	.list-map-body .footer{display:block;bottom:90px;margin:0;}
-	.house-list-map{float:none;width:100%;height:calc(100vh - 140px)}
+	.house-list-map{float: none;width: 100%;height: 300px;padding-right: 15px;padding-left: 15px;}
+	.house-list-scroll,.map-list-pagi{width:100%;float: none;margin: auto;}
+	.house-list-scroll>div{margin-left: 15px;}
 }
 
 @media screen and (max-width:767px){

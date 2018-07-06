@@ -23,18 +23,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- CSS Files
     ================================================== -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/css-lib.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ elixir('css/css-custom.min.css') }}">
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery-plugin.js') }}"></script>
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
+        </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/css-lib.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ elixir('css/css-custom.min.css') }}">
 
     <style type="text/css">
         <?php if (App::isLocale('ja')) { ?>
 		body {
             font-family: "Noto Sans Japanese", Arial, "sans-serif";
         }
-
         <?php } ?>
         div.phpdebugbar pre {
             width: 1000px;
