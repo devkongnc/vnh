@@ -3,7 +3,7 @@
 @section('content')
     {{--show content page start--}}
     <div class="breadcrumb-blk">
-        @if (str_replace('/', '-', $page->permalink) == 'company-contact')
+        @if (str_replace('/', '-', $page->permalink) == 'company-contact' || str_replace('/', '-', $page->permalink) == 'company-contact-tks')
             <div class="content-s">
          @else
             <div class="content-l">
