@@ -46,7 +46,7 @@
 										<td>{{ link_to(action('Admin\UserController@edit', $user->id), $user->name) }}</td>
 										<td>{{ $user->email }}</td>
 										<td>{{ $user->profile }}</td>
-										<td>@if(!empty($user->avatar)) <img src="{{ $user->post_thumbnail }}" width="120" height="120" class="img-responsive" alt=""> @endif</td>
+										<td>@if(!empty($user->avatar)) <img src="{{ asset($user->post_thumbnail) }}" width="120" height="120" class="img-responsive" alt=""> @endif</td>
 										<td>
 											{{ link_to(action('Admin\UserController@edit', $user->id), trans('admin.common.edit'), ['class' => 'btn btn-danger']) }}
 										</td>

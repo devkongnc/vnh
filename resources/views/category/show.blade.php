@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="feature-blk category-single">
-                    <img src="{{ $category->post_thumbnail }}" alt="{{ $category->title }}" />
+                    <img src="{{ asset($category->post_thumbnail) }}" alt="{{ $category->title }}" />
                     <div class="desc">
                         <h3>{{ $category->title }}&nbsp;</h3>
                         <div>{!! $category->description !!}</div>

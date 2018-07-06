@@ -28,7 +28,7 @@
                     <div class="hide-mobile">
                         <div class="container-gallery">
                             @foreach($estate->resources as $index => $resource)
-                                <img src="{{ $resource->url }}" alt="">
+                                <img src="{{ asset($resource->url) }}" alt="">
                             @endforeach
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                              data-max-width="100%">
                             @foreach($estate->resources as $index => $resource)
                                 <a href="{{ $resource->url }}">
-                                    <img src="{{ $resource->url }}" width="70" height="46">
+                                    <img src="{{ asset($resource->url) }}" width="70" height="46">
                                 </a>
                             @endforeach
                         </div>
@@ -139,7 +139,7 @@
                         <div class="item">
                             <a class="rh-blk"
                                href="{{ URL::action('RealEstateController@show', $relative->product_id) }}">
-                                <img src="{{ $relative->post_thumbnail }}">
+                                <img src="{{ asset($relative->post_thumbnail) }}">
                                 <span class="rh-info"><strong>{{ $relative->price }}</strong> USD /㎡</span>
                                 <p>{{ str_limit($relative->title, 40) }}</p>
                             </a>
@@ -155,7 +155,7 @@
                             <div class="item">
                                 <a class="rh-blk"
                                    href="{{ URL::action('RealEstateController@show', $recent->product_id) }}">
-                                    <img src="{{ $recent->post_thumbnail }}">
+                                    <img src="{{ asset($recent->post_thumbnail) }}">
                                     <span class="rh-info"><strong>{{ $recent->price }}</strong> USD /㎡</span>
                                     <p>{{ str_limit($recent->title, 40) }}</p>
                                 </a>

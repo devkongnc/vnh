@@ -18,7 +18,7 @@
 				<div class="pickup-blk">
 					<a href="{{ action('CategoryController@show', $categorie->permalink) }}">
 						<div class="pickup-img">
-							<img src="{{ URL::to('/') }}{{ $categorie->post_thumbnail }}" alt="{{ $categorie->title }}" >
+							<img src="{{ asset($categorie->post_thumbnail) }}" alt="{{ $categorie->title }}" >
 						</div>
 						<p>{{ $categorie->title }}</p>
 						<img src="{{ asset('images/new-layout/ar-b-s.png') }}" class="small-ar" >
@@ -45,21 +45,13 @@
 						<?php foreach ($offices as $key => $office) { ?>
 						<li class="estate-recommend" value="{{ $office->id }}"><a data-page="gal{{ $key }}" href="#gal{{ $key }}" class="gal-thumb">
 								<span class="gal-label">{{ $office->product_id }}</span>
-								<img src="{{ URL::to('/') }}{{ $office->post_thumbnail }}" alt="{{ $office->title }}">
+								<img src="{{ asset($office->post_thumbnail) }}" alt="{{ $office->title }}">
 							</a>
 						</li>
 						<?php } ?>
 					</ul>
 					<ul class="folio-recommend show-mobile" >
 						<li><a data-page="gal1" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>
-						<li><a data-page="gal2" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb3.jpg') }}" ></a></li>
-						<li><a data-page="gal3" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>
-						<li><a data-page="gal4" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb3.jpg') }}" ></a></li>
-						<li><a data-page="gal5" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>
-						<li><a data-page="gal6" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb3.jpg') }}" ></a></li>
-						<li><a data-page="gal7" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>
-						<li><a data-page="gal8" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb3.jpg') }}" ></a></li>
-						<li><a data-page="gal9" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>
 					</ul>
 				</div>
 				<div class="col-md-7 col-sm-7">

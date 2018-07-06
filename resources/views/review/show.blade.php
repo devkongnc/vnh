@@ -21,7 +21,7 @@
                         @if (!empty($review->user))
                         <div class="writer-information center-block">
                             <h3>WRITER</h3>
-                            <img src="/images/favicon.png" />
+                            <img src="{{ asset('/images/favicon.png') }}" />
                             <p class="writer-name">Vietnamhouse</p>
                         </div>
                         @endif

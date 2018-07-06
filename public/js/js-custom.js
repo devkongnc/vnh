@@ -1039,6 +1039,30 @@ $(document).ready(function ($) {
         }, 100);
     });
 
+
+    //------------//
+    // SEARCH MAP //
+    //------------//
+    var frontSearch = $(".search-header form");
+    $('#btn-open-map').click(function(){
+        $('input#ne_lat').val('');
+        $('input#ne_lng').val('');
+        $('input#sw_lat').val('');
+        $('input#sw_lng').val('');
+        $("input#see_first").val('');
+        window.location.href = 'search-map?'+frontSearch.serialize();
+    });
+
+    $('#btn-close-map').click(function() {
+        $('input#ne_lat').val('');
+        $('input#ne_lng').val('');
+        $('input#sw_lat').val('');
+        $('input#sw_lng').val('');
+        $("input#see_first").val('');
+        window.location.href = 'search?' + frontSearch.serialize();
+    });
+
+
 });
 
 function sync_search_box(item, value) {

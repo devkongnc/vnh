@@ -3,7 +3,7 @@
     <div class="col-md-6 col-sm-6">
         <a href="{{ URL::action('CategoryController@show', $category->permalink) }}">
         <div class="feature-blk">
-            <img src="{{ $category->post_thumbnail }}" alt="">
+            <img src="{{ asset($category->post_thumbnail) }}" alt="">
             <div class="desc">
             <h3>&nbsp;{{ $category->title }}</h3>
             <p>
