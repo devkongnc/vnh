@@ -57,8 +57,16 @@
 
     @include('layout.footer')
     <script type="text/javascript" src="{{ elixir('js/js-custom.js') }}"></script>
-    {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCESxzHdP7_GIkDxrH0h222gJBLl9VgKvM"></script>--}}
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy_KoPR6v-mzse7nWjricn1TTmnw9OP44"></script>
+
+
+    @if(env('APP_ENV') == 'local' || env('APP_ENV') == 'develop')
+        {{--key for local dev //vnh.local--}}
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy_KoPR6v-mzse7nWjricn1TTmnw9OP44"></script>
+    @else
+        {{--key for server real //office.vietnamhouse.jp--}}
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ env('APP_MAP_KEY') }}"></script>
+    @endif
+
 
     @yield('scripts')
 
