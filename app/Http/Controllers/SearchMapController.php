@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 class SearchMapController extends Controller {
 
     private $terms;
-    private $limit = 5;
+    private $limit = 10;
 
 	// add search maps function
 	public function search(Request $request) {
@@ -74,7 +74,7 @@ class SearchMapController extends Controller {
             $ne_lngs = floatval($request->ne_lng);
             $sw_lats = floatval($request->sw_lat);
             $sw_lngs = floatval($request->sw_lng);
-            $query = $query->whereRaw("CAST(lat AS DOUBLE) between $sw_lats and $ne_lats and CAST(lng AS DOUBLE) between $sw_lngs and $ne_lngs");
+            $query = $query->whereRaw("CAST(lat AS DECIMAL(17,15)) between $sw_lats and $ne_lats and CAST(lng AS DECIMAL(18,15)) between $sw_lngs and $ne_lngs");
         }
 
         $query = $query->with('resources');
