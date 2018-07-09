@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 class SearchMapController extends Controller {
 
     private $terms;
-    private $limit = 4;
+    private $limit = 10;
 
 	// add search maps function
 	public function search(Request $request) {
