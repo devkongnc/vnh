@@ -62,14 +62,16 @@
         <div id="nav" class="content-l center">
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}" class="logo"><img
                         src="{{ asset('images/new-layout/logo.svg') }}"></a>
-            <a onclick="$('.aside').asidebar('open')" class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
+            <a onclick="$('.aside').asidebar('open')"
+               class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
             {{-- <div class="">5</div> --}}
             <div class="like-page like-number">
                 <a href="#" data-toggle="modal" data-target="#modal-like">
                     <span class="numlike like-count"> <span class="invisible">0</span> </span>
                 </a>
             </div>
-            <a href="tel:0122-911-2100" class="hotline"><img src="{{ asset('images/new-layout/icon-phone.png') }}"> <span>0122 911 2100</span></a>
+            <a href="tel:0122-911-2100" class="hotline"><img
+                        src="{{ asset('images/new-layout/icon-phone.png') }}"> <span>0122 911 2100</span></a>
         </div>
     </div>
 
@@ -108,7 +110,8 @@
     {{--Header for Another Page--}}
     <div class="header page-module">
         <div id="nav" class="content-l">
-            <a href="{{ URL::to('/') }}" class="logo2"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}"
+               class="logo2"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
             <a onclick="$('.aside').asidebar('open')" class="menu-btn"><img
                         src="{{ asset('images/new-layout/menu.png') }}"></a>
             <div class="like-page like-number">

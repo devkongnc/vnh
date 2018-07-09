@@ -69,4 +69,5 @@ return array(
         ),
     'banner_title' => '心地よいオフィス探しを',
     'top_search_toggle' => 'オフィス検索',
+    'txt_no_result_map_data' => '<h4>結果がありません</h4><span>より多くの結果を得るには、検索の調整、フィルタの削除、地図のズームアウトを試してください。</span>'
 );

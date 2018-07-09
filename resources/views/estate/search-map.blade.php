@@ -205,8 +205,7 @@
 
         function display_empty_data() {
             $(".row-map > .map-list-pagi").remove();
-            lst_data_content.html('<div class="no-data-map"><h4>No results</h4>' +
-                '<span>To get more results, try adjusting your search by changing your dates, removing your filters, or zooming out of the map.</span></div>');
+            lst_data_content.html('<div class="no-data-map">{!!  trans('front.txt_no_result_map_data') !!}</div>');
             $(".house-list-scroll > div.no-data-map").css('margin-top','0');
         }
 
