@@ -69,4 +69,5 @@ Vui lòng truy cập một lần nữa bằng một trong hai cách sau.',
 
     'banner_title' => 'Tìm kiếm văn phòng tiện nghi',
     'top_search_toggle' => 'Tìm kiếm',
+    'txt_no_result_map_data' => '<h4>Không tìm thấy</h4><span>Để hiển thị thêm dữ liệu, vui lòng thay đổi điều kiện tìm kiếm, không dùng bộ lọc, hoặc di chuyển, phòng to thu nhỏ bản đồ.</span>'
 );
