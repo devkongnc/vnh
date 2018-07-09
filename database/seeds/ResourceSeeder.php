@@ -20,7 +20,7 @@ class ResourceSeeder extends Seeder
 
 //        for ($i = 0; $i < (env('APP_ENV') == 'local' ? 10 : 100); $i++) {
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $fileName = "image-" . $i . ".png";
 
             $image = file_get_contents("http://unsplash.it/768/520?random");

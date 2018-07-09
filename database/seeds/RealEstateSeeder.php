@@ -37,7 +37,7 @@ class RealEstateSeeder extends Seeder
             ]);
 
 
-            $resources = \App\Resource::orderByRaw('RAND()')->take(30)->get();
+            $resources = \App\Resource::orderByRaw('RAND()')->take(5)->get();
             $estate->resources()->saveMany($resources);
 
             $estate->save();
