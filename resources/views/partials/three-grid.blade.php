@@ -51,7 +51,7 @@
                         @foreach($equipments as $key => $data)
                             @foreach($data['values'] as $index => $value)
                                 {{-- Bỏ qua hồ bơi chung, hồ bơi riêng --}}
-                                <?php if ($key === 'facilities' and $count < 8){ ?>
+                                <?php if ($key === 'facilities' || $key === 'surroundings'){ ?>
                                 <li data-key="{{$index}}" class="{{ in_array($index, (array) $item->{$key}) ? "" : 'inactive' }} ">
                                     {{ \App\Term::getLocaleValue($value) }}
                                 </li>

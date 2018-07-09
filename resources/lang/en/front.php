@@ -70,4 +70,5 @@ You could also search for the page again by either of the following links.',
         ),
     'banner_title' => 'Looking for a comfortable office',
     'top_search_toggle' => 'Office Search',
+    'txt_no_result_map_data' => '<h4>No results</h4><span>To get more results, try adjusting your search, removing your filters, or zooming out of the map.</span>'
 );
