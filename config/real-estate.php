@@ -96,6 +96,8 @@ return [
         'values' => [
             '8' => '[:ja]バルコニー[:en]Balcony[:vi]Ban công[:]',
             '9' => '[:ja]エレベーター[:en]Elevator[:vi]Thang máy[:]',
+            '10' => '[:ja]駐車場[:en]Car park[:vi]Bãi giữ xe[:]',
+            '11' => '[:ja]トイレ[:en]Toilet[:vi]Nhà vệ sinh[:]',
             
         ]
                     
