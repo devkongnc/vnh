@@ -15,7 +15,7 @@ class RealEstateSeeder extends Seeder
 
         DB::table('estates')->delete();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 30; $i++) {
 
             $estate = factory(\App\Estate::class)->create();
 
@@ -31,11 +31,13 @@ class RealEstateSeeder extends Seeder
                     'ja' => "<p>" . $faker->realText(500) . "</p>"
                 ],
                 'price' => $faker->numberBetween(50,20000),
-                'size'  => $faker->numberBetween(50,5000)
+                'size'  => $faker->numberBetween(50,5000),
+                'lat'   => $faker->numberBetween(9.17682,22.82333),
+                'lng'   => $faker->numberBetween(103.02301,109.32094)
             ]);
 
 
-            $resources = \App\Resource::orderByRaw('RAND()')->take(10)->get();
+            $resources = \App\Resource::orderByRaw('RAND()')->take(30)->get();
             $estate->resources()->saveMany($resources);
 
             $estate->save();

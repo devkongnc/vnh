@@ -51,3 +51,7 @@
         </div>
     </div>
 </div>
+
+<style type="text/css">
+    .modal-content{padding: 25px}
+</style>
