@@ -137,15 +137,18 @@
         }
 
         function map_drag_zoom(map) {
+            //console.log(map.getZoom());
             if ($('.first-load').length) {
                 if (priority == 1) {
                     var current_zoom_reload = map.getZoom();
+                    if(current_zoom_reload < 2) {
+                        current_zoom_reload = 2;
+                    }
                     map.setZoom(current_zoom_reload+1);
                 }
                 $('.first-load').removeClass("first-load");
             } else {
                 if ($('.second-load').length) {
-
                     $('.second-load').removeClass("second-load");
                     google.maps.event.removeListener(listenerHandle_bounds_changed);
 
@@ -158,6 +161,9 @@
                         map_drag_zoom(map);
                     });
                 } else {
+                    if( map.getZoom() <= 2) {
+                        map.setZoom(3);
+                    }
                     var bounds = map.getBounds();
                     var ne = bounds.getNorthEast();
                     var sw = bounds.getSouthWest();
@@ -179,10 +185,10 @@
         }
 
         function reload_list_estate(response, map) {
-            if (response != '') {
-                // change url address - not reload
-                ChangeUrl(document.title, '{{ url(action('SearchMapController@search')) }}?' + frontSearch.serialize());
+            // change url address - not reload
+            ChangeUrl(document.title, '{{ url(action('SearchMapController@search')) }}?' + frontSearch.serialize());
 
+            if (response != '') {
                 lst_data_content.html(response);
                 add_style_for_data();
 
@@ -198,8 +204,10 @@
         }
 
         function display_empty_data() {
+            $(".row-map > .map-list-pagi").remove();
             lst_data_content.html('<div class="no-data-map"><h4>No results</h4>' +
                 '<span>To get more results, try adjusting your search by changing your dates, removing your filters, or zooming out of the map.</span></div>');
+            $(".house-list-scroll > div.no-data-map").css('margin-top','0');
         }
 
         // add marker
