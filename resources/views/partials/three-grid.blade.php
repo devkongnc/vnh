@@ -47,16 +47,13 @@
                     </table>
 
                     <ul class="house-feature">
-                        <?php $count = 0; ?>
                         @foreach($equipments as $key => $data)
                             @foreach($data['values'] as $index => $value)
-                                {{-- Bỏ qua hồ bơi chung, hồ bơi riêng --}}
-                                <?php if ($key === 'facilities' || $key === 'surroundings'){ ?>
+                                @if($key === 'facilities' || $key === 'surroundings')
                                 <li data-key="{{$index}}" class="{{ in_array($index, (array) $item->{$key}) ? "" : 'inactive' }} ">
                                     {{ \App\Term::getLocaleValue($value) }}
                                 </li>
-                                <?php $count++; ?>
-                                <?php } ?>
+                                @endif
                             @endforeach
                         @endforeach
                     </ul>

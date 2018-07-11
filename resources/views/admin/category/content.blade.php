@@ -17,8 +17,9 @@
 <div class="form-group">
     <label for="permalink" class="col-sm-2 control-label">パーマリンク</label>
     <div class="col-sm-6">
-        <div class="input-group"> <span class="input-group-addon" id="basic-addon1">//{{ Request::getHost() }}/category/</span>
-            {{ Form::text('permalink', $category->permalink, ['id' => 'permalink', 'class' => 'form-control', "placeholder" => "short-link", "required" => "true", 'pattern' => '^[\w\-]+[a-zA-Z\d]$', 'title' => rtrim('.', trans('validation.url', ['attribute' => 'permalink']))]) }}
+        <div class="input-group"><span class="input-group-addon" id="basic-addon1">//{{ Request::getHost() }}/category/</span>
+            {{ Form::text('permalink', $category->permalink,
+            ['id' => 'permalink', 'class' => 'form-control', "placeholder" => "short-link", "required" => "true", 'pattern' => '^[\w\-]+[a-zA-Z\d]$', 'title' => rtrim('.', trans('validation.url', ['attribute' => 'permalink']))]) }}
         </div>
     </div>
 </div>
@@ -45,7 +46,8 @@
     <div class="col-xs-10">
         <img src="{{ asset($category->feature_image) }}" class="img-responsive" alt="featured_image">
         <input type="hidden" name="resource_id" value="{{ $category->post_thumbnail_id }}">
-        <a class="set-featured{{ $category->post_thumbnail_id === '' ? '' : ' hidden' }}" data-toggle="modal" href="#modal-upload">@lang('admin.common.set featured image')</a>
+        <a class="set-featured{{ $category->post_thumbnail_id === '' ? '' : ' hidden' }}" data-toggle="modal"
+           href="#modal-upload">@lang('admin.common.set featured image')</a>
         <a class="remove-featured{{ $category->post_thumbnail_id === '' ? ' hidden' : '' }}">@lang('admin.common.remove featured image')</a>
     </div>
 </div>
@@ -68,22 +70,25 @@
 </div>
 
 @foreach($above as $key => $data)
-    <h3 class="block-title">{{ \App\Term::getLocaleValue($data['name']) }}</h3>
-    <div class="row">
-        @if ($key === 'price')
-            <div class="col-xs-12">
-                {{ Form::number("sql_data[price][]", array_get($category->sql_data, 'price.0', ''), ['min' => 0, 'step' => 50, 'class' => 'price from']) }}<span style="margin: 0 1em;">-</span>{{ Form::number("sql_data[price][]", array_get($category->sql_data, 'price.1', ''), ['min' => 0, 'step' => 50, 'class' => 'price to']) }}
-            </div>
-        @else
-            @foreach($data['values'] as $index => $value)
-                <div class="col-sm-2">
-                    <div class="checkbox"><label for="{{$key}}-{{$index}}">
-                        {{ Form::checkbox("sql_data[{$key}][]", $index, in_array($index, (array) array_get($category->sql_data, $key, []), false)) }} {{ \App\Term::getLocaleValue($value) }}</label>
-                    </div>
+    @if ($data['type'] !== 'text')
+        <h3 class="block-title">{{ \App\Term::getLocaleValue($data['name']) }}</h3>
+        <div class="row">
+            @if ($key === 'price')
+                <div class="col-xs-12">
+                    {{ Form::number("sql_data[price][]", array_get($category->sql_data, 'price.0', ''), ['min' => 0, 'step' => 50, 'class' => 'price from']) }}
+                    <span style="margin: 0 1em;">-</span>{{ Form::number("sql_data[price][]", array_get($category->sql_data, 'price.1', ''), ['min' => 0, 'step' => 50, 'class' => 'price to']) }}
                 </div>
-            @endforeach
-        @endif
-    </div>
+            @else
+                @foreach($data['values'] as $index => $value)
+                    <div class="col-sm-2">
+                        <div class="checkbox"><label for="{{$key}}-{{$index}}">
+                                {{ Form::checkbox("sql_data[{$key}][]", $index, in_array($index, (array) array_get($category->sql_data, $key, []), false)) }} {{ \App\Term::getLocaleValue($value) }}</label>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+    @endif
 @endforeach
 @foreach($below as $key => $data)
     <h3 class="block-title">{{ \App\Term::getLocaleValue($data['name']) }}</h3>
@@ -91,7 +96,8 @@
         @foreach($data['values'] as $index => $value)
             <div class="col-sm-2">
                 <div class="checkbox"><label for="{{$key}}-{{$index}}">
-                        {{ Form::checkbox("sql_data[{$key}][]", $index, in_array($index, (array) array_get($category->sql_data, $key, []), false)) }} {{ \App\Term::getLocaleValue($value) }}</label></div>
+                        {{ Form::checkbox("sql_data[{$key}][]", $index, in_array($index, (array) array_get($category->sql_data, $key, []), false)) }} {{ \App\Term::getLocaleValue($value) }}</label>
+                </div>
             </div>
         @endforeach
     </div>
@@ -102,9 +108,9 @@
         <button type="submit" class="block-full-width btn btn-lg btn-primary">@lang('admin.common.save')</button>
     </div>
     @if (!empty($category->id))
-    <div class="col-sm-2 col-sm-offset-2">
-        <button type="submit" class="block-full-width btn btn-lg btn-danger">@lang('admin.common.delete')</button>
-    </div>
+        <div class="col-sm-2 col-sm-offset-2">
+            <button type="submit" class="block-full-width btn btn-lg btn-danger">@lang('admin.common.delete')</button>
+        </div>
     @endif
 </div>
 
@@ -112,14 +118,14 @@
     <script type="text/javascript" src="{{ asset('/js/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript">
         @foreach (array_keys($all_locales) as $localeCode)
-        CKEDITOR.replace( 'description-{{ $localeCode }}', {
+        CKEDITOR.replace('description-{{ $localeCode }}', {
             language: '{{ $localeCode }}'
         });
         @endforeach
-        $('#create-highlight').submit(function(event) {
+        $('#create-highlight').submit(function (event) {
             var self = $(this),
                 from = parseInt(self.find('.price.from').val()) || 0,
-                to   = parseInt(self.find('.price.to').val()) || 0;
+                to = parseInt(self.find('.price.to').val()) || 0;
             if (from === 0 && to === 0) self.find('.price').attr('disabled', true);
             else if (to === 0) self.find('.price.to').attr('type', 'text').val('max');
             else if (from >= to) {
