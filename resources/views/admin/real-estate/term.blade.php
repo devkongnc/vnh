@@ -250,7 +250,7 @@
             });
 
             table.on('row-reorder', function ( e, diff, edit ) {
-                console.log(diff);
+                console.log(dif);
             });
 
             table.on('click', '.btn-danger', function (event) {

@@ -50,7 +50,7 @@ class ComposerServiceProvider extends ServiceProvider
             $data['basic'] = collect(config('real-estate'))->filter(function ($value, $key) {
                 return $value['group'] === 'basic' and in_array($key, ['size']);
             });
-            $data['equipments'] = collect(config('real-estate'))->filter(function($item, $key) { return $item['group'] == 'details' and $key !== 'surroundings'; });
+            $data['equipments'] = collect(config('real-estate'))->filter(function($item, $key) { return $item['group'] == 'details'; });
 
             $view->with($data);
         });
@@ -58,7 +58,7 @@ class ComposerServiceProvider extends ServiceProvider
             $data['basic'] = collect(config('real-estate'))->filter(function ($value, $key) {
                 return $value['group'] === 'basic' and in_array($key, ['size']);
             });
-            $data['equipments'] = collect(config('real-estate'))->filter(function($item, $key) { return $item['group'] == 'details' and $key !== 'surroundings'; });
+            $data['equipments'] = collect(config('real-estate'))->filter(function($item, $key) { return $item['group'] == 'details'; });
 
             $view->with($data);
         });

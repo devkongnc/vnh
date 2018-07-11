@@ -3,7 +3,8 @@
 {{--Fixed Header--}}
 <div class="menu-fix" id="menu-fix">
     <div id="nav" class="content-l">
-        <a href="{{ URL::to('/') }}" class="logo2"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
+        <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}"
+           class="logo2"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
         <a onclick="$('.aside').asidebar('open')" class="menu-btn"><img
                     src="{{ asset('images/new-layout/menu.png') }}"></a>
         <div class="like-page like-number">
