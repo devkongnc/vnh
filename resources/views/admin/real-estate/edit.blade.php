@@ -18,7 +18,8 @@
 @endsection
 
 @section('view-page')
-	<a class="btn btn-info view-page" href="{{ action('RealEstateController@show', $estate->product_id) }}" target="_blank">@lang('admin.common.view')</a>
+	<a class="btn btn-info view-page" href="{{ action('RealEstateController@show', $estate->product_id) }}"
+	   target="_blank">@lang('admin.common.view')</a>
 @endsection
 
 @section('content')
@@ -38,7 +39,9 @@
 					<div class="box box-solid">
 						<div class="box-body nopadding">
 							@include('partials.validations')
-							{!! Form::open(['action' => ['Admin\RealEstateController@update', $estate->id], 'method' => 'PUT', 'class' => 'form-horizontal', 'role' => 'form', 'id' => 'create-estate']) !!}
+							{!! Form::open(['action' => ['Admin\RealEstateController@update', $estate->id],
+								'method' => 'PUT', 'class' => 'form-horizontal',
+								'role' => 'form', 'id' => 'create-estate']) !!}
 								@include('admin.real-estate.content')
 							{!! Form::close()!!}
 						</div>
@@ -62,7 +65,8 @@
 			$('<form>', {
                 'action': '{{ action('Admin\RealEstateController@destroy', $estate->id) }}',
                 'method': 'POST',
-                'html': '<input name="_method" value="DELETE" type="hidden"><input name="_token" value="' + _TOKEN + '" type="hidden">'
+                'html': '<input name="_method" value="DELETE" ' +
+				'type="hidden"><input name="_token" value="' + _TOKEN + '" type="hidden">'
             }).appendTo('body').submit();
         });
 
