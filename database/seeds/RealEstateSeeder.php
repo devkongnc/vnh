@@ -15,6 +15,8 @@ class RealEstateSeeder extends Seeder
 
         DB::table('estates')->delete();
 
+        $address_arr = ['Le Thanh Ton', 'Dinh Tien Hoang', 'Tran Quan Khai', 'Hai Ba Trung', 'Le Duan', 'Nguyen Cong Tru'];
+
         for ($i = 0; $i < 30; $i++) {
 
             $estate = factory(\App\Estate::class)->create();
@@ -33,7 +35,12 @@ class RealEstateSeeder extends Seeder
                 'price' => $faker->numberBetween(50,20000),
                 'size'  => $faker->numberBetween(50,5000),
                 'lat'   => $faker->numberBetween(9.17682,22.82333),
-                'lng'   => $faker->numberBetween(103.02301,109.32094)
+                'lng'   => $faker->numberBetween(103.02301,109.32094),
+                'address' => $address_arr[array_rand($address_arr)],
+                'contract_limit'   => "1 year",
+                'floor'   => $faker->numberBetween(1,25),
+                'conditioning_system'   => "Central management system",
+                'anniversary'   => date("Y-m-d", mt_rand(strtotime('2005-01-01'), strtotime('2017-12-30')))
             ]);
 
 

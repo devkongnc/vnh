@@ -94,10 +94,10 @@ return [
         'group' => 'details',
         'type' => 'multiple',                
         'values' => [
-            '8' => '[:ja]バルコニー[:en]Balcony[:vi]Ban công[:]',
-            '9' => '[:ja]エレベーター[:en]Elevator[:vi]Thang máy[:]',
-            '10' => '[:ja]駐車場[:en]Car park[:vi]Bãi giữ xe[:]',
-            '11' => '[:ja]トイレ[:en]Toilet[:vi]Nhà vệ sinh[:]',
+            '8' => '[:ja]受付[:en]Reception[:vi]Lễ tân[:]',
+            '9' => '[:ja]24時間入室可[:en]No time limit[:vi]Không giới hạn giờ ra vào[:]',
+            '10' => '[:ja]エレベーター[:en]Elevator[:vi]Thang máy[:]',
+            '11' => '[:ja]駐車場[:en]Parking[:vi]Bãi đậu xe[:]',
             
         ]
                     
@@ -107,16 +107,16 @@ return [
         'group' => 'details',
         'type' => 'multiple',                
         'values' => [
-            '1' => '[:ja]有人受付[:en]Front Desk[:vi]Bàn tiếp tân[:]',
-            '2' => '[:ja]警備員24/24[:en]Security Guard[:vi]Bảo vệ[:]',
+            '1' => '[:ja]警備員[:en]Security[:vi]Bảo vệ[:]',
+            '2' => '[:ja]男女別トイレ[:en]Wc[:vi]Nhà vệ sinh[:]',
             '3' => '[:ja]発電機[:en]Generator[:vi]Máy phát điện[:]',
-            '5' => '[:ja]門限無し[:en]No Curfew[:vi]Không giờ giới nghiêm[:]',
+            '5' => '[:ja]バイク駐輪場[:en]Motorbike parking[:vi]Bãi đậu xe máy[:]',
             
         ]
                     
     ],
     'address' => [
-        'name' => '[:ja][:en]Address[:vi][:]',
+        'name' => '[:ja]アドレス[:en]Address[:vi]Địa chỉ[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -125,7 +125,7 @@ return [
                     
     ],
     'contract_limit' => [
-        'name' => '[:ja][:en]Contract Limit[:vi][:]',
+        'name' => '[:ja]契約限度額[:en]Contract Limit[:vi]Hợp đồng tối thiểu[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -134,7 +134,7 @@ return [
                     
     ],
     'floor' => [
-        'name' => '[:ja][:en]Floor[:vi][:]',
+        'name' => '[:ja]フロア[:en]Floor[:vi]Tầng lầu[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -143,7 +143,7 @@ return [
                     
     ],
     'conditioning_system' => [
-        'name' => '[:ja][:en]Conditioning System[:vi][:]',
+        'name' => '[:ja]コンディショニングシステム[:en]Conditioning System[:vi]Hệ thống điều hòa[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -152,7 +152,7 @@ return [
                     
     ],
     'anniversary' => [
-        'name' => '[:ja][:en]Anniversary[:vi][:]',
+        'name' => '[:ja]ニバーサリー[:en]Anniversary[:vi]Ngày thành lập[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -161,7 +161,7 @@ return [
                     
     ],
     'commiss' => [
-        'name' => '[:ja][:en]Commissions[:vi][:]',
+        'name' => '[:ja]コミッション[:en]Commissions[:vi]Hoa hồng[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
