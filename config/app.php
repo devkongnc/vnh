@@ -224,6 +224,10 @@ return [
         'Breadcrumbs'         => DaveJamesMiller\Breadcrumbs\Facade::class,
         'SEO'                 => Artesaos\SEOTools\Facades\SEOTools::class,
         'Excel'               => Maatwebsite\Excel\Facades\Excel::class,
+        'CustomLog'           => App\Contracts\CustomLog::class,
     ],
+
+    //Custom app config
+    'default_img_src' => 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
 
 ];

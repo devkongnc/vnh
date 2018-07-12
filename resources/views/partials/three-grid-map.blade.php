@@ -19,7 +19,7 @@
                         <div class="owl-carousel owl-theme house-carousel">
                             @foreach($item->resources as $index => $image)
                                 <div class="item">
-                                    <img src="{{ asset($image->medium) }}" alt="">
+                                    <img src="{{ img_exists($image->estate_thumbnail) }}" alt="">
                                 </div>
                             @endforeach
                         </div>

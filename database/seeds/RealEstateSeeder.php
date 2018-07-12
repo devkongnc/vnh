@@ -21,6 +21,7 @@ class RealEstateSeeder extends Seeder
 
             $estate = factory(\App\Estate::class)->create();
 
+            $price = $faker->numberBetween(50,20000);
             $estate->update([
                 'title' => [
                     'en' => $faker->sentence,
@@ -32,7 +33,8 @@ class RealEstateSeeder extends Seeder
                     'vi' => "<p>" . $faker->realText(500) . "</p>",
                     'ja' => "<p>" . $faker->realText(500) . "</p>"
                 ],
-                'price' => $faker->numberBetween(50,20000),
+                'price' => $price,
+                'price' => $faker->numberBetween($price,20000),
                 'size'  => $faker->numberBetween(50,5000),
                 'lat'   => $faker->numberBetween(9.17682,22.82333),
                 'lng'   => $faker->numberBetween(103.02301,109.32094),
