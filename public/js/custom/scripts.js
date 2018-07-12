@@ -79,8 +79,8 @@ $(document).ready(function ($) {
 
     //dropdown checekbox//
     var options = [];
-    $('.dropdown-menu a').on('click', function (event) {
-        console.log($(event.currentTarget));
+    $('.advanced-search .dropdown-menu a').on('click', function (event) {
+        //console.log($(event.currentTarget));
 
         var $target = $(event.currentTarget),
             val = $target.attr('data-value'),

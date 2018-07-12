@@ -39,7 +39,6 @@
             {{ showMenu(null, $menu, $pages_by_id, 1) }}
         </ul>
         <div class="aside-bot">
-            <a href="#" class="search-aside"><img src="{{ asset('images/new-layout/icon-search-f.png') }}"> 住居を探す</a>
             <ul class="language">
                 @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     <li class='{{ ((Lang::locale() === $localeCode) ? "active" : "") }}'>
@@ -55,24 +54,73 @@
     </div>
 </div>
 <div class="aside-backdrop"></div>
-
+<style>
+    #fill1 {
+        border-radius: 0;
+        width: 26px;
+        height: 23px;
+        border: 3px solid #f7931e;
+        color: #f7931e;
+        font-family: "Gen Shin Gothic";
+        font-size: 12px;
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: 700;
+        text-align: left;
+    }
+</style>
 
 @if (Route::is('home'))
     {{--Header for Top page--}}
     <div class="header">
+        <div class="direct_bar_wrap">
+            <div id="direct_bar" class="content-l">
+                <div class="direct_bar_lang pull-left">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="dropdown-toggle"
+                               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="icon_global"></span> {{ LaravelLocalization::getCurrentLocaleNative() }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li class='{{ ((Lang::locale() === $localeCode) ? "active" : "") }}'>
+                                        <a rel="alternate" hreflang="{{ $localeCode }}"
+                                           href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="direct_bar_list pull-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">HCMC 住居</a></li>
+                        <li class="active"><a href="#">HCMC オフィス</a></li>
+                        <li><a href="#">HaNoi 住居</a></li>
+                        <li><a href="#">HaNoi オフィス</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div id="nav" class="content-l center">
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}" class="logo"><img
                         src="{{ asset('images/new-layout/logo.svg') }}"></a>
             <a onclick="$('.aside').asidebar('open')"
                class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
-            {{-- <div class="">5</div> --}}
+            <div class="mail-contact">
+                <a href="#" data-toggle="modal" data-target="#modal-like">
+                    <span class="numlike like-count"> <span class="invisible">0</span> </span>
+                </a>
+            </div>
             <div class="like-page like-number">
                 <a href="#" data-toggle="modal" data-target="#modal-like">
                     <span class="numlike like-count"> <span class="invisible">0</span> </span>
                 </a>
             </div>
-            <a href="tel:0122-911-2100" class="hotline"><img
-                        src="{{ asset('images/new-layout/icon-phone.png') }}"> <span>0122 911 2100</span></a>
         </div>
     </div>
 

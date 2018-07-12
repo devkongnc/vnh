@@ -19,9 +19,6 @@
             </div>
 
         </div>
-        <a href="#" class="search-f">
-            <img src="{{ asset('images/new-layout/icon-search-f.png') }}" > 住居を探す
-        </a>
     </div>
 </div>
 
