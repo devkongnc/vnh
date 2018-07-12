@@ -23,6 +23,7 @@ class Estate extends Model
         'lat',
         'lng',
         'price',
+        'price_max',
         'deposit',
         'city',
         'area',
@@ -46,7 +47,7 @@ class Estate extends Model
 
     protected $guarded  = ['id', 'title', 'description', 'images', 'user_id', 'g-recaptcha-response'];
 
-    protected $casts    = ['price' => 'integer', 'size' => 'integer'];
+    protected $casts    = ['price' => 'integer', 'price_max' => 'integer', 'size' => 'integer'];
 
     public function __construct(array $attributes = []) {
         parent::__construct($attributes);

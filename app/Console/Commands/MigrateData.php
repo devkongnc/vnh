@@ -61,8 +61,8 @@ class MigrateData extends Command
                 WHERE cscart_images_links.object_id={$estate[0]->product_id}
             ");
 
-            if (!\File::exists(public_path("upload/door/$model->product_id")))
-                \File::makeDirectory(public_path("upload/door/$model->product_id"), intval('0775', 8), true);
+            if (!\File::exists(public_path("upload/images/$model->product_id")))
+                \File::makeDirectory(public_path("upload/images/$model->product_id"), intval('0775', 8), true);
 
             $resources = [];
             foreach ($images as $index => $image) {
@@ -70,7 +70,7 @@ class MigrateData extends Command
                 /*$group = (int)($model->product_id / 10000);
                 $group = $group * 10000 . "-" . ($group+1)*10000;*/
                 $resource = Resource::create([
-                    'folder'   => "door/{$model->product_id}/",
+                    'folder'   => "images/{$model->product_id}/",
                     'filename' => $image->image_path,
                     'url'      => "http://vietnamhouse.jp/images/detailed/{$id}/{$image->image_path}"
                 ]);

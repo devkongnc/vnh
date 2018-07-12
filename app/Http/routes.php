@@ -67,12 +67,12 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
     });
 
     # Review
-    Route::group(['prefix' => 'blog'], function () {
-        Route::get('', 'ReviewController@index');
-        Route::get('search', 'ReviewController@search');
-        Route::get('{category}', 'ReviewController@category');
-        Route::get('{category}/{permalink}', 'ReviewController@show');
-    });
+//    Route::group(['prefix' => 'blog'], function () {
+//        Route::get('', 'ReviewController@index');
+//        Route::get('search', 'ReviewController@search');
+//        Route::get('{category}', 'ReviewController@category');
+//        Route::get('{category}/{permalink}', 'ReviewController@show');
+//    });
 
     # Authenticate
     Route::controllers([
@@ -85,8 +85,8 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
         Route::get('/', ['as' => 'admin.dashboard', function () {
             $contacts = App\Contact::whereDate('created_at', '=', Carbon\Carbon::today())->orderBy('id', 'desc')->get();
             $estates = App\Estate::with('user')->whereDate('created_at', '=', Carbon\Carbon::today())->orderBy('id', 'desc')->take(100)->get();
-            $reviews = App\Review::with('user')->whereDate('created_at', '=', Carbon\Carbon::today())->orderBy('id', 'desc')->get();
-            return view('admin.dashboard', compact('contacts', 'estates', 'reviews'));
+            //$reviews = App\Review::with('user')->whereDate('created_at', '=', Carbon\Carbon::today())->orderBy('id', 'desc')->get();
+            return view('admin.dashboard', compact('contacts', 'estates'));//, 'reviews'
         }]);
 
         Route::group(['prefix' => 'resource'], function () {
@@ -102,11 +102,11 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
         });
         Route::resource('real-estate', 'RealEstateController');
 
-        Route::group(['prefix' => 'review'], function () {
-            Route::post('export', 'ReviewController@export');
-            Route::put('preview', 'ReviewController@preview');
-        });
-        Route::resource('review', 'ReviewController');
+//        Route::group(['prefix' => 'review'], function () {
+//            Route::post('export', 'ReviewController@export');
+//            Route::put('preview', 'ReviewController@preview');
+//        });
+//        Route::resource('review', 'ReviewController');
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('{category}/result', 'CategoryController@result');

@@ -53,7 +53,7 @@
 	<script type="text/javascript">
 		var _TOKEN = $('input[name="_token"]').val();
 		dropzone_multi.on('sending', function(file, xhr, formData) {
-        	formData.append("dir", 'door/' + _TOKEN);
+        	formData.append("dir", 'images/' + _TOKEN);
         	formData.append('is_rectangle', true);
         });
 	</script>

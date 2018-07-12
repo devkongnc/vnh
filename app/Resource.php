@@ -13,6 +13,7 @@ class Resource extends Model
 	protected $parent       = 'upload/';
 
 	public static $sizes =  [
+        //['width' => 800, 'height' => 600, 'crop' => true],
     	['width' => 675, 'height' => 450, 'crop' => true],
         ['width' => 375, 'height' => 375, 'crop' => true],
         ['width' => 375, 'height' => 250, 'crop' => true]
@@ -58,4 +59,8 @@ class Resource extends Model
 	public function getMediumAttribute() {
 		return Image::url($this->path, 675, 450, ['crop' => true]);
 	}
+
+    public function getLargeAttribute() {
+        return Image::url($this->path, 800, 600, ['crop' => true]);
+    }
 }

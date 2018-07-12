@@ -1,4 +1,12 @@
 <?php
+function img_exists($url) {
+    if (file_exists(public_path($url))) {
+       return asset($url);
+    } else {
+        \App\Contracts\CustomLog::write('image','Missing file: '.$url);
+        return config('app.default_img_src');
+    }
+}
 
 function getLocaleString($data) {
     $valuesString = '';
