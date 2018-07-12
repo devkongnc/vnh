@@ -23,12 +23,12 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-7 col-sm-7">
                 <div class="center">
                     <div class="hide-mobile">
                         <div class="container-gallery">
                             @foreach($estate->resources as $index => $resource)
-                                <img src="{{ asset($resource->url) }}" alt="">
+                                <img src="{{ img_exists($resource->path) }}" alt="{{ $estate->title }}" />
                             @endforeach
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                              data-max-width="100%">
                             @foreach($estate->resources as $index => $resource)
                                 <a href="{{ $resource->url }}">
-                                    <img src="{{ asset($resource->url) }}" width="70" height="46">
+                                    <img src="{{ img_exists($resource->path) }}" width="70" height="46" />
                                 </a>
                             @endforeach
                         </div>
@@ -51,7 +51,9 @@
                 </div>
 
             </div>
-            <div class="col-md-6 col-sm-6">
+
+
+            <div class="col-md-5 col-sm-5">
                 <div class="grey-bg-info">
                     <div class="row">
                         <div class="col-md-8 col-sm-7">
@@ -103,7 +105,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-12">
                         <a href="#" data-toggle="modal" data-target="#modal-like-single"
                            class="product-query big-contact-btn">@lang('entity.estate.query')</a>
                         <a href="#" class="btn-like big-favorite-btn"><img
@@ -139,9 +141,9 @@
                         <div class="item">
                             <a class="rh-blk"
                                href="{{ URL::action('RealEstateController@show', $relative->product_id) }}">
-                                <img src="{{ asset($relative->post_thumbnail) }}">
+                                <img src="{{ img_exists($relative->post_thumbnail) }}" />
                                 <span class="rh-info"><strong>{{ $relative->price }}</strong> USD /㎡</span>
-                                <p>{{ str_limit($relative->title, 40) }}</p>
+                                <p>{{ str_limit($relative->title, 30) }}</p>
                             </a>
                         </div>
                     @endforeach
@@ -155,9 +157,9 @@
                             <div class="item">
                                 <a class="rh-blk"
                                    href="{{ URL::action('RealEstateController@show', $recent->product_id) }}">
-                                    <img src="{{ asset($recent->post_thumbnail) }}">
+                                    <img src="{{ img_exists($recent->post_thumbnail) }}" />
                                     <span class="rh-info"><strong>{{ $recent->price }}</strong> USD /㎡</span>
-                                    <p>{{ str_limit($recent->title, 40) }}</p>
+                                    <p>{{ str_limit($recent->title, 30) }}</p>
                                 </a>
                             </div>
                         @endforeach

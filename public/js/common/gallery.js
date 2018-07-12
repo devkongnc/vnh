@@ -99,7 +99,7 @@
 			galItemLength.push(currentGalItems.length);
 			currentGalItems.each(function(elem) {
 				$(this).css('background-image', 
-					'url('+ $(this).find('img').attr('src') +')');
+					"url('"+ $(this).find('img').attr('src') +"')");
 				$(this).find('img').remove();
 			});
 

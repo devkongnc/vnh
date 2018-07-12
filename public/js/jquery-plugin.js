@@ -3400,8 +3400,8 @@ var Wow=function(){"use strict";var n=function(){var n=new WOW({boxClass:"wow",o
 			allGalItems.push(currentGalItems);
 			galItemLength.push(currentGalItems.length);
 			currentGalItems.each(function(elem) {
-				$(this).css('background-image', 
-					'url('+ $(this).find('img').attr('src') +')');
+				$(this).css('background-image',
+                    "url('"+ $(this).find('img').attr('src') +"')");
 				$(this).find('img').remove();
 			});
 
