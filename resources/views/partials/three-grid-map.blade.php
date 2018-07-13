@@ -4,7 +4,7 @@
     @foreach($items as $key => $item)
         <?php
         $page_map_data[] = [
-            $item->price,
+            $item->price.(!empty($item->price_max) ?' ~ $'.$item->price_max:''),
             $item->lat,
             $item->lng,
             $key,
@@ -23,8 +23,8 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="house-sub-title"><strong>{{ $item->price }}</strong>
-                            USD　<span>（@lang('front.manage fee')）</span></div>
+                        <div class="house-sub-title"><strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡</strong>
+                            <span>（@lang('front.manage fee')）</span></div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="title-number">
