@@ -47,7 +47,7 @@
     @yield('styles')
 </head>
 
-<body>
+<body class="{{ (Route::current()->getUri() == 'search-map')?' change-body-padding ':''}}">
 
 <div id="top"></div>
 
@@ -55,7 +55,10 @@
 
     @yield('content')
 
-    @include('layout.footer')
+    @if(Route::current()->getUri() !== 'search-map')
+        @include('layout.footer')
+    @endif
+
     <script type="text/javascript" src="{{ elixir('js/js-custom.js') }}"></script>
 
 

@@ -68,14 +68,15 @@
                                     </div>
                                 </div>
                                 <div class="right-menu-page col-sm-4 col-sm-offset-2">
-                                    <h2>@lang('admin.entity.menu')</h2>
+                                    <h2>@lang('menu.setting_menu_toppage')</h2>
                                     <div class="list-menu">
                                         <form id="nestable" class="dd nestable"
-                                                     action="{{ action('Admin\PageController@menu') }}" method="post">
+                                              action="{{ action('Admin\PageController@menutop') }}" method="post">
                                             {{ csrf_field() }}
-                                            {{ showMenuAdmin($menu, $pages_by_id) }}
+
+                                            {{ showMenuAdmin($menu_top, $pages_by_id) }}
                                             <textarea id="json-output" class="hidden form-control"
-                                                      name="menu"></textarea>
+                                                      name="menu_top"></textarea>
                                             <button class="btn btn-primary"
                                                     type="submit">@lang('admin.common.save')</button>
                                         </form>

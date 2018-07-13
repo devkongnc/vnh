@@ -323,7 +323,6 @@ if (!is_touch_device) {
 }
 
 function category_item_same_height() {
-    // add new 2018-05-17 start
     var maxHeight = 0;
     $(".highest-box").removeAttr("style");
     $('.highest-box').each(function () {
@@ -334,8 +333,18 @@ function category_item_same_height() {
     $('.highest-box').height(maxHeight);
 }
 
+function recommend_item_square() {
+    var i_width = $('.folio-recommend li').width();
+    $('.folio-recommend li').each(function () {
+        $(this).height(i_width);
+        $(this).find('.gal-thumb span').width(i_width);
+        $(this).find('img').height(i_width);
+    });
+}
+
 $(window).resize(function () {
     category_item_same_height();
+    recommend_item_square();
 });
 
 
@@ -769,10 +778,14 @@ $(document).ready(function() {
     });
 
     category_item_same_height();
+    recommend_item_square();
 });
 
 $(document).ready(function ($) {
     "use strict";
+
+    $('.clear-form-search-btn').click(function (e) {
+    });
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
@@ -832,9 +845,9 @@ $(document).ready(function ($) {
     //------------//
     // SEARCH BOX //
     //------------//
-    var price_max_search = 50000;
+    var price_max_search = 5000;
     var price_min_search = 0;
-    var size_max_search = 5000;
+    var size_max_search = 3000;
     var size_min_search = 0;
 
     function ajaxSearch() {
@@ -892,7 +905,7 @@ $(document).ready(function ($) {
         step: 1,
         scale: [price_min_search, price_max_search],
         format: '%s',
-        width: 300,
+        width: 330,
         showLabels: true,
         isRange: true,
         ondragend: function (data) {
@@ -914,7 +927,7 @@ $(document).ready(function ($) {
         step: 1,
         scale: [size_min_search, size_max_search],
         format: '%s',
-        width: 300,
+        width: 330,
         showLabels: true,
         isRange: true,
         ondragend: function (data) {

@@ -270,7 +270,6 @@ if (!is_touch_device) {
 }
 
 function category_item_same_height() {
-    // add new 2018-05-17 start
     var maxHeight = 0;
     $(".highest-box").removeAttr("style");
     $('.highest-box').each(function () {
@@ -281,8 +280,18 @@ function category_item_same_height() {
     $('.highest-box').height(maxHeight);
 }
 
+function recommend_item_square() {
+    var i_width = $('.folio-recommend li').width();
+    $('.folio-recommend li').each(function () {
+        $(this).height(i_width);
+        $(this).find('.gal-thumb span').width(i_width);
+        $(this).find('img').height(i_width);
+    });
+}
+
 $(window).resize(function () {
     category_item_same_height();
+    recommend_item_square();
 });
 
 
@@ -716,4 +725,5 @@ $(document).ready(function() {
     });
 
     category_item_same_height();
+    recommend_item_square();
 });
