@@ -11,7 +11,7 @@ return array(
     // edit end
     'total' => '合計',
     'reset' => 'リセット',
-    'readmore' => '続きを読む',
+    'readmore' => '詳細を見る',
     'last updated' => '最終更新日',
     'next page' => '次のページ',
     'edit page' => '編集する',

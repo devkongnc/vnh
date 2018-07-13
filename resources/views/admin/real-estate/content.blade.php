@@ -28,7 +28,7 @@
     </div>
     <div class="col-sm-2 price-max-form">
         {{ Form::number('price_max', (!empty($estate->price_max)?$estate->price_max:''),
-        ['id' => 'price_max', 'class' => 'form-control', 'required' => 'required', 'min' => 0]) }}
+        ['id' => 'price_max', 'class' => 'form-control', 'min' => 0]) }}
     </div>
     <div class="col-sm-1 control-label nopadding" style="text-align: left;">USD</div>
 </div>

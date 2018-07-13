@@ -28,7 +28,9 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+body.change-body-padding {
+    padding-bottom: 60px;
+}
 .container {
     padding-right: 0;
     padding-left: 0;
@@ -195,11 +197,53 @@ a[href^="tel"] {
     padding: 0 15px 0 50px;
 }
 
-.blk-btn:hover, blk-btn:focus {
-    background: #000 url(../../images/new-layout/ar-w-s.png) no-repeat 20px 18px;
-    color: #fff;
+.quest-btn {
+    background: url(../../images/new-layout/quest-w-s.png) no-repeat;
+    min-width: 290px;
+    min-height: 25px;
+    line-height: 25px;
+    padding: 0;
+    padding-left: 30px;
+    text-align: left;
+    margin: 0;
+    font-size: 12px;
+    color: #000;
+    display: inline-block;
 }
 
+.special-btn {
+    background:none;
+    width: 130px;
+    margin: auto;
+    padding: 5px 10px;
+    display: block;
+    background-color: #4F7FB8;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    margin-top: 20px;
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.clear-form-search-btn {
+    background: url(../../images/new-layout/icon-reset.png) no-repeat;
+    display: inline-block;
+    padding-left: 25px;
+    margin: 18px auto 0;
+    font-weight: 500;
+    border: none;
+}
+.clear-form-search-btn:focus {
+    outline: none;
+}
+.quest-btn:hover,
+.quest-btn:focus,
+.clear-form-search-btn:hover,
+.clear-form-search-btn:focus {
+    color: #000;
+}
 .btn-140 {
     text-transform: uppercase;
     min-width: 140px;
@@ -345,8 +389,18 @@ a[href^="tel"] {
 .folio-recommend li {
     list-style: none;
     float: left;
-    width: 33.33333%;
-    padding: 5px;
+    margin: 1.5%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.estate-recommend > a > img {
+    height: 120px;
+    width: auto;
+    max-width: none;
+    margin: auto;
+    left: -16%;
+    position: relative;
 }
 
 .gal-thumb {
@@ -356,8 +410,9 @@ a[href^="tel"] {
 
 .gal-thumb span {
     position: absolute;
+    z-index: 1;
     width: 100%;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 900;
     text-align: center;
     left: 0;
@@ -369,6 +424,18 @@ a[href^="tel"] {
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+.folio-recommend li {
+    height: auto;
+    width: 30.3%;
+}
+.gal-thumb span {
+    width: 120px;
+}
+.estate-recommend > a > img {
+    height: 120px;
+    width: auto;
 }
 
 .folio-blk {
@@ -450,7 +517,7 @@ a[href^="tel"] {
 }
 
 .gal-thumb {
-    opacity: 0.7
+    opacity: 0.6
 }
 
 .gal-thumb.active {
@@ -608,8 +675,6 @@ a[href^="tel"] {
 /***aside menu***/
 
 .aside {
-    min-width: 350px;
-    width: 15%;
     position: fixed;
     top: 0;
     right: 0;
@@ -618,16 +683,17 @@ a[href^="tel"] {
     font-family: Helvetica, Arial, sans-serif;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     z-index: 2000;
-    width: 0px;
-    min-width: 0px;
+    width: 0;
+    min-width: 0;
     overflow: hidden;
-    transition: 0.35s width ease, 0.35s min-width ease;
+    padding: 70px 0;
+    transition: 0.35s width ease, 0.35s min-width ease , 0.35s padding ease, 0.35s left ease;
 }
 
 .aside .aside-header {
-    background-color: #fff;
-    padding: 1em;
-    padding-left: 0.5em;
+    position: absolute;
+    right: 50px;
+    margin-top: 10px;
 }
 
 .aside .aside-header .close-btn {
@@ -636,14 +702,21 @@ a[href^="tel"] {
     display: block;
     text-align: right;
 }
+.aside .aside-header .close-btn img {
+    height: 24px;
+    width: 24px;
+}
 
 .aside .aside-contents {
-
+    min-width: 250px;
 }
 
 .aside.in {
-    width: 15%;
+    width: auto;
     min-width: 350px;
+    left: auto;
+    padding-left:100px;
+    padding-right:100px;
 }
 
 .aside-backdrop {
@@ -670,21 +743,23 @@ a[href^="tel"] {
 }
 
 .menu-aside li {
-    border-top: solid 1px #111;
+    border-bottom: solid 1px #CBCBCB;
+    list-style: none;
 }
 
-.menu-aside li:last-child {
-    border-bottom: solid 1px #111;
+.menu-aside li:first-child {
+
 }
 
 .menu-aside li a {
-    font-weight: bold;
-    font-size: 15px;
-    padding: 0 25px;
-    height: 48px;
-    line-height: 48px;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 0;
+    height: 35px;
+    line-height: 35px;
     display: inline-block;
     width: 100%;
+    color: #000;
 }
 
 .menu-aside li:hover a {
@@ -693,7 +768,8 @@ a[href^="tel"] {
 }
 
 .aside-bot {
-    padding: 15px;
+    padding: 0;
+    margin-top: 30px;
 }
 
 .aside-bot .search-aside {
@@ -718,18 +794,25 @@ a[href^="tel"] {
 .language li {
     list-style: none;
     float: left;
-    width: 33.33333%;
+    width: 32.8%;
+    margin: 0.2%;
 }
 
 .language li a {
-    display: inline-block;
+    display: block;
     width: 100%;
-    height: 38px;
-    line-height: 38px;
+    height: 37px;
+    line-height: 37px;
     text-align: center;
-    border: solid 1px #999;
-    background: #fff;
-    font-weight: bold;
+    border: none;
+    background: #CBCBCB;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000;
+
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
 }
 
 .language li:hover a {
@@ -737,31 +820,33 @@ a[href^="tel"] {
 }
 
 .language li.active a {
-    background: #666;
+    background: #000000;
     color: #fff;
 }
 
 .header .content-l {
     position: relative;
-    height: 140px;
-    padding: 0 30px;
+    min-height: 140px;
+}
+
+.header.page-module .content-l {
+    min-height: 100px;
 }
 
 .menu-btn {
-    position: absolute;
-    right: 30px;
-    top: 40px;
     cursor: pointer;
 }
-.mail-contact{
+
+.mail-contact {
     display: inline-block;
     width: 30px;
     height: 30px;
     position: absolute;
-    right: 80px;
-    top: 40px;
+    right: 50px;
+    top: 1px;
     background: url(../../images/new-layout/icon-mail.png) no-repeat;
 }
+
 .like-number {
     display: inline-block;
     width: 30px;
@@ -773,8 +858,8 @@ a[href^="tel"] {
     font-weight: bold;
     font-size: 12px;
     position: absolute;
-    right: 130px;
-    top: 38px;
+    right: 100px;
+    top: -1px;
 }
 
 .like-number .numlike {
@@ -832,35 +917,6 @@ a[href^="tel"] {
     margin-left: -320px;
 }
 
-.bottom-btn .blk-btn {
-    background: #333 url(../../images/new-layout/ar-w-s.png) no-repeat 20px 18px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 13px;
-    color: #fff;
-    display: inline-block;
-    padding: 0;
-    text-align: center;
-    min-width: 290px;
-    margin: 0 10px;
-}
-
-.bottom-btn .blk-btn:hover, blk-btn:focus {
-    background: #000 url(../../images/new-layout/ar-w-s.png) no-repeat 20px 18px;
-    color: #fff;
-}
-
-.bottom-btn .blk-btn.quest-btn {
-    background: #333 url(../../images/new-layout/quest-w-s.png) no-repeat 20px 18px;
-    min-width: 290px;
-    padding: 0;
-    text-align: center;
-    margin: 0 10px;
-}
-
-.bottom-btn .blk-btn.quest-btn:hover {
-    background: #000 url(../../images/new-layout/quest-w-s.png) no-repeat 20px 18px
-}
 
 .img-section {
     position: relative;
@@ -872,15 +928,23 @@ a[href^="tel"] {
 
 /***advanced search***/
 .advanced-search {
-    display: inline-block;
-    width: 980px;
-    background: rgba(255, 255, 255, .8);
-    padding: 30px;
+    display: block;
+    width: 810px;
+    background: rgba(255, 255, 255, .85);
+    padding: 35px 10px 35px 70px;
     position: absolute;
-    bottom: 60px;
+    bottom: -45px;
     left: 50%;
-    margin-left: -490px;
-    height: 188px;
+    margin-left: -405px;
+    height: 300px;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow:    0px 2px 4px 0px rgba(0, 0, 0, 0.35);
+    box-shadow:         0px 2px 4px 0px rgba(0, 0, 0, 0.35);
 }
 
 .logo-ho {
@@ -890,27 +954,47 @@ a[href^="tel"] {
 }
 
 .search-gr {
-    width: 80px;
-    float: left;
+    width: 180px;
+    float: right;
     text-align: center;
 }
-
+.search-gr > label {
+    margin: 0 auto;
+}
+.search-gr > h2 {
+    margin: 0 auto 10px auto;
+    line-height: 1.2em;
+}
 .range-section {
-    width: 640px;
+    width: 550px;
     float: left;
 }
 
 .form-field {
     display: inline-block;
-    width: 330px;
-    float: left;
+    float: none;
+}
+.form-field > .dropdown {
+    display: inline-block;
+    vertical-align: middle;
+}
+.form-field > .dropdown:first-child {
+    width: 350px;
+}
+.form-field > .dropdown:first-child > input[type="text"] {
+    width: 100%;
+}
+.form-field > .dropdown:last-child{
+    margin-left: 5px;
+    width: 190px;
 }
 
 .range-section label {
-    width: 85px;
-    display: inline-block;
-    float: left;
+    width: 100%;
+    display: block;
+    float: none;
     font-size: 12px;
+    font-weight:normal;
 }
 
 .range-section select {
@@ -933,7 +1017,7 @@ a[href^="tel"] {
 }
 
 .range-section .row {
-    margin: 10px 0 10px 0;
+    margin: 5px 0 20px 0;
 }
 
 .search-gr label {
@@ -951,7 +1035,8 @@ a[href^="tel"] {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: #fbb03b;
+    /*background: #fbb03b;*/
+    background: #f7931e;
     border-radius: 100%;
 }
 
@@ -962,17 +1047,21 @@ a[href^="tel"] {
 .form-field2 {
     float: left;
     display: inline-block;
-    width: 220px;
+    width: 200px;
 }
 
 .form-field2 input[type=text] {
-    width: 80px;
+    width: 70px;
+    text-align: center;
+    padding: 0;
 }
 
 .slider-container {
     margin: 10px 0 0 0;
 }
-
+.theme-green .back-bar {
+    height: 6px;
+}
 .theme-green .back-bar .selected-bar {
     background: #f7931e;
     z-index: 9;
@@ -988,7 +1077,7 @@ a[href^="tel"] {
 
 .slider-container .clickable-dummy {
     background: #000;
-    height: 5px;
+    height: 6px;
 }
 
 .theme-green .scale ins {
@@ -1056,14 +1145,14 @@ a[href^="tel"] {
     line-height: 30px;
     padding: 0 20px 0 10px;
     border-radius: 0;
-    min-width: 200px;
+    min-width: 180px;
     text-align: left;
 }
 
 .form-field .dropdown-menu {
     border-radius: 0;
     padding: 10px;
-    min-width: 200px;
+    min-width: 180px;
     border: solid 1px #111;
     margin: -1px 0 0 0;
 }
@@ -1091,7 +1180,7 @@ a[href^="tel"] {
 }
 
 .menu-fix {
-    min-height: 70px;
+    min-height: 60px;
     background: #fff;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
     position: fixed;
@@ -1107,16 +1196,12 @@ a[href^="tel"] {
 .menu-fix .content-l {
     position: relative;
     overflow: visible;
+    height: 60px;
 }
 
 .menu-fix .menu-btn {
     top: 22px;
     right: 15px;
-}
-
-.menu-fix .like-number {
-    top: 25px;
-    right: 65px
 }
 
 .menu-fix .hotline {
@@ -1133,7 +1218,7 @@ a[href^="tel"] {
     position: absolute;
     left: 50%;
     margin-left: -70px;
-    top: 18px;
+    top: 15px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -1147,7 +1232,8 @@ a[href^="tel"] {
     position: absolute;
     left: 50%;
     margin-left: -70px;
-    top: 18px;
+    top: 15px;
+    font-weight: bold;
     font-weight: bold;
     cursor: pointer;
 }
@@ -1158,8 +1244,20 @@ a[href^="tel"] {
     background: none;
     width: 790px;
     margin-left: -395px;
-    padding: 60px 30px 30px 30px;
+    padding: 30px;
     height: auto;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.menu-fix .range-section {
+    padding-bottom: 15px;
+}
+
+.menu-fix .special-btn,
+.menu-fix .quest-btn {
+    display: none;
 }
 
 .nicescroll-rails {
@@ -1429,7 +1527,7 @@ a[href^="tel"] {
     height: 55px;
     min-width: 340px;
     border: 0;
-    box-shadow: 0;
+    box-shadow: none;
     display: inline-block;
     margin: 30px 0 0 0;
     -webkit-transition: all 0.3s ease;
@@ -1551,7 +1649,7 @@ a[href^="tel"] {
     height: 55px;
     min-width: 400px;
     border: 0;
-    box-shadow: 0;
+    box-shadow: none;
     display: inline-block;
     margin: 30px 0 0 0;
     -webkit-transition: all 0.3s ease;
@@ -1582,30 +1680,31 @@ a[href^="tel"] {
     margin: 30px 0 0 0;
     padding: 0;
 }
+
 .map-list-pagi {
-    position: absolute;
+    position: fixed;
     z-index: 10;
     background-color: #f6f6f6;
-    width: 760px;
-    padding-bottom: 10px;
-    top:0;
+    width: 770px;
+    padding: 10px 0;
+    bottom: 0;
 }
+
 .map-list-pagi .pagination-blk {
     margin: 7px 0 0 15px;
     vertical-align: middle;
     text-align: left;
 }
+
 .map-list-pagi .more-blk-btn {
     height: 40px;
     min-width: 200px;
-    margin: 0 15px 0 10px;
+    margin: 0 10px 0 10px;
     line-height: 40px;
     text-align: center;
 }
 
-.house-list-scroll > div:first-child {
-    margin-top: 50px;
-}
+
 /*****list******/
 .house-blk {
     font-size: 13px;
@@ -2106,9 +2205,10 @@ a[href^="tel"] {
 
 /***list-map***/
 #map-result {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
+
 .row-map {
     position: relative; /*height:calc(100vh - 230px)*/
 }
@@ -2119,8 +2219,8 @@ a[href^="tel"] {
     float: left;
     left: 0;
     top: 0;
-    overflow-y: auto;
-    height: calc(100vh - 230px)
+    /*overflow-y: auto;*/
+    /*height: calc(100vh - 230px)*/
 }
 
 .house-list {
@@ -2129,10 +2229,13 @@ a[href^="tel"] {
 
 .house-list-map {
     background: #ccc;
-    float: right;
     height: calc(100vh - 230px);
-    width: calc(100% - 775px); /*height:calc(100vh - 230px)*/
-    margin-right: 15px;
+    width: 50%;
+    position: fixed;
+    right: 0;
+}
+.house-list-map.fixed {
+
 }
 
 .row-map .house-blk {
@@ -2163,19 +2266,22 @@ a[href^="tel"] {
     font-weight: bold;
     font-size: 14px;
 }
+
 .gm-style .gm-style-iw {
     margin-top: 3px;
     text-align: center;
 }
+
 .gm-style img {
 }
+
 .maps-mark-item a:hover {
     color: #000;
 }
 
 .row-map .house-blk.hover_maps {
     background-color: rgba(255, 184, 82, 0.3);
-    box-shadow: 0 3px 8px rgba(0,0,0,.4)
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .4)
 }
 
 .no-data-map {
@@ -2288,6 +2394,8 @@ a[href^="tel"] {
 .img-button {
     background: none;
     border: none;
+    display: block;
+    margin: auto;
 }
 
 .pagination-blk > li.active {
@@ -2302,18 +2410,22 @@ a[href^="tel"] {
     height: auto;
     min-height: 100px;
 }
+
 .header.page-module > div.content-l {
     overflow: unset;
 }
+
 .header.page-module .logo2 img {
     /*height: 26px;*/
     width: 385px;
     height: auto;
     margin: 40px 0 0;
 }
+
 .header.page-module .open-search-hidden {
     top: 34px;
 }
+
 .header.page-module .advanced-search {
     bottom: 0;
     position: relative;
@@ -2321,9 +2433,16 @@ a[href^="tel"] {
     width: 790px;
     display: block;
     left: auto;
-    height: 192px;
+    height: 250px;
+    padding: 30px;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
+.header.page-module .advanced-search .quest-btn,
+.header.page-module .advanced-search .special-btn,
 .header.page-module .search-hidden .advanced-search {
     display: none;
 }
@@ -2332,6 +2451,7 @@ a[href^="tel"] {
     padding-right: 0 !important;
     padding-left: 0 !important;
 }
+
 .nopadding-r {
     padding-right: 0 !important;
 }
@@ -2341,8 +2461,13 @@ a[href^="tel"] {
     height: 40px;
     z-index: 100;
 }
-#direct_bar {
 
+#direct_bar.content-l {
+    min-height: auto;
+    height: auto;
+    position: relative;
+    z-index: 3000;
+    overflow: unset;
 }
 
 #direct_bar > div .navbar-nav > li > a {
@@ -2353,17 +2478,20 @@ a[href^="tel"] {
     height: 40px;
     color: #fff;
 }
+
 #direct_bar > div.direct_bar_lang .navbar-nav > li > a {
     text-align: left;
 }
+
 #direct_bar > div.direct_bar_lang span.icon_global {
     height: 30px;
     width: 25px;
     margin-top: -6px;
-    background: url(../../images/new-layout/icon-global.png) center center no-repeat ;
+    background: url(../../images/new-layout/icon-global.png) center center no-repeat;
     display: inline-block;
     vertical-align: middle;
 }
+
 #direct_bar > div.direct_bar_lang > ul.nav > li > a,
 #direct_bar > div.direct_bar_lang > ul.nav > li > a:hover,
 #direct_bar > div.direct_bar_lang > ul.nav > li > a:focus,
@@ -2372,18 +2500,19 @@ a[href^="tel"] {
 #direct_bar > div.direct_bar_lang > ul.nav > li.open > a:hover {
     background-color: #000;
 }
-#direct_bar > div.direct_bar_lang .dropdown-menu>.active>a,
-#direct_bar > div.direct_bar_lang .dropdown-menu>.active>a:focus,
-#direct_bar > div.direct_bar_lang .dropdown-menu>.active>a:hover {
+
+#direct_bar > div.direct_bar_lang .dropdown-menu > .active > a,
+#direct_bar > div.direct_bar_lang .dropdown-menu > .active > a:focus,
+#direct_bar > div.direct_bar_lang .dropdown-menu > .active > a:hover {
     background-color: #f7931e;
 }
-
 
 #direct_bar > div.direct_bar_list li {
     background-color: #3F3F3F;
     border: none;
     border-left: 1px solid #fff;
 }
+
 #direct_bar > div.direct_bar_list li:last-child {
     border-right: 1px solid #fff;
 }
@@ -2391,13 +2520,65 @@ a[href^="tel"] {
 #direct_bar > div.direct_bar_list li.active {
     background-color: #FFF;
 }
+
 #direct_bar > div.direct_bar_list li.active > a {
     color: #000;
 }
+
 #direct_bar > div.direct_bar_list li:hover > a {
     color: #000;
 }
 
+/*----------------*/
+/* Updated design */
+/*----------------*/
+
+.navbar-nav > li > .dropdown-menu {
+    left: 12px;
+    top:35px;
+    padding: 15px 25px 20px 25px;
+    min-width: 140px;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.navbar-nav > li > .dropdown-menu > li {
+    border-bottom: 1px solid #CBCBCB;
+}
+.navbar-nav > li > .dropdown-menu > li:last-child {
+    border: none;
+}
+.navbar-nav > li > .dropdown-menu > li > a {
+    padding: 5px;
+}
+
+#menu_head_group {
+    position: absolute;
+    right: 30px;
+    top: 45px;
+}
+#menu_shortcut_group ul {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#menu_shortcut_group li {
+    display: inline-block;
+}
+#menu_shortcut_group li > a {
+    display: block;
+    min-width: 140px;
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+.menu-fix #menu_head_group {
+    top: 15px;
+}
+
+.header.page-module #menu_head_group {
+    top: 35px;
+}
 
 @-ms-viewport {width: device-width;}
 @viewport {width: device-width;}

@@ -42,7 +42,7 @@
 					<h4 class="sub-title-h">ベトナムハウスおすすめのオフィス物件です</h4>
 
 					<ul id="folio" class="folio-recommend hide-mobile" >
-						<?php foreach ($offices as $key => $office) { ?>
+						<?php foreach ($stickies as $key => $office) { ?>
 						<li class="estate-recommend" value="{{ $office->id }}"><a data-page="gal{{ $key }}" href="#gal{{ $key }}" class="gal-thumb">
 								<span class="gal-label">{{ $office->product_id }}</span>
 								<img src="{{ asset($office->post_thumbnail) }}" alt="{{ $office->title }}">
@@ -51,12 +51,12 @@
 						<?php } ?>
 					</ul>
 					<ul class="folio-recommend show-mobile" >
-						<li><a data-page="gal1" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>
+						{{--<li><a data-page="gal1" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>--}}
 					</ul>
 				</div>
 				<div class="col-md-7 col-sm-7">
 					<div id="pages">
-						<?php foreach ($offices as $key => $office) { ?>
+						<?php foreach ($stickies as $key => $office) { ?>
 						<div id="gal{{ $key }}" class="page" data-page="gal{{ $key }}">
 							<div class="folio-blk">
 								<img src="{{ URL::to('/') }}{{ $office->post_thumbnail }}" alt="{{ $office->title }}" class="folio-big-img">
@@ -66,15 +66,15 @@
 									<span class="sub-title-f">{{ $office->title }}</span>
 
 									<div class="info-blk">
-										@if (!empty($office->price) && !empty((int)$office->size))
-										<div class="fll">@lang('front.rent') <strong class="info-price">{{ round($office->price/(int)$office->size) }}</strong> USD /㎡　（@lang('front.manage fee')）</div>
+										@if (!empty($office->price))
+										<div class="fll">@lang('front.rent') <strong class="info-price">{{ $office->price }} {{  (!empty($office->price_max)) ?' ~ '.$office->price_max:'' }}</strong> USD / ㎡　（@lang('front.manage fee')）</div>
 										@endif
 										<div class="flr">@lang('entity.estate.deposit') {{ $office->deposit }}</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6"><strong>@lang('front.location')</strong>： {{ $office->city }}
-										</div>
 										<div class="col-md-6"><strong>@lang('front.area')</strong>： {{ $office->area }}
+										</div>
+										<div class="col-md-6"><strong>@lang('front.location')</strong>： {{ $office->city }}
 										</div>
 									</div>
 									<div class="row mrt-15">
