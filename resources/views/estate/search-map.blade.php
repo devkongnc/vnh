@@ -33,7 +33,7 @@
             if (!empty($push_maps)) {
                 foreach ($push_maps as $key => $value) {
                     $location[] = [
-                        $value->price,
+                        $value->price.(!empty($value->price_max) ?' ~ $'.$value->price_max:''),
                         $value->lat,
                         $value->lng,
                         $key,

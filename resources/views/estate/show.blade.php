@@ -143,7 +143,7 @@
                                href="{{ URL::action('RealEstateController@show', $relative->product_id) }}">
                                 <img src="{{ img_exists($relative->post_thumbnail) }}" />
 
-                                <span class="rh-info"><strong>{{ $relative->price }} {{  (!empty($relative->price_max)) ?' ~ '.$relative->price_max:'' }}</strong> USD /㎡</span>
+                                <span class="rh-info"><strong>{{ $relative->price }} {{  (!empty($relative->price_max)) ?' ~ '.$relative->price_max:'' }}</strong> USD/㎡</span>
                                 <p>{{ str_limit($relative->title, 30) }}</p>
                             </a>
                         </div>
@@ -159,7 +159,7 @@
                                 <a class="rh-blk"
                                    href="{{ URL::action('RealEstateController@show', $recent->product_id) }}">
                                     <img src="{{ img_exists($recent->post_thumbnail) }}" />
-                                    <span class="rh-info"><strong>{{ $recent->price }} {{  (!empty($recent->price_max)) ?' ~ '.$recent->price_max:'' }}</strong> USD /㎡</span>
+                                    <span class="rh-info"><strong>{{ $recent->price }} {{  (!empty($recent->price_max)) ?' ~ '.$recent->price_max:'' }}</strong> USD/㎡</span>
                                     <p>{{ str_limit($recent->title, 30) }}</p>
                                 </a>
                             </div>
