@@ -7,14 +7,14 @@
                     <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}" class="logo-f">
                         <img src="{{ asset('images/new-layout/logo-f.svg') }}" >
                     </a>
-                    <span>© Vietnamhouce.Inc ALL RIGHTS RESERVED </span>
+                    <span>© Vietnamhouse.Inc ALL RIGHTS RESERVED </span>
                 </div>
 
             </div>
             <div class="col-md-6 col-sm-6">
                 <ul class="footer-menu">
-                    <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/sitemap') }}">Sitemap</a></li>
-                    <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/sitemap') }}">@lang('front.support_footer.sitemap')</a></li>
+                    <li><a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/privacy') }}">@lang('front.support_footer.policy')</a></li>
                 </ul>
             </div>
 

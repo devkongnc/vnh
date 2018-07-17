@@ -39,7 +39,7 @@
 			<div class="row">
 				<div class="col-md-5 col-sm-5 center">
 					<h1 class="title-h">Recommend</h1>
-					<h4 class="sub-title-h">ベトナムハウスおすすめのオフィス物件です</h4>
+					<h4 class="sub-title-h">@lang('front.recommend_sub_title')</h4>
 
 					<ul id="folio" class="folio-recommend hide-mobile" >
 						<?php foreach ($stickies as $key => $office) { ?>
@@ -62,7 +62,7 @@
 								<img src="{{ URL::to('/') }}{{ $office->post_thumbnail }}" alt="{{ $office->title }}" class="folio-big-img">
 								<div class="info-desc">
 									<h3 class="title-f">{{ $office->product_id }}</h3>
-									<a href="#" class="like-btn btn-like like" data-id="{{ $office->id }}"><img src="{{ asset('images/new-layout/icon-heart.png') }}"></a>
+									<a href="#" class="like-btn btn-like like" data-id="{{ $office->product_id }}"><img src="{{ asset('images/new-layout/icon-heart.png') }}"></a>
 									<span class="sub-title-f">{{ $office->title }}</span>
 
 									<div class="info-blk">
@@ -102,7 +102,7 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-8 center">
 				<h1 class="title-h">Benefit</h1>
-					<h4 class="sub-title-h">ベトナムハウスの強み</h4>
+					<h4 class="sub-title-h">@lang('front.benefit_sub_title')</h4>
 			</div>
 		</div>
 		<div class="row">
@@ -143,9 +143,9 @@
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-7">
-					<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/area') }}" class="white-btn">Support Area</a>
-					<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/step') }}" class="white-btn">Support Step</a>
-					<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}" class="white-btn">Contact</a>
+					<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/area') }}" class="white-btn">@lang('front.support_footer.area')</a>
+					<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/step') }}" class="white-btn">@lang('front.support_footer.step')</a>
+					<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}" class="white-btn">@lang('front.support_footer.contact')</a>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,12 @@
 <?php
 
 return array(
+    'top_menu_direct' => [
+        'hcm_building' => 'HCMC 住居',
+        'hcm_office' => 'HCMC オフィス',
+        'hn_building' => 'HaNoi 住居',
+        'hn_office' => 'HaNoi オフィス',
+    ],
     // edit start
     'area' => 'エリア',
     'location' => '所在地',
@@ -8,6 +14,9 @@ return array(
     'manage fee' => '管理費込み',
     'feature list' => '特集一覧',
     'special features of office' => 'オフィス特集',
+    'rent' => '賃料',
+    'recommend_sub_title' => 'ベトナムハウスおすすめのオフィス物件です',
+    'benefit_sub_title' => 'ベトナムハウスの強み',
     // edit end
     'total' => '合計',
     'reset' => 'リセット',
@@ -69,5 +78,13 @@ return array(
         ),
     'banner_title' => '心地よいオフィス探しを',
     'top_search_toggle' => 'オフィス検索',
-    'txt_no_result_map_data' => '<h4>結果がありません</h4><span>より多くの結果を得るには、検索の調整、フィルタの削除、地図のズームアウトを試してください。</span>'
+    'txt_no_result_map_data' => '<h4>結果がありません</h4><span>より多くの結果を得るには、検索の調整、フィルタの削除、地図のズームアウトを試してください。</span>',
+
+    'support_footer' => [
+        'area' => 'ビジネスエリア紹介',
+        'step' => 'オフィス契約の流れ',
+        'contact' => 'お問い合わせ',
+        'sitemap' => 'サイトマップ',
+        'policy' => 'プライバシーポリシー'
+    ],
 );

@@ -578,17 +578,39 @@ $(document).ready(function() {
 
     /* Popup like */
     $num_like.text(like_ids.length);
-    $modal_like.on('shown.bs.modal', function(event) {
+
+    $modal_like.on('shown.bs.modal', function() {
         var like_estates = '', input_estates = '';
         $.get(estate_ajax, {ids: like_ids}, function(data) {
             $.each(data, function(index, val) {
-                like_estates += '<div class="post-house col-xs-6 col-sm-4 col-md-2"><span class="hidden" data-id="' + val.id + '"></span><a target="_blank" href="' + estate_permalink(val.product_id) + '"><div class="feature-image"><img class="img-responsive" src="' + val.post_thumbnail + '"><div class="item-brief"><span class="price">' + val.price + '<small> USD</small></span><span class="position pull-right">１区</span></div></div><div class="title">' + val.title + '</div></a><a class="close-house"><span class="icon-close-light" data-dismiss="modal"><span class="path1"></span><span class="path2"></span></span></a></div>';
+                like_estates += '' +
+                    '<div class="post-house col-xs-6 col-sm-4 col-md-2">' +
+                        '<span class="hidden" data-id="' + val.id + '"></span>' +
+                        '<a target="_blank" href="' + estate_permalink(val.product_id) + '">' +
+                            '<div class="feature-image">' +
+                                '<img class="img-responsive" src="' + val.post_thumbnail + '" />' +
+                                '<div class="item-brief">' +
+                                    '<span class="price">' + val.price + '' +(val.price_max > 0 ? ' ~ '+val.price_max : '')+
+                                    '<small> USD/㎡</small></span>' +
+                                    '<span class="position pull-right">１区</span>' +
+                                '</div>' +
+                            '</div>' +
+                            '<div class="title">' + val.title + '</div>' +
+                        '</a>' +
+                        '<a class="close-house">' +
+                            '<span class="icon-close-light" data-dismiss="modal">' +
+                                '<span class="path1"></span>' +
+                                '<span class="path2"></span>' +
+                            '</span>' +
+                        '</a>' +
+                    '</div>';
                 input_estates += '<input type="hidden" name="estates[]" value="' + val.id + '" />';
             });
             $modal_like.find('.list-house-popup').html(like_estates);
             $estates_contact.html(input_estates);
         });
     });
+
     $('.list-house-popup').on('click', '.post-house > .close-house', function(event) {
         event.preventDefault();
         var estate_id = $(this).siblings('.hidden').data('id');
@@ -777,6 +799,12 @@ $(document).ready(function() {
         $(this).toggleClass('active');
     });
 
+    $.fn.textWidth = function(text, font) {
+        if (!$.fn.textWidth.fakeEl) $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
+        $.fn.textWidth.fakeEl.text(text || this.val() || this.text()).css('font', font || this.css('font'));
+        return $.fn.textWidth.fakeEl.width();
+    };
+
     category_item_same_height();
     recommend_item_square();
 });
@@ -845,7 +873,7 @@ $(document).ready(function ($) {
     //------------//
     // SEARCH BOX //
     //------------//
-    var price_max_search = 5000;
+    var price_max_search = 100;
     var price_min_search = 0;
     var size_max_search = 3000;
     var size_min_search = 0;

@@ -59,6 +59,12 @@
         @include('layout.footer')
     @endif
 
+    <script type="text/javascript">
+        var estate_ajax = '{{ action('RealEstateController@index') }}';
+        function estate_permalink(product_id) {
+            return '{{ action('RealEstateController@show', 'product_id') }}'.replace('product_id', product_id);
+        }
+    </script>
     <script type="text/javascript" src="{{ elixir('js/js-custom.js') }}"></script>
 
 

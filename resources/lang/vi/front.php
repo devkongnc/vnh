@@ -1,6 +1,12 @@
 <?php
 
 return array(
+    'top_menu_direct' => [
+        'hcm_building' => 'Nhà Ở HCM',
+        'hcm_office' => 'Văn Phòng HCM',
+        'hn_building' => 'Nhà Ở Hà Nội',
+        'hn_office' => 'Văn Phòng Hà Nội',
+    ],
     // edit start
     'area' => 'Khu vực',
     'location' => 'Địa điểm',
@@ -8,6 +14,9 @@ return array(
     'manage fee' => 'Gồm phí quản lý',
     'feature list' => 'Danh sách tính năng',
     'special features of office' => 'Tính năng đặc biệt của Văn phòng',
+    'rent' => 'Giá',
+    'recommend_sub_title' => 'Các dự án văn phòng nổi bật',
+    'benefit_sub_title' => 'Ưu điểm của Vietnam House',
     // edit end
     'total' => 'Tổng cộng',
     'reset' => 'Bỏ lọc',
@@ -69,5 +78,13 @@ Vui lòng truy cập một lần nữa bằng một trong hai cách sau.',
 
     'banner_title' => 'Tìm kiếm văn phòng tiện nghi',
     'top_search_toggle' => 'Tìm kiếm',
-    'txt_no_result_map_data' => '<h4>Không tìm thấy</h4><span>Để hiển thị thêm dữ liệu, vui lòng thay đổi điều kiện tìm kiếm, không dùng bộ lọc, hoặc di chuyển, phòng to thu nhỏ bản đồ.</span>'
+    'txt_no_result_map_data' => '<h4>Không tìm thấy</h4><span>Để hiển thị thêm dữ liệu, vui lòng thay đổi điều kiện tìm kiếm, không dùng bộ lọc, hoặc di chuyển, phòng to thu nhỏ bản đồ.</span>',
+
+    'support_footer' => [
+        'area' => 'Khu vực hổ trợ',
+        'step' => 'Các bước hổ trợ',
+        'contact' => 'Liên hệ',
+        'sitemap' => 'Sitemap',
+        'policy' => 'Điều khoản riêng tư'
+    ],
 );

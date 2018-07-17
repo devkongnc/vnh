@@ -24,4 +24,6 @@ return array(
             'size-desc' => 'Diện tích giảm dần',
         ),
     'reset' => 'Thiết lập lại',
+    'button_question' => 'Tính toán diện tích cho 30 người',
+    'button_link' => 'Dành cho quý khách muốn thuê văn phòng',
 );

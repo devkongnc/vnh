@@ -1,6 +1,6 @@
 {!! Form::open(['action' => 'HomeController@search', 'id' => 'front-search', 'method' => 'GET']) !!}
 <?php
-$price = explode(",", isset($terms['price']) ? $terms['price'] : '0,5000');
+$price = explode(",", isset($terms['price']) ? $terms['price'] : '0,100');
 $size = explode(",", isset($terms['size']) ? $terms['size'] : '0,3000');
 if (!isset($position_search)) {
     $position_search = 'banner';
@@ -64,7 +64,7 @@ if (!isset($position_search)) {
             <input type="hidden" id="sw_lat" name="sw_lat" value="">
             <input type="hidden" id="sw_lng" name="sw_lng" value="">
         </form>
-        <div><a href="#" class="quest-btn">30人規模オフィス面積の算出</a></div>
+        <div><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
     </div>
 
     <div class="search-gr">
@@ -74,7 +74,7 @@ if (!isset($position_search)) {
             <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"></a>
         </button>
         <button class="clear-form-search-btn" type="reset">@lang('search.reset')</button>
-        <a href="#" class="special-btn">レンタルオフィスをご希望の方</a>
+        <a href="#" class="special-btn">@lang('search.button_link')</a>
     </div>
 </div>
 {!! Form::close() !!}
