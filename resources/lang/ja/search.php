@@ -24,4 +24,6 @@ return array(
             'size-desc' => '面積: 大きい順',
         ),
     'reset' => 'リセット',
+    'button_question' => '30人規模オフィス面積の算出',
+    'button_link' => 'レンタルオフィスをご希望の方',
 );

@@ -1087,8 +1087,31 @@ a[href^="tel"] {
 
 .theme-green .back-bar .pointer-label {
     color: #333;
-    font-size: 9px;
-    background: none;
+    font-size: 10px;
+    background: #fff;
+    border: 1px solid #000;
+    top: -35px;
+    padding: 5px 9px 4px 11px;
+    line-height: 9px;
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.slider-container .scale {
+    top: 5px;
+}
+
+.slider-container .scale span:first-child {
+    margin-left: -3px;
+}
+.slider-container .scale span:last-child > ins {
+    left: -27px;
+}
+
+.theme-green .scale span {
+    border: none;
 }
 
 .slider-container .scale ins {
@@ -1117,6 +1140,37 @@ a[href^="tel"] {
     display: inline-block;
     width: 10px;
     height: 8px;
+}
+
+.pointer-label:before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    left: 6px;
+    bottom: -7px;
+    border-bottom: 0;
+    border-top: 7px solid rgb(0, 0, 0);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+}
+.pointer-label:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    left: 7px;
+    bottom: -6px;
+    border-bottom: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+}
+.pointer-label.low,
+.pointer-label.high {
+    display: none;
+}
+.range-section .row:hover > .form-field .pointer-label.low,
+.range-section .row:hover > .form-field .pointer-label.high {
+    display: block;
 }
 
 .search-hidden .advanced-search .range2 .slider-container .scale span:last-child ins {
@@ -1748,6 +1802,7 @@ a[href^="tel"] {
 
 .tdl {
     text-align: left;
+    width: 60%;
 }
 
 .tdr {
@@ -1769,17 +1824,11 @@ a[href^="tel"] {
     width: 100%;
 }
 
-.house-info td {
+.house-detail-row .house-info td {
     border-bottom: dotted 1px #ccc;
-    padding: 3px 0;
-}
-
-.house-detail-row .house-info td {
-    padding: 8px 0;
-}
-
-.house-detail-row .house-info td {
-    width: 50%;
+    padding: 7px 0;
+    height: 35px;
+    min-width: 30%;
 }
 
 .house-feature {
@@ -1974,7 +2023,8 @@ a[href^="tel"] {
 
 .grey-bg-info {
     background: #e6e6e6;
-    padding: 20px;
+    padding: 20px 20px 16px 20px;
+    font-size: 15px;
 }
 
 .big-price {
@@ -1988,11 +2038,14 @@ a[href^="tel"] {
 
 .title-txt {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
+    vertical-align: middle;
+    line-height: 30px;
 }
 
 .title-info-sm {
     font-size: 12px;
+    padding-right: 10px;
 }
 
 .red-label {
@@ -2008,19 +2061,22 @@ a[href^="tel"] {
 .house-feature2 li {
     background: #feebc4;
     text-align: center;
-    line-height: 29px;
-    height: 29px;
+    line-height: 30px;
+    height: 30px;
     width: 100%;
     list-style: none;
-    margin: 6px 5px;
+    margin: 2px 5px 5px 5px;
+    color: #000;
 }
 
 .house-feature2 li.inactive {
-    background: #fff;
+    background: #E6E6E6;
+    color: #808080;
 }
 
 .house-detail-row {
     margin: 30px 0;
+    font-size: 13px;
 }
 
 .social-list {
@@ -2103,7 +2159,9 @@ a[href^="tel"] {
 .title-details label {
     font-size: 30px;
     font-weight: bold;
-    margin: 0 20px 0 0
+    margin: 0 20px 0 0;
+    vertical-align: middle;
+    line-height: 30px;
 }
 
 .fotorama__thumb-border {
@@ -2229,13 +2287,14 @@ a[href^="tel"] {
 
 .house-list-map {
     background: #ccc;
-    height: calc(100vh - 230px);
+    height: calc(100vh - 250px);
     width: 50%;
     position: fixed;
     right: 0;
+    bottom: 0;
 }
 .house-list-map.fixed {
-
+    position: fixed;
 }
 
 .row-map .house-blk {
@@ -2289,7 +2348,10 @@ a[href^="tel"] {
     padding: 5%;
 }
 
-/*kongnc edit start*/
+.estate_inclusive_content {
+    margin-top: 15px;
+}
+
 .estate-detail-vat-title {
     float: left;
 }
@@ -2299,12 +2361,14 @@ a[href^="tel"] {
     padding: 0 5px;
     float: left;
 }
-
+.estate-detail-vat:first-child {
+    padding-left: 0;
+}
 .estate-detail-vat:after {
     position: absolute;
-    content: ',';
+    content: ' ・ ';
     top: 0px;
-    right: 0px;
+    right: -8px;
 }
 
 .estate-detail-vat:last-child:after {
@@ -2579,7 +2643,36 @@ a[href^="tel"] {
 .header.page-module #menu_head_group {
     top: 35px;
 }
+.commiss_free {
+    background-color: #ED1C24;
+    padding: 1px 8px;
+    display: inline-block;
+    text-align: right;
+    position: absolute;
+    right: 15px;
+    margin-top: -12px;
+    height: 24px;
+    line-height: 24px;
+    color: #fff;
+}
+.house-info input[type="text"] {
+    background: none;
+    border: none;
+    text-align: right;
+    width: 100%;
+}
 
+.house-info input.marquee {
+    -webkit-animation: marquee 7s infinite;
+    -moz-animation:    marquee 7s infinite; /* Fx 5+ */
+    -o-animation:      marquee 7s infinite; /* Opera 12+ */
+    animation:         marquee 7s infinite; /* IE 10+, Fx 29+ */
+
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
 @-ms-viewport {width: device-width;}
 @viewport {width: device-width;}
 

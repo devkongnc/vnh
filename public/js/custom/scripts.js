@@ -62,7 +62,7 @@ $(document).ready(function ($) {
     //------------//
     // SEARCH BOX //
     //------------//
-    var price_max_search = 5000;
+    var price_max_search = 100;
     var price_min_search = 0;
     var size_max_search = 3000;
     var size_min_search = 0;

@@ -24,4 +24,6 @@ return array(
             'size-desc' => 'By size high',
         ),
     'reset' => 'RESET',
+    'button_question' => 'Calculation of Office Area for 30 People',
+    'button_link' => 'For a rental office',
 );

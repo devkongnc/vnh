@@ -49,10 +49,64 @@ return [
         ]
                     
     ],
+    'address' => [
+        'name' => '[:ja]アドレス[:en]Address[:vi]Địa chỉ[:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'contract_limit' => [
+        'name' => '[:ja]最低契約年数[:en]Contract Limit[:vi]Hợp đồng tối thiểu[:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
     'size' => [
         'name' => '[:ja]面積[:en]Size[:vi]Diện tích[:]',
         'group' => 'basic',
         'type' => 'text',                'unit' => 'm²',
+        'values' => [
+            
+        ]
+                    
+    ],
+    'floor' => [
+        'name' => '[:ja]フロア[:en]Floor[:vi]Tầng lầu[:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'conditioning_system' => [
+        'name' => '[:ja]空調システム[:en]Air Condition System[:vi]Hệ thống điều hòa[:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'anniversary' => [
+        'name' => '[:ja]ニバーサリー[:en]Anniversary[:vi]Ngày thành lập[:]',
+        'group' => 'basic',
+        'type' => 'text',                
+        'values' => [
+            
+        ]
+                    
+    ],
+    'commiss' => [
+        'name' => '[:ja]コミッション[:en]Commissions[:vi]Hoa hồng[:]',
+        'group' => 'basic',
+        'type' => 'text',                
         'values' => [
             
         ]
@@ -83,8 +137,8 @@ return [
         'group' => 'details',
         'type' => 'multiple',                
         'values' => [
-            '1' => '[:ja]VAT[:en]VAT[:vi]VAT[:]',
             '2' => '[:ja]管理費[:en]Management Fee[:vi]Phí quản lý[:]',
+            '1' => '[:ja]VAT[:en]VAT[:vi]VAT[:]',
             
         ]
                     
@@ -111,60 +165,6 @@ return [
             '2' => '[:ja]男女別トイレ[:en]Wc[:vi]Nhà vệ sinh[:]',
             '3' => '[:ja]発電機[:en]Generator[:vi]Máy phát điện[:]',
             '5' => '[:ja]バイク駐輪場[:en]Motorbike parking[:vi]Bãi đậu xe máy[:]',
-            
-        ]
-                    
-    ],
-    'address' => [
-        'name' => '[:ja]アドレス[:en]Address[:vi]Địa chỉ[:]',
-        'group' => 'basic',
-        'type' => 'text',                
-        'values' => [
-            
-        ]
-                    
-    ],
-    'contract_limit' => [
-        'name' => '[:ja]契約限度額[:en]Contract Limit[:vi]Hợp đồng tối thiểu[:]',
-        'group' => 'basic',
-        'type' => 'text',                
-        'values' => [
-            
-        ]
-                    
-    ],
-    'floor' => [
-        'name' => '[:ja]フロア[:en]Floor[:vi]Tầng lầu[:]',
-        'group' => 'basic',
-        'type' => 'text',                
-        'values' => [
-            
-        ]
-                    
-    ],
-    'conditioning_system' => [
-        'name' => '[:ja]コンディショニングシステム[:en]Conditioning System[:vi]Hệ thống điều hòa[:]',
-        'group' => 'basic',
-        'type' => 'text',                
-        'values' => [
-            
-        ]
-                    
-    ],
-    'anniversary' => [
-        'name' => '[:ja]ニバーサリー[:en]Anniversary[:vi]Ngày thành lập[:]',
-        'group' => 'basic',
-        'type' => 'text',                
-        'values' => [
-            
-        ]
-                    
-    ],
-    'commiss' => [
-        'name' => '[:ja]コミッション[:en]Commissions[:vi]Hoa hồng[:]',
-        'group' => 'basic',
-        'type' => 'text',                
-        'values' => [
             
         ]
                     
