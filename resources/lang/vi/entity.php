@@ -9,7 +9,7 @@ return array (
     'deposit' => 'Tiền cọc',
     'category' => 'Danh mục',
     'query' => 'Liên hệ thuê căn hộ này',
-    'like' => 'Thêm vào mục ưa thích',
+    'like' => 'Đánh dấu',
     'print' => 'IN',
     'property page' => 'Cách xem trang chi tiết BDS',
     'same apartment' => 'Các căn hộ cho thuê khác quanh đây',

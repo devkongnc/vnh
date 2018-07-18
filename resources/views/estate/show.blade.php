@@ -83,7 +83,7 @@
                                 <?php if ($key !== 'city' and $key !== 'type'){ ?>
                                 <tr>
                                     <td class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</td>
-                                    <td class="tdr">{!! $estate->{$key} ? $estate->{$key} : 'Free' !!}</td>
+                                    <td class="tdr">{!! $estate->{$key} ? $estate->{$key} : '<span class="red-label">Free</span>' !!}</td>
                                 </tr>
                                 <?php } ?>
                             @endforeach
