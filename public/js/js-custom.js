@@ -440,6 +440,7 @@ $(document).ready(function() {
         $('.house-carousel').owlCarousel({
             loop:true,
             margin:0,
+            thumbHeight: '200px',
             nav:true,
             navText : ["",""],
             dots:false,
@@ -581,7 +582,9 @@ $(document).ready(function() {
 
     $modal_like.on('shown.bs.modal', function() {
         var like_estates = '', input_estates = '';
+        console.log(like_ids);
         $.get(estate_ajax, {ids: like_ids}, function(data) {
+            console.log(data);
             $.each(data, function(index, val) {
                 like_estates += '' +
                     '<div class="post-house col-xs-6 col-sm-4 col-md-2">' +

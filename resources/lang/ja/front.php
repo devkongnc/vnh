@@ -10,7 +10,12 @@ return array(
     // edit start
     'area' => 'エリア',
     'location' => '所在地',
+    'address' => '所在地',
+    'floor' => '階数',
+    'contract_limit' => '最低契約年数',
     'size' => '最大フロア面積',
+    'anniversary_age' => '築年数',
+    'anniversary_age_date_format' => 'Y年m月',
     'manage fee' => '管理費込み',
     'feature list' => '特集一覧',
     'special features of office' => 'オフィス特集',
