@@ -16,12 +16,12 @@
                 <div class="bg-white content-page">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2 class="title-m center mrb-30">Contact Us　</h2>
+                            <h2 class="title-m center mrb-30">@lang('entity.page.contact.title')</h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            Please fill out the form below. <img src="/images/new-layout/icon-require.png" > Required item
+                            @lang('entity.page.contact.required_description') <img src="/images/new-layout/icon-require.png" > @lang('entity.page.contact.required')
                             @include('partials.contact_form', ['prefix' => 'contact'])
                         </div>
                     </div>

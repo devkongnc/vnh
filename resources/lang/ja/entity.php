@@ -58,6 +58,10 @@ return array(
         array(
             'contact' =>
                 array(
+                    // start edit
+                    'title' => 'お問い合わせ',
+                    'required_description' => '下記フォームに必要事項をご入力下さい。',
+                    // end edit
                     'contact by phone' =>
                         array(
                             'title' => 'お電話でお問い合わせの場合',
@@ -70,11 +74,11 @@ return array(
                     'required' => '必須項目',
                     'name' => 'お名前',
                     'phone' => 'お電話番号',
-                    'email' => 'Eメール',
-                    'message' => 'コメント',
+                    'email' => 'Eメールアドレス',
+                    'message' => 'お問い合わせ内容',
                     'alphanumeric' => '半角英数字',
                     'policy' => 'プライバシーポリシー',
-                    'policy description' => 'をご一読頂き、内容をご確認の上お問い合わせを送信してください。',
+                    'policy description' => 'をご一読のうえ、確認画面へお進みください。',
                     'policy checkbox' => 'お問い合わせ内容にお間違いがなければチェックをお願いします。',
                     'submit' => '送信する',
                     'address' => '物件住所',

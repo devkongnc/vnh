@@ -58,6 +58,10 @@ return array(
         array(
             'contact' =>
                 array(
+                    // start edit
+                    'title' => 'Contact Us',
+                    'required_description' => 'Please fill out the form below.',
+                    // end edit
                     'contact by phone' =>
                         array(
                             'title' => 'Contact by phone',
@@ -67,14 +71,14 @@ return array(
                             'office_number' => '028 3911 2100',
                         ),
                     'description' => 'Contact',
-                    'required' => 'Required',
+                    'required' => 'Required item',
                     'name' => 'Full Name',
                     'phone' => 'Phone',
                     'email' => 'Email',
                     'message' => 'Message',
                     'alphanumeric' => 'Input number',
                     'policy' => 'Privacy Policy',
-                    'policy description' => '- Please read before send.',
+                    'policy description' => 'Please read through to the confirmation screen.',
                     'policy checkbox' => 'Because we do not have information verify page, so please make sure all your informations is corrected before send.',
                     'submit' => 'Send',
                     'address' => 'Property Address',
@@ -100,8 +104,7 @@ return array(
                 array(
                     'contact' =>
                         array(
-                            'address' => 'Property Address
-',
+                            'address' => 'Property Address',
                         ),
                 ),
         ),
