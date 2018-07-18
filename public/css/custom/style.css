@@ -1718,11 +1718,12 @@ a[href^="tel"] {
 }
 
 .pagination-blk li {
-    float: left;
+    float: none;
     list-style: none;
-    margin: 0 5px 5px 5px;
+    margin: 0 5px 5px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
+    display: inline-block;
 }
 
 .pagination-blk li.active span {
@@ -1730,9 +1731,10 @@ a[href^="tel"] {
 }
 
 .pagination-blk {
-    display: inline-block;
-    margin: 30px 0 0 0;
+    display: block;
+    margin: 30px auto 0;
     padding: 0;
+    text-align: center;
 }
 
 .map-list-pagi {
@@ -1765,6 +1767,7 @@ a[href^="tel"] {
     background: #fff;
     padding: 20px;
     margin: 0 0 30px 0;
+    color: #000;
 }
 
 .house-blk:hover {
@@ -1783,11 +1786,13 @@ a[href^="tel"] {
 
 .house-blk h3 {
     font-size: 18px;
+    min-height: 43px;
     font-weight: bold;
 }
 
 .house-blk p {
     margin-bottom: 0;
+    text-align: justify;
 }
 
 .house-blk .row {
@@ -1798,6 +1803,24 @@ a[href^="tel"] {
 .house-blk .col-md-6 {
     padding-left: 10px;
     padding-right: 10px;
+}
+
+
+.house-blk .house-info tr {
+    border-bottom: 1px dotted #ccc;
+}
+.house-blk .house-info td {
+    min-height: 23.5px;
+    line-height: 23px;
+}
+.house-blk .house-info .tdl {
+    width: auto;
+}
+.house-blk .house-info .tdr > div {
+    overflow: hidden;
+    white-space: nowrap;
+    float: right;
+    width: 200px;
 }
 
 .tdl {
@@ -1832,7 +1855,8 @@ a[href^="tel"] {
 }
 
 .house-feature {
-    margin: 10px 0 0 0;
+    margin: 15px 0 0;
+    font-size: 0;
 }
 
 .house-feature li {
@@ -1840,24 +1864,47 @@ a[href^="tel"] {
     text-align: center;
     line-height: 26px;
     height: 26px;
-    width: calc(50% - 4px);
-    float: left;
+    width: 49.3%;
+    margin: 2px 1% 2px 0;
+    font-size: 13px;
     list-style: none;
-    margin: 2px 2px;
+    display: inline-block;
+
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.house-feature li > div {
+    overflow: hidden;
+    width: 95%;
+    white-space: nowrap;
+    margin: 1px auto -3px;
+    height: 20px;
+    display: block;
+}
+
+.house-feature li:nth-child(2n) {
+    margin-right:0;
 }
 
 .house-feature li.inactive {
-    background: #fff;
+    background: #E6E6E6;
+    color: #808080;
 }
 
 .house-sub-title {
     background: #333;
     color: #fff;
-    min-height: 36px;
-    padding: 6px 7px;
-    font-weight: bold;
-    margin: -10px 0 20px 0;
-    line-height: 20px;
+    min-height: 34px;
+    padding: 6px 7px 2px 11px;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    line-height: 22px;
+    width: 100%;
+}
+
+.house-sub-title > strong {
+    font-size: 19px;
 }
 
 .house-sub-title span {
@@ -2287,14 +2334,11 @@ a[href^="tel"] {
 
 .house-list-map {
     background: #ccc;
-    height: calc(100vh - 250px);
-    width: 50%;
+    height: calc(100vh - 220px);
+    width: 48%;
     position: fixed;
     right: 0;
     bottom: 0;
-}
-.house-list-map.fixed {
-    position: fixed;
 }
 
 .row-map .house-blk {
@@ -2318,7 +2362,7 @@ a[href^="tel"] {
 }
 
 .row-map .house-sub-title {
-    margin: -10px 0 0 0;
+    margin: 0;
 }
 
 .maps-mark-item {
@@ -2381,12 +2425,12 @@ a[href^="tel"] {
 }
 
 .house-blk .owl-carousel .owl-item .item {
-    height: 175px !important;
+    height: 200px !important;
     background: #ccc;
 }
 
 .owl-carousel.owl-loaded {
-    height: 185px;
+    height: 200px;
 }
 
 .home-page-display {
@@ -2672,4 +2716,17 @@ a[href^="tel"] {
     -moz-animation-timing-function: linear;
     -o-animation-timing-function: linear;
     animation-timing-function: linear;
+}
+
+.list-house-popup {
+    display: block;
+    position: relative;
+    clear: both;
+    width: 100%;
+    margin-top: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.list-house-popup > div {
+    margin-bottom: 10px;
 }

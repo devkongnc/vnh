@@ -10,7 +10,12 @@ return array(
     // edit start
     'area' => 'Khu vực',
     'location' => 'Địa điểm',
+    'address' => 'Địa chỉ',
+    'floor' => 'Số tầng',
+    'contract_limit' => 'Hợp đồng',
     'size' => 'Diện tích',
+    'anniversary_age' => 'Ngày khánh thành',
+    'anniversary_age_date_format' => 'Y/m',
     'manage fee' => 'Gồm phí quản lý',
     'feature list' => 'Danh sách tính năng',
     'special features of office' => 'Tính năng đặc biệt của Văn phòng',
