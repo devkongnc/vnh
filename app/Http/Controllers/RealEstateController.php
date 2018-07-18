@@ -25,7 +25,7 @@ class RealEstateController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $estates = Estate::with('resource')->whereIn('id', (array) $request->ids)->get();
+            $estates = Estate::with('resource')->whereIn('product_id', (array) $request->ids)->get();
             $response = [];
             foreach ($estates as $estate) {
                 $response[] = [
@@ -33,7 +33,9 @@ class RealEstateController extends Controller
                     'title'          => $estate->title,
                     'product_id'     => $estate->product_id,
                     'price'          => $estate->price,
+                    'price_max'      => $estate->price_max,
                     'post_thumbnail' => $estate->post_thumbnail,
+
                 ];
             }
             return response()->json($response);
@@ -75,9 +77,9 @@ class RealEstateController extends Controller
         # Recent Estate Parse from Session
         $recent_ids = $request->session()->get('recent_estates', function() { return []; });
         $recents    = NULL;
-        if (!empty($recent_ids)) $recents = Estate::with('resource')->whereIn('id', $recent_ids)->get();
+        if (!empty($recent_ids)) $recents = Estate::with('resource')->whereIn('product_id', $recent_ids)->get();
         # Push current estate to recent list
-        array_unshift($recent_ids, $estate->id);
+        array_unshift($recent_ids, $estate->product_id);
         $request->session()->put('recent_estates', $recent_ids);
         # Relative Estates
         /**
@@ -87,9 +89,7 @@ class RealEstateController extends Controller
         Có số phòng ngủ >=1 so với hiện tại (Vd BDS hiện tại có 1 phòng ngủ thì các bds liên quan sẽ có 1 hoặc 2 phòng)
          */
         $relatives   = Estate::with('resource')->whereBetween('price', [(int) $estate->price * 0.8, (int) $estate->price * 1.2])->where([
-            //'type' => $estate->type_raw,
             'area' => $estate->area_raw,
-            //'beds' => $estate->beds_raw
         ])->take(24)->get();
         \SEO::setTitle($estate->title)->setDescription(\Illuminate\Support\Str::words($estate->description, 10));
         \SEO::opengraph()->setUrl($request->fullUrl())->addImage($estate->resource_id ? $estate->resource->url : NULL);
@@ -105,9 +105,9 @@ class RealEstateController extends Controller
         # Recent Estate Parse from Session
         $recent_ids = $request->session()->get('recent_estates', function() { return []; });
         $recents    = NULL;
-        if (!empty($recent_ids)) $recents = Estate::with('resource')->whereIn('id', $recent_ids)->get();
+        if (!empty($recent_ids)) $recents = Estate::with('resource')->whereIn('product_id', $recent_ids)->get();
         # Push current estate to recent list
-        array_unshift($recent_ids, $estate->id);
+        array_unshift($recent_ids, $estate->product_id);
         $request->session()->put('recent_estates', $recent_ids);
         # Relative Estates
         /**
@@ -117,9 +117,7 @@ class RealEstateController extends Controller
         Có số phòng ngủ >=1 so với hiện tại (Vd BDS hiện tại có 1 phòng ngủ thì các bds liên quan sẽ có 1 hoặc 2 phòng)
          */
         $relatives   = Estate::with('resource')->whereBetween('price', [(int) $estate->price * 0.8, (int) $estate->price * 1.2])->where([
-            //'type' => $estate->type_raw,
             'area' => $estate->area_raw,
-            //'beds' => $estate->beds_raw
         ])->take(24)->get();
         \SEO::setTitle($estate->title)->setDescription(\Illuminate\Support\Str::words($estate->description, 10));
         \SEO::opengraph()->setUrl($request->fullUrl())->addImage($estate->resource_id ? $estate->resource->url : NULL);

@@ -28,7 +28,7 @@
     </div>
     <div class="col-sm-2 price-max-form">
         {{ Form::number('price_max', (!empty($estate->price_max)?$estate->price_max:''),
-        ['id' => 'price_max', 'class' => 'form-control', 'required' => 'required', 'min' => 0]) }}
+        ['id' => 'price_max', 'class' => 'form-control', 'min' => 0]) }}
     </div>
     <div class="col-sm-1 control-label nopadding" style="text-align: left;">USD</div>
 </div>
@@ -60,29 +60,33 @@
     <?php $term_count = 1; ?>
     @if (!empty($above) && count($above) > 0)
         @foreach($above as $key => $data)
-            <label for="{{$key}}"
-                   class="col-sm-2 control-label nopadding">{{ \App\Term::getLocaleValue($data['name']) }}</label>
-            <div class="col-sm-2">
-                @if (in_array($key, ['price', 'size', 'floor', 'commiss']))
-                    {{ Form::number("term[{$key}]", (int) $estate->{$key},
-                    ['min' => 0, 'class' => 'form-control', 'id' => $key]) }}
-                @elseif (in_array($key, ['anniversary']))
-                    {{ Form::text("term[{$key}]",
-                    ($estate->{$key} != "0000-00-00" && !empty($estate->{$key}))?(string) date('d/m/Y', strtotime($estate->{$key})) : '',
-                     ['data-date-format' => 'dd/mm/yyyy', 'autocomplete' => 'off' , 'class' => 'form-control datetimepicker', 'id' => $key]) }}
-                @elseif ($data['type'] == 'text')
-                    {{ Form::text("term[{$key}]", $estate->{$key}, ['class' => 'form-control', 'id' => $key]) }}
-                @elseif($data['type'] == 'single')
-                    <select name="term[{{$key}}]" id="{{$key}}" class="selectpicker form-control">
-                        <option value="" {{ empty($estate->{$key."_raw"}) ? 'selected' : '' }}>--</option>
-                        @foreach($data['values'] as $index => $value)
-                            <option value="{{$index}}"
-                                    {{ (int) $estate->{$key."_raw"} === $index ? 'selected' : '' }}>
-                                {!! \App\Term::getLocaleValue($value) !!}</option>
-                        @endforeach
-                    </select>
-                @endif
-            </div>
+            @if (in_array($key, ['city']))
+                <input type="hidden" name="term[city]" value="1">
+            @else
+                <label for="{{$key}}"
+                       class="col-sm-2 control-label nopadding">{{ \App\Term::getLocaleValue($data['name']) }}</label>
+                <div class="col-sm-2">
+                    @if (in_array($key, ['price', 'size', 'floor', 'commiss']))
+                        {{ Form::number("term[{$key}]", (int) $estate->{$key},
+                        ['min' => 0, 'class' => 'form-control', 'id' => $key]) }}
+                    @elseif (in_array($key, ['anniversary']))
+                        {{ Form::text("term[{$key}]",
+                        ($estate->{$key} != "0000-00-00" && !empty($estate->{$key}))?(string) date('d/m/Y', strtotime($estate->{$key})) : '',
+                         ['data-date-format' => 'dd/mm/yyyy', 'autocomplete' => 'off' , 'class' => 'form-control datetimepicker', 'id' => $key]) }}
+                    @elseif ($data['type'] == 'text')
+                        {{ Form::text("term[{$key}]", $estate->{$key}, ['class' => 'form-control', 'id' => $key]) }}
+                    @elseif($data['type'] == 'single')
+                        <select name="term[{{$key}}]" id="{{$key}}" class="selectpicker form-control">
+                            <option value="" {{ empty($estate->{$key."_raw"}) ? 'selected' : '' }}>--</option>
+                            @foreach($data['values'] as $index => $value)
+                                <option value="{{$index}}"
+                                        {{ (int) $estate->{$key."_raw"} === $index ? 'selected' : '' }}>
+                                    {!! \App\Term::getLocaleValue($value) !!}</option>
+                            @endforeach
+                        </select>
+                    @endif
+                </div>
+            @endif
         @endforeach
     @endif
 </div>
@@ -266,7 +270,7 @@
             var position = new google.maps.LatLng(Math.abs(parseFloat(lat)), Math.abs(parseFloat(lng)));
             map.panTo(position);
 
-            if(markers.length > 0) {
+            if (markers.length > 0) {
                 markers.forEach(function (marker) {
                     marker.setPosition(position);
                 });

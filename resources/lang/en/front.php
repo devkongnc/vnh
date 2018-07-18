@@ -1,6 +1,12 @@
 <?php
 
 return array(
+    'top_menu_direct' => [
+        'hcm_building' => 'HCMC Residence',
+        'hcm_office' => 'HCMC Office',
+        'hn_building' => 'HaNoi Residence',
+        'hn_office' => 'HaNoi Office',
+    ],
     // edit start
     'area' => 'Area',
     'location' => 'Location',
@@ -9,6 +15,8 @@ return array(
     'feature list' => 'Feature List',
     'special features of office' => 'Special features of Office',
     'rent' => 'Price',
+    'recommend_sub_title' => 'Vietnam House Recommended office building',
+    'benefit_sub_title' => 'Strengths of Vietnam House',
     // edit end
     'total' => 'Total',
     'reset' => 'Clear filter',
@@ -70,5 +78,13 @@ You could also search for the page again by either of the following links.',
         ),
     'banner_title' => 'Looking for a comfortable office',
     'top_search_toggle' => 'Office Search',
-    'txt_no_result_map_data' => '<h4>No results</h4><span>To get more results, try adjusting your search, removing your filters, or zooming out of the map.</span>'
+    'txt_no_result_map_data' => '<h4>No results</h4><span>To get more results, try adjusting your search, removing your filters, or zooming out of the map.</span>',
+
+    'support_footer' => [
+        'area' => 'Support Area',
+        'step' => 'Support Step',
+        'contact' => 'Contact',
+        'sitemap' => 'Sitemap',
+        'policy' => 'Privacy Policy'
+    ],
 );

@@ -4,6 +4,9 @@
         .bt-close-marker {
             margin-top: 14px;
         }
+        .row-map {
+            float: left;
+        }
     </style>
 @stop
 @section('content')
@@ -33,7 +36,7 @@
             if (!empty($push_maps)) {
                 foreach ($push_maps as $key => $value) {
                     $location[] = [
-                        $value->price,
+                        $value->price.(!empty($value->price_max) ?' ~ $'.$value->price_max:''),
                         $value->lat,
                         $value->lng,
                         $key,
@@ -48,10 +51,10 @@
                 <div class="house-list-scroll first-load second-load">
                     @include('partials.three-grid-map', ['items' => $search_estates])
                 </div>
-                {{-- show maps --}}
-                <div class="house-list-map">
-                    <div id="map-result"></div>
-                </div>
+            </div>
+            {{-- show maps --}}
+            <div class="house-list-map">
+                <div id="map-result"></div>
             </div>
         </div>
     </div>
@@ -324,11 +327,25 @@
             }
         }
 
+        var x = $('.house-list-scroll');
+        var map_elem = $('.house-list-map');
+        var map_elem_height = 0;
+        var mark_elem  = 0;
+
         $(document).ready(function () {
             initMap();
             add_style_for_data();
+            mark_elem = x.offset().top;
+            map_elem_height = map_elem.height();
         });
 
+        $(window).scroll(function () {
+            if ($(document).scrollTop() <= 200) {
+                map_elem.height(map_elem_height+$(document).scrollTop());
+            } else {
+                map_elem.css('height','calc(100vh - 60px)')
+            }
+        });
 
     </script>
 @stop

@@ -117,6 +117,7 @@ Route::group(['middleware' => ['web'], 'prefix' => LaravelLocalization::setLocal
 
         Route::group(['prefix' => 'static-page'], function () {
             Route::any('menu', 'PageController@menu');
+            Route::any('menutop', 'PageController@menutop');
             Route::post('{id}/preview', 'PageController@preview');
         });
         Route::resource('static-page', 'PageController');
