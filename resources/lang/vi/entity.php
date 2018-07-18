@@ -58,6 +58,10 @@ return array(
         array(
             'contact' =>
                 array(
+                    // start edit
+                    'title' => 'Liên hệ với chúng tôi',
+                    'required_description' => 'Vui lòng điền vào mẫu dưới đây.',
+                    // end edit
                     'contact by phone' =>
                         array(
                             'title' => 'Liên hệ qua điện thoại',
@@ -68,10 +72,10 @@ return array(
                         ),
                     'description' => 'Liên hệ thuê cho các văn phòng dưới đây',
                     'required' => 'Bắt buộc',
-                    'name' => 'Tên',
-                    'phone' => 'SDT',
-                    'email' => 'Email',
-                    'message' => 'Nội dung',
+                    'name' => 'Tên của bạn',
+                    'phone' => 'Số điện thoại',
+                    'email' => 'Địa chỉ e-mail',
+                    'message' => 'Nội dung câu hỏi',
                     'alphanumeric' => 'Nhập số',
                     'policy' => 'Quyền riêng tư',
                     'policy description' => '- Đọc kỹ quyền riêng tư trước khi gửi thông tin',
