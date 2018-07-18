@@ -3,4 +3,5 @@
 /nbproject/*
 /storage/*.key
 /vendor/
+/public/upload/images/
 *.env
