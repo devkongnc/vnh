@@ -1,7 +1,7 @@
 <?php 
 return [
     'deposit' => [
-        'name' => '[:ja]デポジット[:en]Deposit[:vi]Đặt cọc[:]',
+        'name' => '[:ja]保証金[:en]Deposit[:vi]Đặt cọc[:]',
         'group' => 'basic',
         'type' => 'single',                
         'values' => [
@@ -50,7 +50,7 @@ return [
                     
     ],
     'address' => [
-        'name' => '[:ja]アドレス[:en]Address[:vi]Địa chỉ[:]',
+        'name' => '[:ja]所在地[:en]Address[:vi]Địa chỉ[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -59,7 +59,7 @@ return [
                     
     ],
     'contract_limit' => [
-        'name' => '[:ja]最低契約年数[:en]Contract Limit[:vi]Hợp đồng tối thiểu[:]',
+        'name' => '[:ja]最低契約度年数[:en]Contract Limit[:vi]Hợp đồng tối thiểu[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -68,7 +68,7 @@ return [
                     
     ],
     'size' => [
-        'name' => '[:ja]面積[:en]Size[:vi]Diện tích[:]',
+        'name' => '[:ja]最大フロア面積[:en]Size[:vi]Diện tích[:]',
         'group' => 'basic',
         'type' => 'text',                'unit' => 'm²',
         'values' => [
@@ -77,7 +77,7 @@ return [
                     
     ],
     'floor' => [
-        'name' => '[:ja]フロア[:en]Floor[:vi]Tầng lầu[:]',
+        'name' => '[:ja]階数[:en]Floor[:vi]Tầng lầu[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -86,7 +86,7 @@ return [
                     
     ],
     'conditioning_system' => [
-        'name' => '[:ja]空調システム[:en]Air Condition System[:vi]Hệ thống điều hòa[:]',
+        'name' => '[:ja]空調システム[:en]Conditioning System[:vi]Hệ thống điều hòa[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -95,7 +95,7 @@ return [
                     
     ],
     'anniversary' => [
-        'name' => '[:ja]ニバーサリー[:en]Anniversary[:vi]Ngày thành lập[:]',
+        'name' => '[:ja]築年数[:en]Anniversary[:vi]Ngày thành lập[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
@@ -104,7 +104,7 @@ return [
                     
     ],
     'commiss' => [
-        'name' => '[:ja]コミッション[:en]Commissions[:vi]Hoa hồng[:]',
+        'name' => '[:ja]仲介手数料[:en]Commissions[:vi]Hoa hồng[:]',
         'group' => 'basic',
         'type' => 'text',                
         'values' => [
