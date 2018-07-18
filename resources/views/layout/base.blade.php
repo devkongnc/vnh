@@ -29,7 +29,7 @@
 
     <style type="text/css">
         @import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
-        </style>
+    </style>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/css-lib.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ elixir('css/css-custom.min.css') }}">
 
@@ -38,6 +38,7 @@
 		body {
             font-family: "Noto Sans Japanese", Arial, "sans-serif";
         }
+
         <?php } ?>
         div.phpdebugbar pre {
             width: 1000px;
@@ -51,49 +52,84 @@
 
 <div id="top"></div>
 
-    @include('layout.header')
+@include('layout.header')
 
-    @yield('content')
+@yield('content')
 
-    @if(Route::current()->getUri() !== 'search-map')
-        @include('layout.footer')
-    @endif
+@if(Route::current()->getUri() !== 'search-map')
+    @include('layout.footer')
+@endif
 
-    <script type="text/javascript">
-        var estate_ajax = '{{ action('RealEstateController@index') }}';
-        function estate_permalink(product_id) {
-            return '{{ action('RealEstateController@show', 'product_id') }}'.replace('product_id', product_id);
-        }
-    </script>
-    <script type="text/javascript" src="{{ elixir('js/js-custom.js') }}"></script>
+<a id="back_to_top" href="#">
+    <span class="fa-stack">
+        <img src="{{ asset('images/new-layout/totop.png') }}">
+    </span>
+</a>
+
+<div class="modal" id="modal-like">
+    <div class="modal-dialog modal-lg">
+        <div class="popup-like modal-content">
+            <div class="top-popup">
+                <div>
+                    <p>@lang('front.popup.contact.description')</p>
+                    <p><span class="clear-like icon-close-light"><span class="path1"></span><span class="path2"></span></span> @lang('front.popup.contact.like remove')
+                    </p>
+                </div>
+                <div class="img-top">
+                    <img class="img-responsive" src="{{ asset('images/like-orange.svg') }}" alt="like">
+                </div>
+            </div>
+            <div class="list-house-popup"></div>
+            @include('partials.contact_form', ['prefix' => 'like'])
+            <div class="close-like" data-dismiss="modal" aria-label="Close">
+                <span class="icon-close-light"><span class="path1"></span><span class="path2"></span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .modal-content {
+        padding: 25px
+    }
+</style>
+
+<script type="text/javascript">
+    var estate_ajax = '{{ action('RealEstateController@index') }}';
+
+    function estate_permalink(product_id) {
+        return '{{ action('RealEstateController@show', 'product_id') }}'.replace('product_id', product_id);
+    }
+</script>
+<script type="text/javascript" src="{{ elixir('js/js-custom.js') }}"></script>
 
 
-    @if(env('APP_ENV') == 'local' || env('APP_ENV') == 'develop')
-        {{--key for local dev //vnh.local--}}
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy_KoPR6v-mzse7nWjricn1TTmnw9OP44"></script>
-    @else
-        {{--key for server real //office.vietnamhouse.jp--}}
-        <script src="https://maps.googleapis.com/maps/api/js?key={{ env('APP_MAP_KEY') }}"></script>
-    @endif
+@if(env('APP_ENV') == 'local' || env('APP_ENV') == 'develop')
+    {{--key for local dev //vnh.local--}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy_KoPR6v-mzse7nWjricn1TTmnw9OP44"></script>
+@else
+    {{--key for server real //office.vietnamhouse.jp--}}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('APP_MAP_KEY') }}"></script>
+@endif
 
 
-    @yield('scripts')
+@yield('scripts')
 
-    <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({
-                    'gtm.start':
-                        new Date().getTime(), event: 'gtm.js'
-                });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-5GGNW3');
-        </script>
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5GGNW3');
+</script>
 </body>
 
 </html>

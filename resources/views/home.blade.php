@@ -13,14 +13,14 @@
 			</div>
 		</div>
 		<div class="row">
-			<?php foreach ($categories as $key => $categorie) { ?>
+			<?php foreach ($categories as $key => $category) { ?>
 			<div class="col-md-3 col-sm-3">
 				<div class="pickup-blk">
-					<a href="{{ action('CategoryController@show', $categorie->permalink) }}">
+					<a href="{{ action('CategoryController@show', $category->permalink) }}">
 						<div class="pickup-img">
-							<img src="{{ asset($categorie->post_thumbnail) }}" alt="{{ $categorie->title }}" >
+							<img src="{{ asset($category->post_thumbnail) }}" alt="{{ $category->title }}" >
 						</div>
-						<p>{{ $categorie->title }}</p>
+						<p>{{ $category->title }}</p>
 						<img src="{{ asset('images/new-layout/ar-b-s.png') }}" class="small-ar" >
 						{{-- <span class="pickup-label new-label">NEW</span> --}}
 						<div class="clearfix"></div>

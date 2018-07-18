@@ -10,7 +10,12 @@ return array(
     // edit start
     'area' => 'Area',
     'location' => 'Location',
+    'address' => 'Address',
+    'floor' => 'Floor',
+    'contract_limit' => 'Contract',
     'size' => 'Size',
+    'anniversary_age' => 'Anniversary Date',
+    'anniversary_age_date_format' => 'Y/m',
     'manage fee' => 'Included manager fee',
     'feature list' => 'Feature List',
     'special features of office' => 'Special features of Office',
