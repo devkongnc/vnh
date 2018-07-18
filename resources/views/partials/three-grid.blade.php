@@ -13,15 +13,15 @@
                         @endforeach
                     </div>
                     <div class="house-sub-title"><strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡<span>（@lang('front.manage fee')）</span></div>
-                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 200) }}</p>
+                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 250) }}</p>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="title-number">
-                        <h2> <a href="{{ URL::action('RealEstateController@show', $item->product_id) }}">{{ $item->product_id }}</a></h2>
-                        <div class="btn-like like" data-id="{{ $item->id }}"><img src="{{ asset('images/new-layout/icon-heart.png') }}" ></div>
+                        <h2><a href="{{ URL::action('RealEstateController@show', $item->product_id) }}">{{ $item->product_id }}</a></h2>
+                        <div class="btn-like like" data-id="{{ $item->product_id }}"><img src="{{ asset('images/new-layout/icon-heart.png') }}" ></div>
                     </div>
                     <a href="{{ URL::action('RealEstateController@show', $item->product_id) }}">
-                    <h3>{{ str_limit($item->title, 30) }}</h3>
+                    <h3>{{ str_limit($item->title, 50) }}&nbsp;</h3>
                     </a>
                     <table class="house-info">
                         <tr>
@@ -29,20 +29,33 @@
                             <td class="tdr">{{ $item->area }}</td>
                         </tr>
                         <tr>
-                            <td class="tdl">@lang('front.location')</td>
-                            <td class="tdr">{{ $item->city }}</td>
+                            <td class="tdl">@lang('front.address')</td>
+                            <td class="tdr"><div>{{ str_limit($item->address,22) }}</div></td>
                         </tr>
+
                         <tr>
                             <td class="tdl">@lang('entity.estate.deposit')</td>
-                            <td class="tdr">{{ $item->deposit }}</td>
+                            <td class="tdr">{{ (!empty($item->contract_limit)
+                                                        ? $item->contract_limit.trans('entity.estate.contract_limit_year_unit')
+                                                            .((LaravelLocalization::getCurrentLocale()==='en' && (int)$item->contract_limit > 1)?'s':'') : '') }}
+                            </td>
                         </tr>
                         <tr>
                             <td class="tdl">@lang('front.size')</td>
-                            <td class="tdr">{{ $item->size }}</td>
+                            <td class="tdr">{{ (!empty($item->size)? number_format((int)$item->size).' m²' : '')}}
+                            </td>
                         </tr>
                         <tr>
-                            <td class="tdl">@lang('front.last updated')</td>
-                            <td class="tdr">{{ $item->updated_at }}</td>
+                            <td class="tdl">@lang('front.floor')</td>
+                            <td class="tdr">{{ (!empty($item->floor)
+                                                        ? $item->floor.trans('entity.estate.floor_unit') : '') }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdl">@lang('front.anniversary_age')</td>
+                            <td class="tdr">{{ (($item->anniversary != "0000-00-00" && !empty($item->anniversary))
+                                ?(string) date(''.trans('front.anniversary_age_date_format'), strtotime($item->anniversary)) : '') }}
+                            </td>
                         </tr>
                     </table>
 
@@ -51,7 +64,7 @@
                             @foreach($data['values'] as $index => $value)
                                 @if($key === 'facilities' || $key === 'surroundings')
                                 <li data-key="{{$index}}" class="{{ in_array($index, (array) $item->{$key}) ? "" : 'inactive' }} ">
-                                    {{ \App\Term::getLocaleValue($value) }}
+                                    <div>{{ \App\Term::getLocaleValue($value) }}</div>
                                 </li>
                                 @endif
                             @endforeach

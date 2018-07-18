@@ -336,6 +336,7 @@
             initMap();
             add_style_for_data();
             mark_elem = x.offset().top;
+            map_elem.css('height','calc(100vh - 220px)');
             map_elem_height = map_elem.height();
         });
 
