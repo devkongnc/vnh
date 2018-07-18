@@ -1,6 +1,9 @@
 $(document).ready(function ($) {
     "use strict";
 
+    $('.clear-form-search-btn').click(function (e) {
+    });
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
             $('#menu-fix').fadeIn(500);
@@ -59,9 +62,9 @@ $(document).ready(function ($) {
     //------------//
     // SEARCH BOX //
     //------------//
-    var price_max_search = 50000;
+    var price_max_search = 100;
     var price_min_search = 0;
-    var size_max_search = 5000;
+    var size_max_search = 3000;
     var size_min_search = 0;
 
     function ajaxSearch() {
@@ -79,8 +82,8 @@ $(document).ready(function ($) {
 
     //dropdown checekbox//
     var options = [];
-    $('.dropdown-menu a').on('click', function (event) {
-        console.log($(event.currentTarget));
+    $('.advanced-search .dropdown-menu a').on('click', function (event) {
+        //console.log($(event.currentTarget));
 
         var $target = $(event.currentTarget),
             val = $target.attr('data-value'),
@@ -119,7 +122,7 @@ $(document).ready(function ($) {
         step: 1,
         scale: [price_min_search, price_max_search],
         format: '%s',
-        width: 300,
+        width: 330,
         showLabels: true,
         isRange: true,
         ondragend: function (data) {
@@ -141,7 +144,7 @@ $(document).ready(function ($) {
         step: 1,
         scale: [size_min_search, size_max_search],
         format: '%s',
-        width: 300,
+        width: 330,
         showLabels: true,
         isRange: true,
         ondragend: function (data) {

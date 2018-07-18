@@ -66,6 +66,10 @@ class ComposerServiceProvider extends ServiceProvider
             $menu = (array) json_decode(option('page_menu'));
             $view->with('menu', $menu);
         });
+        view()->composer(['layout.header', 'about.base', 'admin.static-page.menutop'], function($view) {
+            $menu_top = (array) json_decode(option('page_menu_top'));
+            $view->with('menu_top', $menu_top);
+        });
         view()->composer('home', function($view) {
             if (option('home_banner') === 'slider') {
                 $slides = json_decode(option('home_slider'));

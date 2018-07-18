@@ -51,6 +51,7 @@ class SchemaInitialize extends Migration
                 $table->string('lat', 30);
                 $table->string('lng', 30);
                 $table->decimal('price', 10, 0);
+                $table->decimal('price_max', 10, 0);
                 $table->smallInteger('deposit')->unsigned();
                 $table->smallInteger('city')->unsigned();
                 $table->smallInteger('area')->unsigned();

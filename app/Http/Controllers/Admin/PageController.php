@@ -121,4 +121,13 @@ class PageController extends Controller
         $pages = Page::where('status', Page::VISIBILITY_PUBLIC)->get();
         return view('admin.static-page.menu', compact('pages'));
     }
+
+    public function menutop(Request $request) {
+        if ($request->method() === 'POST') {
+            setOption('page_menu_top', $request->menu_top);
+            return back()->withFlashData(['status' => 'success', 'message' => trans('admin.message.success.update')]);
+        }
+        $pages = Page::where('status', Page::VISIBILITY_PUBLIC)->get();
+        return view('admin.static-page.menutop', compact('pages'));
+    }
 }

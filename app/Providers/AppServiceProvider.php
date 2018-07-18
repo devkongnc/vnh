@@ -48,6 +48,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('customlog', 'App\Exceptions\CustomLogWriter');
     }
 }

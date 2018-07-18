@@ -71,7 +71,7 @@
         });
 
         dropzone_multi.on('sending', function(file, xhr, formData) {
-        	formData.append('dir', 'door/{{ $estate->product_id }}');
+        	formData.append('dir', 'images/{{ $estate->product_id }}');
         	formData.append('is_rectangle', true);
         });
 	</script>

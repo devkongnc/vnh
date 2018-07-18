@@ -88,48 +88,48 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-12">
-					<div class="box box-solid">
-						<div class="box-header with-border">
-							<h3 class="box-title">@lang('admin.dashboard.new reviews')</h3>
-						</div>
-						<div class="box-body">
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>@lang('admin.common.title')</th>
-										<th>@lang('admin.entity.category')</th>
-										<th>@lang('admin.review.visible title')</th>
-										<th>@lang('admin.common.created by')</th>
-										<th>@lang('admin.common.actions')</th>
-									</tr>
-								</thead>
-								<tbody>
-								@foreach($reviews as $review)
-									<tr>
-										<td></td>
-										<td>
-											{{ link_to(action('Admin\ReviewController@edit', $review->id), $review->draft ? '(' . trans('admin.review.state.draft') . ') ' . $review->title : $review->title) }}
-										</td>
-										<td>
-											@foreach($review->categoriesName as $name)
-												<span>{{ $name }}</span>
-											@endforeach
-										</td>
-										<td class="status">{!! $review->visibility !!}</td>
-										<td>{{ $review->user->name or '' }}</td>
-										<td>
-											{{ link_to(action('Admin\ReviewController@edit', $review->id), trans('admin.common.edit'), ['class' => 'btn btn-primary']) }}
-											{{ link_to($review->url, trans('admin.common.view'), ['class' => 'btn btn-default', 'target' => '_blank']) }}
-										</td>
-									</tr>
-								@endforeach
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+				{{--<div class="col-lg-12">--}}
+					{{--<div class="box box-solid">--}}
+						{{--<div class="box-header with-border">--}}
+							{{--<h3 class="box-title">@lang('admin.dashboard.new reviews')</h3>--}}
+						{{--</div>--}}
+						{{--<div class="box-body">--}}
+							{{--<table class="table table-bordered">--}}
+								{{--<thead>--}}
+									{{--<tr>--}}
+										{{--<th>#</th>--}}
+										{{--<th>@lang('admin.common.title')</th>--}}
+										{{--<th>@lang('admin.entity.category')</th>--}}
+										{{--<th>@lang('admin.review.visible title')</th>--}}
+										{{--<th>@lang('admin.common.created by')</th>--}}
+										{{--<th>@lang('admin.common.actions')</th>--}}
+									{{--</tr>--}}
+								{{--</thead>--}}
+								{{--<tbody>--}}
+								{{--@foreach($reviews as $review)--}}
+									{{--<tr>--}}
+										{{--<td></td>--}}
+										{{--<td>--}}
+											{{--{{ link_to(action('Admin\ReviewController@edit', $review->id), $review->draft ? '(' . trans('admin.review.state.draft') . ') ' . $review->title : $review->title) }}--}}
+										{{--</td>--}}
+										{{--<td>--}}
+											{{--@foreach($review->categoriesName as $name)--}}
+												{{--<span>{{ $name }}</span>--}}
+											{{--@endforeach--}}
+										{{--</td>--}}
+										{{--<td class="status">{!! $review->visibility !!}</td>--}}
+										{{--<td>{{ $review->user->name or '' }}</td>--}}
+										{{--<td>--}}
+											{{--{{ link_to(action('Admin\ReviewController@edit', $review->id), trans('admin.common.edit'), ['class' => 'btn btn-primary']) }}--}}
+											{{--{{ link_to($review->url, trans('admin.common.view'), ['class' => 'btn btn-default', 'target' => '_blank']) }}--}}
+										{{--</td>--}}
+									{{--</tr>--}}
+								{{--@endforeach--}}
+								{{--</tbody>--}}
+							{{--</table>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+				{{--</div>--}}
 			</div>
 		</section>
 	</div>

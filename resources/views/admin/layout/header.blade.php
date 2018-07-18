@@ -66,13 +66,13 @@
 			    </ul>
 			</li>
 			
-			<li class="treeview {{ Active::getClassIf(Active::checkController(['App\Http\Controllers\Admin\ReviewController'])) }}">
-			    <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> <span>Review</span></a>
-			    <ul class="nav treeview-menu">
-			    	<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\ReviewController@index'])) }}"><a href="{{ URL::action('Admin\ReviewController@index') }}">Review</a></li>
-			        <li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\ReviewController@create'])) }}"><a href="{{ URL::action('Admin\ReviewController@create') }}">Create New</a></li>
-			    </ul>
-			</li>
+			{{--<li class="treeview {{ Active::getClassIf(Active::checkController(['App\Http\Controllers\Admin\ReviewController'])) }}">--}}
+			    {{--<a href="javascript:void(0)"><i class="fa fa-circle-o"></i> <span>Review</span></a>--}}
+			    {{--<ul class="nav treeview-menu">--}}
+			    	{{--<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\ReviewController@index'])) }}"><a href="{{ URL::action('Admin\ReviewController@index') }}">Review</a></li>--}}
+			        {{--<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\ReviewController@create'])) }}"><a href="{{ URL::action('Admin\ReviewController@create') }}">Create New</a></li>--}}
+			    {{--</ul>--}}
+			{{--</li>--}}
 			<li class="treeview {{ Active::getClassIf(Active::checkController(['App\Http\Controllers\Admin\CategoryController'])) }}">
 			    <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> <span>Category</span></a>
 			    <ul class="nav treeview-menu">
@@ -86,6 +86,7 @@
 			    	<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\PageController@index'])) }}"><a href="{{ URL::action('Admin\PageController@index') }}">Static Page</a></li>
 			        <li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\PageController@create'])) }}"><a href="{{ URL::action('Admin\PageController@create') }}">Create New</a></li>
 			        <li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\PageController@menu'])) }}"><a href="{{ URL::action('Admin\PageController@menu') }}">Menu</a></li>
+					<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\PageController@menutop'])) }}"><a href="{{ URL::action('Admin\PageController@menutop') }}">Menu Top Page</a></li>
 			    </ul>
 			</li>
 			<li class="treeview">

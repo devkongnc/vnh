@@ -8,11 +8,11 @@
                     <div class="owl-carousel owl-theme house-carousel">
                         @foreach($item->resources as $index => $image)
                             <div class="item">
-                                <img src="{{ asset($image->medium) }}" alt="">
+                                <img src="{{ img_exists($image->estate_thumbnail) }}" alt="">
                             </div>
                         @endforeach
                     </div>
-                    <div class="house-sub-title"><strong>{{ $item->price }}</strong> USD　<span>（@lang('front.manage fee')）</span></div>
+                    <div class="house-sub-title"><strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡<span>（@lang('front.manage fee')）</span></div>
                     <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 200) }}</p>
                 </div>
                 <div class="col-md-6 col-sm-6">
