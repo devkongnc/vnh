@@ -109,10 +109,9 @@ return [
     'sendmail' => '/usr/sbin/sendmail -bs',
 
     'destination' => [
-        'en' => 'e-inq@vietnamhouse.com',
-        'vi' => 'v-inq@vietnamhouse.com',
-        'ja' => 'j-inq@vietnamhouse.com',
-        'landlord' => 'property@vietnamhouse.com'
+        'en' => env('MAIL_DESTINATION_EN', 'e-inq@vietnamhouse.com'),
+        'vi' => env('MAIL_DESTINATION_VI', 'v-inq@vietnamhouse.com'),
+        'ja' => env('MAIL_DESTINATION_JA', 'j-inq@vietnamhouse.com'),
     ]
 
 ];
