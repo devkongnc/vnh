@@ -26,8 +26,7 @@ class HomeController extends Controller {
 		$data['reviews'] = Review::with('resource')->orderBy('id', 'desc')->take(7)->get();
 		$data['categories'] = Category::orderBy('sticky', 'desc')->orderBy('id', 'desc')->take(4)->get();
 
-		$data['benifit'] = Page::with('translation')->where('id', 8)->first();
-//        dd($data['benifit']);
+		$data['benefit'] = Page::with('translation')->where('id', 8)->first();
 		return view('home', $data);
 	}
 
