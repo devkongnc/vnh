@@ -29,11 +29,11 @@
             <a target="_blank" href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[3]->permalink) }}">{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[3]->permalink) }}</a><br />
             @lang('email.support text')
         </p>
-        <p>
-            @lang('email.blog')<br />
-            <a target="_blank" href="{{ action('ReviewController@index') }}">{{ action('ReviewController@index') }}</a><br />
-            @lang('email.blog text')
-        </p>
+        {{--<p>--}}
+            {{--@lang('email.blog')<br />--}}
+            {{--<a target="_blank" href="{{ action('ReviewController@index') }}">{{ action('ReviewController@index') }}</a><br />--}}
+            {{--@lang('email.blog text')--}}
+        {{--</p>--}}
         <p>@lang('email.notice')</p>
         <hr>
         <p>
