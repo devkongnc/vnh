@@ -97,43 +97,7 @@
 </div>
 
 <!-- benefit -->
-{!! $benifit->html  !!}
-<?php
-//dump($benifit);
-?>
-{{--<div class="benefit">--}}
-	{{--<div class="content-m">--}}
-		{{--<div class="row">--}}
-			{{--<div class="col-md-4 col-md-offset-8 center">--}}
-				{{--<h1 class="title-h">Benefit</h1>--}}
-					{{--<h4 class="sub-title-h">@lang('front.benefit_sub_title')</h4>--}}
-			{{--</div>--}}
-		{{--</div>--}}
-		{{--<div class="row">--}}
-			{{--<div class="col-md-4 col-sm-4">--}}
-				{{--<div class="benefit-blk">--}}
-					{{--<span class="be-number">01</span>--}}
-					{{--<h3>手数料・更新料0円</h3>--}}
-					{{--テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。--}}
-				{{--</div>--}}
-			{{--</div>--}}
-			{{--<div class="col-md-4 col-sm-4">--}}
-				{{--<div class="benefit-blk">--}}
-					{{--<span class="be-number">02</span>--}}
-					{{--<h3>ホーチミン物件数最大</h3>--}}
-					{{--テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。--}}
-				{{--</div>--}}
-			{{--</div>--}}
-			{{--<div class="col-md-4 col-sm-4">--}}
-				{{--<div class="benefit-blk">--}}
-					{{--<span class="be-number">03</span>--}}
-					{{--<h3>充実のサポート</h3>--}}
-					{{--テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。--}}
-				{{--</div>--}}
-			{{--</div>--}}
-		{{--</div>--}}
-	{{--</div>--}}
-{{--</div>--}}
+{!! (!empty($benefit) ? (!is_null($benefit->html) ? $benefit->html: '') : '')  !!}
 
 <!-- support -->
 <div class="content-l">

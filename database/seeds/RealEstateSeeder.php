@@ -21,7 +21,7 @@ class RealEstateSeeder extends Seeder
 
             $estate = factory(\App\Estate::class)->create();
 
-            $price = $faker->numberBetween(50,20000);
+            $price = $faker->numberBetween(0,99);
             $estate->update([
                 'title' => [
                     'en' => $faker->sentence,
@@ -34,8 +34,8 @@ class RealEstateSeeder extends Seeder
                     'ja' => "<p>" . $faker->realText(500) . "</p>"
                 ],
                 'price' => $price,
-                'price' => $faker->numberBetween($price,20000),
-                'size'  => $faker->numberBetween(50,5000),
+                'price_max' => $faker->numberBetween($price,100),
+                'size'  => $faker->numberBetween(0,3000),
                 'lat'   => $faker->numberBetween(9.17682,22.82333),
                 'lng'   => $faker->numberBetween(103.02301,109.32094),
                 'address' => $address_arr[array_rand($address_arr)],
@@ -52,5 +52,8 @@ class RealEstateSeeder extends Seeder
             $estate->save();
 
         }
+
+        DB::table('estate_sticky')->delete();
+        DB::unprepared(file_get_contents(database_path()."/seeds/recommend_sticky_data.sql"));
     }
 }
