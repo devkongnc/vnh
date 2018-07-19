@@ -1,30 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Aug 14, 2016 at 07:29 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `vnh`
---
-
---
--- Dumping data for table `pages`
---
-
-
 INSERT INTO `pages` (`id`, `status`, `permalink`, `css`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 0, 'support/rental-office', '', NULL, '2016-06-24 00:09:34', '2016-08-14 04:41:34'),
 (2, 0, 'support/area', '', NULL, '2016-06-24 00:09:34', '2016-08-14 04:41:34'),
@@ -34,12 +7,6 @@ INSERT INTO `pages` (`id`, `status`, `permalink`, `css`, `user_id`, `created_at`
 (6, 0, 'company/contact', '', NULL, '2016-06-24 00:09:34', '2016-08-14 04:41:34'),
 (7, 0, 'company/contact-tks', '', NULL, '2016-06-24 00:09:34', '2016-08-14 04:41:34'),
 (8, 0, 'benefit', '', NULL, '2016-06-24 00:09:34', '2016-08-14 04:41:34');
-
-
---
--- Dumping data for table `page_translations`
---
-
 
 INSERT INTO `page_translations` (`id`, `page_id`, `locale`, `title`, `html`) VALUES
 (1, 1, 'ja', 'レンタルオフィスとは？', '<div class="content-l">\r\n	<div class="img-breadcrumb" style="background-color: #ededed;">\r\n		<div class="txt-breadcrumb">\r\n			<h1>レンタルオフィス</h1>\r\n		</div>\r\n	</div>\r\n	<div class="company-profile bg-white">\r\n		<div class="row">\r\n			<div class="col-md-12">\r\n				<h2 class="title-border">レンタルオフィスとは？</h2>\r\n			</div>\r\n		</div>\r\n		<div class="row">\r\n			<div class="col-md-12">\r\n				<p>レンタルオフィスは貸事務所に比べて遥かに低予算で借りることができるオフィスです。そのため、近年起業家の間でも利用者が増えています。※実際は、サービス内容や場所によっては、賃貸を正式に借りた事務所の方が安上がりの場合もあります。レンタルオフィスは貸事務所に比べて遥かに低予算で借りることができるオフィスです。そのため、近年起業家の間でも利用者が増えています。※実際は、サービス内容や場所によっては、賃貸を正式に借りた事務所の方が安上がりの場合もあります。</p>\r\n			</div>\r\n		</div>\r\n		<div class="row">\r\n			<div class="col-md-6 col-sm-6">\r\n					<div class="support-blk">\r\n					<h2>メリット</h2>\r\n					<h3>・立地条件がいい</h3>\r\n					<p>個人でスタートアップするには、一等地はハードルが高過ぎます。 しかし、レンタルオフィスは都心の一等地に立っている場合が多いため、起業初期からビジネスに適した環境の中で仕事をすることができます。</p>\r\n					<h3>・初期費用を軽減できる</h3>\r\n					<p>個人でスタートアップするには、一等地はハードルが高過ぎます。 しかし、レンタルオフィスは都心の一等地に立っている場合が多いため、起業初期からビジネスに適した環境の中で仕事をすることができます。</p>\r\n					<h3>・会議室等の施設を利用することができる</h3>\r\n					<p>個人でスタートアップするには、一等地はハードルが高過ぎます。 しかし、レンタルオフィスは都心の一等地に立っている場合が多いため、起業初期からビジネスに適した環境の中で仕事をすることができます。</p>\r\n				</div>\r\n			</div>\r\n				<div class="col-md-6 col-sm-6">\r\n					<div class="support-blk">\r\n					<h2>デメリット</h2>\r\n					<h3>・料金が割高になる可能性もある</h3>\r\n					<p>個人でスタートアップするには、一等地はハードルが高過ぎます。 しかし、レンタルオフィスは都心の一等地に立っている場合が多いため、起業初期からビジネスに適した環境の中で仕事をすることができます。</p>\r\n					<h3>・レンタルオフィス事業者が廃業する場合もある</h3>\r\n					<p>個人でスタートアップするには、一等地はハードルが高過ぎます。 しかし、レンタルオフィスは都心の一等地に立っている場合が多いため、起業初期からビジネスに適した環境の中で仕事をすることができます。</p>\r\n				</div>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n<div class="content-l">\r\n	<div class="support-bottom">\r\n		<div class="content-m">\r\n			<div class="row">\r\n				<div class="col-md-4 col-md-offset-2 col-sm-5">\r\n					<span>レンタルオフィスでお探しの場合御予算、スタッフ数、契約期間と合わせて弊社までお問い合わせくださいませ。</span>\r\n				</div>\r\n				<div class="col-md-4 col-sm-7">\r\n					<a href="#" class="white-btn">お問い合わせ</a>\r\n				</div>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>'),
@@ -66,20 +33,3 @@ INSERT INTO `page_translations` (`id`, `page_id`, `locale`, `title`, `html`) VAL
 (22, 8, 'ja', ' ベネフィット', '<div class=\"benefit\">\r\n	<div class=\"content-m\">\r\n		<div class=\"row\">\r\n			<div class=\"col-md-4 col-md-offset-8 center\">\r\n				<h1 class=\"title-h\">Benefit</h1>\r\n					<h4 class=\"sub-title-h\">ベトナムハウスの強み</h4>\r\n			</div>\r\n		</div>\r\n		<div class=\"row\">\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">01</span>\r\n					<h3>手数料・更新料0円</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">02</span>\r\n					<h3>ホーチミン物件数最大</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">03</span>\r\n					<h3>充実のサポート</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>'),
 (23, 8, 'en', 'Benefit', '<div class=\"benefit\">\r\n	<div class=\"content-m\">\r\n		<div class=\"row\">\r\n			<div class=\"col-md-4 col-md-offset-8 center\">\r\n				<h1 class=\"title-h\">Benefit</h1>\r\n					<h4 class=\"sub-title-h\">Strengths of Vietnam House</h4>\r\n			</div>\r\n		</div>\r\n		<div class=\"row\">\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">01</span>\r\n					<h3>手数料・更新料0円</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">02</span>\r\n					<h3>ホーチミン物件数最大</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">03</span>\r\n					<h3>充実のサポート</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>'),
 (24, 8, 'vi', 'Lợi ích', '<div class=\"benefit\">\r\n	<div class=\"content-m\">\r\n		<div class=\"row\">\r\n			<div class=\"col-md-4 col-md-offset-8 center\">\r\n				<h1 class=\"title-h\">Lợi ích</h1>\r\n					<h4 class=\"sub-title-h\">Ưu điểm của Vietnam House</h4>\r\n			</div>\r\n		</div>\r\n		<div class=\"row\">\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">01</span>\r\n					<h3>手数料・更新料0円</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">02</span>\r\n					<h3>ホーチミン物件数最大</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n			<div class=\"col-md-4 col-sm-4\">\r\n				<div class=\"benefit-blk\">\r\n					<span class=\"be-number\">03</span>\r\n					<h3>充実のサポート</h3>\r\n					テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。テキストが入ります。ここにテキストが入ります。手数料・更新料0円の説明文を入れてください。\r\n				</div>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>');
-
-
-INSERT INTO `estate_sticky` (`id`, `estate_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(2, 2, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(3, 3, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(4, 4, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(5, 5, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(6, 6, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(7, 7, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(8, 8, '2018-07-18 09:17:21', '2018-07-18 09:17:21'),
-(9, 9, '2018-07-18 09:17:21', '2018-07-18 09:17:21');
-
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
