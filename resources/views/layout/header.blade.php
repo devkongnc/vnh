@@ -4,7 +4,7 @@
 <div class="menu-fix" id="menu-fix">
     <div id="nav" class="content-l">
         <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}"
-           class="logo2"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
+           class="logo2 hide-mobile"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
         <div id="menu_head_group">
             <a onclick="$('.aside').asidebar('open')"
                class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
@@ -63,10 +63,10 @@
         <div id="nav" class="content-l center">
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}" class="logo"><img
                         src="{{ asset('images/new-layout/logo.svg') }}"></a>
-            <div id="menu_shortcut_group">
+            <div id="menu_shortcut_group" class="hide-mobile">
                 {{ showMenu(null, $menu_top, $pages_by_id, 1) }}
             </div>
-            <div id="menu_head_group">
+            <div id="menu_head_group" class="hide-mobile">
                 <a onclick="$('.aside').asidebar('open')"
                    class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
                 <a href="#">

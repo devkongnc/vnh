@@ -37,24 +37,24 @@ if (!isset($position_search)) {
             </div>
             <div class="row">
                 <label>@lang('search.unit-price')</label>
-                <div class="form-field">
-                    <input class="range-slider" type="hidden" name="term[price]" value="{{$price[0]}},{{$price[1]}}"/>
-                </div>
                 <div class="form-field2">
                     <input type="text" id="price-min" class="input-min-price num_only" value="{{$price[0]}}">
                     ~
                     <input type="text" id="price-max" class="input-max-price num_only" value="{{$price[1]}}"> $
                 </div>
+                <div class="form-field">
+                    <input class="range-slider" type="hidden" name="term[price]" value="{{$price[0]}},{{$price[1]}}"/>
+                </div>
             </div>
             <div class="row">
                 <label>@lang('search.unit-area')</label>
-                <div class="form-field range2">
-                    <input class="range-slider2" type="hidden" name="term[size]" value="{{$size[0]}},{{$size[1]}}"/>
-                </div>
                 <div class="form-field2">
                     <input type="text" id="area-min" class="input-min-area num_only" value="{{$size[0]}}">
                     ~
                     <input type="text" id="area-max" class="input-max-area num_only" value="{{$size[1]}}"> ㎡
+                </div>
+                <div class="form-field range2">
+                    <input class="range-slider2" type="hidden" name="term[size]" value="{{$size[0]}},{{$size[1]}}"/>
                 </div>
             </div>
 

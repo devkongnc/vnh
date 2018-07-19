@@ -1244,7 +1244,7 @@ a[href^="tel"] {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 20;
+    z-index: 200;
     display: none;
     padding-left: 15px;
     padding-right: 15px;

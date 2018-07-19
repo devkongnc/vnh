@@ -5,10 +5,14 @@ $(document).ready(function ($) {
     });
 
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-            $('#menu-fix').fadeIn(500);
+        if ($(document).width() > 767) {
+            if ($(this).scrollTop() > 200) {
+                $('#menu-fix').fadeIn(500);
+            } else {
+                $('#menu-fix').fadeOut(500);
+            }
         } else {
-            $('#menu-fix').fadeOut(500);
+            $('#menu-fix').show();
         }
     });
 
