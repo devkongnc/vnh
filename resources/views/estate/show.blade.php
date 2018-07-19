@@ -48,12 +48,12 @@
             <div class="col-md-5 col-sm-5">
                 <div class="grey-bg-info">
                     <div class="row">
-                        <div class="col-md-8 col-sm-7">
+                        <div class="col-md-8 col-sm-8">
                             @lang('entity.estate.rent') <strong
                                     class="big-price">{{ $estate->price }} {{  (!empty($estate->price_max)) ?' ~ '.$estate->price_max:'' }}</strong>
                             USD / ㎡
                         </div>
-                        <div class="col-md-4 col-sm-5 right" style="font-weight: 700">
+                        <div class="col-md-4 col-sm-4 right" style="font-weight: 700">
                             @lang('entity.estate.deposit') {{ $estate->deposit }}
                         </div>
                     </div>

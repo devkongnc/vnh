@@ -378,6 +378,10 @@ $(document).ready(function() {
                 height: 482,
                 items: 10
             },
+            991: {
+                height: 300,
+                items: 10
+            },
         });
 
         $('.related-house-carousel').owlCarousel({

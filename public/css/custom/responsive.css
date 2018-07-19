@@ -52,6 +52,7 @@
 	.hotline{right:105px}
 	.ggmap iframe{min-height:250px;}
 	.intro-section .content-l .label-intro{max-height:none}
+	.house-blk .owl-carousel .owl-item .item, .owl-carousel .owl-item img, .owl-carousel.owl-loaded {max-height: 140px;}
 }
 
 @media screen and (max-width:991px){
@@ -120,6 +121,7 @@
 	.big-favorite-btn,.big-print-btn{height:32px;line-height:32px;font-size:11px;}
 	.big-favorite-btn img,.big-print-btn img{width:18px;}
 	.large-image{width:100%;height:auto !important;min-height:227px;}
+	.container-gallery .large-image{min-height:300px;}
 	.social-list{margin:10px 0;}
 	.house-detail-row{margin:10px 0;}
 	.house-detail-row .col-sm-6{padding-left:6px;padding-right:6px;}
@@ -136,14 +138,21 @@
 	.feature-blk h3{font-size:12px;}
 	.feature-blk p{font-size:11px;height:65px;}
 	.list-map-body .footer{display:block;bottom:90px;margin:0;}
-	.house-list-map{float: none;width: 100%;height: 300px;padding-right: 15px;padding-left: 15px;}
-	.house-list-scroll,.map-list-pagi{width:100%;float: none;margin: auto;}
+	.house-list-map{float: none;width: 100%;height: auto;padding: 0;}
+	.house-list-scroll,.map-list-pagi{display: none; width:100%;float: none;margin: auto;}
 	.house-list-scroll>div{margin-left: 15px;}
 	.form-field>.dropdown:first-child{width: 310px;}
 	.header.page-module .open-search-hidden {top: 32px;left: auto;right: 175px;width: 15px;overflow: hidden;background-size: 85%;}
 	.open-search-hidden, .open-search-hidden.close-c{top:12px;left: auto;right: 175px;width: 15px;overflow: hidden;background-size: 85%;}
 	.header.page-module .advanced-search, .menu-fix .advanced-search {padding: 20px 0;width: 700px;}
 	.menu-fix .advanced-search {margin-left: -350px;margin-top: 19px;}
+	#direct_bar>div .navbar-nav>li>a{min-width: 125px;}
+	.house-blk .owl-carousel .owl-item .item, .owl-carousel .owl-item img, .owl-carousel.owl-loaded {max-height: 230px;}
+}
+
+@media screen and (max-width:840px){
+	.container-gallery .large-image{min-height:280px;}
+	.house-blk .owl-carousel .owl-item .item, .owl-carousel .owl-item img, .owl-carousel.owl-loaded {max-height: 215px;}
 }
 
 @media screen and (max-width:767px){
