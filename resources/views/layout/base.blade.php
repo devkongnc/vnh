@@ -72,11 +72,11 @@
             <div class="top-popup">
                 <div>
                     <p>@lang('front.popup.contact.description')</p>
-                    <p><span class="clear-like icon-close-light"><span class="path1"></span><span class="path2"></span></span> @lang('front.popup.contact.like remove')
+                    <p class="clear-like-wraper"><span class="clear-like icon-close-light"><span class="path1"></span><span class="path2"></span></span> @lang('front.popup.contact.like remove')
                     </p>
                 </div>
                 <div class="img-top">
-                    <img class="img-responsive" src="{{ asset('images/like-orange.svg') }}" alt="like">
+                    <img class="img-responsive" src="{{ asset('images/new-layout/icon-heart-fill.png') }}" alt="like">
                 </div>
             </div>
             <div class="list-house-popup"></div>
@@ -88,10 +88,80 @@
     </div>
 </div>
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style type="text/css">
     .modal-content {
         padding: 25px
     }
+
+    /*like popup start*/
+
+    .popup-like>.close-like{position: absolute; font-size: 35px; top: 10px; right: 10px;}
+
+    .clear-like-wraper{padding-left: 20px;}
+    .clear-like{margin-right: 5px}
+    .popup-like .list-house-popup .post-house {
+        float: left;
+        padding: 0 5px;
+        position: relative;
+    }
+    .popup-like .list-house-popup .post-house .close-house {
+        cursor: pointer;
+        color: #000;
+        position: absolute;
+        top: 11px;
+        right: 11px;
+        font-size: 20px;
+        line-height: 20px;
+        border-radius: 100%;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+    }
+    .icon-close-light .path1{position: relative}
+    .icon-close-light .path1:before {
+        content: "\f111";
+        color: #000;
+        font-family: FontAwesome;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 22px;
+    }
+    .icon-close-light .path1:after {
+        content: "\f00d";
+        color: #fff;
+        font-family: FontAwesome;
+        position: absolute;
+        top: 0px;
+        right: 4px;
+        font-size: 14px;
+    }
+    .popup-like .list-house-popup .post-house .feature-image>.item-brief {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,.5);
+        padding: 5px 10px;
+        color: #fff;
+        font-size: 12px;
+    }
+    .popup-like .list-house-popup .post-house .feature-image {
+        position: relative;
+    }
+    .popup-like .list-house-popup .post-house .title {
+        font-size: 12px;
+        line-height: 14px;
+        height: 28px;
+        overflow: hidden;
+        font-family: Verdana,sans-serif;
+        margin: 3px 0 10px;
+        -webkit-transition: color .2s linear;
+        transition: color .2s linear;
+    }
+    /*like popup end*/
+
 </style>
 
 <script type="text/javascript">
