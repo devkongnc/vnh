@@ -1,6 +1,6 @@
 <div class="direct_bar_wrap">
     <div id="direct_bar" class="content-l">
-        <div class="direct_bar_lang pull-left">
+        <div class="direct_bar_lang pull-left hide-mobile">
             <ul class="nav navbar-nav">
                 <li><a href="#" class="dropdown-toggle"
                        data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

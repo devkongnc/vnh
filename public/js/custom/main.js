@@ -311,11 +311,20 @@ function recommend_item_square() {
     });
 }
 
+function fixed_menu_on_resize() {
+    if ($(document).width() <= 767) {
+        $('#menu-fix').show();
+    } else {
+        $('#menu-fix').hide();
+    }
+}
+
 $(window).resize(function () {
     pickup_blk_item_same_height();
     benefit_item_same_height();
     category_item_same_height();
     recommend_item_square();
+    fixed_menu_on_resize();
 });
 
 
@@ -787,4 +796,6 @@ $(document).ready(function() {
     benefit_item_same_height();
     category_item_same_height();
     recommend_item_square();
+    fixed_menu_on_resize();
+
 });
