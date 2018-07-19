@@ -11,7 +11,7 @@
             <div class="bg-white content-page">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="title-m center mrb-30">@lang('menu.sitemap')</h2>
+                        <h2 class="title-border">@lang('menu.sitemap')</h2>
                     </div>
                 </div>
 

@@ -67,8 +67,8 @@
 								            {{-- <button class="btn btn-danger btn-action btn-delete">@lang('admin.common.delete')</button> --}}
 								        </div>
 								    </div>
-								    {{-- Nếu là contact và owner thì không hiện --}}
-								    @if (!in_array($page->id, [11, 12]))
+								    {{-- Nếu là contact thì không hiện --}}
+								    @if (!in_array($page->id, [6]))
 								    <div class="form-group">
 								    	<button type="button" class="btn btn-default insert-media add_media multi" data-toggle="modal" href="#modal-upload"><i class="fa fa-picture-o" aria-hidden="true"></i> @lang('admin.common.upload btn')</button>
 									    <div id="kcfinder_div_wrapper"><div id="kcfinder_div" class="kcfinder_div"></div></div>

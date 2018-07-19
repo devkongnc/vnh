@@ -24,12 +24,19 @@
 
 @section('scripts')
 <script type="text/javascript">
-    topnav = $(".about-nav").offset().top;
-    widthnav = $(".about-nav").css('width');
-    hnavabout = $(".about-nav").css('height');
-    heighthead = $('header').height();
-    topfooter = $('footer').offset().top;
-    heightfoot = $('footer').css('height');
+    if ($(".about-nav").length > 0) {
+        topnav = $(".about-nav").offset().top;
+        widthnav = $(".about-nav").css('width');
+        hnavabout = $(".about-nav").css('height');
+    }
+    if ($("header").length > 0) {
+        heighthead = $('header').height();
+    }
+    if ($("footer").length > 0) {
+        topfooter = $('footer').offset().top;
+        heightfoot = $('footer').css('height');
+    }
+
     function sticknav(){
         $('.about-nav').height($(window).height()-parseInt(heighthead));
         if($(window).scrollTop()+parseInt(heighthead) >= topnav){
