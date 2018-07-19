@@ -1386,12 +1386,14 @@ a[href^="tel"] {
     font-weight: bold;
 }
 
-.title-border {
-    padding-left: 20px;
+h2.title-border {
+    padding-left: 25px;
     border-left: #e6e6e6 solid 6px;
+    margin-bottom: 25px;
+    font-size: 24px!important;
     line-height: 40px;
-    font-weight: bold;
-    color: #111;
+    font-weight: 700;
+    color: #000;
 }
 
 .support-blk {
@@ -1404,6 +1406,7 @@ a[href^="tel"] {
     padding-bottom: 15px;
     font-weight: bold;
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .support-blk h3 {
