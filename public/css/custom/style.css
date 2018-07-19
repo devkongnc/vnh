@@ -293,14 +293,17 @@ a[href^="tel"] {
 
 .pickup-blk p {
     padding: 0 22px;
-    margin: 10px 0;
-    height: 44px;
+    margin: 10px 0 30px;
+    height: auto;
     overflow: hidden;
 }
 
 .pickup-blk .small-ar {
     float: right;
     margin: 0 12px 15px 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .pickup-label {
@@ -2693,7 +2696,7 @@ a[href^="tel"] {
     display: inline-block;
     text-align: right;
     position: absolute;
-    right: 15px;
+    right:0;
     margin-top: -12px;
     height: 24px;
     line-height: 24px;

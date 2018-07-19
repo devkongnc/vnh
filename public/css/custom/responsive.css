@@ -14,7 +14,14 @@
 	.info-desc{padding:0}
 	.header .content-l{min-height:100px;}
 	.intro-section .content-l .label-intro{left:50px;}
+	.intro-section .content-l .label-intro img {max-height:none}
 	.ggmap iframe{min-height:308px;}
+	.house-blk .owl-carousel .owl-item .item,
+	.owl-carousel .owl-item img,
+	.owl-carousel.owl-loaded {max-height: 175px;}
+	.house-blk .house-info .tdr>div{white-space: normal;width:auto;}
+	.related-house{margin: 0 0 60px;}
+	.feature-blk h3 {overflow: hidden;height: 55px;}
 }
 
 @media screen and (max-width:1200px){
@@ -27,18 +34,24 @@
 	.header.header-page .logo img{width:350px;}
 	.house-blk{font-size:13px;letter-spacing: 0;}
 	.intro-section .content-l .label-intro{left:0px;}
+	.intro-section .content-l .label-intro img {max-height:none}
 	.ggmap iframe{min-height:322px;}
 	.house-list-scroll,.map-list-pagi{width:60%;}
 	.house-list-map{width:38%;}
+	.house-blk .owl-carousel .owl-item .item,
+	.owl-carousel .owl-item img,
+	.owl-carousel.owl-loaded {width:100%;height:auto!important;max-height: 145px;}
+	#menu_head_group{top: 37px;}
+	.advanced-search{height: 280px;padding: 25px 10px 25px 70px;}
 }
 
 @media screen and (max-width:1024px){
-	.header .content-l.center{text-align:left;padding:0 15px;}
+	.header .content-l.center{}
 	.content-l{width:990px;}
 	.menu-btn{right:15px;}
-	.like-number{right:65px;}
 	.hotline{right:105px}
 	.ggmap iframe{min-height:250px;}
+	.intro-section .content-l .label-intro{max-height:none}
 }
 
 @media screen and (max-width:991px){
@@ -46,14 +59,16 @@
 	.header{height:auto;min-height:60px;}
 	.content-l{width:95%;}
 	.content-m{width:90%;}
-	.advanced-search{width:760px;padding:15px;margin-left:-380px;height:auto;bottom:30px;}
+	.advanced-search{width:720px;padding:15px;margin-left:-360px;height:auto;bottom:-85px;}
 	.logo-ho{width:110px;}
-	.range-section{width:520px;padding-left:10px;}
-	.slider-container.theme-green{width:180px !important}
-	.form-field{width:200px;}
-	.form-field2{width:210px;}
-	.title-big{font-size:44px;bottom:210px;}
-	.intro-section .content-l .label-intro{width:120px;top:-5px;left:0px;}
+	.range-section{width:540px;padding-left:30px;}
+	.search-gr{width: 145px;}
+	.slider-container.theme-green{width:280px !important}
+	.form-field{}
+	.form-field2{}
+	.title-big{font-size:44px;bottom:200px;}
+	.intro-section {margin-bottom: 120px;}
+	.intro-section .content-l .label-intro{display: none}
 	.search-hidden .range-section{width:550px;}
 	.search-hidden .form-field2{margin-left:30px;}
 	.title-h{font-size:32px;}
@@ -77,22 +92,21 @@
 	.feature-blk{padding:5px 5px 5px 125px;height:130px;font-size:14px;}
 	.feature-blk img{height:120px;width:120px}
 	.feature-blk:hover img{width:130px;height:130px;}
-	.feature-blk h3{font-size:14px;padding-bottom:8px;margin-bottom:8px;}
+	.feature-blk h3{font-size:14px;padding-bottom:8px;margin-bottom:4px;height: 37px;}
 	.feature-blk .desc{padding:0;height:100px;margin:10px;line-height:17px;}
 	.title-details .right{text-align:left;margin:10px 0 0 0;}
 	.hidden-tablet{display:none;}
 	.header-page.header{min-height:60px;}
-	.header .content-l{min-height:60px;}
+	.header .content-l{}
 	.menu-fix{min-height:60px;}
 	.header-page.header .open-search-hidden{top:14px;}
 	.hotline{top:22px;}
-	.like-number{top:23px;}
-	.logo{margin-top:20px;}
+	.like-number{}
+	.logo{}
 	.menu-btn{top:20px;}
 	.logo2 img{height:auto;width:230px;margin-top:20px;}
-	.open-search-hidden{top:9px;}
 	.menu-fix .hotline{top:18px;}
-	.menu-fix .like-number{top:19px;}
+	.menu-fix .like-number{}
 	.menu-fix .menu-btn{top:16px;}
 	.black-bg{padding:40px 30px;}
 	.rh-blk{font-size:11px;line-height:16px;}
@@ -125,6 +139,11 @@
 	.house-list-map{float: none;width: 100%;height: 300px;padding-right: 15px;padding-left: 15px;}
 	.house-list-scroll,.map-list-pagi{width:100%;float: none;margin: auto;}
 	.house-list-scroll>div{margin-left: 15px;}
+	.form-field>.dropdown:first-child{width: 310px;}
+	.header.page-module .open-search-hidden {top: 32px;left: auto;right: 175px;width: 15px;overflow: hidden;background-size: 85%;}
+	.open-search-hidden, .open-search-hidden.close-c{top:12px;left: auto;right: 175px;width: 15px;overflow: hidden;background-size: 85%;}
+	.header.page-module .advanced-search, .menu-fix .advanced-search {padding: 20px 0;width: 700px;}
+	.menu-fix .advanced-search {margin-left: -350px;margin-top: 19px;}
 }
 
 @media screen and (max-width:767px){

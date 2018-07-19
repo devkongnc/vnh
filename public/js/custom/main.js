@@ -269,6 +269,28 @@ if (!is_touch_device) {
     });
 }
 
+function pickup_blk_item_same_height() {
+    var maxHeight = 0;
+    $(".pickup-blk").removeAttr("style");
+    $('.pickup-blk').each(function () {
+        if ($(this).height() > maxHeight) {
+            maxHeight = $(this).height();
+        }
+    });
+    $('.pickup-blk').height(maxHeight);
+}
+
+function benefit_item_same_height() {
+    var maxHeight = 0;
+    $(".benefit-blk").removeAttr("style");
+    $('.benefit-blk').each(function () {
+        if ($(this).height() > maxHeight) {
+            maxHeight = $(this).height();
+        }
+    });
+    $('.benefit-blk').height(maxHeight);
+}
+
 function category_item_same_height() {
     var maxHeight = 0;
     $(".highest-box").removeAttr("style");
@@ -290,6 +312,8 @@ function recommend_item_square() {
 }
 
 $(window).resize(function () {
+    pickup_blk_item_same_height();
+    benefit_item_same_height();
     category_item_same_height();
     recommend_item_square();
 });
@@ -755,6 +779,8 @@ $(document).ready(function() {
         return $.fn.textWidth.fakeEl.width();
     };
 
+    pickup_blk_item_same_height();
+    benefit_item_same_height();
     category_item_same_height();
     recommend_item_square();
 });
