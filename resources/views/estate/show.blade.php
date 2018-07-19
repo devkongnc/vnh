@@ -73,7 +73,7 @@
 
                 </div>
                 <div class="row house-detail-row">
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-6 col-sm-6 nopadding-rl">
                         <table class="house-info">
                             @foreach($above as $key => $value)
                                 <?php if ($key !== 'city' && $key !== 'type'){ ?>
@@ -123,7 +123,7 @@
                         @endforeach
                     </table>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6 col-sm-6 nopadding-r">
                     <ul class="house-feature2">
                         @foreach($below as $key => $data)
                             @foreach($data['values'] as $index => $value)
