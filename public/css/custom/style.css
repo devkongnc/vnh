@@ -2856,3 +2856,7 @@ h2.title-border {
     transition: color .2s linear;
 }
 /*like popup end*/
+
+.slider-class {
+    width: 55%;
+}

@@ -155,15 +155,14 @@
 	.house-blk .owl-carousel .owl-item .item, .owl-carousel .owl-item img, .owl-carousel.owl-loaded {max-height: 215px;}
 }
 
-@media screen and (max-width:766.8px){
+@media screen and (max-width:767.8px){
 	body{padding-bottom:100px;}
 	.content-m{width:100%;}
 	.content-s{width:100%;}
 	.content-l{margin: 0;width: 100%;}
 	.intro-section .content-l .label-intro{display:none;}
 	.hotline span{display:none;}
-	.logo{margin-top:5%;margin-bottom: 4%;}
-	.logo, .logo img{width:80%;}
+	.logo, .logo img { width: 95%; margin: 4% 3%;}
 	.header .content-l{min-height:50px}
 	.hotline{top:12px !important;}
 	.menu-btn{top:12px !important;}
@@ -188,10 +187,7 @@
 	.form-field .dropdown-toggle {background-position-y: 50%;}
 	.form-field .dropdown-menu>li>a {line-height: 2em;font-size: 1.2em;}
 	.pickup{display:none;}
-	.search-gr label{display:inline-block;width:85px;float:left;margin-top:20px;}
-	.search-circle-btn{float:left;}
-	.search-gr{width:100%;float:none;}
-	.search-gr h2{width:110px;float:left;}
+	.search-gr{width:100%;float:none;padding: 0 4%;margin: 40px 0 70px;}
 	.bottom-btn{height:auto;width:100%;position:relative;top:0;left:0;bottom:0;margin:0;}
 	.bottom-btn .blk-btn,.bottom-btn .blk-btn.quest-btn{margin:5px 0;float:none;width:100%;min-width:0;}
 	.recommend:before,.recommend:after{display:none;}
@@ -251,16 +247,41 @@
 	.direct_bar_list.pull-right > ul.navbar-nav {margin: 0;}
 	#direct_bar>div.direct_bar_list li:first-child{border-left:none;}
 	#direct_bar>div.direct_bar_list li:last-child{border-right:none;}
-	#direct_bar>div.direct_bar_list li {width:25%;float: left;}
+	#direct_bar>div.direct_bar_list li {width:50%;float: left;}
 	#direct_bar>div .navbar-nav>li>a{width:100%;font-size: 12px;display:block;min-width: unset;padding: 15px 0;min-height: 50px;}
+
+	.pointer-label.high,.pointer-label.low {display: block;}
+	.range-section {padding: 0 4%; float: none;}
+	.form-field {margin: 25px auto 10px;}
+	.range-section .row {margin: 10px 0;}
+	.slider-container.theme-green {width: 94%!important;margin: auto;}
+	.slider-class {margin: 45px 0 35px;}
+	.form-field2 input[type=text] {width: 43%;}
+	.slider-container .scale ins {top:8px;}
+	.slider-container .scale span:last-child>ins {left: -10px;}
+	.theme-green .back-bar .pointer-label{font-size: 12px;padding: 6px 9px 4px 9px;}
+	.search-circle-btn { border-radius: 3px; height: 60px; width: 100%;float: none; padding: 15px;}
+	.search-circle-btn img, .search-circle-btn span {display: inline-block;vertical-align: top;line-height: 30px;margin: 0 5px;font-size: 19px; color: #fff;font-weight: 700;}
+	.search-circle-btn img { height: 30px; width: auto;}
+	.search-gr label, .search-gr h2 {float: none;width: 100%;display: block;margin: 0;}
+	.search-gr label {font-size: 16px; font-weight: normal;}
+	.search-gr h2 {font-size: 32px;line-height: 38px;}
+	.search-gr > div:first-child{display: inline-block;width: 35%;vertical-align: top;}
+	.img-button {display: inline-block; width: 63%;text-align: right;vertical-align: top;}
+	.clear-form-search-btn{margin: 0;position: absolute;width: 105px;margin-top: -30px;right: 50px;font-size: 18px;}
+	.contain_last_form_search {position: absolute;bottom: 0;width: 88%;text-align: center;margin-bottom: 20px;}
+	.contain_last_form_search .quest-btn {min-width:unset;font-size: 16px;}
+	.recommend {margin: 0;}
+	.folio-recommend{margin:4% 2%;}
 }
 
-@media screen and (max-width:480px){
-	body{width: 480px;}
+@media screen and (max-width:478.5px){
+	.clear-form-search-btn {margin: -90px 0 0;right: 30px;}
+	.form-field2 input[type=text] {width: 40%;}
+	.slider-container.theme-green {width: 90%!important;margin: auto;}
 	/*.hotline{right:80px !important;}*/
 	/*.header .content-l.center{padding:0 8px;}*/
 	/*.header-page.header .open-search-hidden{right:82px;}*/
-	/*.logo, .logo img{width:90%;}*/
 	/*.profile-blk div label{top:0;margin:0 0 5px 0;width:100%;position:relative;display:block;}*/
 	/*.profile-blk div{padding: 12px 0;}*/
 	/*.back-home{width:100%;}*/
@@ -283,4 +304,5 @@
 }
 
 @media screen and (max-width:320px){
+	body{width: 320px;}
 }

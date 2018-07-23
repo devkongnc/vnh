@@ -120,13 +120,15 @@ $(document).ready(function ($) {
         return false;
     });
 
+    var jrange_width = $(document).width() > 768 ? 330 : 768;
+
     $('.range-slider').jRange({
         from: 0,
         to: price_max_search,
         step: 1,
         scale: [price_min_search, price_max_search],
         format: '%s',
-        width: 330,
+        width: jrange_width,
         showLabels: true,
         isRange: true,
         ondragend: function (data) {
@@ -148,7 +150,7 @@ $(document).ready(function ($) {
         step: 1,
         scale: [size_min_search, size_max_search],
         format: '%s',
-        width: 330,
+        width: jrange_width,
         showLabels: true,
         isRange: true,
         ondragend: function (data) {
