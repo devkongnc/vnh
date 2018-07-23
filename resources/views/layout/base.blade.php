@@ -92,80 +92,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style type="text/css">
-    .modal-content {
-        padding: 25px
-    }
-
-    /*like popup start*/
-
-    .popup-like>.close-like{position: absolute; font-size: 35px; top: 10px; right: 10px;}
-
-    .clear-like-wraper{padding-left: 20px;}
-    .clear-like{margin-right: 5px}
-    .popup-like .list-house-popup .post-house {
-        float: left;
-        padding: 0 5px;
-        position: relative;
-    }
-    .popup-like .list-house-popup .post-house .close-house {
-        cursor: pointer;
-        color: #000;
-        position: absolute;
-        top: 11px;
-        right: 11px;
-        font-size: 20px;
-        line-height: 20px;
-        border-radius: 100%;
-        -webkit-transition: all .3s;
-        transition: all .3s;
-    }
-    .icon-close-light .path1{position: relative}
-    .icon-close-light .path1:before {
-        content: "\f111";
-        color: #000;
-        font-family: FontAwesome;
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-size: 22px;
-    }
-    .icon-close-light .path1:after {
-        content: "\f00d";
-        color: #fff;
-        font-family: FontAwesome;
-        position: absolute;
-        top: 0px;
-        right: 4px;
-        font-size: 14px;
-    }
-    .popup-like .list-house-popup .post-house .feature-image>.item-brief {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(0,0,0,.5);
-        padding: 5px 10px;
-        color: #fff;
-        font-size: 12px;
-    }
-    .popup-like .list-house-popup .post-house .feature-image {
-        position: relative;
-    }
-    .popup-like .list-house-popup .post-house .title {
-        font-size: 12px;
-        line-height: 14px;
-        height: 28px;
-        overflow: hidden;
-        font-family: Verdana,sans-serif;
-        margin: 3px 0 10px;
-        -webkit-transition: color .2s linear;
-        transition: color .2s linear;
-    }
-    /*like popup end*/
-
 </style>
 
 <script type="text/javascript">
     var estate_ajax = '{{ action('RealEstateController@index') }}';
+    var txt_like_default_text = '{{ trans('front.like_default_text') }}';
+    var txt_like_add = '{{ trans('front.like_add_text') }}';
+    var txt_like_current = '{{ trans('front.like_current_text') }}';
+    var txt_bt_like_selected = '{{ trans('entity.estate.liked') }}';
+    var txt_bt_like_not_select = '{{ trans('entity.estate.like') }}';
 
     function estate_permalink(product_id) {
         return '{{ action('RealEstateController@show', 'product_id') }}'.replace('product_id', product_id);
