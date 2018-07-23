@@ -74,7 +74,7 @@ if (!isset($position_search)) {
             <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"></a>
         </button>
         <button class="clear-form-search-btn" type="reset">@lang('search.reset')</button>
-        <a href="#" class="special-btn">@lang('search.button_link')</a>
+        <a href="/support/rental-office" class="special-btn">@lang('search.button_link')</a>
     </div>
 </div>
 {!! Form::close() !!}

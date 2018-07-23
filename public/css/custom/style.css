@@ -1,3 +1,10 @@
+@keyframes shake {
+    10%, 50% {transform: translate3d(-1px, 0, 0);}
+    20%, 40% {transform: translate3d(2px, 0, 0);}
+    30%, 40%, 60% {transform: translate3d(-3px, 0, 0);}
+    40%, 60% {transform: translate3d(3px, 0, 0);}
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -856,7 +863,7 @@ a[href^="tel"] {
     height: 30px;
     background: url(../../images/new-layout/icon-heart-fill.png) no-repeat;
     text-align: center;
-    line-height: 34px;
+    line-height: 35px;
     color: #fff;
     font-weight: bold;
     font-size: 12px;
@@ -868,6 +875,14 @@ a[href^="tel"] {
 .like-number .numlike {
     color: #F7931E;
 }
+
+.like-number.none_selected {
+    background: url(../../images/new-layout/icon-heart-fill-none.png) no-repeat;
+}
+.like-number.none_selected .numlike {
+    display: none;
+}
+
 
 .hotline {
     font-weight: bold;
@@ -1860,6 +1875,11 @@ h2.title-border {
     min-width: 30%;
 }
 
+.house-detail-row .house-info .tdr > label {
+    font-weight: normal;
+    margin: 0;
+}
+
 .house-feature {
     margin: 15px 0 0;
     font-size: 0;
@@ -2098,7 +2118,9 @@ h2.title-border {
 
 .title-info-sm {
     font-size: 12px;
-    padding-right: 10px;
+    padding-right: 55px;
+    margin-top: 10px;
+    display: inline-block;
 }
 
 .red-label {
@@ -2730,9 +2752,107 @@ h2.title-border {
     clear: both;
     width: 100%;
     margin-top: 10px;
-    overflow-x: auto;
-    overflow-y: hidden;
 }
 .list-house-popup > div {
-    margin-bottom: 10px;
+    float: none;
+    margin-bottom: 20px;
 }
+
+.like-page.shake {
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+.tooltip.in {
+    opacity: 1;
+}
+.tooltip-inner {
+    background-color: #ffffff;
+    color: #000;
+    padding: 20px 15px;
+
+    -webkit-box-shadow: 0 -1px 20px rgba(0,0,0,0.4);
+    -moz-box-shadow:    0 -1px 20px rgba(0,0,0,0.4);
+    box-shadow:         0 -1px 20px rgba(0,0,0,0.4);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #ffffff;
+}
+.menu-fix .tooltip {
+    position: fixed;
+}
+
+.modal-content {
+    padding: 25px
+}
+
+/*like popup start*/
+
+.popup-like>.close-like{position: absolute; font-size: 35px; top: 10px; right: 10px;}
+
+.clear-like-wraper{padding-left: 20px;}
+.clear-like{margin-right: 5px}
+.popup-like .list-house-popup .post-house {
+    float: none;
+    display: inline-block;
+    padding: 0 8px;
+    position: relative;
+}
+.popup-like .list-house-popup .post-house .close-house {
+    cursor: pointer;
+    color: #000;
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    font-size: 20px;
+    line-height: 20px;
+    border-radius: 100%;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.icon-close-light .path1{position: relative}
+.icon-close-light .path1:before {
+    content: "\f111";
+    color: #000;
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 26px;
+}
+.icon-close-light .path1:after {
+    content: "\f00d";
+    color: #fff;
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 15px;
+}
+.popup-like .list-house-popup .post-house .feature-image>.item-brief {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 12px;
+}
+.popup-like .list-house-popup .post-house .feature-image {
+    position: relative;
+}
+.popup-like .list-house-popup .post-house .title {
+    font-size: 12px;
+    line-height: 14px;
+    height: 28px;
+    overflow: hidden;
+    font-family: Verdana,sans-serif;
+    margin: 3px 0 10px;
+    -webkit-transition: color .2s linear;
+    transition: color .2s linear;
+}
+/*like popup end*/

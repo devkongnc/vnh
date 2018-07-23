@@ -52,7 +52,10 @@ return array(
             'desktop' => 'PC view',
             'normal' => 'Mobile view',
         ),
-    'like hover' => 'Bạn đã Like :num BDS.',
+    'like hover' => 'Bạn đã Like :num văn phòng.',
+    'like_default_text' => 'Các văn phòng có thể được đăng ký vào mục yêu thích',
+    'like_add_text' => 'Văn phòng đã được thêm vào mục yêu thích',
+    'like_current_text' => ':num văn phòng trong mục yêu thích',
     'e404' =>
         array(
             'title' => 'Xin lỗi!',

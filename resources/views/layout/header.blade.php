@@ -12,7 +12,7 @@
                 <div class="mail-contact"></div>
             </a>
             <a href="#" data-toggle="modal" data-target="#modal-like">
-                <div class="like-page like-number">
+                <div class="like-page like-number" data-toggle="tooltip">
                     <span class="numlike like-count"> <span class="invisible">0</span> </span>
                 </div>
             </a>
@@ -73,7 +73,7 @@
                     <div class="mail-contact"></div>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#modal-like">
-                    <div class="like-page like-number">
+                    <div class="like-page like-number" data-toggle="tooltip" data-container="body">
                         <span class="numlike like-count"> <span class="invisible">0</span> </span>
                     </div>
                 </a>
@@ -128,7 +128,7 @@
                     <div class="mail-contact"></div>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#modal-like">
-                    <div class="like-page like-number">
+                    <div class="like-page like-number" data-toggle="tooltip" data-container="body">
                         <span class="numlike like-count"> <span class="invisible">0</span> </span>
                     </div>
                 </a>
