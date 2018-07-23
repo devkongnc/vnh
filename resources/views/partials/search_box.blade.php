@@ -42,7 +42,7 @@ if (!isset($position_search)) {
                     ~
                     <input type="text" id="price-max" class="input-max-price num_only" value="{{$price[1]}}"> $
                 </div>
-                <div class="form-field">
+                <div class="form-field slider-class">
                     <input class="range-slider" type="hidden" name="term[price]" value="{{$price[0]}},{{$price[1]}}"/>
                 </div>
             </div>
@@ -53,7 +53,7 @@ if (!isset($position_search)) {
                     ~
                     <input type="text" id="area-max" class="input-max-area num_only" value="{{$size[1]}}"> ㎡
                 </div>
-                <div class="form-field range2">
+                <div class="form-field range2 slider-class">
                     <input class="range-slider2" type="hidden" name="term[size]" value="{{$size[0]}},{{$size[1]}}"/>
                 </div>
             </div>
@@ -64,17 +64,19 @@ if (!isset($position_search)) {
             <input type="hidden" id="sw_lat" name="sw_lat" value="">
             <input type="hidden" id="sw_lng" name="sw_lng" value="">
         </form>
-        <div><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
+        <div class="contain_last_form_search"><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
     </div>
 
     <div class="search-gr">
-        <label>@lang('search.hits-number')</label>
-        <h2 id="total-estate">{{ isset($search_estates) ? $search_estates->total() : $total_estate }}</h2>
+        <div>
+            <label>@lang('search.hits-number')</label>
+            <h2 id="total-estate">{{ isset($search_estates) ? $search_estates->total() : $total_estate }}</h2>
+        </div>
         <button type="submit" class="img-button">
-            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"></a>
+            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"><span class="show-mobile">検索する</span></a>
         </button>
         <button class="clear-form-search-btn" type="reset">@lang('search.reset')</button>
-        <a href="/support/rental-office" class="special-btn">@lang('search.button_link')</a>
+        <a href="/support/rental-office" class="special-btn hide-mobile">@lang('search.button_link')</a>
     </div>
 </div>
 {!! Form::close() !!}
