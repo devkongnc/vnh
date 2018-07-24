@@ -9,7 +9,7 @@
 			<div class="col-md-12 title-row">
 				<h1 class="title-h">Pickup</h1>
 				<h4 class="sub-title-h">@lang('front.special features of office')</h4>
-				<a href="{{ URL::to('/category') }}" class="blk-btn btn-140">@lang('front.feature list')</a>
+				<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/category') }}" class="blk-btn btn-140">@lang('front.feature list')</a>
 			</div>
 		</div>
 		<div class="row">

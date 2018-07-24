@@ -5,7 +5,29 @@
     <div id="nav" class="content-l">
         <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}"
            class="logo2 hide-mobile"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
-        <div id="menu_head_group">
+        <div id="menu_head_group" class="show-mobile">
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}">
+                <img src="{{ asset('images/new-layout/sp-icn-home.png') }}">
+            </a>
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
+                <img src="{{ asset('images/new-layout/sp-icn-mail.png') }}">
+            </a>
+            <a href="#">
+                <img src="{{ asset('images/new-layout/sp-icn-phone.png') }}">
+            </a>
+            <a href="#" class="sp-open-search-hidden sp-custom">
+                <img src="{{ asset('images/new-layout/sp-icn-search.png') }}">
+            </a>
+            <a href="#" data-toggle="modal" data-target="#modal-like">
+                <div class="like-page like-number" data-toggle="tooltip">
+                    <span class="numlike like-count"> <span class="invisible">0</span> </span>
+                </div>
+            </a>
+            <a onclick="$('.aside').asidebar('open')" class="menu-btn">
+                <img src="{{ asset('images/new-layout/sp-icn-menu.png') }}">
+            </a>
+        </div>
+        <div id="menu_head_group" class="hide-mobile">
             <a onclick="$('.aside').asidebar('open')"
                class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
@@ -19,7 +41,7 @@
         </div>
         {{-- search all page --}}
         <div class="search-hidden">
-            <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
+            <a class="open-search-hidden hide-mobile">@lang('front.top_search_toggle')</a>
             <section class="wrap-search-box">
                 @include('partials.search_box',['position_search' => 'header'])
             </section>
@@ -110,6 +132,9 @@
                 <h1 class="title-big">@lang('front.banner_title')</h1>
             </div>
             <div class="content-m search-header">
+                <div class="mobile_search_top_toggle show-mobile">
+                    <img src="{{ asset('images/new-layout/icon-search-black.png') }}" />
+                    &nbsp;<span>@lang('front.top_search_toggle')</span></div>
                 @include('partials.search_box',['position_search' => 'banner'])
             </div>
         </div>
@@ -121,7 +146,7 @@
         <div id="nav" class="content-l">
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}"
                class="logo2"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
-            <div id="menu_head_group">
+            <div id="menu_head_group" class="hide-mobile">
                 <a onclick="$('.aside').asidebar('open')"
                    class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
                 <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
@@ -133,7 +158,7 @@
                     </div>
                 </a>
             </div>
-            <div class="search-hidden search-header">
+            <div class="search-hidden search-header hide-mobile">
                 <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
                 <section class="wrap-search-box">
                     @include('partials.search_box',['position_search' => 'header'])

@@ -62,6 +62,14 @@ $(document).ready(function ($) {
         $('body').addClass('loaded');
     });
 
+    var search_content_collapse = $('.content-m.search-header .advanced-search');
+    $('.mobile_search_top_toggle').click(function () {
+        if (search_content_collapse.is(":visible")) {
+            search_content_collapse.hide();
+        } else {
+            search_content_collapse.show();
+        }
+    });
 
     //------------//
     // SEARCH BOX //

@@ -73,7 +73,7 @@ if (!isset($position_search)) {
             <h2 id="total-estate">{{ isset($search_estates) ? $search_estates->total() : $total_estate }}</h2>
         </div>
         <button type="submit" class="img-button">
-            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"><span class="show-mobile">検索する</span></a>
+            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"><span class="show-mobile">@lang('search.bt_search')</span></a>
         </button>
         <button class="clear-form-search-btn" type="reset">@lang('search.reset')</button>
         <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/rental-office') }}" class="special-btn hide-mobile">@lang('search.button_link')</a>
