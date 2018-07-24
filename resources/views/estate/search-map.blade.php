@@ -327,6 +327,14 @@
             }
         }
 
+        function cal_height_map() {
+            var cal1 = $(".header.page-module").height();
+            var cal2 = $(".head-search").outerHeight();
+            var cal3 = $(".menu-fix").height();
+            var tolt = cal1+cal2+cal3+1;
+            return tolt;
+        }
+
         var x = $('.house-list-scroll');
         var map_elem = $('.house-list-map');
         var map_elem_height = 0;
@@ -336,15 +344,38 @@
             initMap();
             add_style_for_data();
             mark_elem = x.offset().top;
-            map_elem.css('height','calc(100vh - 220px)');
+            if ($(document).width()>767) {
+                map_elem.css('height', 'calc(100vh - 220px)');
+            } else if ($(document).width()<=767) {
+                var tolt = cal_height_map();
+                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
+            }
             map_elem_height = map_elem.height();
         });
 
         $(window).scroll(function () {
-            if ($(document).scrollTop() <= 200) {
-                map_elem.height(map_elem_height+$(document).scrollTop());
-            } else {
-                map_elem.css('height','calc(100vh - 60px)')
+            if ($(document).width()>767) {
+                if ($(document).scrollTop() <= 200) {
+                    map_elem.height(map_elem_height + $(document).scrollTop());
+                } else {
+                    map_elem.css('height', 'calc(100vh - 60px)')
+                }
+            } else if ($(document).width()<=767) {
+                var tolt = cal_height_map();
+                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
+            }
+        });
+
+        $(window).resize(function () {
+            if ($(document).width()>767) {
+                if ($(document).scrollTop() <= 200) {
+                    map_elem.height(map_elem_height + $(document).scrollTop());
+                } else {
+                    map_elem.css('height', 'calc(100vh - 60px)')
+                }
+            } else if ($(document).width()<=767) {
+                var tolt = cal_height_map();
+                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
             }
         });
 

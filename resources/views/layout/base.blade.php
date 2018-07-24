@@ -66,7 +66,7 @@
     </span>
 </a>
 
-<div class="modal" id="modal-like">
+<div class="modal sp-modal-contract" id="modal-like">
     <div class="modal-dialog modal-lg">
         <div class="popup-like modal-content">
             <div class="top-popup">
@@ -82,7 +82,9 @@
             <div class="list-house-popup"></div>
             @include('partials.contact_form', ['prefix' => 'like'])
             <div class="close-like" data-dismiss="modal" aria-label="Close">
-                <span class="icon-close-light"><span class="path1"></span><span class="path2"></span></span>
+                <span class="close-btn">
+                    <img src="https://vnh.local/images/new-layout/close.png">
+                </span>
             </div>
         </div>
     </div>

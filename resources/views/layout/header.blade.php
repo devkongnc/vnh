@@ -12,18 +12,18 @@
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                 <img src="{{ asset('images/new-layout/sp-icn-mail.png') }}">
             </a>
-            <a href="#">
+            <a href="tel:0121 373 0086">
                 <img src="{{ asset('images/new-layout/sp-icn-phone.png') }}">
             </a>
-            <a href="#" class="sp-open-search-hidden sp-custom">
+            <a href="#" class="sp-open-search-hidden sp-custom bt-modal-contract">
                 <img src="{{ asset('images/new-layout/sp-icn-search.png') }}">
             </a>
-            <a href="#" data-toggle="modal" data-target="#modal-like">
+            <a href="#" data-toggle="modal" data-target="#modal-like" class="bt-modal-contract">
                 <div class="like-page like-number" data-toggle="tooltip">
                     <span class="numlike like-count"> <span class="invisible">0</span> </span>
                 </div>
             </a>
-            <a onclick="$('.aside').asidebar('open')" class="menu-btn">
+            <a href="#" onclick="sp_toggle_aside_menu();" class="menu-btn bt-modal-contract">
                 <img src="{{ asset('images/new-layout/sp-icn-menu.png') }}">
             </a>
         </div>
@@ -40,9 +40,12 @@
             </a>
         </div>
         {{-- search all page --}}
-        <div class="search-hidden">
+        <div class="search-hidden sp-modal-contract">
             <a class="open-search-hidden hide-mobile">@lang('front.top_search_toggle')</a>
             <section class="wrap-search-box">
+                <span class="close-btn search-fixed show-mobile">
+                    <img src="https://vnh.local/images/new-layout/close.png">
+                </span>
                 @include('partials.search_box',['position_search' => 'header'])
             </section>
         </div>
@@ -50,7 +53,7 @@
 </div>
 
 {{-- Menu side bar --}}
-<div class="aside">
+<div class="aside sp-modal-contract">
     <div class="aside-header">
         <span class="close-btn" data-dismiss="aside" aria-hidden="true"><img
                     src="{{ asset('images/new-layout/close.png') }}"></span>
@@ -132,9 +135,6 @@
                 <h1 class="title-big">@lang('front.banner_title')</h1>
             </div>
             <div class="content-m search-header">
-                <div class="mobile_search_top_toggle show-mobile">
-                    <img src="{{ asset('images/new-layout/icon-search-black.png') }}" />
-                    &nbsp;<span>@lang('front.top_search_toggle')</span></div>
                 @include('partials.search_box',['position_search' => 'banner'])
             </div>
         </div>
