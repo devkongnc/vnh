@@ -3,6 +3,7 @@
 
 @media screen and (max-width:1479.8px){
 	.content-l{width:1366px;}
+	.house-list-map{width: 45%;}
 }
 
 @media screen and (max-width:1365.7px){
@@ -22,6 +23,7 @@
 	.house-blk .house-info .tdr>div{white-space: normal;width:auto;}
 	.related-house{margin: 0 0 60px;}
 	.feature-blk h3 {overflow: hidden;height: 55px;}
+	.house-list-map {width: 38%;}
 }
 
 @media screen and (max-width:1199.7px){
@@ -36,13 +38,16 @@
 	.intro-section .content-l .label-intro{left:0px;}
 	.intro-section .content-l .label-intro img {max-height:none}
 	.ggmap iframe{min-height:322px;}
-	.house-list-scroll,.map-list-pagi{width:60%;}
 	.house-list-map{width:38%;}
 	.house-blk .owl-carousel .owl-item .item,
 	.owl-carousel .owl-item img,
 	.owl-carousel.owl-loaded {width:100%;height:auto!important;max-height: 145px;}
 	#menu_head_group{top: 37px;}
 	.advanced-search{height: 280px;padding: 25px 10px 25px 70px;}
+	.house-list-map {width: 41%;}
+	.row-map {width: 60%;}
+	.house-list-scroll{width: 100%;}
+	.map-list-pagi {left: 0;width: 59%;}
 }
 
 @media screen and (max-width:1023.8px){
@@ -102,12 +107,9 @@
 	.menu-fix{min-height:60px;}
 	.header-page.header .open-search-hidden{top:14px;}
 	.hotline{top:22px;}
-	.like-number{}
-	.logo{}
 	.menu-btn{top:20px;}
 	.logo2 img{height:auto;width:230px;margin-top:20px;}
 	.menu-fix .hotline{top:18px;}
-	.menu-fix .like-number{}
 	.menu-fix .menu-btn{top:16px;}
 	.black-bg{padding:40px 30px;}
 	.rh-blk{font-size:11px;line-height:16px;}
@@ -217,7 +219,7 @@
 	.aside .aside-header {right: 10%;top: 2%;}
 	.aside .aside-contents {margin-top: 0;padding: 10px 15% 150px;overflow: auto;height: 100vh;}
 	.menu-aside li a{height:45px;line-height:45px;font-size: 1.2em;}
-	.menu-aside{margin-top:0px;}
+	.menu-aside{margin-top:0;}
 	.header-page.header{min-height:60px;}
 	.header-page.header .search-hidden{display:inline-block;width:100%;}
 	.header-page.header .open-search-hidden{left:auto;right:115px;width:auto;text-indent: -9999px;top:7px;}
@@ -284,17 +286,18 @@
 	.gal-thumb span {font-size: 22px;}
 	.benefit-blk .be-number {width: 35px;height: 35px;font-size: 15px;line-height: 35px;left: -11px;}
 	.modal-dialog {margin: 0;}
-	.modal-dialog .modal-content {border-radius: 0; border: none; padding-bottom: 60px;}
+	.modal-dialog .modal-content {border-radius: 0; border: none; padding: 15% 5% 60px;}
 	#menu_head_group.show-mobile {width: 100%; display: block;left: unset; right: unset; top: 0; font-size: 0;}
 	#menu_head_group.show-mobile > a,
 	#menu_head_group.show-mobile .like-page{position:relative; background: none;margin: 0; padding: 13px 0; width: 35px; height: 60px;
 		left: unset; right: unset; top: unset; bottom: unset;overflow: unset; display: inline-block; vertical-align: top;}
-	#menu_head_group.show-mobile .like-number {background: url(../../images/new-layout/sp-icn-liked.png) no-repeat;}
+	#menu_head_group.show-mobile .like-number {background: url(../../images/new-layout/sp-icn-liked.png) no-repeat;padding: 0;width: 36px;height: 33px;}
 	#menu_head_group.show-mobile .like-number.none_selected { background: url(../../images/new-layout/sp-icn-heart.png) no-repeat;}
 	#menu_head_group.show-mobile > a { width: 16.4%; text-align: center;}
 	.search-hidden {display:none;}
-	.search-hidden section.wrap-search-box {position: fixed;top: 0;background: #fff;right: 0;left: 0;width: 100%;height: calc(100% - 60px);overflow: auto;padding: 12% 3% 3%;}
-	.search-hidden section.wrap-search-box .advanced-search {margin:0; padding:0; width:100%;}
+	.search-hidden section.wrap-search-box {position: fixed;top: 0;background: #fff;right: 0;left: 0;width: 100%;height: calc(100% - 60px);padding: 15% 0 0;}
+	.search-hidden section.wrap-search-box .advanced-search {margin:0; padding:0 3%; width:100%;}
+	.search-hidden section.wrap-search-box form#front-search {overflow: auto; height: 100%;}
 	.search-hidden .range-section { width: 100%; padding: 0 7%;}
 	.search-hidden .form-field2 { margin-left: 0;}
 	.search-hidden .search-gr { margin-bottom: 0;}
@@ -303,6 +306,12 @@
 	.support-bottom {padding: 5%;}
 	.support-bottom .row .col-md-4.col-sm-7 {text-align: center;}
 	.support-bottom a.white-btn { margin: 20px auto 0;width: 85%;min-width: unset;}
+	.close-btn.search-fixed {position: fixed;top: 3%;cursor: pointer;right: 10%;display: block;text-align: right;}
+	.close-btn.search-fixed img, .popup-like>.close-like .close-btn img {width: 23px; height: 24px;}
+	.popup-like>.close-like {top: 2%;right: 10%;}
+	.menu-fix .bt-modal-contract div.tooltip, div.tooltip {display: none !important;}
+	.head-search {padding: 20px 2%;}
+	.house-list-map{bottom: 60px;}
 }
 
 @media screen and (max-width:478.5px){

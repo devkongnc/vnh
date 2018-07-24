@@ -6,6 +6,9 @@ if (!isset($position_search)) {
     $position_search = 'banner';
 }
 ?>
+<div class="mobile_search_top_toggle show-mobile">
+    <img src="{{ asset('images/new-layout/icon-search-black.png') }}" />
+    &nbsp;<span>@lang('front.top_search_toggle')</span></div>
 <div class="advanced-search {{ if_route(['home']) ? '' : 'active' }}">
     <div class="range-section">
         <form>
