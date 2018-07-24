@@ -8,7 +8,7 @@
         <div id="menu_head_group">
             <a onclick="$('.aside').asidebar('open')"
                class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
-            <a href="#">
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                 <div class="mail-contact"></div>
             </a>
             <a href="#" data-toggle="modal" data-target="#modal-like">
@@ -69,7 +69,7 @@
             <div id="menu_head_group" class="hide-mobile">
                 <a onclick="$('.aside').asidebar('open')"
                    class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
-                <a href="#">
+                <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                     <div class="mail-contact"></div>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#modal-like">
@@ -124,7 +124,7 @@
             <div id="menu_head_group">
                 <a onclick="$('.aside').asidebar('open')"
                    class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
-                <a href="#">
+                <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                     <div class="mail-contact"></div>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#modal-like">

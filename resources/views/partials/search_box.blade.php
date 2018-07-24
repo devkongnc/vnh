@@ -76,7 +76,7 @@ if (!isset($position_search)) {
             <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"><span class="show-mobile">検索する</span></a>
         </button>
         <button class="clear-form-search-btn" type="reset">@lang('search.reset')</button>
-        <a href="/support/rental-office" class="special-btn hide-mobile">@lang('search.button_link')</a>
+        <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/rental-office') }}" class="special-btn hide-mobile">@lang('search.button_link')</a>
     </div>
 </div>
 {!! Form::close() !!}
