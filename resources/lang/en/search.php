@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    'bt_search' => 'Search',
     'title' => 'Advanced Search',
     'description' => 'Search property from Vietnamhouse special term',
     'placeholder' => 'Ex: Properties ID, Title etc...',
@@ -11,7 +12,7 @@ return array(
     'advanced search' => 'Advanced Search',
     'area' => 'Area',
     'multiple-choice' => 'Multiple Choice',
-    'hits-number' => 'Hits Number',
+    'hits-number' => 'Hits',
     'unit-price' => 'Unit Price',
     'unit-area' => 'Unit Area',
     'order' =>

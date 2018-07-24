@@ -432,6 +432,13 @@ $(document).ready(function() {
 
         });
 
+        $(".sp-open-search-hidden").on('click', function(e) {
+            e.preventDefault();
+            $(".search-hidden").fadeToggle(300);
+            $('.search-hidden section.wrap-search-box .advanced-search').fadeToggle();
+            $(".sp-open-search-hidden").toggleClass( "close-c" );
+        });
+
         $('.container-gallery').gallery({
             items: 10,
             thumbHeight: '50px',
@@ -898,6 +905,14 @@ $(document).ready(function ($) {
         $('body').addClass('loaded');
     });
 
+    var search_content_collapse = $('.content-m.search-header .advanced-search');
+    $('.mobile_search_top_toggle').click(function () {
+        if (search_content_collapse.is(":visible")) {
+            search_content_collapse.hide();
+        } else {
+            search_content_collapse.show();
+        }
+    });
 
     //------------//
     // SEARCH BOX //

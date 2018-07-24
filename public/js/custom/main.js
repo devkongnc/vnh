@@ -379,6 +379,13 @@ $(document).ready(function() {
 
         });
 
+        $(".sp-open-search-hidden").on('click', function(e) {
+            e.preventDefault();
+            $(".search-hidden").fadeToggle(300);
+            $('.search-hidden section.wrap-search-box .advanced-search').fadeToggle();
+            $(".sp-open-search-hidden").toggleClass( "close-c" );
+        });
+
         $('.container-gallery').gallery({
             items: 10,
             thumbHeight: '50px',
