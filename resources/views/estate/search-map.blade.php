@@ -10,19 +10,18 @@
     </style>
 @stop
 @section('content')
+    <?php
+    $price = explode(",", isset($terms['price']) ? $terms['price'] : '0,100');
+    $size = explode(",", isset($terms['size']) ? $terms['size'] : '0,3000');
+    ?>
     <div class="head-search">
         <div class="content-l">
-            <ul>
-                @foreach($terms as $key => $term)
-                    <?php $data_config = config("real-estate.{$key}"); ?>
-                    @if ($key === 'area')
-                        @foreach ($term as $value)
-                            <li><a href="#">{{ getLocaleValue($data_config['values'][$value]) }}</a></li>
-                        @endforeach
-                    @endif
-                @endforeach
-                <li>@lang('front.number of hits') <strong class="number_estate_result">{{ $search_estates->total() }}</strong></li>
-            </ul>
+            <form>
+                <ul class="bt-group-search-condition">
+                    @include('estate.search-bar', ['search_estates' => $search_estates, 'price' => $price, 'size' => $size])
+                    <li class="search-bar-number-hits">@lang('front.number of hits') <strong>{{ $search_estates->total() }}</strong></li>
+                </ul>
+            </form>
             <a href="#close-map" id="btn-close-map" class="search-map">
                 <img src="{{ asset('images/new-layout/icon-map-close.png') }}"> MAP
             </a>
