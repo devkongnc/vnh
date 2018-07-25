@@ -930,11 +930,14 @@ $(document).ready(function ($) {
     });
 
     var search_content_collapse = $('.content-m.search-header .advanced-search');
-    $('.mobile_search_top_toggle').click(function () {
-        if (search_content_collapse.is(":visible")) {
-            search_content_collapse.hide();
+
+    $('.bt-group-search-condition > li > a').click(function () {
+        if ($(this).hasClass('box-active')) {
+            $('.box-active').removeClass('box-active');
         } else {
-            search_content_collapse.show();
+            $('.box-active').removeClass('box-active');
+            $(this).addClass('box-active');
+            $(this).parent().find('ul').addClass('box-active');
         }
     });
 

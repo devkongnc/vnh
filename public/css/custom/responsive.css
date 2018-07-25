@@ -2,13 +2,13 @@
 @viewport {width: device-width;}
 
 @media screen and (max-width:1479.8px){
-	.content-l{width:1366px;}
+	.content-l{max-width:1366px;width: 100%;}
 	.house-list-map{width: 45%;}
 }
 
 @media screen and (max-width:1365.7px){
-	.content-l{width:1200px;}
-	.content-m{width:1000px;}
+	.content-l{max-width:1200px; width: 100%;}
+	.content-m{max-width:1000px; width: 100%;}
 	#back_to_top span{width:42px;height:42px;line-height:38px;}
 	#back_to_top span img{width:18px;}
 	.title-big{font-size:60px;}
@@ -27,8 +27,8 @@
 }
 
 @media screen and (max-width:1199.7px){
-	.content-l{width:1024px;}
-	.content-m{width:900px;}
+	.content-l{max-width:1024px;width: 100%;}
+	.content-m{max-width:900px;width: 100%;}
 	.fll{width:70%;}
 	.flr{width:30%;}
 	.logo img{width:400px;}
@@ -52,7 +52,7 @@
 
 @media screen and (max-width:1023.8px){
 	.header .content-l.center{}
-	.content-l{width:990px;}
+	.content-l{max-width:990px;width: 100%;}
 	.menu-btn{right:15px;}
 	.hotline{right:105px}
 	.ggmap iframe{min-height:250px;}
@@ -103,7 +103,6 @@
 	.title-details .right{text-align:left;margin:10px 0 0 0;}
 	.hidden-tablet{display:none;}
 	.header-page.header{min-height:60px;}
-	.header .content-l{}
 	.menu-fix{min-height:60px;}
 	.header-page.header .open-search-hidden{top:14px;}
 	.hotline{top:22px;}
@@ -173,7 +172,10 @@
 	.header .content-l{min-height:50px}
 	/*.hotline{top:12px !important;}*/
 	/*.menu-btn{top:12px !important;}*/
-	.advanced-search{position:relative;left:auto;bottom:auto;margin-left:0;width:100%;}
+	.advanced-search{position:relative;left:auto;bottom:auto;margin-left:0;width:100%;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none}
 	.title-big{font-size:24px;bottom:auto;top:40%;
 		-webkit-transform:translateY(-50%);
 		-moz-transform:translateY(-50%);
@@ -282,7 +284,6 @@
 	.recommend {margin: 0;}
 	.recommend .content-m > .row:first-child > div:first-child {padding: 0}
 	.folio-recommend{margin:10% 2% 5%;}
-	.content-m.search-header .advanced-search {display: none;}
 	.gal-thumb span {font-size: 22px;}
 	.benefit-blk .be-number {width: 35px;height: 35px;font-size: 15px;line-height: 35px;left: -11px;}
 	.modal-dialog {margin: 0;}
@@ -312,6 +313,17 @@
 	.menu-fix .bt-modal-contract div.tooltip, div.tooltip {display: none !important;}
 	.head-search {padding: 20px 2%;}
 	.house-list-map{bottom: 60px;}
+	.head-search form>ul>li>ul {left: 0;width: 100%;margin-top: 2px;}
+	.search-condition-item>li {width: 100%;}
+	.search-condition-item>li>div{width: 100%;}
+	.bt-group-search-condition > li {margin: 0 2% 0 0;width: 17%;max-width: 100px;min-width: 50px;}
+	.bt-group-search-condition > li > a {padding: 0 3%;width: 100%;min-width: 50px;}
+	.bt-group-search-condition li.search-bar-number-hits{font-size: 9px;line-height: 20px; text-align: center}
+	.search-condition-item .form-field2 {width: 95%;}
+	.search-condition-item .form-field.slider-class {max-width: unset;min-width: unset;width: 100%;}
+	.search-condition-navigation {margin-top: 0}
+	.search-bar-number-hits > strong{display: block}
+
 }
 
 @media screen and (max-width:478.5px){

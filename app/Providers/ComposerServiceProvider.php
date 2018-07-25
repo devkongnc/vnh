@@ -30,7 +30,7 @@ class ComposerServiceProvider extends ServiceProvider
                 'pages_by_id' => $static_pages,
             ]);
         });
-        view()->composer('partials.search_box', function($view) {
+        view()->composer(['partials.search_box','estate.search-bar'], function($view) {
             $data['total_estate'] = Cache::rememberForever('total_estate', function() {
                 return Estate::withoutGlobalScopes()->public()->count();
             });
