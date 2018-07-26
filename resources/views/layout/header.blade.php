@@ -41,12 +41,14 @@
         </div>
         {{-- search all page --}}
         <div class="search-hidden sp-modal-contract">
-            @if(Route::current()->getUri() !== 'search' && Route::current()->getUri() !== 'search-map')
+            @if(!is_null(Route::current()) && Route::current()->getUri() !== 'search' && Route::current()->getUri() !== 'search-map')
             <a class="open-search-hidden hide-mobile">@lang('front.top_search_toggle')</a>
+            @elseif (is_null(Route::current()))
+                <a class="open-search-hidden hide-mobile">@lang('front.top_search_toggle')</a>
             @endif
             <section class="wrap-search-box">
                 <span class="close-btn search-fixed show-mobile">
-                    <img src="https://vnh.local/images/new-layout/close.png">
+                    <img src="{{ asset('images/new-layout/close.png') }}">
                 </span>
                 @include('partials.search_box',['position_search' => 'header'])
             </section>
@@ -161,8 +163,10 @@
                 </a>
             </div>
             <div class="search-hidden search-header hide-mobile">
-                @if(Route::current()->getUri() !== 'search' && Route::current()->getUri() !== 'search-map')
-                <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
+                @if(!is_null(Route::current()) && Route::current()->getUri() !== 'search' && Route::current()->getUri() !== 'search-map')
+                    <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
+                @elseif (is_null(Route::current()))
+                    <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
                 @endif
                 <section class="wrap-search-box">
                     @include('partials.search_box',['position_search' => 'header'])
