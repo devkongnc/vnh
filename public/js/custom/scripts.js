@@ -131,7 +131,7 @@ $(document).ready(function ($) {
         return false;
     });
 
-    var jrange_width = $(document).width() > 768 ? 330 : 768;
+    var jrange_width = $(document).width() > 768 ? 330 : ($(document).width()-($(document).width()*0.1));
 
     $('.range-slider').jRange({
         from: 0,
