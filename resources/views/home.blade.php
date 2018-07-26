@@ -43,7 +43,8 @@
 
 					<ul id="folio" class="folio-recommend" >
 						<?php foreach ($stickies as $key => $office) { ?>
-						<li class="estate-recommend" value="{{ $office->id }}"><a data-page="gal{{ $key }}" href="#gal{{ $key }}" class="gal-thumb">
+						<li class="estate-recommend" value="{{ $office->product_id }}">
+							<a data-page="gal{{ $key }}" href="#gal{{ $key }}" class="gal-thumb">
 								<span class="gal-label">{{ $office->product_id }}</span>
 								<img src="{{ asset($office->post_thumbnail) }}" alt="{{ $office->title }}">
 							</a>

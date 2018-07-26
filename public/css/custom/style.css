@@ -2155,7 +2155,7 @@ h2.title-border {
 
 .title-info-sm {
     font-size: 12px;
-    padding-right: 55px;
+    padding-right: 45px;
     margin-top: 10px;
     display: inline-block;
 }
@@ -2168,6 +2168,7 @@ h2.title-border {
 
 .house-feature2 {
     margin: 0px 0 0 0;
+    padding-left: 10px;
 }
 
 .house-feature2 li {
@@ -2177,7 +2178,7 @@ h2.title-border {
     height: 30px;
     width: 100%;
     list-style: none;
-    margin: 2px 5px 5px 5px;
+    margin: 2px 0 5px 0;
     color: #000;
 }
 
@@ -2593,7 +2594,7 @@ h2.title-border {
     /*height: 26px;*/
     width: 385px;
     height: auto;
-    margin: 40px 0 0;
+    margin: 40px 5px 0;
 }
 
 .header.page-module .open-search-hidden {
@@ -3137,5 +3138,12 @@ ul.search-condition-item > li > div {
 .gm-style-iw > div > div > div {
     overflow: unset!important;
 }
-.gm-style .gm-style-iw {
+
+
+.group-date-like {
+    margin-top: -50px;
+    padding: 0;
+}
+.group-date-like .like-btn {
+    right: 10px;
 }

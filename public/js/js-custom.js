@@ -426,7 +426,11 @@ $(document).ready(function() {
                 // e.preventDefault();
                 $('.estate-recommend').find('a').removeClass('active');
                 $(this).find('a').addClass('active');
-                // return false();
+
+                if ($(window).width()<768){
+                    window.location.href = ('/office/'+$(this).attr('value'));
+                }
+
             });
         });
 
@@ -998,7 +1002,7 @@ $(document).ready(function ($) {
         return false;
     });
 
-    var jrange_width = $(document).width() > 768 ? 330 : 768;
+    var jrange_width = $(document).width() > 768 ? 330 : ($(document).width()-($(document).width()*0.1));
 
     $('.range-slider').jRange({
         from: 0,

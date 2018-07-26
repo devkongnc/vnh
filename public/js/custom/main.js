@@ -373,7 +373,11 @@ $(document).ready(function() {
                 // e.preventDefault();
                 $('.estate-recommend').find('a').removeClass('active');
                 $(this).find('a').addClass('active');
-                // return false();
+
+                if ($(window).width()<768){
+                    window.location.href = ('/office/'+$(this).attr('value'));
+                }
+
             });
         });
 
