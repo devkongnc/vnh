@@ -48,7 +48,7 @@
     @yield('styles')
 </head>
 
-<body class="{{ (Route::current()->getUri() == 'search-map')?' change-body-padding ':''}}">
+<body class="{{ is_null(Route::current()) ? '' : ((Route::current()->getUri() == 'search-map')?' change-body-padding ':'') }}">
 
 <div id="top"></div>
 
@@ -56,7 +56,9 @@
 
 @yield('content')
 
-@if(Route::current()->getUri() !== 'search-map')
+@if((!is_null(Route::current()) && Route::current()->getUri() !== 'search-map'))
+    @include('layout.footer')
+@elseif (is_null(Route::current()))
     @include('layout.footer')
 @endif
 
@@ -83,7 +85,7 @@
             @include('partials.contact_form', ['prefix' => 'like'])
             <div class="close-like" data-dismiss="modal" aria-label="Close">
                 <span class="close-btn">
-                    <img src="https://vnh.local/images/new-layout/close.png">
+                    <img src="{{ asset('images/new-layout/close.png') }}">
                 </span>
             </div>
         </div>

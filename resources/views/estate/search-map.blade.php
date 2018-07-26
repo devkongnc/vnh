@@ -35,12 +35,14 @@
             if (!empty($push_maps)) {
                 foreach ($push_maps as $key => $value) {
                     $location[] = [
-                        $value->price.(!empty($value->price_max) ?' ~ $'.$value->price_max:''),
+                        $value->price.(!empty($value->price_max) ?'~'.$value->price_max:''),
                         $value->lat,
                         $value->lng,
                         $key,
                         $value->product_id,
                         url(action('RealEstateController@show', $value->product_id)),
+                        $value->title,
+                        img_exists($value->resource->path),
                     ];
                 }
             }
@@ -225,15 +227,27 @@
                 var nums = locations[i][3];
                 var id = locations[i][4];
                 var url = locations[i][5];
+                var title = locations[i][6];
+                var thumbnail = locations[i][7];
+                var content = '<div class="map-mark-details dt_'+id+'" estate_url="' + url + '">' +
+                    '<div class="map-mark-thumbnail"><div><img src="'+thumbnail+'" /></div></div>' +
+                    '<div class="map-mark-title">'+title+'</div>' +
+                    '<div class="map-mark-price"><strong>'+price+'</strong> USD/㎡</div>' +
+                    '</div>';
 
                 infowindow[i] = (new google.maps.InfoWindow({
                     position: {lat: lats, lng: lngs},
                     map: map,
-                    content: '<div id="_item' + id + '" est_id="' + id + '" class="maps-mark-item"><a href="' + url + '" target="_blank">$' + price + '</a></div>',
+                    content: '<div id="_item' + id + '" est_id="' + id + '" class="maps-mark-item"><a class="map-mark-placeholder" onclick="open_mark_detail(\'' + id + '\')">' + price + '$</a>'+content+'</div>',
                     zIndex: nums
                 }));
             }
 
+        }
+
+        function open_mark_detail(product_id) {
+            $('.map-mark-details').hide();
+            $('.dt_'+product_id).fadeIn();
         }
 
         function add_style_for_map() {
@@ -258,6 +272,11 @@
                     .find('div:eq(5), div:eq(7), div:eq(8)').css("background-color", "rgb(255, 255, 255)");
                 var est_id = $(this).find('.maps-mark-item').attr('est_id');
                 $("#" + est_id).removeClass('hover_maps');
+            });
+
+            $(".map-mark-details").click(function () {
+                var estate_url = $(this).attr('estate_url');
+                window.open(estate_url);
             });
 
         }

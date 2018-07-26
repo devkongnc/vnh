@@ -58,11 +58,8 @@ return array(
     'like_current_text' => ':num văn phòng trong mục yêu thích',
     'e404' =>
         array(
-            'title' => 'Xin lỗi!',
-            'desc' => 'Tôi không tìm ra nội dung này.',
-            'alert' => 'Website bạn đang tìm kiếm hiện không tồn tại.',
-            'detail' => 'Website bạn đang truy cập m có thể đã bị xóa, hoặc đã xuất hiện lỗi trong quá trình nhập địa chỉ link.
-Vui lòng truy cập một lần nữa bằng một trong hai cách sau.',
+            'title' => '404 Error',
+            'detail' => 'Website bạn đang truy cập m có thể đã bị xóa, hoặc đã xuất hiện lỗi trong quá trình nhập địa chỉ link. Vui lòng kiểm tra lại đường dẫn một lần nữa.',
         ),
     'about our service' => 'ABOUT OUR SERVICES',
     'search box' =>
