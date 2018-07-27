@@ -60,7 +60,7 @@
     @media screen and (max-width: 767px){
         .ctf_hide_mobile{display: none !important}
         .ctf-show-mobile{display: block; float: left; padding-top: 5px;}
-        .gr-cotnact-row input, .gr-cotnact-row textarea{margin-left: 7%; width: 80% !important;}
+        .gr-cotnact-row input, .gr-cotnact-row textarea{margin-left: 5%; width: 83% !important;}
     }
 
     @media screen and (min-width: 768px){
@@ -71,6 +71,7 @@
         {
             opacity: 0 !important;
         }
+        .gr-cotnact-row input{min-width: 340px;}
     }
 </style>
 

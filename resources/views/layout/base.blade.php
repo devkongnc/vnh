@@ -4,9 +4,16 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>VIETNAM HOUSE</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    {!! SEO::generate(true) !!}
+    {{--<title>--}}
+        {{--@if(View::hasSection('pageTitle'))--}}
+            {{--@yield('pageTitle') - VIETNAM HOUSE--}}
+        {{--@else--}}
+            {{--VIETNAM HOUSE--}}
+        {{--@endif--}}
+    {{--</title>--}}
+    {{--<meta name="description" content="">--}}
+    {{--<meta name="keywords" content="">--}}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Language" content="{{ $current_locale }}"/>
     <meta name="viewport"
@@ -14,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="google-site-verification" content="-a-KdRRZjx9pSqDJNV1Yk5ayQhu3U6_meiDAcewPpqo"/>
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon"/>
-{!! SEO::generate(true) !!}
+
 <!-- Favicon
     ============================================== -->
     <link rel="shortcut icon" href="{{ asset('images/new-layout/favicon.png') }}">
