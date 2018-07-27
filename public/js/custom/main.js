@@ -381,6 +381,10 @@ $(document).ready(function() {
             });
         });
 
+        $('#show_map_button').click(function () {
+            $('.house-list-map').fadeToggle();
+        });
+
         $('.page').each(function(index, element){
             $(this).addClass('hide');
             if( index === 0 ){
