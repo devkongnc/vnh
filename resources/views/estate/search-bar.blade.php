@@ -1,6 +1,7 @@
+<input type="hidden" id="keyword" name="keyword" value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}" placeholder="ID、キーワード" />
 <li>
     <a>エリア</a>
-    <ul class="search-condition-item">
+    <ul class="search-condition-item price-condition">
         <li>
             <div>
                 <label>@lang('search.unit-price')</label>
@@ -24,7 +25,7 @@
 </li>
 <li>
     <a>㎡単価</a>
-    <ul class="search-condition-item">
+    <ul class="search-condition-item size-condition">
         <li>
             <div>
                 <label>@lang('search.unit-area')</label>
@@ -46,7 +47,7 @@
 </li>
 <li>
     <a>面積</a>
-    <ul class="search-condition-item">
+    <ul class="search-condition-item area-condition">
         <li>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownselect3"

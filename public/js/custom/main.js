@@ -388,12 +388,11 @@ $(document).ready(function() {
             }
         });
 
-        $(".search-hidden .advanced-search").hide();
+
         $(".open-search-hidden").on('click', function(e) {
               e.preventDefault();
               $(".search-hidden .advanced-search").fadeToggle(300);
               $(".open-search-hidden").toggleClass( "close-c" );
-
         });
 
         $(".sp-open-search-hidden, .close-btn.search-fixed").on('click', function(e) {

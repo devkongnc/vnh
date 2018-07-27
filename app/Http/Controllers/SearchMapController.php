@@ -5,6 +5,7 @@ use App\Estate;
 use App\TermRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use LaravelLocalization;
 
 class SearchMapController extends Controller {
 
@@ -45,6 +46,20 @@ class SearchMapController extends Controller {
 
         # Query tìm kiếm estate
         $query = Estate::query();
+
+        if (!empty($request->keyword)) {
+            $keyword = $request->keyword;
+            $currnet_locale = LaravelLocalization::getCurrentLocale();
+            $query = $query->join('estate_translations', 'estate_translations.estate_id', '=', 'estates.id')
+                ->where(function ($query) use ($keyword, $currnet_locale) {
+                    $query->where('estates.product_id', 'like', '%' . $keyword . '%')
+                        ->orWhere(function ($query) use ($keyword, $currnet_locale) {
+                            $query->where('estate_translations.title', 'like', '%' . $keyword . '%')
+                                ->where('estate_translations.locale', $currnet_locale);
+                        });
+                });
+        }
+
         foreach ($this->terms as $key => $value) {
             if ($key === 'price') {
                 $prices = explode(',', $value);
@@ -77,9 +92,17 @@ class SearchMapController extends Controller {
             $query = $query->whereRaw("CAST(lat AS DECIMAL(17,15)) between $sw_lats and $ne_lats and CAST(lng AS DECIMAL(18,15)) between $sw_lngs and $ne_lngs");
         }
 
-        $query = $query->with('resources');
+        $records = $query->select('estates.id')->get();
+        $lst_id = array();
+        foreach ($records as $record) {
+            $lst_id[] = $record->id;
+        }
 
-        return $query->orderBy('updated_at','desc');
+        $last_query = Estate::query();
+        $last_query = $last_query->whereIn('id', $lst_id);
+        $last_query = $last_query->with('resources');
+
+        return $last_query->orderBy('updated_at','desc');
     }
 
 }
