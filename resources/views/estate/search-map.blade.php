@@ -59,6 +59,11 @@
             </div>
         </div>
     </div>
+    <a id="show_map_button" class="">
+        <span class="fa-stack">
+            <img src="{{ asset('/images/new-layout/icn-bt-maps.png') }}">
+        </span>
+    </a>
 @stop
 
 @section('scripts')
@@ -345,56 +350,49 @@
             }
         }
 
-        function cal_height_map() {
-            var cal1 = $(".header.page-module").height();
-            var cal2 = $(".head-search").outerHeight();
-            var cal3 = $(".menu-fix").height();
-            var tolt = cal1+cal2+cal3+1;
-            return tolt;
-        }
-
         var x = $('.house-list-scroll');
         var map_elem = $('.house-list-map');
         var map_elem_height = 0;
         var mark_elem  = 0;
+        var hearder_height = 0;
 
         $(document).ready(function () {
             initMap();
             add_style_for_data();
             mark_elem = x.offset().top;
-            if ($(document).width()>767) {
-                map_elem.css('height', 'calc(100vh - 220px)');
-            } else if ($(document).width()<=767) {
-                var tolt = cal_height_map();
-                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
-            }
+            hearder_height = $('.header').outerHeight()+$('.head-search').outerHeight();
+            map_height_function();
             map_elem_height = map_elem.height();
         });
 
-        $(window).scroll(function () {
+        function map_height_function() {
             if ($(document).width()>767) {
-                if ($(document).scrollTop() <= 200) {
-                    map_elem.height(map_elem_height + $(document).scrollTop());
-                } else {
+                if ($(document).scrollTop() > 0 && $(document).scrollTop() <= 200) {
+                    map_elem.css('height', 'calc(100vh - '+(hearder_height-$(document).scrollTop())+'px)')
+                } else if ($(document).scrollTop() > 200) {
                     map_elem.css('height', 'calc(100vh - 60px)')
+                } else {
+                    map_elem.css('height', 'calc(100vh - '+hearder_height+'px)')
                 }
             } else if ($(document).width()<=767) {
-                var tolt = cal_height_map();
-                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
+                if ($(document).scrollTop() > 0 && $(document).scrollTop() <= hearder_height) {
+                    map_elem.css('height', 'calc(100vh - '+(hearder_height-$(document).scrollTop()+$('.menu-fix').outerHeight())+'px)')
+                } else if ($(document).scrollTop() > hearder_height) {
+                    map_elem.css('height', 'calc(100vh - '+$('.menu-fix').outerHeight()+'px)')
+                } else {
+                    map_elem.css('height', 'calc(100vh - ' + (hearder_height + $('.menu-fix').outerHeight()) + 'px)');
+                }
             }
+        }
+
+
+
+        $(window).scroll(function () {
+            map_height_function();
         });
 
         $(window).resize(function () {
-            if ($(document).width()>767) {
-                if ($(document).scrollTop() <= 200) {
-                    map_elem.height(map_elem_height + $(document).scrollTop());
-                } else {
-                    map_elem.css('height', 'calc(100vh - 60px)')
-                }
-            } else if ($(document).width()<=767) {
-                var tolt = cal_height_map();
-                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
-            }
+            map_height_function();
         });
 
     </script>
