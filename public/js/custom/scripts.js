@@ -372,7 +372,3 @@ function sync_search_box(item, value) {
             break;
     }
 }
-
-$(window).bind('resize', function () {
-
-});
