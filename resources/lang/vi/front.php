@@ -52,14 +52,14 @@ return array(
             'desktop' => 'PC view',
             'normal' => 'Mobile view',
         ),
-    'like hover' => 'Bạn đã Like :num BDS.',
+    'like hover' => 'Bạn đã Like :num văn phòng.',
+    'like_default_text' => 'Các văn phòng có thể được đăng ký vào mục yêu thích',
+    'like_add_text' => 'Văn phòng đã được thêm vào mục yêu thích',
+    'like_current_text' => ':num văn phòng trong mục yêu thích',
     'e404' =>
         array(
-            'title' => 'Xin lỗi!',
-            'desc' => 'Tôi không tìm ra nội dung này.',
-            'alert' => 'Website bạn đang tìm kiếm hiện không tồn tại.',
-            'detail' => 'Website bạn đang truy cập m có thể đã bị xóa, hoặc đã xuất hiện lỗi trong quá trình nhập địa chỉ link.
-Vui lòng truy cập một lần nữa bằng một trong hai cách sau.',
+            'title' => '404 Error',
+            'detail' => 'Website bạn đang truy cập m có thể đã bị xóa, hoặc đã xuất hiện lỗi trong quá trình nhập địa chỉ link. Vui lòng kiểm tra lại đường dẫn một lần nữa.',
         ),
     'about our service' => 'ABOUT OUR SERVICES',
     'search box' =>

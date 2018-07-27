@@ -5,22 +5,51 @@
     <div id="nav" class="content-l">
         <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}"
            class="logo2 hide-mobile"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
-        <div id="menu_head_group">
+        <div id="menu_head_group" class="show-mobile">
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}">
+                <img src="{{ asset('images/new-layout/sp-icn-home.png') }}">
+            </a>
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
+                <img src="{{ asset('images/new-layout/sp-icn-mail.png') }}">
+            </a>
+            <a href="tel:0121 373 0086">
+                <img src="{{ asset('images/new-layout/sp-icn-phone.png') }}">
+            </a>
+            <a href="#" class="sp-open-search-hidden sp-custom bt-modal-contract">
+                <img src="{{ asset('images/new-layout/sp-icn-search.png') }}">
+            </a>
+            <a href="#" data-toggle="modal" data-target="#modal-like" class="bt-modal-contract">
+                <div class="like-page like-number" data-toggle="tooltip">
+                    <span class="numlike like-count"> <span class="invisible">0</span> </span>
+                </div>
+            </a>
+            <a href="#" onclick="sp_toggle_aside_menu();" class="menu-btn bt-modal-contract">
+                <img src="{{ asset('images/new-layout/sp-icn-menu.png') }}">
+            </a>
+        </div>
+        <div id="menu_head_group" class="hide-mobile">
             <a onclick="$('.aside').asidebar('open')"
                class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
-            <a href="#">
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                 <div class="mail-contact"></div>
             </a>
             <a href="#" data-toggle="modal" data-target="#modal-like">
-                <div class="like-page like-number">
+                <div class="like-page like-number" data-toggle="tooltip">
                     <span class="numlike like-count"> <span class="invisible">0</span> </span>
                 </div>
             </a>
         </div>
         {{-- search all page --}}
-        <div class="search-hidden">
-            <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
+        <div class="search-hidden sp-modal-contract">
+            @if(!is_null(Route::current()) && Route::current()->getUri() !== 'search' && Route::current()->getUri() !== 'search-map')
+            <a class="open-search-hidden hide-mobile">@lang('front.top_search_toggle')</a>
+            @elseif (is_null(Route::current()))
+                <a class="open-search-hidden hide-mobile">@lang('front.top_search_toggle')</a>
+            @endif
             <section class="wrap-search-box">
+                <span class="close-btn search-fixed show-mobile">
+                    <img src="{{ asset('images/new-layout/close.png') }}">
+                </span>
                 @include('partials.search_box',['position_search' => 'header'])
             </section>
         </div>
@@ -28,7 +57,7 @@
 </div>
 
 {{-- Menu side bar --}}
-<div class="aside">
+<div class="aside sp-modal-contract">
     <div class="aside-header">
         <span class="close-btn" data-dismiss="aside" aria-hidden="true"><img
                     src="{{ asset('images/new-layout/close.png') }}"></span>
@@ -69,11 +98,11 @@
             <div id="menu_head_group" class="hide-mobile">
                 <a onclick="$('.aside').asidebar('open')"
                    class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
-                <a href="#">
+                <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                     <div class="mail-contact"></div>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#modal-like">
-                    <div class="like-page like-number">
+                    <div class="like-page like-number" data-toggle="tooltip" data-container="body">
                         <span class="numlike like-count"> <span class="invisible">0</span> </span>
                     </div>
                 </a>
@@ -121,20 +150,24 @@
         <div id="nav" class="content-l">
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/') }}"
                class="logo2"><img src="{{ asset('images/new-layout/logo.svg') }}"></a>
-            <div id="menu_head_group">
+            <div id="menu_head_group" class="hide-mobile">
                 <a onclick="$('.aside').asidebar('open')"
                    class="menu-btn"><img src="{{ asset('images/new-layout/menu.png') }}"></a>
-                <a href="#">
+                <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                     <div class="mail-contact"></div>
                 </a>
                 <a href="#" data-toggle="modal" data-target="#modal-like">
-                    <div class="like-page like-number">
+                    <div class="like-page like-number" data-toggle="tooltip" data-container="body">
                         <span class="numlike like-count"> <span class="invisible">0</span> </span>
                     </div>
                 </a>
             </div>
-            <div class="search-hidden search-header">
-                <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
+            <div class="search-hidden search-header hide-mobile">
+                @if(!is_null(Route::current()) && Route::current()->getUri() !== 'search' && Route::current()->getUri() !== 'search-map')
+                    <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
+                @elseif (is_null(Route::current()))
+                    <a class="open-search-hidden">@lang('front.top_search_toggle')</a>
+                @endif
                 <section class="wrap-search-box">
                     @include('partials.search_box',['position_search' => 'header'])
                 </section>

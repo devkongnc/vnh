@@ -10,19 +10,18 @@
     </style>
 @stop
 @section('content')
+    <?php
+    $price = explode(",", isset($terms['price']) ? $terms['price'] : '0,100');
+    $size = explode(",", isset($terms['size']) ? $terms['size'] : '0,3000');
+    ?>
     <div class="head-search">
         <div class="content-l">
-            <ul>
-                @foreach($terms as $key => $term)
-                    <?php $data_config = config("real-estate.{$key}"); ?>
-                    @if ($key === 'area')
-                        @foreach ($term as $value)
-                            <li><a href="#">{{ getLocaleValue($data_config['values'][$value]) }}</a></li>
-                        @endforeach
-                    @endif
-                @endforeach
-                <li>@lang('front.number of hits') <strong class="number_estate_result">{{ $search_estates->total() }}</strong></li>
-            </ul>
+            <form>
+                <ul class="bt-group-search-condition">
+                    @include('estate.search-bar', ['search_estates' => $search_estates, 'price' => $price, 'size' => $size])
+                    <li class="search-bar-number-hits">@lang('front.number of hits') <strong>{{ $search_estates->total() }}</strong></li>
+                </ul>
+            </form>
             <a href="#close-map" id="btn-close-map" class="search-map">
                 <img src="{{ asset('images/new-layout/icon-map-close.png') }}"> MAP
             </a>
@@ -36,12 +35,14 @@
             if (!empty($push_maps)) {
                 foreach ($push_maps as $key => $value) {
                     $location[] = [
-                        $value->price.(!empty($value->price_max) ?' ~ $'.$value->price_max:''),
+                        $value->price.(!empty($value->price_max) ?'~'.$value->price_max:''),
                         $value->lat,
                         $value->lng,
                         $key,
                         $value->product_id,
                         url(action('RealEstateController@show', $value->product_id)),
+                        $value->title,
+                        img_exists($value->resource->path),
                     ];
                 }
             }
@@ -226,15 +227,27 @@
                 var nums = locations[i][3];
                 var id = locations[i][4];
                 var url = locations[i][5];
+                var title = locations[i][6];
+                var thumbnail = locations[i][7];
+                var content = '<div class="map-mark-details dt_'+id+'" estate_url="' + url + '">' +
+                    '<div class="map-mark-thumbnail"><div><img src="'+thumbnail+'" /></div></div>' +
+                    '<div class="map-mark-title">'+title+'</div>' +
+                    '<div class="map-mark-price"><strong>'+price+'</strong> USD/㎡</div>' +
+                    '</div>';
 
                 infowindow[i] = (new google.maps.InfoWindow({
                     position: {lat: lats, lng: lngs},
                     map: map,
-                    content: '<div id="_item' + id + '" est_id="' + id + '" class="maps-mark-item"><a href="' + url + '" target="_blank">$' + price + '</a></div>',
+                    content: '<div id="_item' + id + '" est_id="' + id + '" class="maps-mark-item"><a class="map-mark-placeholder" onclick="open_mark_detail(\'' + id + '\')">' + price + '$</a>'+content+'</div>',
                     zIndex: nums
                 }));
             }
 
+        }
+
+        function open_mark_detail(product_id) {
+            $('.map-mark-details').hide();
+            $('.dt_'+product_id).fadeIn();
         }
 
         function add_style_for_map() {
@@ -259,6 +272,11 @@
                     .find('div:eq(5), div:eq(7), div:eq(8)').css("background-color", "rgb(255, 255, 255)");
                 var est_id = $(this).find('.maps-mark-item').attr('est_id');
                 $("#" + est_id).removeClass('hover_maps');
+            });
+
+            $(".map-mark-details").click(function () {
+                var estate_url = $(this).attr('estate_url');
+                window.open(estate_url);
             });
 
         }
@@ -327,6 +345,14 @@
             }
         }
 
+        function cal_height_map() {
+            var cal1 = $(".header.page-module").height();
+            var cal2 = $(".head-search").outerHeight();
+            var cal3 = $(".menu-fix").height();
+            var tolt = cal1+cal2+cal3+1;
+            return tolt;
+        }
+
         var x = $('.house-list-scroll');
         var map_elem = $('.house-list-map');
         var map_elem_height = 0;
@@ -336,15 +362,38 @@
             initMap();
             add_style_for_data();
             mark_elem = x.offset().top;
-            map_elem.css('height','calc(100vh - 220px)');
+            if ($(document).width()>767) {
+                map_elem.css('height', 'calc(100vh - 220px)');
+            } else if ($(document).width()<=767) {
+                var tolt = cal_height_map();
+                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
+            }
             map_elem_height = map_elem.height();
         });
 
         $(window).scroll(function () {
-            if ($(document).scrollTop() <= 200) {
-                map_elem.height(map_elem_height+$(document).scrollTop());
-            } else {
-                map_elem.css('height','calc(100vh - 60px)')
+            if ($(document).width()>767) {
+                if ($(document).scrollTop() <= 200) {
+                    map_elem.height(map_elem_height + $(document).scrollTop());
+                } else {
+                    map_elem.css('height', 'calc(100vh - 60px)')
+                }
+            } else if ($(document).width()<=767) {
+                var tolt = cal_height_map();
+                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
+            }
+        });
+
+        $(window).resize(function () {
+            if ($(document).width()>767) {
+                if ($(document).scrollTop() <= 200) {
+                    map_elem.height(map_elem_height + $(document).scrollTop());
+                } else {
+                    map_elem.css('height', 'calc(100vh - 60px)')
+                }
+            } else if ($(document).width()<=767) {
+                var tolt = cal_height_map();
+                map_elem.css('height', 'calc(100vh - '+tolt+'px)');
             }
         });
 

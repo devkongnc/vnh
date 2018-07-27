@@ -54,11 +54,12 @@ Thank you for contact us.',
             'normal' => 'Mobile View',
         ),
     'like hover' => 'Bookmarked :num properties',
+    'like_default_text' => 'Possible to inquire about properties registered as favorites',
+    'like_add_text' => 'Registered as a favorite',
+    'like_current_text' => ':num subscriptions',
     'e404' =>
         array(
-            'title' => 'Sorry!',
-            'desc' => 'I think something went wrong.',
-            'alert' => 'The page you are looking for could not be found.',
+            'title' => '404 Error',
             'detail' => 'It is possible that the corresponding URL has been removed or deleted. Please also check again if the link address is correct.
 You could also search for the page again by either of the following links.',
         ),

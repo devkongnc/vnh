@@ -4,12 +4,14 @@
     @foreach($items as $key => $item)
         <?php
         $page_map_data[] = [
-            $item->price.(!empty($item->price_max) ?' ~ $'.$item->price_max:''),
+            $item->price.(!empty($item->price_max) ?'~'.$item->price_max:''),
             $item->lat,
             $item->lng,
             $key,
             $item->product_id,
             url(action('RealEstateController@show', $item->product_id)),
+            $item->title,
+            img_exists($item->resource->path),
         ];
         ?>
         <div class="col-md-12">

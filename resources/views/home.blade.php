@@ -9,7 +9,7 @@
 			<div class="col-md-12 title-row">
 				<h1 class="title-h">Pickup</h1>
 				<h4 class="sub-title-h">@lang('front.special features of office')</h4>
-				<a href="{{ URL::to('/category') }}" class="blk-btn btn-140">@lang('front.feature list')</a>
+				<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/category') }}" class="blk-btn btn-140">@lang('front.feature list')</a>
 			</div>
 		</div>
 		<div class="row">
@@ -41,17 +41,15 @@
 					<h1 class="title-h">Recommend</h1>
 					<h4 class="sub-title-h">@lang('front.recommend_sub_title')</h4>
 
-					<ul id="folio" class="folio-recommend hide-mobile" >
+					<ul id="folio" class="folio-recommend" >
 						<?php foreach ($stickies as $key => $office) { ?>
-						<li class="estate-recommend" value="{{ $office->id }}"><a data-page="gal{{ $key }}" href="#gal{{ $key }}" class="gal-thumb">
+						<li class="estate-recommend" value="{{ $office->product_id }}">
+							<a data-page="gal{{ $key }}" href="#gal{{ $key }}" class="gal-thumb">
 								<span class="gal-label">{{ $office->product_id }}</span>
 								<img src="{{ asset($office->post_thumbnail) }}" alt="{{ $office->title }}">
 							</a>
 						</li>
 						<?php } ?>
-					</ul>
-					<ul class="folio-recommend show-mobile" >
-						{{--<li><a data-page="gal1" href="#" class="gal-thumb"><span class="gal-label">33528</span><img src="{{ asset('images/new-layout/thumb2.jpg') }}" ></a></li>--}}
 					</ul>
 				</div>
 				<div class="col-md-7 col-sm-7">

@@ -11,19 +11,45 @@
 @section('content')
     <article class="page-not-found">
         <div class="content">
-        	<div>
-        		<img class="img-404" src="/images/bg-404.png">
-	        	<h1>@lang('front.e404.title')</h1>
-	        	<div class="desc-404">@lang('front.e404.desc')</div>
-	        	<div class="alert-404">@lang('front.e404.alert')</div>
-	        	<div class="way-fix">
-	        		@lang('front.e404.detail')
-	        	</div>
-	        	<div class="link-other">
-		        	<a href="/" class="btn-url">@lang('menu.home')</a>
-		        	<a href="/sitemap" class="btn-url">@lang('menu.sitemap')</a>
-	        	</div>
-        	</div>
+			<div class="content-s mrt-30">
+				<div class="bg-white content-page">
+					<div class="row">
+						<div class="col-md-12">
+							<h2 class="title-m center mrb-30">@lang('front.e404.title')</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<p>@lang('front.e404.detail')</p>
+						</div>
+					</div>
+					<br>
+
+                    <?php
+                    $sitemap_structure = Config::get('sitemap.new_layout');
+                    ?>
+					<div class="row">
+						@foreach ($sitemap_structure as $group)
+							<div class="col-md-4 col-sm-4">
+								<ul class="menu-list">
+									@foreach ($group as $item)
+										@if ($item === 'home')
+											<li><a href="{{ route('home') }}">@lang('menu.home')</a></li>
+										@elseif(isset($pages_by_id[$item]))
+											<li>
+												<a href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[$item]->permalink) }}">
+													{{ $pages_by_id[$item]->title }}
+												</a>
+											</li>
+										@endif
+									@endforeach
+								</ul>
+							</div>
+						@endforeach
+					</div>
+
+				</div>
+			</div>
         </div>
     </article>
 @endsection

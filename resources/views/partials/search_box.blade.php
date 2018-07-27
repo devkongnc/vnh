@@ -6,13 +6,15 @@ if (!isset($position_search)) {
     $position_search = 'banner';
 }
 ?>
+<div class="mobile_search_top_toggle show-mobile">
+    <img src="{{ asset('images/new-layout/icon-search-black.png') }}" />
+    &nbsp;<span>@lang('front.top_search_toggle')</span></div>
 <div class="advanced-search {{ if_route(['home']) ? '' : 'active' }}">
     <div class="range-section">
-        <form>
             <div class="row">
                 <div class="form-field">
                     <div class="dropdown">
-                        <input type="text" value="" placeholder="ID、キーワード" />
+                        <input type="text" id="keyword" name="keyword" value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}" placeholder="ID、キーワード" />
                     </div>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownselect3"
@@ -42,7 +44,7 @@ if (!isset($position_search)) {
                     ~
                     <input type="text" id="price-max" class="input-max-price num_only" value="{{$price[1]}}"> $
                 </div>
-                <div class="form-field">
+                <div class="form-field slider-class">
                     <input class="range-slider" type="hidden" name="term[price]" value="{{$price[0]}},{{$price[1]}}"/>
                 </div>
             </div>
@@ -53,7 +55,7 @@ if (!isset($position_search)) {
                     ~
                     <input type="text" id="area-max" class="input-max-area num_only" value="{{$size[1]}}"> ㎡
                 </div>
-                <div class="form-field range2">
+                <div class="form-field range2 slider-class">
                     <input class="range-slider2" type="hidden" name="term[size]" value="{{$size[0]}},{{$size[1]}}"/>
                 </div>
             </div>
@@ -63,18 +65,19 @@ if (!isset($position_search)) {
             <input type="hidden" id="ne_lng" name="ne_lng" value="">
             <input type="hidden" id="sw_lat" name="sw_lat" value="">
             <input type="hidden" id="sw_lng" name="sw_lng" value="">
-        </form>
-        <div><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
+        <div class="contain_last_form_search"><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
     </div>
 
     <div class="search-gr">
-        <label>@lang('search.hits-number')</label>
-        <h2 id="total-estate">{{ isset($search_estates) ? $search_estates->total() : $total_estate }}</h2>
+        <div>
+            <label>@lang('search.hits-number')</label>
+            <h2 id="total-estate">{{ isset($search_estates) ? $search_estates->total() : $total_estate }}</h2>
+        </div>
         <button type="submit" class="img-button">
-            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"></a>
+            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"><span class="show-mobile">@lang('search.bt_search')</span></a>
         </button>
         <button class="clear-form-search-btn" type="reset">@lang('search.reset')</button>
-        <a href="#" class="special-btn">@lang('search.button_link')</a>
+        <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/rental-office') }}" class="special-btn hide-mobile">@lang('search.button_link')</a>
     </div>
 </div>
 {!! Form::close() !!}
