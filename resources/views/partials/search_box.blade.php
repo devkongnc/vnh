@@ -11,11 +11,10 @@ if (!isset($position_search)) {
     &nbsp;<span>@lang('front.top_search_toggle')</span></div>
 <div class="advanced-search {{ if_route(['home']) ? '' : 'active' }}">
     <div class="range-section">
-        <form>
             <div class="row">
                 <div class="form-field">
                     <div class="dropdown">
-                        <input type="text" value="" placeholder="ID、キーワード" />
+                        <input type="text" id="keyword" name="keyword" value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}" placeholder="ID、キーワード" />
                     </div>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownselect3"
@@ -66,7 +65,6 @@ if (!isset($position_search)) {
             <input type="hidden" id="ne_lng" name="ne_lng" value="">
             <input type="hidden" id="sw_lat" name="sw_lat" value="">
             <input type="hidden" id="sw_lng" name="sw_lng" value="">
-        </form>
         <div class="contain_last_form_search"><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
     </div>
 
