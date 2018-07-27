@@ -61,7 +61,7 @@
 }
 
 @media screen and (max-width:991.7px){
-	body{padding-bottom:150px;}
+	body{padding-bottom:190px;}
 	.header{height:auto;min-height:50px;}
 	.content-l{width:95%;}
 	.content-m{width:90%;}

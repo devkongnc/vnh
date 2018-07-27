@@ -48,7 +48,7 @@
     @yield('styles')
 </head>
 
-<body class="{{ is_null(Route::current()) ? '' : ((Route::current()->getUri() == 'search-map')?' change-body-padding ':'') }}">
+<body class="{{ is_null(Route::current()) ? '' : ((strpos(Route::current()->getUri(), 'search-map') !== FALSE)?' change-body-padding ':'') }}">
 
 <div id="top"></div>
 
@@ -56,7 +56,7 @@
 
 @yield('content')
 
-@if((!is_null(Route::current()) && Route::current()->getUri() !== 'search-map'))
+@if(!is_null(Route::current()) && strpos(Route::current()->getUri(), 'search-map') === FALSE)
     @include('layout.footer')
 @elseif (is_null(Route::current()))
     @include('layout.footer')
