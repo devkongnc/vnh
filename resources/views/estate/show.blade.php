@@ -76,46 +76,48 @@
                         <table class="house-info">
                             @foreach($above as $key => $value)
                                 <?php if ($key !== 'city' && $key !== 'type'){ ?>
-                                <tr>
-                                    <?php
-                                        switch ($key) {
-                                            case 'contract_limit' :
-                                                $str = Form::label("{$key}",
-                                                    (!empty($estate->{$key})
-                                                        ? $estate->{$key}.trans('entity.estate.contract_limit_year_unit')
+                                    <tr>
+                                        <td>
+                                            <?php
+                                            switch ($key) {
+                                                case 'contract_limit' :
+                                                    $str = Form::label("{$key}",
+                                                        (!empty($estate->{$key})
+                                                            ? $estate->{$key}.trans('entity.estate.contract_limit_year_unit')
                                                             .((LaravelLocalization::getCurrentLocale()==='en' && (int)$estate->{$key} > 1)?'s':'') : ''),
-                                                    ['readonly'=>'readonly']);
-                                                break;
-                                            case 'size' :
-                                                $str = Form::label("{$key}",
-                                                    (!empty($estate->{$key})
-                                                        ? number_format((int)$estate->{$key}).' m²' : ''),
-                                                    ['readonly'=>'readonly']);
-                                                break;
-                                            case 'floor' :
-                                                $str = Form::label("{$key}",
-                                                    (!empty($estate->{$key})
-                                                        ? $estate->{$key}.trans('entity.estate.floor_unit') : ''),
-                                                    ['readonly'=>'readonly']);
-                                                break;
-                                            case 'anniversary' :
-                                                $str = Form::label("{$key}",
-                                                    (($estate->{$key} != "0000-00-00" && !empty($estate->{$key}))
-                                                        ?(string) date(''.trans('entity.estate.anniversary_date_format'), strtotime($estate->{$key})) : ''),
-                                                    ['readonly'=>'readonly']);
-                                                break;
-                                            case 'commiss' :
-                                                $str = $estate->{$key} ? $estate->{$key} : '<span class="commiss_free">'.trans('entity.estate.free_unit').'</span>';
-                                                break;
-                                            default:
-                                                $str = Form::label("{$key}",(!empty($estate->{$key})? $estate->{$key} : ''),
-                                                    ['readonly'=>'readonly']);
-                                                break;
-                                        }
-                                    ?>
-                                <td class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</td>
-                                <td class="tdr">{!! $str !!}</td>
-                            </tr>
+                                                        ['readonly'=>'readonly']);
+                                                    break;
+                                                case 'size' :
+                                                    $str = Form::label("{$key}",
+                                                        (!empty($estate->{$key})
+                                                            ? number_format((int)$estate->{$key}).' m²' : ''),
+                                                        ['readonly'=>'readonly']);
+                                                    break;
+                                                case 'floor' :
+                                                    $str = Form::label("{$key}",
+                                                        (!empty($estate->{$key})
+                                                            ? $estate->{$key}.trans('entity.estate.floor_unit') : ''),
+                                                        ['readonly'=>'readonly']);
+                                                    break;
+                                                case 'anniversary' :
+                                                    $str = Form::label("{$key}",
+                                                        (($estate->{$key} != "0000-00-00" && !empty($estate->{$key}))
+                                                            ?(string) date(''.trans('entity.estate.anniversary_date_format'), strtotime($estate->{$key})) : ''),
+                                                        ['readonly'=>'readonly']);
+                                                    break;
+                                                case 'commiss' :
+                                                    $str = $estate->{$key} ? $estate->{$key} : '<span class="commiss_free">'.trans('entity.estate.free_unit').'</span>';
+                                                    break;
+                                                default:
+                                                    $str = Form::label("{$key}",(!empty($estate->{$key})? $estate->{$key} : ''),
+                                                        ['readonly'=>'readonly']);
+                                                    break;
+                                            }
+                                            ?>
+                                            <div class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</div>
+                                            <div class="tdr">{!! $str !!}</div>
+                                        </td>
+                                    </tr>
                             <?php } ?>
                         @endforeach
                     </table>
