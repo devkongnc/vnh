@@ -7,64 +7,78 @@ if (!isset($position_search)) {
 }
 ?>
 <div class="mobile_search_top_toggle show-mobile">
-    <img src="{{ asset('images/new-layout/icon-search-black.png') }}" />
+    <img src="{{ asset('images/new-layout/icon-search-black.png') }}"/>
     &nbsp;<span>@lang('front.top_search_toggle')</span></div>
 <div class="advanced-search {{ if_route(['home']) ? '' : 'active' }}">
     <div class="range-section">
-            <div class="row">
-                <div class="form-field">
-                    <div class="dropdown">
-                        <input type="text" id="keyword" name="keyword" value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}" placeholder="ID、キーワード" />
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownselect3"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="row">
+            <div class="form-field">
+                <div class="dropdown">
+                    <input type="text" id="keyword" name="keyword"
+                           value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}"
+                           placeholder="ID、キーワード"/>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle {{ (!empty($terms["area"])) ? 'selected_area' : '' }}" type="button" id="dropdownselect3"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @if(!empty($terms["area"]))
+                            @lang('search.multiple-choice-selected')
+                        @else
                             @lang('search.multiple-choice')
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownselect2">
-                            @foreach($selected as $key => $term)
-                                @if ($key == "area")
-                                    @foreach($term['values'] as $index => $value)
-                                        <li><a href="#" class="small"
-                                               data-value="{!! \App\Term::getLocaleValue($value) !!}"
-                                               tabIndex="-1"><input type="checkbox" name="term[area][]"
-                                                                    {{ (isset($terms[$key]) and in_array($index, $terms[$key])) ? ' checked' : '' }} value="{{ $index }}"/>&nbsp;{!! \App\Term::getLocaleValue($value) !!}
-                                            </a></li>
-                                    @endforeach
-                                @endif
-                            @endforeach
-                        </ul>
-                    </div>
+                        @endif
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownselect2">
+                        @foreach($selected as $key => $term)
+                            @if ($key == "area")
+                                @foreach($term['values'] as $index => $value)
+                                    <li><a href="#" class="small"
+                                           data-value="{!! \App\Term::getLocaleValue($value) !!}"
+                                           tabIndex="-1">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="term[area][]"
+                                                           {{ (isset($terms[$key]) && in_array($index, $terms[$key])) ? ' checked' : '' }} value="{{ $index }}"/>
+                                                    <span class="cr"><i
+                                                                class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                    &nbsp;{!! \App\Term::getLocaleValue($value) !!}
+                                                </label>
+                                            </div>
+                                        </a></li>
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </ul>
                 </div>
             </div>
-            <div class="row">
-                <label>@lang('search.unit-price')</label>
-                <div class="form-field2">
-                    <input type="text" id="price-min" class="input-min-price num_only" value="{{$price[0]}}">
-                    ~
-                    <input type="text" id="price-max" class="input-max-price num_only" value="{{$price[1]}}"> $
-                </div>
-                <div class="form-field slider-class">
-                    <input class="range-slider" type="hidden" name="term[price]" value="{{$price[0]}},{{$price[1]}}"/>
-                </div>
+        </div>
+        <div class="row">
+            <label>@lang('search.unit-price')</label>
+            <div class="form-field2">
+                <input type="text" id="price-min" class="input-min-price num_only" value="{{$price[0]}}">
+                ~
+                <input type="text" id="price-max" class="input-max-price num_only" value="{{$price[1]}}"> $
             </div>
-            <div class="row">
-                <label>@lang('search.unit-area')</label>
-                <div class="form-field2">
-                    <input type="text" id="area-min" class="input-min-area num_only" value="{{$size[0]}}">
-                    ~
-                    <input type="text" id="area-max" class="input-max-area num_only" value="{{$size[1]}}"> ㎡
-                </div>
-                <div class="form-field range2 slider-class">
-                    <input class="range-slider2" type="hidden" name="term[size]" value="{{$size[0]}},{{$size[1]}}"/>
-                </div>
+            <div class="form-field slider-class">
+                <input class="range-slider" type="hidden" name="term[price]" value="{{$price[0]}},{{$price[1]}}"/>
             </div>
+        </div>
+        <div class="row">
+            <label>@lang('search.unit-area')</label>
+            <div class="form-field2">
+                <input type="text" id="area-min" class="input-min-area num_only" value="{{$size[0]}}">
+                ~
+                <input type="text" id="area-max" class="input-max-area num_only" value="{{$size[1]}}"> ㎡
+            </div>
+            <div class="form-field range2 slider-class">
+                <input class="range-slider2" type="hidden" name="term[size]" value="{{$size[0]}},{{$size[1]}}"/>
+            </div>
+        </div>
 
-            {{-- add zoom latlng --}}
-            <input type="hidden" id="ne_lat" name="ne_lat" value="">
-            <input type="hidden" id="ne_lng" name="ne_lng" value="">
-            <input type="hidden" id="sw_lat" name="sw_lat" value="">
-            <input type="hidden" id="sw_lng" name="sw_lng" value="">
+        {{-- add zoom latlng --}}
+        <input type="hidden" id="ne_lat" name="ne_lat" value="">
+        <input type="hidden" id="ne_lng" name="ne_lng" value="">
+        <input type="hidden" id="sw_lat" name="sw_lat" value="">
+        <input type="hidden" id="sw_lng" name="sw_lng" value="">
         <div class="contain_last_form_search"><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
     </div>
 
@@ -74,10 +88,12 @@ if (!isset($position_search)) {
             <h2 id="total-estate">{{ isset($search_estates) ? $search_estates->total() : $total_estate }}</h2>
         </div>
         <button type="submit" class="img-button">
-            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"><span class="show-mobile">@lang('search.bt_search')</span></a>
+            <a href="#" class="search-circle-btn"><img src="{{ asset('images/new-layout/icon-search.png') }}"><span
+                        class="show-mobile">@lang('search.bt_search')</span></a>
         </button>
         <button class="clear-form-search-btn" type="reset">@lang('search.reset')</button>
-        <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/rental-office') }}" class="special-btn hide-mobile">@lang('search.button_link')</a>
+        <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/support/rental-office') }}"
+           class="special-btn hide-mobile">@lang('search.button_link')</a>
     </div>
 </div>
 {!! Form::close() !!}

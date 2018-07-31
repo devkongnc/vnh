@@ -112,6 +112,8 @@
     var txt_like_current = '{{ trans('front.like_current_text') }}';
     var txt_bt_like_selected = '{{ trans('entity.estate.liked') }}';
     var txt_bt_like_not_select = '{{ trans('entity.estate.like') }}';
+    var txt_bt_area_default = '{{ trans('search.multiple-choice') }}';
+    var txt_bt_area_selected = '{{ trans('search.multiple-choice-selected') }}';
 
     function estate_permalink(product_id) {
         return '{{ action('RealEstateController@show', 'product_id') }}'.replace('product_id', product_id);
