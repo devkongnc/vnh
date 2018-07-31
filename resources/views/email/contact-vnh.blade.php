@@ -15,6 +15,16 @@
         <p style="padding-left: 30px;">
         	{!! nl2br($data['message']) !!}
         </p>
+        <hr>
+        <p>OFFICE INFOMATION</p>
+        <p>[ID] <span style="font-weight: bold">{{ $data['office-id'] }}</span> </p>
+        <p>[Name]
+            <a href="{{ $data['office-url'] }}">
+                {{ $data['office-title'] }}
+            </a>
+        <p>[Price] {{ $data['office-price'] }} {{  (!empty($data['office-max-price'])) ?' ~ '.$data['office-max-price']:'' }}</strong>
+            USD / ㎡
+        </p>
         @if (count($estates) > 0)
         	<p>@lang('email.estates id')</p>
 	        <p style="padding-left: 30px;">
