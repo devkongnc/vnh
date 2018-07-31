@@ -60,7 +60,8 @@
 								<img src="{{ URL::to('/') }}{{ $office->post_thumbnail }}" alt="{{ $office->title }}" class="folio-big-img">
 								<div class="info-desc">
 									<h3 class="title-f">{{ $office->product_id }}</h3>
-									<a href="#" class="like-btn btn-like like" data-id="{{ $office->product_id }}"><img src="{{ asset('images/new-layout/icon-heart.png') }}"></a>
+									<a href="#" class="like-btn btn-like like" data-id="{{ $office->product_id }}">
+										<div class="img-btn-like none_selected"  data-id="{{ $office->product_id }}" ></div></a>
 									<span class="sub-title-f">{{ $office->title }}</span>
 
 									<div class="info-blk">

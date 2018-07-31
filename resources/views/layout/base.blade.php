@@ -85,7 +85,7 @@
                     </p>
                 </div>
                 <div class="img-top">
-                    <img class="img-responsive" src="{{ asset('images/new-layout/icon-heart-fill.png') }}" alt="like">
+                    <div class="img-responsive img-btn-like" alt="like" ></div>
                 </div>
             </div>
             <div class="list-house-popup"></div>
