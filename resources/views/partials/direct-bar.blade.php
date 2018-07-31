@@ -8,7 +8,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                            <li class='{{ ((Lang::locale() === $localeCode) ? "active" : "") }}'>
+                            <li class='{{ ((Lang::locale() === $localeCode) ? "" : "") }}'>
                                 <a rel="alternate" hreflang="{{ $localeCode }}"
                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
                                     {{ $properties['native'] }}

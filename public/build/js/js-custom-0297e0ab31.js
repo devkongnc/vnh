@@ -270,6 +270,11 @@ function set_like_popup_text_current_startup() {
             $btn_like.find('span').html(txt_bt_like_selected);
         }
     });
+
+    $(like_ids).each(function (e,item) {
+        $('.img-btn-like[data-id="'+item+'"]').removeClass('none_selected');
+    });
+
 }
 
 function remove_like(estate_id) {
@@ -280,6 +285,7 @@ function remove_like(estate_id) {
     $num_like.text(like_ids.length);
     $('.btn-like[data-id="' + estate_id.toString() + '"]').removeClass('active');
     set_like_popup_text_current_startup();
+    $('.img-btn-like[data-id="'+estate_id+'"]').addClass('none_selected');
 }
 
 function resize_change(is_first) {
@@ -722,6 +728,7 @@ $(document).ready(function() {
         $('.list-house-popup').html('');
         $num_like.text(0);
         $('.btn-like').removeClass('active');
+        $('.img-btn-like:not(.img-responsive)').addClass('none_selected');
         set_like_popup_text_current_startup();
     });
     $('.top-news .like, #single-sidebar > .last-updated > .like, .btn-like').on('click touchstart', function(event) {
@@ -870,6 +877,15 @@ $(document).ready(function() {
 
     $(".like-page[data-toggle='tooltip']").tooltip({html: true, placement: "bottom"});
     set_like_popup_text_current_startup();
+
+    $('.house-blk').click(function (e) {
+        var link = $(this).data('link');
+        if($(event.target).is('.owl-prev,.owl-next,.btn-like,.img-btn-like')) {
+            event.preventDefault();
+        } else {
+            window.location.href = link;
+        }
+    });
 });
 
 $(document).ready(function ($) {
