@@ -66,17 +66,42 @@ class SearchMapController extends Controller {
                 if (count($prices) !== 2) {
                     unset($this->terms[$key]);
                     continue;
+                } else {
+                    $min=$prices[0];
+                    $max=$prices[1];
+                    $query =
+                        $query->where(function($query) use ($min,$max) {
+                            $query->where('price_max', '>', 0);
+                            $query->where(function($query) use ($min,$max) {
+                                $query
+                                ->whereRaw('? between price and price_max', [$min])
+                                ->orWhere(function ($query) use ($min, $max) {
+                                    $query->whereRaw('? between price and price_max', [$max]);
+                                })
+                                ->orWhere(function ($query) use ($min, $max) {
+                                    $query->where('price', '>=', $min);
+                                    $query->where('price_max', '<=', $max);
+                                })
+                                ->orWhere(function ($query) use ($min, $max) {
+                                    $query->where('price', '<=', $min);
+                                    $query->where('price_max', '>=', $max);
+                                });
+                            });
+                        })
+                        ->orWhere(function($query) use ($min,$max) {
+                            $query->where('price_max', '=', 0);
+                            $query->whereRaw('price between ? and ?', [$min,$max]);
+                        })
+                    ;
                 }
-                if ($prices[1] === 'max') $query = $query->where($key, '>=', (int) $prices[0]);
-                else $query = $query->whereBetween($key, array_map('intval', $prices));
-            }elseif ($key === 'size') {
+            } elseif ($key === 'size') {
                 $sizes = explode(',', $value);
                 if (count($sizes) !== 2) {
                     unset($this->terms[$key]);
                     continue;
+                } else {
+                    $query = $query->whereBetween($key, array_map('intval', $sizes));
                 }
-                if ($sizes[1] === 'max') $query = $query->where($key, '>=', (int) $sizes[0]);
-                else $query = $query->whereBetween($key, array_map('intval', $sizes));
             } elseif (is_array($value) and in_array($key, $above)) {
                 $query = $query->whereIn($key, $value);
             } elseif (is_array($value) and in_array($key, $below)) {
