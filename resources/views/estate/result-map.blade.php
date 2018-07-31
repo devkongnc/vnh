@@ -41,7 +41,7 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="title-number">
                                 <h2>51096</h2>
-                                <div class="like"><img src="{{ asset('images/new-layout/icon-heart.png') }}" ></div>
+                                <div class="like"><img class="img-btn-like none_selected" ></div>
                             </div>
                             <h3>登記もできちゃう綺麗なレンタルオフィス一室</h3>
                             <table class="house-info">

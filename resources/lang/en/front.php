@@ -35,7 +35,7 @@ return array(
             'contact' =>
                 array(
                     'description' => 'This is your wish list',
-                    'like remove' => 'For close this window.',
+                    'like remove' => 'Remove all bookmark.',
                 ),
             'thankyou' =>
                 array(

@@ -195,7 +195,7 @@
 	.range-section label{display:block;float:none;}
 	.form-field>.dropdown:first-child, .form-field>.dropdown:last-child {display: block;width: 100%;margin: 0 0 15px;}
 	.form-field>.dropdown:last-child .dropdown-toggle, .form-field .dropdown-menu {width: 100%}
-	.form-field>.dropdown input, .form-field>.dropdown button {padding: 8px 25px 8px 8px;height: auto}
+	.form-field>.dropdown input, .form-field>.dropdown button {padding: 0px 25px 0px 8px;height: auto}
 	.form-field .dropdown-toggle {background-position-y: 50%;}
 	.form-field .dropdown-menu>li>a {line-height: 2em;font-size: 1.2em;}
 	.pickup{display:none;}
@@ -221,7 +221,7 @@
 	.footer .col-md-3.col-sm-4 {padding: 0}
 	.copyright{text-align:center;margin:10px 0 0 0;}
 	.aside.in{width: 100%;min-width: 0;padding: 10% 0 0;height: 100vh;}
-	.aside .aside-header {right: 10%;top: 2%;}
+	.aside .aside-header {right: 12%;top: 10px;}
 	.aside .aside-contents {margin-top: 0;padding: 10px 15% 150px;overflow: auto;height: 100vh;}
 	.menu-aside li a{height:45px;line-height:45px;font-size: 1.2em;}
 	.menu-aside{margin-top:0;}

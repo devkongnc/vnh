@@ -2,7 +2,7 @@
 <div class="row list-product">
     @foreach($items as $item)
     <div class="col-md-6">
-        <div class="house-blk highest-box">
+        <div class="house-blk highest-box" data-link="{{ URL::action('RealEstateController@show', $item->product_id) }}">
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="owl-carousel owl-theme house-carousel">
@@ -13,15 +13,15 @@
                         @endforeach
                     </div>
                     <div class="house-sub-title"><strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡<span>（@lang('front.manage fee')）</span></div>
-                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 250) }}</p>
+                    <p class="house-sub-description">{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 250) }}</p>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="title-number">
                         <h2><a href="{{ URL::action('RealEstateController@show', $item->product_id) }}">{{ $item->product_id }}</a></h2>
-                        <div class="btn-like like" data-id="{{ $item->product_id }}"><img src="{{ asset('images/new-layout/icon-heart.png') }}" ></div>
+                        <div class="btn-like like" data-id="{{ $item->product_id }}"><div class="img-btn-like none_selected" data-id="{{ $item->product_id }}" ></div></div>
                     </div>
                     <a href="{{ URL::action('RealEstateController@show', $item->product_id) }}">
-                    <h3>{{ str_limit($item->title, 50) }}&nbsp;</h3>
+                    <h3>{!! $item->title  !!}&nbsp;</h3>
                     </a>
                     <table class="house-info">
                         <tr>
@@ -30,7 +30,7 @@
                         </tr>
                         <tr>
                             <td class="tdl">@lang('front.address')</td>
-                            <td class="tdr"><div>{{ str_limit($item->address,22) }}</div></td>
+                            <td class="tdr">{{ $item->address }}</td>
                         </tr>
 
                         <tr>

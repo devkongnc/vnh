@@ -43,7 +43,7 @@
             <div class="col-md-5 col-sm-5">
                 <div class="col-md-12 right group-date-like">
                     <span class="title-info-sm">@lang('front.last updated')　{{ $estate->custom_updated_at }}</span>
-                    <img class="like-btn btn-like like" data-id="{{ $estate->product_id }}" src="{{ asset('images/new-layout/icon-heart.png') }}">
+                    <div class="like-btn btn-like like img-btn-like none_selected" data-id="{{ $estate->product_id }}" ></div>
                 </div>
                 <div class="grey-bg-info">
                     <div class="row">
@@ -77,6 +77,7 @@
                             @foreach($above as $key => $value)
                                 <?php if ($key !== 'city' && $key !== 'type'){ ?>
                                 <tr>
+                                    <td>
                                     <?php
                                         switch ($key) {
                                             case 'contract_limit' :
@@ -113,8 +114,9 @@
                                                 break;
                                         }
                                     ?>
-                                <td class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</td>
-                                <td class="tdr">{!! $str !!}</td>
+                                        <div class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</div>
+                                        <div class="tdr">{!! $str !!}</div>
+                                    </td>
                             </tr>
                             <?php } ?>
                         @endforeach
@@ -137,8 +139,8 @@
                     <div class="col-md-12">
                         <a href="#" data-toggle="modal" data-target="#modal-like-single"
                            class="product-query big-contact-btn">@lang('entity.estate.query')</a>
-                        <a href="#" class="btn-like big-favorite-btn" data-id="{{ $estate->product_id }}"><img
-                                    src="{{ asset('images/new-layout/icon-heart.png') }}">
+                        <a href="#" class="btn-like big-favorite-btn" data-id="{{ $estate->product_id }}"><div
+                                    class="img-btn-like none_selected" data-id="{{ $estate->product_id }}" ></div>
                             <span>@lang('entity.estate.like')</span>
                         </a>
                         <a href="#" class="product-print big-print-btn"><img

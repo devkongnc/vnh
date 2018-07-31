@@ -18,7 +18,7 @@
         <div class="content-l">
             <form>
                 <ul class="bt-group-search-condition">
-                    @include('estate.search-bar', ['search_estates' => $search_estates, 'price' => $price, 'size' => $size])
+                    {{--@include('estate.search-bar', ['search_estates' => $search_estates, 'price' => $price, 'size' => $size])--}}
                     <li class="search-bar-number-hits">@lang('front.number of hits') <strong>{{ $search_estates->total() }}</strong></li>
                 </ul>
             </form>
