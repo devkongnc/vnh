@@ -5,28 +5,43 @@
         @if (isset($estate_id))
             <input type="hidden" name="estates[]" value="{{ $estate_id }}">
         @endif
+        @if (!empty($office))
+                <input type="hidden" name="office-id" value="{{ $office->product_id }}">
+                <input type="hidden" name="office-title" value="{{ $office->title }}">
+                <input type="hidden" name="office-price" value="{{ $office->price }}">
+                <input type="hidden" name="office-max-price" value="{{ $office->price_max }}">
+                <input type="hidden" name="office-url" value="{{ $office->url }}">
+        @endif
     </div>
     <div class="contact-errors"></div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.name') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/user-icon.png" ></span>
-        <input type="text" id="{{ $prefix }}-name" name="name" value="" placeholder="@lang('entity.page.contact.name')" required="" maxlength="255" title="{{ rtrim(trans('validation.min.string', ['attribute' => 'name', 'min' => 3]), '.') }}" />
+        <span class="ctf-validation-field">
+            <input type="text" id="{{ $prefix }}-name" name="name" value="" placeholder="@lang('entity.page.contact.name')" required="" maxlength="255" title="{{ rtrim(trans('validation.min.string', ['attribute' => 'name', 'min' => 3]), '.') }}" />
+        </span>
     </div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.phone') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/phone-icon.png" ></span>
-        <input type="tel" id="{{ $prefix }}-phone" name="phone" value="" placeholder="@lang('entity.page.contact.phone')" required="" minlength="8" maxlength="15" pattern="^\+?[0-9\s]+$" title="{{ rtrim(trans('validation.regex', ['attribute' => 'phone']), '.') }}" />
+        <span class="ctf-validation-field">
+            <input type="tel" id="{{ $prefix }}-phone" name="phone" value="" placeholder="@lang('entity.page.contact.phone')" required="" minlength="8" maxlength="15" pattern="^\+?[0-9\s]+$" title="{{ rtrim(trans('validation.regex', ['attribute' => 'phone']), '.') }}" />
+        </span>
         <span class="ctf_hide_mobile">（@lang('entity.page.contact.alphanumeric')）</span>
     </div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.email') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/email-icon.png" ></span>
-        <input type="email" id="{{ $prefix }}-email" name="email" value="" placeholder="@lang('entity.page.contact.email')" required="" maxlength="255" />
+        <span class="ctf-validation-field">
+            <input type="email" id="{{ $prefix }}-email" name="email" value="" placeholder="@lang('entity.page.contact.email')" required="" maxlength="255" />
+        </span>
     </div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.message') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/mess-icon.png" ></span>
-        <textarea id="{{ $prefix }}-message" name="message" required="" maxlength="500" placeholder="@lang('entity.page.contact.message')"></textarea>
+        <span class="ctf-validation-field">
+            <textarea id="{{ $prefix }}-message" name="message" required="" maxlength="500" placeholder="@lang('entity.page.contact.message')"></textarea>
+        </span>
     </div>
     <div class="gr-cotnact-row">
         @if ($prefix === 'contact') <div id="RecaptchaContact" class="g-recaptcha"></div>
@@ -43,12 +58,28 @@
     </div>
 </form>
 
-<style>
+
+
+<style type="text/css">
     .gr-cotnact-row input{
         padding: 6px 10px;
         height: 40px;
         line-height: 40px;
+        position: relative;
     }
+    .gr-cotnact-row .ctf-validation-field:after{
+        content: "\e911";
+        font-family: 'icomoon' !important;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        color: #D6D6D6;
+    }
+
     .gr-cotnact-row input:hover{
         border: 1px solid #fbb03b;
         outline-color: transparent;
@@ -74,4 +105,5 @@
         .gr-cotnact-row input{min-width: 340px;}
     }
 </style>
+
 

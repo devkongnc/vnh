@@ -178,7 +178,14 @@ class HomeController extends Controller
         \SEO::setTitle($page->title);
         \SEO::opengraph()->setUrl($request->fullUrl());
         if ($permalink === 'contact') {
-            return view('about.contact', compact('page'))->with('isForm', true);
+            if (!empty($request->product_id)){
+                $id = $request->product_id;
+                $office = Estate::where('product_id', $id)
+                    ->with('resources')
+                    ->first();
+//                dd($office);
+            }
+            return view('about.contact', compact('page','office'))->with('isForm', true);
         } elseif ($permalink === 'landlord') {
             $store = new TermRepository([]);
             $terms_form = new Collection($store->currentData);
