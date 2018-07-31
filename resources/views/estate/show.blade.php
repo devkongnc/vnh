@@ -77,7 +77,6 @@
                             @foreach($above as $key => $value)
                                 <?php if ($key !== 'city' && $key !== 'type'){ ?>
                                 <tr>
-                                    <td>
                                     <?php
                                         switch ($key) {
                                             case 'contract_limit' :
@@ -114,9 +113,8 @@
                                                 break;
                                         }
                                     ?>
-                                        <div class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</div>
-                                        <div class="tdr">{!! $str !!}</div>
-                                    </td>
+                                <td class="tdl">{{ \App\Term::getLocaleValue($value['name']) }}</td>
+                                <td class="tdr">{!! $str !!}</td>
                             </tr>
                             <?php } ?>
                         @endforeach
@@ -137,8 +135,7 @@
                 </div>
                 <div class="row group-action-estate">
                     <div class="col-md-12">
-                        <a href="#" data-toggle="modal" data-target="#modal-like-single"
-                           class="product-query big-contact-btn">@lang('entity.estate.query')</a>
+                        <a href="{{ URL::action('HomeController@about', ['contact', 'product_id' => $estate->product_id]) }}" class="product-query big-contact-btn">@lang('entity.estate.query')</a>
                         <a href="#" class="btn-like big-favorite-btn" data-id="{{ $estate->product_id }}"><div
                                     class="img-btn-like none_selected" data-id="{{ $estate->product_id }}" ></div>
                             <span>@lang('entity.estate.like')</span>
@@ -174,7 +171,6 @@
                             <a class="rh-blk"
                                href="{{ URL::action('RealEstateController@show', $relative->product_id) }}">
                                 <img src="{{ img_exists($relative->post_thumbnail) }}"/>
-
                                 <span class="rh-info"><strong>{{ $relative->price }} {{  (!empty($relative->price_max)) ?' ~ '.$relative->price_max:'' }}</strong> USD/㎡</span>
                                 <p style="min-height:38px">{{ str_limit($relative->title, 40) }}</p>
                             </a>
