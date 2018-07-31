@@ -60,49 +60,5 @@
             margin-left: 25%;
             padding-left: 10px;
         }
-
-        .gr-cotnact-row input{
-            padding: 6px 10px;
-            height: 40px;
-            line-height: 40px;
-            position: relative;
-        }
-        .gr-cotnact-row input[type=text]:after{
-            content: "\e911";
-            font-family: 'icomoon' !important;
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 45px;
-            height: 45px;
-            line-height: 45px;
-            text-align: center;
-            color: #D6D6D6;
-        }
-
-        .gr-cotnact-row input:hover{
-            border: 1px solid #fbb03b;
-            outline-color: transparent;
-            outline-style: none;
-        }
-
-        .gr-cotnact-row input, .gr-cotnact-row textarea{border: 1px solid #5d5c5c !important; border-radius: 3px !important;}
-        .ctf-show-mobile{display: none}
-        @media screen and (max-width: 767px){
-            .ctf_hide_mobile{display: none !important}
-            .ctf-show-mobile{display: block; float: left; padding-top: 5px;}
-            .gr-cotnact-row input, .gr-cotnact-row textarea{margin-left: 5%; width: 83% !important;}
-        }
-
-        @media screen and (min-width: 768px){
-            .gr-cotnact-row input[type=text]::placeholder,
-            .gr-cotnact-row input[type=tel]::placeholder,
-            .gr-cotnact-row input[type=email]::placeholder,
-            .gr-cotnact-row textarea::placeholder
-            {
-                opacity: 0 !important;
-            }
-            .gr-cotnact-row input{min-width: 340px;}
-        }
     </style>
 @endsection

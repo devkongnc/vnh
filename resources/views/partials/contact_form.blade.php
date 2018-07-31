@@ -32,12 +32,16 @@
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.email') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/email-icon.png" ></span>
-        <input type="email" id="{{ $prefix }}-email" name="email" value="" placeholder="@lang('entity.page.contact.email')" required="" maxlength="255" />
+        <span class="ctf-validation-field">
+            <input type="email" id="{{ $prefix }}-email" name="email" value="" placeholder="@lang('entity.page.contact.email')" required="" maxlength="255" />
+        </span>
     </div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.message') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/mess-icon.png" ></span>
-        <textarea id="{{ $prefix }}-message" name="message" required="" maxlength="500" placeholder="@lang('entity.page.contact.message')"></textarea>
+        <span class="ctf-validation-field">
+            <textarea id="{{ $prefix }}-message" name="message" required="" maxlength="500" placeholder="@lang('entity.page.contact.message')"></textarea>
+        </span>
     </div>
     <div class="gr-cotnact-row">
         @if ($prefix === 'contact') <div id="RecaptchaContact" class="g-recaptcha"></div>
@@ -53,5 +57,53 @@
         </div>
     </div>
 </form>
+
+
+
+<style type="text/css">
+    .gr-cotnact-row input{
+        padding: 6px 10px;
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+    }
+    .gr-cotnact-row .ctf-validation-field:after{
+        content: "\e911";
+        font-family: 'icomoon' !important;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        color: #D6D6D6;
+    }
+
+    .gr-cotnact-row input:hover{
+        border: 1px solid #fbb03b;
+        outline-color: transparent;
+        outline-style: none;
+    }
+
+    .gr-cotnact-row input, .gr-cotnact-row textarea{border: 1px solid #5d5c5c !important; border-radius: 3px !important;}
+    .ctf-show-mobile{display: none}
+    @media screen and (max-width: 767px){
+        .ctf_hide_mobile{display: none !important}
+        .ctf-show-mobile{display: block; float: left; padding-top: 5px;}
+        .gr-cotnact-row input, .gr-cotnact-row textarea{margin-left: 5%; width: 83% !important;}
+    }
+
+    @media screen and (min-width: 768px){
+        .gr-cotnact-row input[type=text]::placeholder,
+        .gr-cotnact-row input[type=tel]::placeholder,
+        .gr-cotnact-row input[type=email]::placeholder,
+        .gr-cotnact-row textarea::placeholder
+        {
+            opacity: 0 !important;
+        }
+        .gr-cotnact-row input{min-width: 340px;}
+    }
+</style>
 
 
