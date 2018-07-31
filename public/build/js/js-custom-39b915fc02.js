@@ -982,8 +982,22 @@ $(document).ready(function ($) {
         });
     }
 
-    //dropdown checekbox//
+    function change_style_dropdown() {
+        if ($('.search-header input[name="term[area][]"]:checked').length > 0) {
+            $('button#dropdownselect3').addClass('selected_area').text(txt_bt_area_selected);
+        } else {
+            $('button#dropdownselect3').removeClass('selected_area').text(txt_bt_area_default);
+        }
+    }
+
+    //dropdown checkbox//
     var options = [];
+    var term_area_selected = $('.search-header input[name="term[area][]"]:checked');
+
+    $(term_area_selected).each(function () {
+        options.push($(this).closest('a').attr('data-value'));
+    });
+
     $('.advanced-search .dropdown-menu a').on('click', function (event) {
         var $target = $(event.currentTarget),
             val = $target.attr('data-value'),
@@ -997,11 +1011,13 @@ $(document).ready(function ($) {
             var sync_element = $('.menu-fix').find('ul.dropdown-menu').find('input[value="'+elem_val+'"]');
         }
 
+        console.log(options);
         if ((idx = options.indexOf(val)) > -1) {
             options.splice(idx, 1);
             setTimeout(function () {
                 $inp.prop('checked', false);
                 sync_element.prop('checked', false);
+                change_style_dropdown();
                 ajaxSearch();
             }, 0);
         } else {
@@ -1009,9 +1025,11 @@ $(document).ready(function ($) {
             setTimeout(function () {
                 $inp.prop('checked', true);
                 sync_element.prop('checked', true);
+                change_style_dropdown();
                 ajaxSearch();
             }, 0);
         }
+
         $(event.target).blur();
         return false;
     });
@@ -1043,7 +1061,7 @@ $(document).ready(function ($) {
     $('.range-slider2').jRange({
         from: 0,
         to: size_max_search,
-        step: 1,
+        step: 50,
         scale: [size_min_search, size_max_search],
         format: '%s',
         width: jrange_width,

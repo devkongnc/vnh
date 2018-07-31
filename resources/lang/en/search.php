@@ -12,6 +12,7 @@ return array(
     'advanced search' => 'Advanced Search',
     'area' => 'Area',
     'multiple-choice' => 'Multiple Choice',
+    'multiple-choice-selected' => 'Selected',
     'hits-number' => 'Hits',
     'unit-price' => 'Unit Price',
     'unit-area' => 'Unit Area',
