@@ -12,7 +12,9 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
+    'check-required'       => 'This is a required field.',
+    'check-email'          => 'Please enter a valid email address!',
+    'check-phone'          => 'Please enter a valid phone number!',
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
