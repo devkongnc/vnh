@@ -13,19 +13,21 @@
                 <input type="hidden" name="office-url" value="{{ $office->url }}">
         @endif
     </div>
-    <div class="contact-errors"></div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.name') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/user-icon.png" ></span>
         <div class="ctf-validation-field">
-            <input type="text" id="{{ $prefix }}-name" name="name" value="" placeholder="@lang('entity.page.contact.name')" required="" maxlength="255" title="{{ rtrim(trans('validation.min.string', ['attribute' => 'name', 'min' => 3]), '.') }}" />
+            <input type="text" id="{{ $prefix }}-name" name="name" value="" placeholder="@lang('entity.page.contact.name')" maxlength="255" title="{{ rtrim(trans('validation.min.string', ['attribute' => 'name', 'min' => 3]), '.') }}" />
+            <div class="contact-errors">@lang('validation.check-required')</div>
         </div>
     </div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.phone') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/phone-icon.png" ></span>
         <div class="ctf-validation-field">
-            <input type="tel" id="{{ $prefix }}-phone" name="phone" value="" placeholder="@lang('entity.page.contact.phone')" required="" minlength="8" maxlength="15" pattern="^\+?[0-9\s]+$" title="{{ rtrim(trans('validation.regex', ['attribute' => 'phone']), '.') }}" />
+            <input type="tel" id="{{ $prefix }}-phone" name="phone" value="" placeholder="@lang('entity.page.contact.phone')" minlength="8" maxlength="15" pattern="^\+?[0-9\s]+$" title="{{ rtrim(trans('validation.regex', ['attribute' => 'phone']), '.') }}" />
+            <div class="contact-errors">@lang('validation.check-required')</div>
+            <div class="contact-errors-phone">@lang('validation.check-phone')</div>
         </div>
         <span class="ctf_hide_mobile">（@lang('entity.page.contact.alphanumeric')）</span>
     </div>
@@ -33,14 +35,17 @@
         <label class="ctf_hide_mobile">@lang('entity.page.contact.email') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/email-icon.png" ></span>
         <div class="ctf-validation-field">
-            <input type="email" id="{{ $prefix }}-email" name="email" value="" placeholder="@lang('entity.page.contact.email')" required="" maxlength="255" />
+            <input type="email" id="{{ $prefix }}-email" name="email" value="" placeholder="@lang('entity.page.contact.email')" maxlength="255" />
+            <div class="contact-errors">@lang('validation.check-required')</div>
+            <div class="contact-errors-email">@lang('validation.check-email')</div>
         </div>
     </div>
     <div class="gr-cotnact-row">
         <label class="ctf_hide_mobile">@lang('entity.page.contact.message') <img src="/images/new-layout/icon-require.png" ></label>
         <span class="ctf-show-mobile"><img src="/images/icon-contact-form/mess-icon.png" ></span>
         <div class="ctf-validation-field">
-            <textarea id="{{ $prefix }}-message" name="message" required="" maxlength="500" placeholder="@lang('entity.page.contact.message')"></textarea>
+            <textarea id="{{ $prefix }}-message" name="message" maxlength="500" placeholder="@lang('entity.page.contact.message')"></textarea>
+            <div class="contact-errors">@lang('validation.check-required')</div>
         </div>
     </div>
     <div class="gr-cotnact-row">
@@ -49,6 +54,7 @@
         {{--@else <div id="RecaptchaPopup" class="g-recaptcha"></div>--}}
         {{--@endif--}}
         <div class="g-recaptcha" data-sitekey="6LetKSYTAAAAAMRT2rGgIk0EbZ8T25g_MJNfuXzi" data-callback="correctCaptcha"></div>
+        {{--<div class="g-recaptcha" data-sitekey="6LfdbmcUAAAAAGPmOrdaAFMt6mTQeBn7UsNkE0y_" data-callback="correctCaptcha"></div>--}}
         <div id="recaptcha-error" style="display: none; margin-top:5px; color: #C22F12">Please complete the recaptcha</div>
     </div>
     <hr>
@@ -70,36 +76,77 @@
             if(response.length == 0) {
                 e.preventDefault();
                 $('#recaptcha-error').show();
-                console.log('fail');
+                $('.blk-submit-btn').addClass('btn-disable');
+                $('.blk-submit-btn').attr('disabled', true);
             }
             //recaptcha passed validation
             else {
                 $('#recaptcha-error').hide();
                 $( "#form" ).submit();
-                console.log('pass');
+                $('.blk-submit-btn').addClass('btn-disable');
+                $('.blk-submit-btn').attr('disabled', true);
             }
         }else{
             $('.gr-cotnact-row input, .gr-cotnact-row textarea').addClass('field-empty');
+            $('.contact-errors').show();
             return false;
         }
     });
+
+    // event check null of field
     $('.gr-cotnact-row input, .gr-cotnact-row textarea').bind('keyup blur change click', function () {
-        // console.log('null');
         if ($(this).val() == ''){
             $(this).addClass('field-empty');
             $(this).parent().removeClass('input-success');
             $('.blk-submit-btn').addClass('btn-disable');
             $('.blk-submit-btn').attr('disabled', true);
+            $(this).parent().find('.contact-errors').show();
+            $(this).parent().find('.contact-errors-email').hide();
+            $(this).parent().find('.contact-errors-phone').hide();
         }else{
             $(this).removeClass('field-empty');
-            $(this).parent().addClass('input-success');
             $('.blk-submit-btn').removeClass('btn-disable');
             $('.blk-submit-btn').removeAttr('disabled');
+            $(this).parent().find('.contact-errors').hide();
+
+            // check field type email
+            if ($(this).attr('type') == 'email'){
+                var isEmail = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if(!isEmail.test($(this).val())) {
+                    $(this).parent().find('.contact-errors-email').show();
+                    return false;
+                }else{
+                    $(this).parent().find('.contact-errors-email').hide();
+                }
+                // check field type phone
+            }else if ($(this).attr('type') == 'tel'){
+                var isPhone = /([0-9]{10})|(\([0-9]{3}\)\s+[0-9]{3}\-[0-9]{4})/;
+                if(!isPhone.test($(this).val())) {
+                    $(this).parent().find('.contact-errors-phone').show();
+                    return false;
+                }else{
+                    $(this).parent().find('.contact-errors-phone').hide();
+                }
+            }
+            $(this).parent().addClass('input-success');
         }
     });
+
+    // check event call back of captcha
+    var correctCaptcha = function () {
+        $('#recaptcha-error').hide();
+        $('.blk-submit-btn').removeClass('btn-disable');
+        $('.blk-submit-btn').removeAttr('disabled');
+    }
+
 </script>
 
 <style type="text/css">
+    .contact-errors, .contact-errors-email, .contact-errors-phone{
+        color: #C22F12;
+        margin-top: 5px;
+        display: none;
+    }
     .ctf-validation-field{
         width: 340px;
         display: inline-block;

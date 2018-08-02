@@ -219,6 +219,7 @@ $(document).ready(function ($) {
         sync_search_box('size-max',size_max_search);
         $('input#keyword').val('');
         $('.advanced-search .dropdown-menu a').find('input[type="checkbox"]').prop('checked', false);
+        change_style_dropdown();
         ajaxSearch();
     });
 
