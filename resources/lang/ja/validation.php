@@ -12,7 +12,10 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-    'check-required'             => 'This is a required field.',
+    'check-required'       => 'これは必須フィールドです。',
+    'check-email'          => '有効なメールアドレスを入力してください。',
+    'check-phone'          => '有効な電話番号を入力して下さい！',
+    'check-captcha'        => 'reCAPTCHA を完成させてください',
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',

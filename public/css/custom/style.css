@@ -3329,3 +3329,22 @@ ul.search-condition-item > li > div {
     background: url(../../images/new-layout/icon-heart-fill-none.png) center top no-repeat;
     background-size: 24px 24px;
 }
+
+.dropdown-backdrop {
+    position: relative;
+}
+
+
+@media (max-width: 991px) {
+    .menu-fix .content-l {
+        width: 95%;
+        height: auto!important;
+    }
+    .search-hidden {
+        display:block;
+    }
+    .menu-fix .advanced-search {
+        left: unset;
+        margin: 19px auto 0;
+    }
+}

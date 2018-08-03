@@ -49,13 +49,9 @@
         </div>
     </div>
     <div class="gr-cotnact-row">
-        {{--@if ($prefix === 'contact') <div id="RecaptchaContact" class="g-recaptcha"></div>--}}
-        {{--@elseif ($prefix === 'estate') <div id="RecaptchaEstate" class="g-recaptcha"></div>--}}
-        {{--@else <div id="RecaptchaPopup" class="g-recaptcha"></div>--}}
-        {{--@endif--}}
-        <div class="g-recaptcha" data-sitekey="6LetKSYTAAAAAMRT2rGgIk0EbZ8T25g_MJNfuXzi" data-callback="correctCaptcha"></div>
-        {{--<div class="g-recaptcha" data-sitekey="6LfdbmcUAAAAAGPmOrdaAFMt6mTQeBn7UsNkE0y_" data-callback="correctCaptcha"></div>--}}
-        <div id="recaptcha-error" style="display: none; margin-top:5px; color: #C22F12">Please complete the recaptcha</div>
+        {{--<div class="g-recaptcha" data-sitekey="6LetKSYTAAAAAMRT2rGgIk0EbZ8T25g_MJNfuXzi" data-callback="correctCaptcha"></div>--}}
+        <div class="g-recaptcha" data-sitekey="6LfdbmcUAAAAAGPmOrdaAFMt6mTQeBn7UsNkE0y_" data-callback="correctCaptcha"></div>
+        <div id="recaptcha-error" style="display: none; margin-top:5px; color: #C22F12">@lang('validation.check-captcha')</div>
     </div>
     <hr>
     <div class="gr-cotnact-row">
