@@ -15,6 +15,7 @@ return [
     'check-required'       => 'This is a required field.',
     'check-email'          => 'Please enter a valid email address!',
     'check-phone'          => 'Please enter a valid phone number!',
+    'check-captcha'        => 'Please complete the recaptcha.',
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',

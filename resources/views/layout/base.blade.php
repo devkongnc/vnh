@@ -100,10 +100,128 @@
 </div>
 
 
+<div class="quest-popup">
+    <div class="quest-popup-wrap">
+        <span class="quest-popup-close"><i class="fa fa-times"></i></span>
+        <div class="quest-popup-top">
+            <h3>30人規模オフィスの面積を算出しよう！</h3>
+        </div>
+        <div class="quest-popup-cal">
+            <form>
+                <select class="quest-input-size">
+                    <option value="0">一人当たり</option>
+                    <option value="3">3m&sup2;</option>
+                    <option value="4">4m&sup2;</option>
+                    <option value="5">5m&sup2;</option>
+                    <option value="6">6m&sup2;</option>
+                    <option value="7">7m&sup2;</option>
+                    <option value="8">8m&sup2;</option>
+                    <option value="9">9m&sup2;</option>
+                    <option value="10">10m&sup2;</option>
+                </select>
+                <span><strong>X</strong></span>
+                <input type="number" class="quest-input-number" placeholder="人数">
+                <span><strong>=</strong></span>
+                <input type="text" class="quest-input-result">
+            </form>
+        </div>
+        <div class="quest-popup-img">
+            <img src="{{ asset('images/popup/popup-im1.png') }}">
+        </div>
+    </div>
+</div>
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style type="text/css">
+    .quest-popup{
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(6, 6, 6, 0.7);
+        height: 100%;
+        z-index: 999;
+        display: none;
+    }
+    .quest-popup-wrap{
+        width: 720px;
+        background: #fff;
+        margin: 0 auto;
+        text-align: center;
+        padding: 25px 70px;
+        margin-top: 5%;
+        position: relative;
+    }
+    .quest-popup-close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 22px;
+        color: #b5b5b5;
+    }
+    .quest-popup-close:hover{
+        color: #000;
+        cursor: pointer;
+    }
+    .quest-popup-top, .quest-popup-cal, .quest-popup-img, .quest-popup-img img{
+        width: 100%;
+        margin: 5px 0;
+    }
+    .quest-popup-top h3{
+        border: 2px solid;
+        padding: 15px;
+    }
+    .quest-popup-cal{
+        padding: 10px 0;
+    }
+    .quest-popup-cal select{
+        min-width: 120px;
+        padding: 5px;
+    }
+    .quest-input-number{
+        width: 120px;
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+    .quest-input-result{
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
 </style>
+
+<script type="text/javascript">
+    $('.quest-input-number').bind('keyup blur change click', function () {
+        var result = $(this).val()*$('.quest-input-size').val();
+        if (result != 0 || result != ''){
+            $('.quest-input-result').val( result+'m²' );
+        }
+        return false;
+    });
+    $('.quest-input-size').change(function () {
+            var str = 0;
+            $('.quest-input-size option:selected').each(function() {
+                str = $( this ).val();
+                // console.log(str);
+            });
+            var result = str*$('.quest-input-number').val();
+            if (result != 0 || result != ''){
+                $('.quest-input-result').val( result+'m²' );
+            }
+        }).change();
+
+    $('.quest-btn').click(function () {
+        $('.quest-popup').show();
+    });
+    $('.quest-popup-close').click(function () {
+        $('.quest-popup').hide();
+    });
+</script>
 
 <script type="text/javascript">
     var estate_ajax = '{{ action('RealEstateController@index') }}';

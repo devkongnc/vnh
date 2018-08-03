@@ -12,7 +12,10 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-    'check-required'             => 'This is a required field.',
+    'check-required'       => 'Đây là một trường bắt buộc.',
+    'check-email'          => 'Hãy nhập một địa chỉ email hợp lệ!',
+    'check-phone'          => 'Vui lòng nhập số điện thoại hợp lệ!',
+    'check-captcha'        => 'Vui lòng hoàn thành recaptcha',
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',

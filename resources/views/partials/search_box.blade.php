@@ -79,7 +79,7 @@ if (!isset($position_search)) {
         <input type="hidden" id="ne_lng" name="ne_lng" value="">
         <input type="hidden" id="sw_lat" name="sw_lat" value="">
         <input type="hidden" id="sw_lng" name="sw_lng" value="">
-        <div class="contain_last_form_search"><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
+        <div class="contain_last_form_search hide-mobile"><a href="#" class="quest-btn">@lang('search.button_question')</a></div>
     </div>
 
     <div class="search-gr">
