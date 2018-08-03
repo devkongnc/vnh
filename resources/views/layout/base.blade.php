@@ -122,7 +122,7 @@
                 <span><strong>X</strong></span>
                 <input type="number" class="quest-input-number" placeholder="人数">
                 <span><strong>=</strong></span>
-                <input type="text" class="quest-input-result">
+                <input type="text" class="quest-input-result" disabled>
             </form>
         </div>
         <div class="quest-popup-img">
@@ -192,6 +192,7 @@
     .quest-input-result{
         padding: 5px;
         border: 1px solid #ccc;
+        background: #fff;
     }
 </style>
 
@@ -199,9 +200,11 @@
     $('.quest-input-number').bind('keyup blur change click', function () {
         var result = $(this).val()*$('.quest-input-size').val();
         if (result != 0 || result != ''){
+            $('.quest-input-result').val('');
             $('.quest-input-result').val( result+'m²' );
+        }else{
+            $('.quest-input-result').val('');
         }
-        return false;
     });
     $('.quest-input-size').change(function () {
             var str = 0;
@@ -211,7 +214,10 @@
             });
             var result = str*$('.quest-input-number').val();
             if (result != 0 || result != ''){
+                $('.quest-input-result').val('');
                 $('.quest-input-result').val( result+'m²' );
+            }else{
+                $('.quest-input-result').val('');
             }
         }).change();
 
