@@ -98,3 +98,44 @@ if (!isset($position_search)) {
 </div>
 {!! Form::close() !!}
 
+
+<style>
+    .jrange-single{
+        position: absolute;
+        top: -35px;
+        left: 50%;
+        transform: translate(-50%,0);
+        width: 60px;
+        background: #fff;
+        color: #333;
+        border: 1px solid #000;
+        padding: 5px;
+        line-height: 9px;
+        border-radius: 2px;
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+        display: none;
+    }
+    .jrange-single:before, .jrange-single:after{
+        position: absolute;
+        content: "";
+        display: inline-block;
+        border-bottom: 0;
+    }
+    .jrange-single:before{
+        left: 20px;
+        bottom: -7px;
+        border-top: 7px solid #000;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+    }
+    .jrange-single:after {
+        left: 21px;
+        bottom: -6px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #fff;
+    }
+</style>
+
