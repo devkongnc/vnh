@@ -137,5 +137,18 @@ if (!isset($position_search)) {
         border-right: 6px solid transparent;
         border-top: 6px solid #fff;
     }
+
+    .range2 .jrange-single{
+        width: 70px;
+    }
+    .range2 .jrange-single:before{
+        left: 24px;
+    }
+    .range2 .jrange-single:after {
+        left: 25px;
+    }
+    .theme-green .back-bar .pointer-label{
+        display: block;
+    }
 </style>
 
