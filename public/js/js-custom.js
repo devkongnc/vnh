@@ -1058,6 +1058,7 @@ $(document).ready(function ($) {
             ajaxSearch();
         }
     });
+
     $('.range-slider').on('change', function() {
         var data = this.value;
         var range = data.split(",");

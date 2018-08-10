@@ -53,6 +53,13 @@
     </style>
 
     @yield('styles')
+
+
+    <style type="text/css">
+        .slider-container.theme-green{
+            width: 300px !important;
+        }
+    </style>
 </head>
 
 <body class="{{ is_null(Route::current()) ? '' : ((strpos(Route::current()->getUri(), 'search-map') !== FALSE)?' change-body-padding ':'') }}">
