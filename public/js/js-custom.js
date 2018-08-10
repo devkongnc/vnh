@@ -1058,6 +1058,25 @@ $(document).ready(function ($) {
             ajaxSearch();
         }
     });
+    $('.range-slider').on('change', function() {
+        var data = this.value;
+        var range = data.split(",");
+        if (range[1]-range[0] <= 11) {
+            $(this).parent().find('.theme-green .back-bar .pointer-label').hide();
+            $(this).parent().find('.theme-green .back-bar .jrange-single').text(range[0]+'-'+range[1]);
+            $(this).parent().find('.theme-green .back-bar .jrange-single').show();
+            var pos_min = range[0]*3;
+            var pos_max = range[1]*3;
+            var pos_center = (pos_min+pos_max) / 2 + 15;
+            $(this).parent().find('.theme-green .back-bar .jrange-single').css('left',pos_center+'px');
+        }else{
+            $(this).parent().find('.theme-green .back-bar .pointer-label').show();
+            $(this).parent().find('.theme-green .back-bar .jrange-single').hide();
+        }
+    });
+
+
+
     $('.range-slider2').jRange({
         from: 0,
         to: size_max_search,
@@ -1078,6 +1097,23 @@ $(document).ready(function ($) {
             sync_search_box('size-min',range[0]);
             sync_search_box('size-max',range[1]);
             ajaxSearch();
+        }
+    });
+
+    $('.range-slider2').on('change', function() {
+        var data = this.value;
+        var range = data.split(",");
+        if (range[1]-range[0] <= 450) {
+            $(this).parent().find('.theme-green .back-bar .pointer-label').hide();
+            $(this).parent().find('.theme-green .back-bar .jrange-single').text(range[0]+'-'+range[1]);
+            $(this).parent().find('.theme-green .back-bar .jrange-single').show();
+            var pos_min = range[0]*0.1;
+            var pos_max = range[1]*0.1;
+            var pos_center = (pos_min+pos_max) / 2 + 15;
+            $(this).parent().find('.theme-green .back-bar .jrange-single').css('left',pos_center+'px');
+        }else{
+            $(this).parent().find('.theme-green .back-bar .pointer-label').show();
+            $(this).parent().find('.theme-green .back-bar .jrange-single').hide();
         }
     });
 
