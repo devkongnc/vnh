@@ -76,11 +76,11 @@
     @include('layout.footer')
 @endif
 
-<a id="back_to_top" href="#">
+<!-- <a id="back_to_top" href="#">
     <span class="fa-stack">
         <img src="{{ asset('images/new-layout/totop.png') }}">
     </span>
-</a>
+</a> -->
 
 <div class="modal sp-modal-contract" id="modal-like">
     <div class="modal-dialog modal-lg">
