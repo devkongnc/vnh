@@ -14,7 +14,7 @@ if (!isset($position_search)) {
         <div class="row">
             <div class="form-field">
                 <div class="dropdown">
-                    <input type="text" id="keyword" name="keyword"
+                    <input type="text" autocomplete="off" id="keyword" name="keyword"
                            value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}"
                            placeholder="ID、キーワード"/>
                 </div>

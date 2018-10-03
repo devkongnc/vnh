@@ -1078,7 +1078,7 @@ $(document).ready(function ($) {
     $('.range-slider2').jRange({
         from: 0,
         to: size_max_search,
-        step: 50,
+        step: 10,
         scale: [size_min_search, size_max_search],
         format: '%s',
         width: jrange_width,
@@ -1200,8 +1200,10 @@ $(document).ready(function ($) {
                 price_min = 0;
                 sync_search_box('price-min',price_min);
             }
-            if (isNaN(price_max)
-                || price_max > price_max_search) { price_max = price_max_search; }
+            if (isNaN(price_max) || price_max > price_max_search) {
+                // price_max = price_max_search;
+                price_max = 0;
+            }
             if (price_max >= price_min) {
                 sync_search_box('price-max',price_max);
                 ajaxSearch();
@@ -1245,8 +1247,10 @@ $(document).ready(function ($) {
                 size_min = 0;
                 sync_search_box('size-min',size_min);
             }
-            if (isNaN(size_max)
-                || size_max > size_max_search) { size_max = size_max_search; }
+            if (isNaN(size_max) || size_max > size_max_search) {
+                // size_max = size_max_search;
+                size_max = 0;
+            }
             if (size_max >= size_min) {
                 sync_search_box('size-max',size_max);
                 ajaxSearch();
