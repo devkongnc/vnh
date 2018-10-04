@@ -4,7 +4,7 @@ return array(
     'bt_search' => '検索する',
     'title' => 'こだわり検索',
     'description' => 'ベトナムハウス特集から物件を探す',
-    'placeholder' => '例）物件ID, 物件タイトルなど',
+    'placeholder' => 'ID、キーワード',
     'condition' => '検索条件',
     'item' => '件',
     'number of hits' => '該当物件数',

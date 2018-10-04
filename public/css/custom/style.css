@@ -1129,6 +1129,7 @@ a[href^="tel"] {
     background: #f7931e;
     border: 0;
     top: -8px;
+    z-index: 9;
 }
 
 .slider-container .clickable-dummy {

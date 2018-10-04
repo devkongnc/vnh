@@ -4,7 +4,7 @@ return array(
     'bt_search' => 'Tìm kiếm',
     'title' => 'Tìm kiếm',
     'description' => 'Tìm theo các danh mục đặc sắc của Vietnamhouse',
-    'placeholder' => 'VD: căn hộ tại quận 1',
+    'placeholder' => 'Mã căn, Từ khóa tìm kiếm',
     'condition' => 'Điều kiện tìm',
     'item' => 'BDS',
     'number of hits' => 'BDS',

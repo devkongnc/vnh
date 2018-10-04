@@ -1,4 +1,4 @@
-<input type="hidden" id="keyword" name="keyword" value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}" placeholder="ID、キーワード" />
+<input type="hidden" autocomplete="off" id="keyword" name="keyword" value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}" placeholder="ID、キーワード" />
 <li>
     <a>エリア</a>
     <ul class="search-condition-item price-condition">

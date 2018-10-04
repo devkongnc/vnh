@@ -297,8 +297,8 @@ a[href^="tel"] {
 }
 
 .pickup-blk .pickup-img {
-    overflow: hidden;
-    height: 190px;
+    /*overflow: hidden;*/
+    /*height: 190px;*/
     vertical-align: middle;
 }
 
@@ -1812,12 +1812,12 @@ h2.title-border {
     box-shadow: -1px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-.feature-blk:hover img {
-    width: 185px;
-    height: 185px;
-    top: 0;
-    left: 0;
-}
+/*.feature-blk:hover img {*/
+    /*width: 185px;*/
+    /*height: 185px;*/
+    /*top: 0;*/
+    /*left: 0;*/
+/*}*/
 
 .feature-blk img {
     height: 175px;
@@ -3429,7 +3429,7 @@ ul.search-condition-item > li > div {
 	.img-breadcrumb{min-height:200px;}
 	.feature-blk{padding:5px 5px 5px 125px;height:130px;font-size:14px;}
 	.feature-blk img{height:120px;width:120px}
-	.feature-blk:hover img{width:130px;height:130px;}
+	/*.feature-blk:hover img{width:130px;height:130px;}*/
 	.feature-blk h3{font-size:14px;padding-bottom:8px;margin-bottom:4px;height: 37px;}
 	.feature-blk .desc{padding:0;height:100px;margin:10px;line-height:17px;}
 	.title-details .right{text-align:right;margin:10px 0 0 0;}

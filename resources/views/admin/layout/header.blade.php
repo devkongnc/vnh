@@ -1,7 +1,7 @@
 <header class="main-header">
 	<a href="{{ route('home') }}" class="logo">
 		<span class="logo-mini"><b>VNH</b></span>
-		<span class="logo-lg">VietNamHouse</span>
+		<span class="logo-lg">OFFICE Admin</span>
 	</a>
 	<nav class="navbar navbar-static-top">
 		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"><span class="sr-only">Toggle navigation</span></a>
@@ -55,9 +55,9 @@
 				<a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
 			</li>
 			<li class="treeview {{ Active::getClassIf(Active::checkController(['App\Http\Controllers\Admin\RealEstateController']) or Active::checkUriPattern(['*real-estate*'])) }}">
-			    <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> <span>Real Estate</span></a>
+			    <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> <span>Office</span></a>
 			    <ul class="nav treeview-menu">
-			    	<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\RealEstateController@index'])) }}"><a href="{{ URL::action('Admin\RealEstateController@index') }}">Real Estate</a></li>
+			    	<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\RealEstateController@index'])) }}"><a href="{{ URL::action('Admin\RealEstateController@index') }}">Office</a></li>
 			        <li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\RealEstateController@create'])) }}"><a href="{{ URL::action('Admin\RealEstateController@create') }}">Create New</a></li>
 			        @can('manage-user')
 						<li class="{{ Active::getClassIf(Active::checkAction(['App\Http\Controllers\Admin\TermController@index']) and Active::checkUriPattern(['*real-estate*'])) }}"><a href="{{ URL::action('Admin\TermController@index', 'real-estate') }}">Term</a></li>
