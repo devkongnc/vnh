@@ -4,7 +4,7 @@ return array(
     'bt_search' => 'Search',
     'title' => 'Advanced Search',
     'description' => 'Search property from Vietnamhouse special term',
-    'placeholder' => 'Ex: Properties ID, Title etc...',
+    'placeholder' => 'ID, Key words',
     'condition' => 'Search Condition',
     'item' => 'results',
     'number of hits' => 'HITS',

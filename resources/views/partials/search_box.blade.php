@@ -16,7 +16,7 @@ if (!isset($position_search)) {
                 <div class="dropdown">
                     <input type="text" autocomplete="off" id="keyword" name="keyword"
                            value="{{ !empty(Request::get('keyword')) ? Request::get('keyword') : '' }}"
-                           placeholder="ID、キーワード"/>
+                           placeholder="@lang('search.placeholder')"/>
                 </div>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle {{ (!empty($terms["area"])) ? 'selected_area' : '' }}" type="button" id="dropdownselect3"
