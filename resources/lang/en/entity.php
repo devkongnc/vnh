@@ -24,6 +24,7 @@ return array(
             'floor_unit' => ' floor',
             'contract_limit_year_unit' => ' year',
             'inclusive_included_unit' => ' included',
+            'inclusive_not_included_unit' => ' not included',
             'free_unit' => 'Free',
         ),
     'arrival' =>

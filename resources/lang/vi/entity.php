@@ -24,6 +24,7 @@ return array(
             'floor_unit' => ' tầng',
             'contract_limit_year_unit' => ' năm',
             'inclusive_included_unit' => ': đã tính',
+            'inclusive_not_included_unit' => ' chưa tính',
             'free_unit' => 'Miễn phí',
         ),
     'arrival' =>

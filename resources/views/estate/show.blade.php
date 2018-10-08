@@ -64,6 +64,10 @@
                                 <span class="estate-detail-vat">
                                 {{ \App\Term::getLocaleValue($value).trans('entity.estate.inclusive_included_unit') }}
                                 </span>
+                                @else
+                                    <span class="estate-detail-vat">
+                                        {{ \App\Term::getLocaleValue($value).trans('entity.estate.inclusive_not_included_unit') }}
+                                    </span>
                                 @endif
                             @endforeach
                             </span>
@@ -126,12 +130,11 @@
                     <ul class="house-feature2">
                         @foreach($below as $key => $data)
                             @foreach($data['values'] as $index => $value)
-                                <li data-key="{{$index}}"
-                                        class="{{ in_array($index, (array) $estate->{$key}) ? "" : 'inactive' }} ">
-                                        {{ \App\Term::getLocaleValue($value) }}
-                                    </li>
-                                @endforeach
+                                <li data-key="{{$index}}" class="{{ in_array($index, (array) $estate->{$key}) ? "" : 'inactive' }} ">
+                                    {{ \App\Term::getLocaleValue($value) }}
+                                </li>
                             @endforeach
+                        @endforeach
                         </ul>
                     </div>
                 </div>
@@ -149,12 +152,12 @@
                 </div>
                 <div class="center">
                     <ul class="social-list">
-                        <li><a href="#" class="fb-s"></a></li>
-                        <li><a href="#" class="tw-s"></a></li>
-                        <li><a href="#" class="pt-s"></a></li>
-                        <li><a href="#" class="li-s"></a></li>
-                        <li><a href="#" class="gm-s"></a></li>
-                        <li><a href="#" class="em-s"></a></li>
+                        <li><a class="fb-s product-social" onclick="shareSocial('facebook')"></a></li>
+                        <li><a class="tw-s product-social" onclick="shareSocial('twitter')"></a></li>
+                        <li><a class="pt-s product-social" onclick="shareSocial('pinterest')"></a></li>
+                        <li><a class="li-s product-social" onclick="shareSocial('line', '{{ $estate->title }}')"></a></li>
+                        <li><a class="gm-s product-social" onclick="shareSocial('google')"></a></li>
+                        <li><a class="em-s product-social" href="mailto:kongnc1992@gmail.com"></a></li>
                     </ul>
                 </div>
                 <p class="house-details-txt">
@@ -249,6 +252,11 @@
             size:A4 landscape;
             margin: 10px;
             -webkit-print-color-adjust: exact;
+        }
+    </style>
+    <style>
+        .social-list li a:hover{
+            cursor: pointer;
         }
     </style>
 @endsection
