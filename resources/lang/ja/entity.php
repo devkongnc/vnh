@@ -24,6 +24,7 @@ return array(
             'floor_unit' => ' 階建て',
             'contract_limit_year_unit' => ' 年',
             'inclusive_included_unit' => '込み',
+            'inclusive_not_included_unit' => ' 別途',
             'free_unit' => '無料',
         ),
     'arrival' =>

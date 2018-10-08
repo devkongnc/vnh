@@ -16,8 +16,7 @@
     {{--<meta name="keywords" content="">--}}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Language" content="{{ $current_locale }}"/>
-    <meta name="viewport"
-          content="{{ Cookie::get('vnh_desktop', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1') }}">
+    <meta name="viewport" content="{{ Cookie::get('vnh_desktop', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1') }}">
     <meta name="format-detection" content="telephone=no">
     <meta name="google-site-verification" content="-a-KdRRZjx9pSqDJNV1Yk5ayQhu3U6_meiDAcewPpqo"/>
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon"/>

@@ -49,14 +49,17 @@
         </div>
     </div>
     <div class="gr-cotnact-row">
-        {{--<div class="g-recaptcha" data-sitekey="6LetKSYTAAAAAMRT2rGgIk0EbZ8T25g_MJNfuXzi" data-callback="correctCaptcha"></div>--}}
-        <div class="g-recaptcha" data-sitekey="6LfdbmcUAAAAAGPmOrdaAFMt6mTQeBn7UsNkE0y_" data-callback="correctCaptcha"></div>
+        <div class="g-recaptcha" data-sitekey="6LetKSYTAAAAAMRT2rGgIk0EbZ8T25g_MJNfuXzi" data-callback="correctCaptcha"></div>
+        {{--<div class="g-recaptcha" data-sitekey="6LfdbmcUAAAAAGPmOrdaAFMt6mTQeBn7UsNkE0y_" data-callback="correctCaptcha"></div>--}}
         <div id="recaptcha-error" style="display: none; margin-top:5px; color: #C22F12">@lang('validation.check-captcha')</div>
     </div>
     <hr>
     <div class="gr-cotnact-row">
         <div class="submit-blk">
-            <span class="yellow-txt">@lang('entity.page.contact.policy') </span>@lang('entity.page.contact.policy description')
+            <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, $pages_by_id[5]->permalink) }}" target="_blank">
+                <span class="yellow-txt">@lang('entity.page.contact.policy') </span>
+            </a>
+            @lang('entity.page.contact.policy description')
             <button type="button" class="btn-send blk-submit-btn">@lang('entity.page.contact.submit')</button><img src="{{ asset('images/ajax-loader.gif') }}" class="ajax-loader hidden" alt="ajax loader">
         </div>
     </div>

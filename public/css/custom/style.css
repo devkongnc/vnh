@@ -1807,10 +1807,11 @@ h2.title-border {
     padding: 5px 5px 5px 180px;
     margin: 0 0 30px 0;
     height: 185px;
+    box-shadow: -1px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 .feature-blk:hover {
-    box-shadow: -1px 3px 8px rgba(0, 0, 0, 0.4);
+    /*box-shadow: -1px 3px 8px rgba(0, 0, 0, 0.4);*/
 }
 
 .feature-blk:hover img {
