@@ -54,9 +54,9 @@ if (!isset($position_search)) {
         <div class="row">
             <label>@lang('search.unit-price')</label>
             <div class="form-field2">
-                <input type="text" id="price-min" class="input-min-price num_only" value="{{$price[0]}}">
+                <input type="text" id="price-min" class="input-min-price num_only" value="-">
                 ~
-                <input type="text" id="price-max" class="input-max-price num_only" value="{{$price[1]}}"> $
+                <input type="text" id="price-max" class="input-max-price num_only" value="-"> $
             </div>
             <div class="form-field slider-class">
                 <input class="range-slider" type="hidden" name="term[price]" value="{{$price[0]}},{{$price[1]}}"/>
