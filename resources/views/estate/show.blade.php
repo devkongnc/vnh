@@ -61,9 +61,9 @@
                             <span class="estate-detail-vat-title">
                             @foreach ($first['values'] as $index => $value)
                                 @if(in_array($index, $estate->{$first['key']}))
-                                <span class="estate-detail-vat">
-                                {{ \App\Term::getLocaleValue($value).trans('entity.estate.inclusive_included_unit') }}
-                                </span>
+                                    <span class="estate-detail-vat">
+                                        {{ \App\Term::getLocaleValue($value).trans('entity.estate.inclusive_included_unit') }}
+                                    </span>
                                 @else
                                     <span class="estate-detail-vat">
                                         {{ \App\Term::getLocaleValue($value).trans('entity.estate.inclusive_not_included_unit') }}
