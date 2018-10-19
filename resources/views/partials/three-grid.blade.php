@@ -16,7 +16,7 @@
                         <strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡
                         {{--<span>（@lang('front.manage fee')）</span>--}}
                         <p>
-                        <span>( Included:</span>
+                        <span>( @lang('front.manage fee'):</span>
                         @foreach($equipments as $key => $data)
                             @foreach($data['values'] as $index => $value)
                                 @if($key === 'inclusive')

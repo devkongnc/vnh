@@ -16,7 +16,7 @@ return array(
     'size' => 'Size',
     'anniversary_age' => 'Anniversary Date',
     'anniversary_age_date_format' => 'Y/m',
-    'manage fee' => 'Included manager fee',
+    'manage fee' => 'Included',
     'feature list' => 'Feature List',
     'special features of office' => 'Special features of Office',
     'rent' => 'Price',

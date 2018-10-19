@@ -16,7 +16,7 @@ return array(
     'size' => 'Diện tích',
     'anniversary_age' => 'Ngày khánh thành',
     'anniversary_age_date_format' => 'Y/m',
-    'manage fee' => 'Gồm phí quản lý',
+    'manage fee' => 'Đã bao gồm',
     'feature list' => 'Danh sách tính năng',
     'special features of office' => 'Tính năng đặc biệt của Văn phòng',
     'rent' => 'Giá',
