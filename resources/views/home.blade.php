@@ -66,7 +66,22 @@
 
 									<div class="info-blk">
 										@if (!empty($office->price))
-										<div class="fll">@lang('front.rent') <strong class="info-price">{{ $office->price }} {{  (!empty($office->price_max)) ?' ~ '.$office->price_max:'' }}</strong> USD / ㎡　（@lang('front.manage fee')）</div>
+										<div class="fll">
+											@lang('front.rent')
+											<strong class="info-price">
+												{{ $office->price }} {{  (!empty($office->price_max)) ?' ~ '.$office->price_max:'' }}
+											</strong> USD / ㎡
+											{{--（@lang('front.manage fee')）--}}
+											{{ "( " }}@lang('front.manage fee') {{ ":" }}
+											@foreach ($first['values'] as $index => $value)
+												@if(in_array($index, $office->{$first['key']}))
+													<span>
+														{{ \App\Term::getLocaleValue($value) }}
+													</span>
+												@endif
+											@endforeach
+											{{ ")" }}
+										</div>
 										@endif
 										<div class="flr">@lang('entity.estate.deposit') {{ $office->deposit }}</div>
 									</div>

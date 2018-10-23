@@ -25,8 +25,25 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="house-sub-title"><strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡</strong>
-                            <span>（@lang('front.manage fee')）</span></div>
+                        <div class="house-sub-title">
+                            <strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡
+                            {{--<span>（@lang('front.manage fee')）</span>--}}
+                            <div class="house-sub-service">
+                                {{ "( " }}@lang('front.manage fee') {{ ":" }}
+                                @foreach($equipments as $key => $data)
+                                    @foreach($data['values'] as $index => $value)
+                                        @if($key === 'inclusive')
+                                            @if(in_array($index, $item->$key))
+                                                <span>
+                                        {{ \App\Term::getLocaleValue($value) }}
+                                        </span>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                                {{ ")" }}
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="title-number">
