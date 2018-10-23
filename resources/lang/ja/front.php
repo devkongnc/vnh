@@ -16,7 +16,7 @@ return [
     'size' => '最大フロア面積',
     'anniversary_age' => '築年数',
     'anniversary_age_date_format' => 'Y年m月',
-    'manage fee' => '管理費込み',
+    'manage fee' => '込み',
     'feature list' => '特集一覧',
     'special features of office' => 'オフィス特集',
     'rent' => '賃料',

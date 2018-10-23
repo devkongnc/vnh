@@ -1201,8 +1201,8 @@ $(document).ready(function ($) {
                 sync_search_box('price-min',price_min);
             }
             if (isNaN(price_max) || price_max > price_max_search) {
-                // price_max = price_max_search;
-                price_max = 0;
+                price_max = price_max_search;
+                // price_max = 0;
             }
             if (price_max >= price_min) {
                 sync_search_box('price-max',price_max);
@@ -1248,7 +1248,7 @@ $(document).ready(function ($) {
                 sync_search_box('size-min',size_min);
             }
             if (isNaN(size_max) || size_max > size_max_search) {
-                // size_max = size_max_search;
+                size_max = size_max_search;
                 size_max = 0;
             }
             if (size_max >= size_min) {
