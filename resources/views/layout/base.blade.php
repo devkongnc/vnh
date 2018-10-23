@@ -4,16 +4,41 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    {!! SEO::generate(true) !!}
-    {{--<title>--}}
-        {{--@if(View::hasSection('pageTitle'))--}}
-            {{--@yield('pageTitle') - VIETNAM HOUSE--}}
-        {{--@else--}}
-            {{--VIETNAM HOUSE--}}
-        {{--@endif--}}
-    {{--</title>--}}
-    {{--<meta name="description" content="">--}}
-    {{--<meta name="keywords" content="">--}}
+    @if (Route::is('home'))
+        @if (App::isLocale('ja'))
+            <title>ベトナムハウス - office｜ホーチミンのオフィス専門賃貸情報</title>
+            <meta name="description" content="ベトナム・ホーチミン市のオフィス(事務所)専門の不動産賃貸サイトです。オフィスのグレードや大小に関わらずほぼ全ての賃貸情報を取り扱っております。仲介手数料無料で日本人専任スタッフがしっかりサポートいたします。オフィスもベトナムハウス！">
+            <meta name="keywords" content="オフィス,事務所,office,ホーチミン,賃貸,ベトナム,不動産,レンタオフィス,サービスオフィス,進出,会社登記�">
+
+            <meta property="og:title" content="ベトナムハウス - office｜ホーチミンのオフィス専門賃貸情報" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="{{ asset('') }}" />
+            <meta property="og:description" content="ベトナム・ホーチミン市のオフィス(事務所)専門の不動産賃貸サイトです。オフィスのグレードや大小に関わらずほぼ全ての賃貸情報を取り扱っております。仲介手数料無料で日本人専任スタッフがしっかりサポートいたします。オフィスもベトナムハウス！" />
+            <meta property="og:image" content="{{ asset('/images/new-layout/top-img.jpg') }}" />
+        @elseif(App::isLocale('vi'))
+            <title>VIETNAMHOUSE - office｜Thông tin văn phòng cho thuê tại TP. Hồ Chí Minh</title>
+            <meta name="description" content="Công ty chúng tôi cung cấp dịch vụ cho thuê văn phòng tại Tp Hồ Chí Minh. Chúng tôi có thể hỗ trợ bạn tìm văn phòng tuỳ theo diện tích, bậc hạng văn phòng theo nhu cầu của bạn. Chúng tôi cung cấp dịch vụ cho thuê miễn phí và dịch vụ hỗ trợ tốt nhất.">
+            <meta name="keywords" content="Văn phòng,trụ sở,office,Hồ Chí Minh,cho thuê,thuê,Việt Nam,Bất Động Sản,Văn phòng ảo,văn phòng chia sẻ,di dời trụ sở,đăng ký kinh doanh">
+
+            <meta property="og:title" content="VIETNAMHOUSE - office｜Thông tin văn phòng cho thuê tại TP. Hồ Chí Minh" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="{{ asset('/vi') }}" />
+            <meta property="og:description" content="Công ty chúng tôi cung cấp dịch vụ cho thuê văn phòng tại Tp Hồ Chí Minh. Chúng tôi có thể hỗ trợ bạn tìm văn phòng tuỳ theo diện tích, bậc hạng văn phòng theo nhu cầu của bạn. Chúng tôi cung cấp dịch vụ cho thuê miễn phí và dịch vụ hỗ trợ tốt nhất." />
+            <meta property="og:image" content="{{ asset('/images/new-layout/top-img.jpg') }}" />
+        @else
+            <title>VIETNAMHOUSE - office｜Office space for rent in Ho Chi Minh City (HCMC)</title>
+            <meta name="description" content="This is our special site for commercial lease in Ho Chi Minh City. If you are looking for an office, big or small, top grade or co-working space, we are always ready to offer the most suitable options. We provide free commercial lease service with the best support.">
+            <meta name="keywords" content="office,hcm,for,rent,ho chi minh,vietnam,real estate, rental office, service office, co-working, virtual office, start up, office launch, company registration">
+
+            <meta property="og:title" content="VIETNAMHOUSE - office｜Office space for rent in Ho Chi Minh City (HCMC)" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="{{ asset('') }}" />
+            <meta property="og:description" content="This is our special site for commercial lease in Ho Chi Minh City. If you are looking for an office, big or small, top grade or co-working space, we are always ready to offer the most suitable options. We provide free commercial lease service with the best support." />
+            <meta property="og:image" content="{{ asset('/images/new-layout/top-img.jpg') }}" />
+        @endif
+    @else
+        {!! SEO::generate(true) !!}
+    @endif
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Language" content="{{ $current_locale }}"/>
     <meta name="viewport" content="{{ Cookie::get('vnh_desktop', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1') }}">
@@ -40,12 +65,12 @@
     <link rel="stylesheet" type="text/css" href="{{ elixir('css/css-custom.min.css') }}">
 
     <style type="text/css">
-        <?php if (App::isLocale('ja')) { ?>
-		body {
-            font-family: "Noto Sans Japanese", Arial, "sans-serif";
-        }
+        @if (App::isLocale('ja'))
+            body {
+                font-family: "Noto Sans Japanese", Arial, "sans-serif";
+            }
+        @endif
 
-        <?php } ?>
         div.phpdebugbar pre {
             width: 1000px;
         }

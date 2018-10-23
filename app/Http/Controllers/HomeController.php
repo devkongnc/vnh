@@ -30,7 +30,8 @@ class HomeController extends Controller
         $data['categories'] = Category::orderBy('sticky', 'desc')->orderBy('id', 'desc')->take(4)->get();
 
         $data['benefit'] = Page::with('translation')->where('id', 8)->first();
-        return view('home', $data);
+        $terms       = $this->_prepareTerms();
+        return view('home', $data, $terms);
     }
 
     public function searchForm()
@@ -246,5 +247,18 @@ class HomeController extends Controller
         ])->header('Content-Type', 'text/xml');
     }
 
+    private function _prepareTerms(){
+        $store = new TermRepository([]);
+        $term_collection = new Collection($store->currentData);
+        $above = $term_collection->filter(function($item, $key){
+            return $item['type'] != 'multiple' and !in_array($key, ['price', 'deposit', 'size_rangefor_search']);
+        });
+        $below = $term_collection->filter(function($item){
+            return $item['type'] == 'multiple';
+        });
+        $first = $below->pull('inclusive');
+        $first['key'] = 'inclusive';
+        return compact('below', 'above', 'first');
+    }
 
 }

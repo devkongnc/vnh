@@ -15,8 +15,8 @@
                     <div class="house-sub-title">
                         <strong>{{ $item->price }} {{ (!empty($item->price_max)) ?' ~ '.$item->price_max:'' }}</strong> USD/㎡
                         {{--<span>（@lang('front.manage fee')）</span>--}}
-                        <p>
-                        <span>( @lang('front.manage fee'):</span>
+                        <div class="house-sub-service">
+                        {{ "( " }}@lang('front.manage fee') {{ ":" }}
                         @foreach($equipments as $key => $data)
                             @foreach($data['values'] as $index => $value)
                                 @if($key === 'inclusive')
@@ -28,8 +28,8 @@
                                 @endif
                             @endforeach
                         @endforeach
-                        <span>)</span>
-                        </p>
+                        {{ ")" }}
+                        </div>
                     </div>
                     <p class="house-sub-description">{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 250) }}</p>
                 </div>

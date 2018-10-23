@@ -486,6 +486,9 @@ a[href^="tel"] {
     overflow: hidden;
     margin: 15px 0;
 }
+.info-blk .fll span:nth-child(3):before{
+    content: '.';
+}
 
 .info-price {
     font-size: 18px;
@@ -2092,9 +2095,10 @@ h2.title-border {
     font-size: 19px;
 }
 
-.house-sub-title span {
+.house-sub-title .house-sub-service {
     font-size: 11px;
 }
+.house-sub-title .house-sub-service span:nth-child(2):before{content: '.'}
 
 .house-carousel div {
     overflow: hidden
