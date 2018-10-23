@@ -1174,17 +1174,17 @@ $(document).ready(function ($) {
             var price_min = parseInt($('.search-header input#price-min').val());
             var price_max = parseInt($('.search-header input#price-max').val());
         }
-        // setTimeout(function () {
-        //     if (isNaN(price_min)) { price_min = 0; }
-        //     if (isNaN(price_max) || price_min > price_max) {
-        //         price_max = price_max_search;
-        //         sync_search_box('price-max',price_max);
-        //     }
-        //     if (price_min <= price_max) {
-        //         sync_search_box('price-min',price_min);
-        //         ajaxSearch();
-        //     }
-        // }, 100);
+        setTimeout(function () {
+            if (isNaN(price_min)) { price_min = 0; }
+            if (isNaN(price_max) || price_min > price_max) {
+                price_max = price_max_search;
+                sync_search_box('price-max',price_max);
+            }
+            if (price_min <= price_max) {
+                sync_search_box('price-min',price_min);
+                ajaxSearch();
+            }
+        }, 100);
     });
 
     $("input#price-max").bind('change keyup', function (e) {
@@ -1195,20 +1195,20 @@ $(document).ready(function ($) {
             var price_min = parseInt($('.search-header input#price-min').val());
             var price_max = parseInt($('.search-header input#price-max').val());
         }
-        // setTimeout(function () {
-        //     if (isNaN(price_min)) {
-        //         price_min = 0;
-        //         sync_search_box('price-min',price_min);
-        //     }
-        //     if (isNaN(price_max) || price_max > price_max_search) {
-        //         price_max = price_max_search;
-        //         // price_max = 0;
-        //     }
-        //     if (price_max >= price_min) {
-        //         sync_search_box('price-max',price_max);
-        //         ajaxSearch();
-        //     }
-        // }, 100);
+        setTimeout(function () {
+            if (isNaN(price_min)) {
+                price_min = 0;
+                sync_search_box('price-min',price_min);
+            }
+            if (isNaN(price_max) || price_max > price_max_search) {
+                price_max = price_max_search;
+                // price_max = 0;
+            }
+            if (price_max >= price_min) {
+                sync_search_box('price-max',price_max);
+                ajaxSearch();
+            }
+        }, 100);
     });
 
 
