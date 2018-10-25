@@ -156,7 +156,7 @@
                         <li><a class="tw-s product-social" onclick="shareSocial('twitter')"></a></li>
                         <li><a class="pt-s product-social" onclick="shareSocial('pinterest')"></a></li>
                         <li><a class="li-s product-social" onclick="shareSocial('line', '{{ $estate->title }}')"></a></li>
-                        <li><a class="gm-s product-social" onclick="shareSocial('google')"></a></li>
+                        {{--<li><a class="gm-s product-social" onclick="shareSocial('google')"></a></li>--}}
                         <li><a class="em-s product-social" href="mailto:hello@vietnamhouse.jp"></a></li>
                     </ul>
                 </div>
