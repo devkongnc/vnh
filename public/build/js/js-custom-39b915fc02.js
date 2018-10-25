@@ -424,179 +424,179 @@ $(window).resize(function () {
 
 $(document).ready(function() {
 
-        $('.estate-recommend').each(function(index, element){
-            if( index===0 ){
-                $(this).find('a').addClass('active');
+    $('.estate-recommend').each(function(index, element){
+        if( index===0 ){
+            $(this).find('a').addClass('active');
+        }
+        $(this).click(function () {
+            // e.preventDefault();
+            $('.estate-recommend').find('a').removeClass('active');
+            $(this).find('a').addClass('active');
+
+            if ($(window).width()<768){
+                window.location.href = ('/office/'+$(this).attr('value'));
             }
-            $(this).click(function () {
-                // e.preventDefault();
-                $('.estate-recommend').find('a').removeClass('active');
-                $(this).find('a').addClass('active');
 
-                if ($(window).width()<768){
-                    window.location.href = ('/office/'+$(this).attr('value'));
-                }
-
-            });
         });
+    });
 
-        $('#show_map_button').click(function () {
-            $('.house-list-map').fadeToggle();
-        });
+    $('#show_map_button').click(function () {
+        $('.house-list-map').fadeToggle();
+    });
 
-        $('.page').each(function(index, element){
-            $(this).addClass('hide');
-            if( index === 0 ){
-                $(this).removeClass('hide');
-            }
-        });
+    $('.page').each(function(index, element){
+        $(this).addClass('hide');
+        if( index === 0 ){
+            $(this).removeClass('hide');
+        }
+    });
 
 
-        $(".open-search-hidden").on('click', function(e) {
-              e.preventDefault();
-              $(".search-hidden .advanced-search").fadeToggle(300);
-              $(".open-search-hidden").toggleClass( "close-c" );
-        });
+    $(".open-search-hidden").on('click', function(e) {
+        e.preventDefault();
+        $(".search-hidden .advanced-search").fadeToggle(300);
+        $(".open-search-hidden").toggleClass( "close-c" );
+    });
 
-        $(".sp-open-search-hidden, .close-btn.search-fixed").on('click', function(e) {
-            e.preventDefault();
-            $(".search-hidden").fadeToggle(300);
-            $('.search-hidden section.wrap-search-box .advanced-search').fadeToggle();
-            $(".sp-open-search-hidden").toggleClass( "close-c" );
+    $(".sp-open-search-hidden, .close-btn.search-fixed").on('click', function(e) {
+        e.preventDefault();
+        $(".search-hidden").fadeToggle(300);
+        $('.search-hidden section.wrap-search-box .advanced-search').fadeToggle();
+        $(".sp-open-search-hidden").toggleClass( "close-c" );
 
-            //close another popup
-            $('#modal-like').modal('hide');
-            $('.aside').asidebar('close');
-        });
+        //close another popup
+        $('#modal-like').modal('hide');
+        $('.aside').asidebar('close');
+    });
 
-        $('#modal-like').on('shown.bs.modal', function (e) {
-            //close another popup
-            $('.aside').asidebar('close');
-            $('.search-hidden section.wrap-search-box .advanced-search').hide('fast');
-            $(".search-hidden").hide('fast');
-        })
+    $('#modal-like').on('shown.bs.modal', function (e) {
+        //close another popup
+        $('.aside').asidebar('close');
+        $('.search-hidden section.wrap-search-box .advanced-search').hide('fast');
+        $(".search-hidden").hide('fast');
+    })
 
-        $('.container-gallery').gallery({
+    $('.container-gallery').gallery({
+        items: 10,
+        thumbHeight: '50px',
+        showThumbnails: true,
+        singleLine: false,
+        0: {
+            thumbHeight:35,
             items: 10,
-            thumbHeight: '50px',
-            showThumbnails: true,
-            singleLine: false,
-            0: {
-                thumbHeight:35,
-                items: 10,
-            },
-            480: {
-                height: 320,
-                items: 10,
-            },
-            497: {
-                height: 331,
-                items: 10,
-            },
-            585: {
-                height: 390,
-                items: 10
+        },
+        480: {
+            height: 320,
+            items: 10,
+        },
+        497: {
+            height: 331,
+            items: 10,
+        },
+        585: {
+            height: 390,
+            items: 10
 
-            },
-            600: {
-                height: 445,
-                items: 10
-            },
-            768: {
-                height: 482,
-                items: 10
-            },
-            991: {
-                height: 300,
-                items: 10
-            },
-        });
+        },
+        600: {
+            height: 445,
+            items: 10
+        },
+        768: {
+            height: 482,
+            items: 10
+        },
+        991: {
+            height: 300,
+            items: 10
+        },
+    });
 
-        $('.related-house-carousel').owlCarousel({
-            loop:false,
-            margin:10,
-            nav:true,
-            navText : ["",""],
-            dots:false,
-            responsive:{
-                0:{
-                    items:1
-                },
-                481:{
-                    items:2
-                },
-                768:{
-                    items:5
-                },
-                992:{
-                    items:5
-                },
-                1200:{
-                    items:5
-                },
-                1480:{
-                    items:6
-                }
+    $('.related-house-carousel').owlCarousel({
+        loop:false,
+        margin:10,
+        nav:true,
+        navText : ["",""],
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            481:{
+                items:2
+            },
+            768:{
+                items:5
+            },
+            992:{
+                items:5
+            },
+            1200:{
+                items:5
+            },
+            1480:{
+                items:6
             }
-        });
+        }
+    });
 
-        $('.house-carousel').owlCarousel({
-            loop:true,
-            margin:0,
-            thumbHeight: '200px',
-            nav:true,
-            navText : ["",""],
-            dots:false,
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:1
-                },
-                1000:{
-                    items:1
-                }
+    $('.house-carousel').owlCarousel({
+        loop:true,
+        margin:0,
+        thumbHeight: '200px',
+        nav:true,
+        navText : ["",""],
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
             }
-        });
+        }
+    });
 
-        $('.label-intro').owlCarousel({
-            loop:true,
-            margin:0,
-            autoplay:true,
-            nav:false,
-            dots:false,
-            animateOut: 'fadeOut',
-            animateIn: 'flipInY',
-            responsive:{
-                0:{
-                    items:1
-                },
-                481:{
-                    items:1
-                },
-                992:{
-                    items:1
-                },
-                1200:{
-                    items:1
-                },
-                1480:{
-                    items:1
-                }
+    $('.label-intro').owlCarousel({
+        loop:true,
+        margin:0,
+        autoplay:true,
+        nav:false,
+        dots:false,
+        animateOut: 'fadeOut',
+        animateIn: 'flipInY',
+        responsive:{
+            0:{
+                items:1
+            },
+            481:{
+                items:1
+            },
+            992:{
+                items:1
+            },
+            1200:{
+                items:1
+            },
+            1480:{
+                items:1
             }
-        });
+        }
+    });
 
-        $("#folio li a").on('click', function(e) {
-            e.preventDefault();
-            var page = $(this).data('page');
-            $("#pages .page:not('.hide')").stop().fadeOut('fast', function() {
-                $(this).addClass('hide');
-                $('#pages .page[data-page="'+page+'"]').fadeIn('slow').removeClass('hide');
-            });
-           $('#folio li a').removeClass('active');
-            $(this).addClass('active');
+    $("#folio li a").on('click', function(e) {
+        e.preventDefault();
+        var page = $(this).data('page');
+        $("#pages .page:not('.hide')").stop().fadeOut('fast', function() {
+            $(this).addClass('hide');
+            $('#pages .page[data-page="'+page+'"]').fadeIn('slow').removeClass('hide');
         });
+        $('#folio li a').removeClass('active');
+        $(this).addClass('active');
+    });
     // add new 2018-05-17 end
 
     resize_change(true);
@@ -604,7 +604,7 @@ $(document).ready(function() {
     if (isMacLike) {
         $('head').append('<style type="text/css">' +
             'article > .breadcrumb > a::after {top: -1px;}' +
-        '</style>');
+            '</style>');
     }
 
     if (is_touch_device) {
@@ -688,24 +688,24 @@ $(document).ready(function() {
             $.each(data, function(index, val) {
                 like_estates += '' +
                     '<div class="post-house col-xs-6 col-sm-4 col-md-3">' +
-                        '<span class="hidden" data-id="' + val.product_id + '"></span>' +
-                        '<a target="_blank" href="' + estate_permalink(val.product_id) + '">' +
-                            '<div class="feature-image">' +
-                                '<img class="img-responsive" src="' + val.post_thumbnail + '" />' +
-                                '<div class="item-brief">' +
-                                    '<span class="price">' + val.price + '' +(val.price_max > 0 ? ' ~ '+val.price_max : '')+
-                                    '<small> USD/㎡</small></span>' +
-                                    '<span class="position pull-right">１区</span>' +
-                                '</div>' +
-                            '</div>' +
-                            '<div class="title">' + val.title + '</div>' +
-                        '</a>' +
-                        '<a class="close-house">' +
-                            '<span class="icon-close-light" data-dismiss="modal">' +
-                                '<span class="path1"></span>' +
-                                '<span class="path2"></span>' +
-                            '</span>' +
-                        '</a>' +
+                    '<span class="hidden" data-id="' + val.product_id + '"></span>' +
+                    '<a target="_blank" href="' + estate_permalink(val.product_id) + '">' +
+                    '<div class="feature-image">' +
+                    '<img class="img-responsive" src="' + val.post_thumbnail + '" />' +
+                    '<div class="item-brief">' +
+                    '<span class="price">' + val.price + '' +(val.price_max > 0 ? ' ~ '+val.price_max : '')+
+                    '<small> USD/㎡</small></span>' +
+                    '<span class="position pull-right">１区</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="title">' + val.title + '</div>' +
+                    '</a>' +
+                    '<a class="close-house">' +
+                    '<span class="icon-close-light" data-dismiss="modal">' +
+                    '<span class="path1"></span>' +
+                    '<span class="path2"></span>' +
+                    '</span>' +
+                    '</a>' +
                     '</div>';
                 input_estates += '<input type="hidden" name="estates[]" value="' + val.id + '" />';
             });
@@ -888,20 +888,36 @@ $(document).ready(function() {
     });
 });
 
+window.onscroll = function() {displayMenu()};
+
+function displayMenu() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        $('#menu-fix').show();
+    } else {
+        $('#menu-fix').hide();
+    }
+}
+
 $(document).ready(function ($) {
     "use strict";
 
-    $(window).scroll(function () {
-        if ($(document).width() > 767) {
-            if ($(this).scrollTop() > 200) {
-                $('#menu-fix').fadeIn(500);
-            } else {
-                $('#menu-fix').fadeOut(500);
-            }
-        } else {
-            $('#menu-fix').show();
-        }
-    });
+    $('#menu-fix').show();
+    setTimeout(function () {
+        $('#menu-fix').hide();
+    },0);
+    // $(window).scroll(function () {
+    //     if ($(document).width() > 767) {
+    //         if ($(this).scrollTop() > 200) {
+    //             // $('#menu-fix').fadeIn(500);
+    //             $('#menu-fix').show();
+    //         } else {
+    //             // $('#menu-fix').fadeOut(500);
+    //             $('#menu-fix').hide();
+    //         }
+    //     } else {
+    //         $('#menu-fix').show();
+    //     }
+    // });
 
     /////////TO TOP////////////
     function totop_button(a) {
