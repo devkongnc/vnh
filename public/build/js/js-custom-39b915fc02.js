@@ -396,7 +396,7 @@ function fixed_menu_on_resize() {
     if ($(document).width() <= 767) {
         $('#menu-fix').show();
     } else {
-        $('#menu-fix').hide();
+        // $('#menu-fix').hide();
     }
 }
 
@@ -455,6 +455,7 @@ $(document).ready(function() {
     $(".open-search-hidden").on('click', function(e) {
         e.preventDefault();
         $(".search-hidden .advanced-search").fadeToggle(300);
+        // $(".search-hidden .advanced-search").css('top','0px');
         $(".open-search-hidden").toggleClass( "close-c" );
     });
 
@@ -898,10 +899,11 @@ function displayMenu() {
     }
 }
 
-$(document).ready(function ($) {
+jQuery(document).ready(function ($) {
     "use strict";
 
     $('#menu-fix').show();
+    // $(".search-hidden .advanced-search").css('top','-310px');
     setTimeout(function () {
         $('#menu-fix').hide();
     },0);
@@ -1191,9 +1193,10 @@ $(document).ready(function ($) {
             var price_max = parseInt($('.search-header input#price-max').val());
         }
         setTimeout(function () {
-            if (isNaN(price_min)) { price_min = 0; }
+            if (isNaN(price_min)) { price_min = ''; }
             if (isNaN(price_max) || price_min > price_max) {
-                price_max = price_max_search;
+                // price_max = price_max_search;
+                price_max = '';
                 sync_search_box('price-max',price_max);
             }
             if (price_min <= price_max) {
@@ -1213,12 +1216,12 @@ $(document).ready(function ($) {
         }
         setTimeout(function () {
             if (isNaN(price_min)) {
-                price_min = 0;
+                price_min = '';
                 sync_search_box('price-min',price_min);
             }
             if (isNaN(price_max) || price_max > price_max_search) {
-                price_max = price_max_search;
-                // price_max = 0;
+                // price_max = price_max_search;
+                price_max = '';
             }
             if (price_max >= price_min) {
                 sync_search_box('price-max',price_max);
@@ -1238,9 +1241,10 @@ $(document).ready(function ($) {
             var size_max = parseInt($('.search-header input#area-max').val());
         }
         setTimeout(function () {
-            if (isNaN(size_min)) { size_min = 0; }
+            if (isNaN(size_min)) { size_min = ''; }
             if (isNaN(size_max) || size_min > size_max) {
-                size_max = size_max_search;
+                // size_max = size_max_search;
+                size_max = '';
                 sync_search_box('size-max',size_max);
             }
             if (size_min <= size_max) {
@@ -1260,12 +1264,12 @@ $(document).ready(function ($) {
         }
         setTimeout(function () {
             if (isNaN(size_min)) {
-                size_min = 0;
+                size_min = '';
                 sync_search_box('size-min',size_min);
             }
             if (isNaN(size_max) || size_max > size_max_search) {
-                size_max = size_max_search;
-                size_max = 0;
+                // size_max = size_max_search;
+                size_max = '';
             }
             if (size_max >= size_min) {
                 sync_search_box('size-max',size_max);
