@@ -31,7 +31,7 @@
                         {{ ")" }}
                         </div>
                     </div>
-                    <p class="house-sub-description">{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 250) }}</p>
+                    <p class="house-sub-description">{{ \Illuminate\Support\Str::limit(strip_tags($item->description), 240) }}</p>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="title-number">

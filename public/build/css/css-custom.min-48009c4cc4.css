@@ -1507,7 +1507,7 @@ h2.title-border{
 .house-blk{
     font-size:13px;
     background:#fff;
-    padding:20px;
+    padding:15px 12px;
     margin:0 0 30px;
     color:#000;
     cursor:pointer!important
@@ -1522,8 +1522,10 @@ h2.title-border{
 }
 .house-blk h3{
     font-size:18px;
-    min-height:43px;
-    font-weight:700
+    /*min-height:43px;*/
+    font-weight:700;
+    height: 50px;
+    overflow: hidden;
 }
 .house-blk p{
     margin-bottom:0;
@@ -1534,8 +1536,8 @@ h2.title-border{
     margin-right:-10px
 }
 .house-blk .col-md-6{
-    padding-left:10px;
-    padding-right:10px
+    padding-left:7px;
+    padding-right:7px
 }
 .house-blk .house-info tr{
     border-bottom:1px dotted #ccc
