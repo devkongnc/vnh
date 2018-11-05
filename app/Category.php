@@ -37,18 +37,23 @@ class Category extends Model
                 if (!empty($value)) {
 
                 }
-            } else if ($key == "price") {
-                $price = explode("-", $value);
-                if (isset($price[0])) {
-                    $query = $query->where("price", ">=", intval($price[0]));
+            }
+            elseif(!empty($values['area'])){
+                if ($key == "price") {
+                    $price = explode("-", $value);
+                    if (isset($price[0])) {
+                        $query = $query->where("price", ">=", intval($price[0]));
+                    }
+                    if (isset($price[1])) {
+                        $query = $query->where("price", "<=", intval($price[1]));
+                    }
                 }
-                if (isset($price[1])) {
-                    $query = $query->where("price", "<=", intval($price[1]));
+                elseif ($terms[$key]['type'] === 'single') {
+                    $query->whereIn($key, $value);
                 }
-            } elseif ($terms[$key]['type'] === 'single')
-                $query->whereIn($key, $value);
-            elseif ($terms[$key]['type'] === 'multiple') {
-                $query->whereRaw('MATCH(`' . $key . '`) AGAINST(\'' . implode(' ', $value) . '\' IN BOOLEAN MODE)');
+                elseif ($terms[$key]['type'] === 'multiple') {
+                    $query->whereRaw('MATCH(`' . $key . '`) AGAINST(\'' . implode(' ', $value) . '\' IN BOOLEAN MODE)');
+                }
             }
         }
 
