@@ -3010,7 +3010,8 @@ ul.search-condition-item>li>div{
         width:100%;
         height:auto;
         padding:0;
-        z-index:100
+        z-index:100;
+        position: static;
     }
     .row-map{
         width:100%;
@@ -3190,6 +3191,9 @@ ul.search-condition-item>li>div{
     }
     .form-field .dropdown-toggle{
         background-position-y:50%
+    }
+    .form-field .dropdown-menu{
+        z-index: 991;
     }
     .form-field .dropdown-menu>li>a{
         line-height:2em;
@@ -3403,7 +3407,7 @@ ul.search-condition-item>li>div{
         border-right:none
     }
     #direct_bar>div.direct_bar_list li{
-        width:50%;
+        width:25%;
         float:left
     }
     #direct_bar>div .navbar-nav>li>a{
@@ -3411,7 +3415,7 @@ ul.search-condition-item>li>div{
         font-size:12px;
         display:block;
         min-width:unset;
-        padding:15px 0;
+        padding:5px 20px;
         min-height:50px
     }
     .pointer-label.high,.pointer-label.low{
