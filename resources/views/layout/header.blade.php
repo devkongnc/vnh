@@ -12,7 +12,7 @@
             <a href="{{ LaravelLocalization::getLocalizedURL($current_locale, '/company/contact') }}">
                 <img src="{{ asset('images/new-layout/sp-icn-mail.png') }}">
             </a>
-            <a href="tel:0121 373 0086">
+            <a href="tel:0793730086">
                 <img src="{{ asset('images/new-layout/sp-icn-phone.png') }}">
             </a>
             <a href="#" class="sp-open-search-hidden sp-custom bt-modal-contract">
