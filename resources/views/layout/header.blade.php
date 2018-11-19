@@ -128,9 +128,19 @@
                 ?>
                 <img src="{{ asset($url_banner) }}"/>
                 <div class="label-intro owl-carousel owl-theme">
-                    <div class="item"><img src="{{ asset('images/new-layout/lb-no1.png') }}"></div>
-                    <div class="item"><img src="{{ asset('images/new-layout/lb-no1.png') }}"></div>
-                    <div class="item"><img src="{{ asset('images/new-layout/lb-no1.png') }}"></div>
+                    @if (App::isLocale('ja'))
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no1-ja.png') }}"></div>
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no2-ja.png') }}"></div>
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no3-ja.png') }}"></div>
+                    @elseif(App::isLocale('vi'))
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no1-vi.png') }}"></div>
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no2-vi.png') }}"></div>
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no3-vi.png') }}"></div>
+                    @else
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no1-en.png') }}"></div>
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no2-en.png') }}"></div>
+                        <div class="item"><img src="{{ asset('images/side-icon/lb-no3-en.png') }}"></div>
+                    @endif
                 </div>
                 <h1 class="title-big">@lang('front.banner_title')</h1>
             </div>
