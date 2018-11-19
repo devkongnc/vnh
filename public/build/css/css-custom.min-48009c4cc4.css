@@ -744,6 +744,9 @@ a[href^=tel]{
     position:relative;
     overflow:visible
 }
+.intro-section .img-section img{
+    width: 100%;
+}
 .intro-section .content-l .label-intro{
     position:absolute;
     top:-30px;
