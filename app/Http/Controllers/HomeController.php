@@ -99,13 +99,12 @@ class HomeController extends Controller
                                     $query->where('price', '<=', $min);
                                     $query->where('price_max', '>=', $max);
                                 });
+                            })
+                            ->orWhere(function($query) use ($min,$max) {
+                                $query->where('price_max', '=', 0);
+                                $query->whereRaw('price between ? and ?', [$min,$max]);
                             });
-                        })
-                        ->orWhere(function($query) use ($min,$max) {
-                            $query->where('price_max', '=', 0);
-                            $query->whereRaw('price between ? and ?', [$min,$max]);
-                        })
-                    ;
+                        });
                 }
             } elseif ($key === 'size') {
                 $sizes = explode(',', $value);
