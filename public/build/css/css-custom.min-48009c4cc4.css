@@ -3418,7 +3418,7 @@ ul.search-condition-item>li>div{
         font-size:12px;
         display:block;
         min-width:unset;
-        padding:5px 20px;
+        /*padding:5px 20px;*/
         min-height:50px
     }
     .pointer-label.high,.pointer-label.low{
@@ -3753,6 +3753,9 @@ ul.search-condition-item>li>div{
     .grey-bg-info{
         padding:10px 0
     }
+    #direct_bar>div .navbar-nav>li>a{
+        padding:5px 25px;
+    }
 }
 @media screen and (max-width:390.5px){
     .slider-container.theme-green{
@@ -3761,6 +3764,9 @@ ul.search-condition-item>li>div{
     }
     .house-blk .owl-carousel .owl-item .item,.owl-carousel .owl-item img,.owl-carousel.owl-loaded{
         max-height:150px
+    }
+    #direct_bar>div .navbar-nav>li>a{
+        padding:5px 20px;
     }
 }
 @media screen and (max-width:365.5px){
@@ -3774,5 +3780,8 @@ ul.search-condition-item>li>div{
     }
     body{
         width:320px
+    }
+    #direct_bar>div .navbar-nav>li>a{
+        padding:5px 13px;
     }
 }
